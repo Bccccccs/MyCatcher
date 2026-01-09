@@ -1,0 +1,16 @@
+Problem Description:
+The program reads two integers A and B from standard input and outputs a single integer, which is the sum of A and B.
+
+Input Format:
+The input consists of a single line containing two integers A and B separated by a space.
+
+Output Format:
+Output a single integer representing A + B.
+
+Constraints:
+- A and B are integers.
+- The absolute value of A and B does not exceed 10^9.
+
+Notes:
+- The program should handle negative integers correctly.
+- The output should be printed to standard output.
