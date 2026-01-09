@@ -17,7 +17,7 @@ def run_prog(py_file: Path, stdin_text: str, timeout_s: float = 2.0) -> str:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--put", required=True, help="Path to put.py")
+    ap.add_argument("--puts", required=True, help="Path to puts.py")
     ap.add_argument("--variants", required=True, help="Dir contains variant_*.py")
     ap.add_argument("--tests", required=True, help="Dir contains test_*.in")
     ap.add_argument("--out", required=True, help="Output dir for bug-triggering tcases (.in/.out)")
