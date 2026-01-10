@@ -105,7 +105,7 @@ def main():
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    build_dir = Path("build") / "cpp_bin"
+    build_dir = Path("../build") / "cpp_bin"
 
     ext = ".cpp" if args.lang == "cpp" else ".py"
     variants = sorted(variants_dir.glob(f"variant_*{ext}"))

@@ -4,7 +4,7 @@ import time
 from pathlib import Path
 
 from src.llm_utils import get_client, only_code
-
+ROOT = Path(__file__).resolve().parents[1]   # .../MyCatcher
 
 # ----------------------------
 # helpers
@@ -24,8 +24,8 @@ def resolve_template_path(t: str) -> Path:
       3) PromptTemplates/<t>.txt
     """
     cand = [Path(t)]
-    cand.append(Path("PromptTemplates") / t)
-    cand.append(Path("PromptTemplates") / f"{t}.txt")
+    cand.append(Path("../PromptTemplates") / t)
+    cand.append(Path("../PromptTemplates") / f"{t}.txt")
 
     for p in cand:
         if p.exists() and p.is_file():
