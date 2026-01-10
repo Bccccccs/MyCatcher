@@ -218,13 +218,13 @@ if __name__ == "__main__":
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--spec", required=True, help="Path to spec.txt (problem description)")
-    parser.add_argument("--puts", required=True, help="Path to PUT python file")
+    parser.add_argument("--put", required=True, help="Path to PUT python file")
     parser.add_argument("--out", required=True, help="Output directory for inputs")
     parser.add_argument("--num", type=int, default=20, help="Number of inputs to generate")
     parser.add_argument(
         "--template",
         required=True,
-        help="Template name or path. Default dir: Prompt/Templates/",
+        help="Template name or path. Default dir: PromptTemplates/",
     )
     parser.add_argument(
         "--model",

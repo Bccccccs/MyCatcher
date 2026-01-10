@@ -9,7 +9,6 @@ Rules:
 3) Separate two test inputs by ONE blank line.
 4) Do NOT add any labels such as "INPUT1:", numbering, explanations, markdown, or code fences.
 5) Each test input should be self-contained (a complete stdin for one run).
-
 **PROBLEM DESCRIPTION**:
 {pro_des}
 

@@ -1,16 +1,24 @@
-Problem Description:
-The program reads two integers A and B from standard input and outputs a single integer, which is the sum of A and B.
+Problem Description
+You are given two integer arrays A and B, and a non-negative integer k.
+Your task is to compute the maximum number of pairs that can be formed between elements of A and B, subject to the following rule:
+	•	An element A[i] can be paired with an element B[j] if and only if
+|A[i] − B[j]| ≤ k.
 
-Input Format:
-The input consists of a single line containing two integers A and B separated by a space.
+Each element in A and B can be used in at most one pair.
 
-Output Format:
-Output a single integer representing A + B.
+Input Format
+	•	The first line contains three integers n, m, and k, where:
+	•	n is the length of array A,
+	•	m is the length of array B,
+	•	k is the maximum allowed absolute difference.
+	•	The second line contains n integers representing array A.
+	•	The third line contains m integers representing array B.
 
-Constraints:
-- A and B are integers.
-- The absolute value of A and B does not exceed 10^9.
+Output Format
 
-Notes:
-- The program should handle negative integers correctly.
-- The output should be printed to standard output.
+Output a single integer — the maximum number of valid pairs that can be formed.
+
+Constraints
+	•	1 ≤ n, m ≤ 2 × 10⁵
+	•	0 ≤ k ≤ 10⁹
+	•	−10⁹ ≤ A[i], B[j] ≤ 10⁹

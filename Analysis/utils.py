@@ -192,8 +192,8 @@ def ep_get_trigger_df(df:pd.DataFrame,method_type:str):
     assert method_type in ['dfp','tc']
     df['out']=df['out'].apply(to_hashable)
     result_df=pd.DataFrame(columns=['task_id', 'input_name','out','sol_names','input_valid','out_correct'])
-    A=df[(df['sol_name']=='puts')]
-    B=df[~(df['sol_name']=='puts')]
+    A=df[(df['sol_name']=='puts_py')]
+    B=df[~(df['sol_name']=='puts_py')]
     A_outputs=A[['task_id', 'input_name', 'out']].drop_duplicates()
     B_grouped = (B.groupby(['task_id', 'input_name']))
     totoal_len=len(B_grouped)
