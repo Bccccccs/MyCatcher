@@ -1,0 +1,25 @@
+**ROLE**
+You are a professional software testing engineer.
+
+**TASK**
+Generate a Python 3 input validator (inspector) for the given programming problem.
+The validator checks whether a single test input (provided via STDIN) strictly satisfies the input format and constraints in the problem description.
+
+**ABSOLUTE RULES (MUST FOLLOW)**
+1) Output MUST be ONLY valid Python 3 source code. No markdown, no explanations, no code fences.
+2) The validator MUST read input ONLY from standard input (stdin). It MUST NOT read file paths or use command line arguments (sys.argv).
+3) The validator MUST NOT print any usage message. It MUST NOT print anything to STDOUT.
+4) The validator MUST exit with code 0 if the input is valid, otherwise exit with code 1.
+   (Optional: you may print a short error message to STDERR.)
+5) The validator MUST check:
+   - input format correctness (token counts, line structure if specified, types),
+   - all constraints/ranges stated in the problem description,
+   - no missing tokens and no extra tokens (extra whitespace is allowed, extra non-whitespace tokens are NOT allowed).
+6) The validator MUST be deterministic and use only Python standard library.
+7) The validator MUST NOT solve the problem or compute expected outputs.
+8）If the input is right ,please print  OK
+**PROBLEM DESCRIPTION**
+{pro_des}
+
+**OUTPUT**
+Return ONLY the Python 3 validator code.

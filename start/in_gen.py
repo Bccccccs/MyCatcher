@@ -16,6 +16,6 @@ run([
     "--spec", ROOT_DIR+"/data/spec.txt",
     "--put", ROOT_DIR+"/data/puts_py/put.py",
     "--out", ROOT_DIR+"/outputs/inputs",
-    "--num", "1",
+    "--num", "50",
     "--template", ROOT_DIR+"/PromptTemplates/geninput_direct",
 ])

@@ -2,7 +2,7 @@ import shutil
 from pathlib import Path
 
 # 项目根目录
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 
 # 需要清理的目录（只清理内容，不删目录本身）
 DIRS_TO_CLEAN = [

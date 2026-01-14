@@ -1,14 +1,16 @@
 **INSTRUCTION**:
 You are a professional software testing engineer.
 You will be given a problem description and a piece of code that attempts to solve it.
-Generate exactly 10 diverse and corner test inputs that may trigger bugs.
+Generate exactly {num} diverse and corner test inputs that may trigger bugs.
 
 Rules:
 1) Every test input MUST strictly follow the input format and constraints in the problem description.
-2) Output MUST contain ONLY the raw test inputs.
-3) Separate two test inputs by ONE blank line.
-4) Do NOT add any labels such as "INPUT1:", numbering, explanations, markdown, or code fences.
-5) Each test input should be self-contained (a complete stdin for one run).
+2) Each test input should be self-contained (a complete stdin for one run).
+3) Output MUST contain ONLY the raw test inputs, with NO explanations, NO markdown, NO code fences.
+4) Separate the test inputs using a delimiter line that contains EXACTLY:
+<<<CASE>>>
+5) Do NOT put the delimiter inside any test input content.
+
 **PROBLEM DESCRIPTION**:
 {pro_des}
 
