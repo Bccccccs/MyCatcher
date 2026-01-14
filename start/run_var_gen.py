@@ -10,7 +10,7 @@ def run(cmd):
     print("\n>>>", " ".join(cmd))
     subprocess.check_call(cmd)
 py = sys.executable  # 保证用当前 venv 的 python
-lang="cpp"
+lang="py"
 run([
         py, ROOT_DIR+"/LLM_Gen/variant_generator.py",
          "--template", ROOT_DIR+"/PromptTemplates/genprog_dfp",
@@ -18,5 +18,5 @@ run([
         "--spec", ROOT_DIR+"/data/spec.txt",
         "--put", ROOT_DIR+"/data/puts_{}/put.{}".format(lang,lang),
         "--out", ROOT_DIR+"/outputs/variants/{}".format(lang),
-        "--k", "1",#生成程序变体数量
+        "--k", "50",#生成程序变体数量
           ])

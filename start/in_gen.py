@@ -10,7 +10,7 @@ def run(cmd):
     print("\n>>>", " ".join(cmd))
     subprocess.check_call(cmd)
 py = sys.executable  # 保证用当前 venv 的 python
-lang="cpp"
+lang="py"
 run([
     py, ROOT_DIR+"/LLM_Gen/input_generator.py",
     "--spec", ROOT_DIR+"/data/spec.txt",

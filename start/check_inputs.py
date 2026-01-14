@@ -6,13 +6,13 @@ from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Batch-run outputs/checker/check_input.py on outputs/inputs/test_XXX.in"
+        description="Batch-run checker and delete invalid inputs automatically"
     )
     parser.add_argument(
         "--max",
         type=int,
         required=True,
-        help="Max input index (inclusive). Example: --max 9 checks test_000.in ~ test_009.in",
+        help="Max input index (inclusive), e.g. --max 99",
     )
     parser.add_argument(
         "--start",
@@ -21,51 +21,39 @@ def main():
         help="Start input index (default: 0)",
     )
     parser.add_argument(
-        "--stop_on_error",
-        action="store_true",
-        help="Stop immediately when a bad input is found",
-    )
-    parser.add_argument(
         "--timeout",
         type=float,
         default=2.0,
-        help="Timeout seconds for each check run (default: 2.0)",
+        help="Timeout seconds for checker (default: 2.0)",
     )
     args = parser.parse_args()
 
-    if args.start < 0 or args.max < 0 or args.max < args.start:
+    if args.start < 0 or args.max < args.start:
         raise ValueError("Invalid range: require 0 <= start <= max")
 
-    # Project root = parent of start/
     root = Path(__file__).resolve().parent.parent
+    python = sys.executable
 
     checker = root / "outputs" / "checker" / "check_input.py"
     inputs_dir = root / "outputs" / "inputs"
 
     if not checker.exists():
         raise FileNotFoundError(f"Checker not found: {checker}")
-
     if not inputs_dir.exists():
-        raise FileNotFoundError(f"Inputs directory not found: {inputs_dir}")
+        raise FileNotFoundError(f"Inputs dir not found: {inputs_dir}")
 
-    python = sys.executable  # use current venv python
+    print(f"[INFO] Checker: {checker}")
+    print(f"[INFO] Inputs : {inputs_dir}")
+    print(f"[INFO] Range  : {args.start}..{args.max}")
 
-    print(f"[INFO] Checker : {checker}")
-    print(f"[INFO] Inputs  : {inputs_dir}")
-    print(f"[INFO] Range   : {args.start}..{args.max} (inclusive)")
-
-    checked = 0
-    missing = 0
-    bad = []
+    kept = 0
+    removed = []
 
     for i in range(args.start, args.max + 1):
         infile = inputs_dir / f"test_{i:03d}.in"
         if not infile.exists():
-            print(f"[WARN] missing test_{i:03d}.in")
-            missing += 1
             continue
 
-        checked += 1
         try:
             r = subprocess.run(
                 [python, str(checker)],
@@ -76,26 +64,24 @@ def main():
                 timeout=args.timeout,
             )
         except subprocess.TimeoutExpired:
-            print(f"[BAD]  test_{i:03d}.in  (timeout)")
-            bad.append(i)
-            if args.stop_on_error:
-                break
+            print(f"[DEL] test_{i:03d}.in  (checker timeout)")
+            infile.unlink(missing_ok=True)
+            removed.append(i)
             continue
 
-        # Convention: checker returns exit code 0 if ok, non-zero if invalid
         if r.returncode == 0:
-            print(f"[OK]   test_{i:03d}.in")
+            kept += 1
+            print(f"[OK ] test_{i:03d}.in")
         else:
             msg = (r.stdout.strip() or r.stderr.strip() or "invalid input").strip()
-            print(f"[BAD]  test_{i:03d}.in  -> {msg}")
-            bad.append(i)
-            if args.stop_on_error:
-                break
+            print(f"[DEL] test_{i:03d}.in  -> {msg}")
+            infile.unlink(missing_ok=True)
+            removed.append(i)
 
     print("-" * 50)
-    print(f"[DONE] checked={checked}, missing={missing}, bad={len(bad)}")
-    if bad:
-        print("[BAD INDICES]", bad)
+    print(f"[DONE] kept={kept}, removed={len(removed)}")
+    if removed:
+        print("[REMOVED INDICES]", removed)
 
 
 if __name__ == "__main__":

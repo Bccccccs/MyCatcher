@@ -9,6 +9,7 @@ DIRS_TO_CLEAN = [
     ROOT / "outputs" / "variants",
     ROOT / "outputs" / "inputs",
     ROOT / "outputs" / "tcases",
+    ROOT/"outputs" / "checker",
 ]
 
 # 需要整目录删除的缓存
@@ -17,6 +18,7 @@ CACHE_DIRS = [
     ROOT / ".pytest_cache",
     ROOT / ".ipynb_checkpoints",
     ROOT / "Analysis" / ".ipynb_checkpoints",
+
 ]
 
 def clean_dir_contents(path: Path):
