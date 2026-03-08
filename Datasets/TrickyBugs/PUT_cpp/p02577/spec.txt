@@ -1,0 +1,21 @@
+Problem Description
+
+You are given a positive integer represented as a string S.
+
+Determine whether the integer represented by S is divisible by 3.
+
+Input Format
+
+The input contains a single string:
+
+S
+
+Constraints
+
+1 ≤ |S| ≤ 10⁵
+S consists only of digits.
+
+Output Format
+
+Output “Yes” if the integer is divisible by 3.
+Otherwise output “No”.

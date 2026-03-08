@@ -238,7 +238,7 @@ def main():
     parser.add_argument("--spec", required=True, help="Path to spec.txt (problem description)")
     parser.add_argument("--put", required=True, help="Path to PUT file")
     parser.add_argument("--out", required=True, help="Output directory for inputs")
-    parser.add_argument("--num", type=int, default=20, help="Number of inputs to generate")
+    parser.add_argument("--num", type=int, default=10, help="Number of inputs to generate")
     parser.add_argument("--template", required=True, help="Template name or path. Default dir: PromptTemplates/")
     parser.add_argument(
         "--model",
@@ -303,7 +303,7 @@ def main():
         print(f"[DONE] wrote {written} inputs into {out_dir}")
         return
 
-    raise RuntimeError("Failed to generate valid inputs after retries. Please adjust template/spec.")
+    raise RuntimeError("Failed to generate valid inputs after retries. Please adjust template/spec.txt.")
 
 
 if __name__ == "__main__":

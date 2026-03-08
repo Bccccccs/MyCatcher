@@ -160,7 +160,8 @@ def main():
     client = get_client()
 
     ext = ".py" if args.lang == "py" else ".cpp"
-
+    print("Trying to generate {} variant code by {}...".format(args.k,args.lang))
+    print("#"*50)
     for i in range(1, args.k + 1):
         prompt = build_prompt(template, pro_des=pro_des, code=code, lang=args.lang)
 

@@ -1,24 +1,38 @@
-Problem Description
-You are given two integer arrays A and B, and a non-negative integer k.
-Your task is to compute the maximum number of pairs that can be formed between elements of A and B, subject to the following rule:
-	•	An element A[i] can be paired with an element B[j] if and only if
-|A[i] − B[j]| ≤ k.
+Problem Description:
 
-Each element in A and B can be used in at most one pair.
+You are given the results of rolling two six-sided dice multiple times. Each roll produces two integers representing the numbers shown on the two dice. Determine whether there exist three consecutive rolls where the numbers on the two dice are equal.
 
-Input Format
-	•	The first line contains three integers n, m, and k, where:
-	•	n is the length of array A,
-	•	m is the length of array B,
-	•	k is the maximum allowed absolute difference.
-	•	The second line contains n integers representing array A.
-	•	The third line contains m integers representing array B.
+In other words, check if there exist three consecutive pairs (a_i, b_i) such that a_i = b_i, a_(i+1) = b_(i+1), and a_(i+2) = b_(i+2). If such three consecutive rolls exist, output “Yes”. Otherwise, output “No”.
 
-Output Format
+Input Format:
 
-Output a single integer — the maximum number of valid pairs that can be formed.
+The input begins with a single integer N representing the number of dice rolls. The next N lines each contain two integers a_i and b_i separated by a space. The values a_i and b_i represent the numbers shown on the two dice in the i-th roll.
 
-Constraints
-	•	1 ≤ n, m ≤ 2 × 10⁵
-	•	0 ≤ k ≤ 10⁹
-	•	−10⁹ ≤ A[i], B[j] ≤ 10⁹
+Constraints:
+
+1 ≤ N ≤ 100
+1 ≤ a_i ≤ 6
+1 ≤ b_i ≤ 6
+
+Each die is a standard six-sided die.
+
+Output Format:
+
+Output exactly one line. If there exist three consecutive rolls where both dice show the same number, output “Yes”. Otherwise, output “No”. The output is case-sensitive.
+
+Example:
+
+Input:
+5
+1 2
+3 3
+4 4
+5 5
+2 1
+
+Output:
+Yes
+
+Explanation:
+
+In the example above, the second, third, and fourth rolls satisfy the condition where both dice show the same number (3 = 3, 4 = 4, 5 = 5). Therefore, the correct output is “Yes”.

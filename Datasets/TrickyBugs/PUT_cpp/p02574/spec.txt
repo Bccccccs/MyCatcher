@@ -1,0 +1,40 @@
+Problem Description
+
+You are given N positive integers.
+
+Determine whether the numbers are:
+
+pairwise coprime
+setwise coprime
+not coprime
+
+Definitions
+
+Pairwise coprime: every pair of distinct numbers has gcd equal to 1.
+
+Setwise coprime: the gcd of all numbers is 1, but at least one pair has gcd greater than 1.
+
+Not coprime: the gcd of all numbers is greater than 1.
+
+Input Format
+
+The first line contains an integer:
+
+N
+
+The second line contains N integers:
+
+A₁ A₂ … Aₙ
+
+Constraints
+
+1 ≤ N ≤ 2 × 10⁵
+1 ≤ Aᵢ ≤ 10⁶
+
+Output Format
+
+Output exactly one of the following strings:
+
+pairwise coprime
+setwise coprime
+not coprime

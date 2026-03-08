@@ -1,0 +1,32 @@
+Problem Description
+
+You are given an integer N and an array A of length N.
+
+Compute the sum of products over all pairs of indices (i, j) such that:
+
+i < j
+
+That is, compute:
+
+Σ A[i] × A[j]
+
+The result should be printed modulo 1000000007.
+
+Input Format
+
+The first line contains an integer:
+
+N
+
+The second line contains N integers:
+
+A₁ A₂ … Aₙ
+
+Constraints
+
+1 ≤ N ≤ 2 × 10⁵
+0 ≤ Aᵢ ≤ 10⁹
+
+Output Format
+
+Output a single integer representing the sum of all pairwise products modulo 1000000007.

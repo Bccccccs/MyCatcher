@@ -1,0 +1,37 @@
+
+Problem Description
+
+You are given a grid with H rows and W columns.
+
+You start from the first row and move downward one row at a time.
+
+For each row i, a range of columns [Aᵢ, Bᵢ] becomes blocked and cannot be used.
+
+After processing each row, determine the minimum number of steps required to reach any reachable column in that row.
+
+If it is impossible to reach any column in that row, output -1.
+
+Input Format
+
+The first line contains two integers:
+
+H W
+
+Then H lines follow.
+
+Each line contains two integers:
+
+Aᵢ Bᵢ
+
+representing the blocked column range in row i.
+
+Constraints
+
+1 ≤ H ≤ 2 × 10⁵
+1 ≤ W ≤ 2 × 10⁵
+1 ≤ Aᵢ ≤ Bᵢ ≤ W
+
+Output Format
+
+For each row i, output the minimum number of steps required to reach that row.
+If it is impossible, output -1.

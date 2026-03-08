@@ -1,0 +1,30 @@
+Problem Description
+
+You are given the results of rolling two six-sided dice multiple times.
+
+Each roll produces two integers representing the numbers shown on the two dice.
+
+Determine whether there exist three consecutive rolls where the numbers on the two dice are equal.
+
+In other words, check if there exist three consecutive pairs (a, b) such that:
+
+a == b
+
+If such three consecutive rolls exist, output “Yes”.
+Otherwise, output “No”.
+
+Input Format
+
+The first line contains an integer N, representing the number of dice rolls.
+
+Each of the following N lines contains two integers a and b.
+
+Constraints
+
+1 ≤ N ≤ 100
+1 ≤ a, b ≤ 6
+
+Output Format
+
+Output “Yes” if there exist three consecutive rolls where a == b.
+Otherwise output “No”.

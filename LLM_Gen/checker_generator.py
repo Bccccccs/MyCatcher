@@ -62,7 +62,7 @@ def build_prompt(template: str, pro_des: str, code: str) -> str:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--spec", required=True, help="problem spec file, e.g. data/spec.txt")
+    ap.add_argument("--spec", required=True, help="problem spec.txt file, e.g. data/spec.txt")
     ap.add_argument("--template", required=True, help="template name or path, e.g. geninput_inspector")
     ap.add_argument("--out", required=True, help="output checker path, e.g. outputs/checker/check_input.py")
     ap.add_argument("--model", default="deepseek-chat", help="LLM model name")

@@ -1,0 +1,28 @@
+Problem Description
+
+You are given three integers N, X, and M.
+
+Define a sequence as follows:
+
+a₁ = X
+aᵢ₊₁ = (aᵢ × aᵢ) mod M
+
+Your task is to compute the sum of the first N terms of this sequence.
+
+Because the sequence may eventually enter a cycle, the solution must handle large N efficiently.
+
+Input Format
+
+The input contains three integers:
+
+N X M
+
+Constraints
+
+1 ≤ N ≤ 10¹⁸
+0 ≤ X < M
+1 ≤ M ≤ 10⁶
+
+Output Format
+
+Output a single integer: the sum of the first N terms of the sequence.
