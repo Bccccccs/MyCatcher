@@ -1,6 +1,7 @@
 import argparse
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 
@@ -49,6 +50,53 @@ def find_put_file(program_dir: Path, lang: str) -> Path | None:
     return None
 
 
+def run_problem(
+    root: Path,
+    py: str,
+    program_dir: Path,
+    lang: str,
+    variants_root: Path,
+    tests_root: Path,
+    out_root: Path,
+    timeout: float,
+    min_votes: int | None,
+    variant_mode: str,
+) -> tuple[str, str, str]:
+    pid = program_dir.name
+    put = find_put_file(program_dir, lang)
+    variants_dir = variants_root / pid
+    tests_dir = tests_root / pid
+    out_dir = out_root / pid
+
+    if not program_dir.exists():
+        return ("skipped", pid, f"[SKIP] problem dir not found: {program_dir}")
+    if put is None:
+        return ("skipped", pid, f"[SKIP] missing put/sol in: {program_dir}")
+    if not variants_dir.exists():
+        return ("skipped", pid, f"[SKIP] variants not found: {variants_dir}")
+    if not tests_dir.exists():
+        return ("skipped", pid, f"[SKIP] tests not found: {tests_dir}")
+
+    cmd = [
+        py, str(root / "LLM_Gen" / "differential_testing.py"),
+        "--lang", lang,
+        "--variant_mode", variant_mode,
+        "--put", str(put),
+        "--variants", str(variants_dir),
+        "--tests", str(tests_dir),
+        "--out", str(out_dir),
+        "--timeout", str(timeout),
+    ]
+    if min_votes is not None:
+        cmd.extend(["--min_votes", str(min_votes)])
+
+    try:
+        run(cmd, cwd=root)
+        return ("ok", pid, f"[OK] {pid}")
+    except subprocess.CalledProcessError as e:
+        return ("failed", pid, f"[FAIL] {pid}: {e}")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--pid", default=None, help="Single problem id (e.g. p02547). If omitted, run all problems.")
@@ -60,6 +108,7 @@ def main() -> None:
     ap.add_argument("--out-root", default="outputs/tcases")
     ap.add_argument("--timeout", type=float, default=2.0)
     ap.add_argument("--min-votes", type=int, default=None)
+    ap.add_argument("--jobs", type=int, default=4, help="Number of problems to run in parallel")
     args = ap.parse_args()
 
     root = Path(__file__).resolve().parent.parent
@@ -82,56 +131,62 @@ def main() -> None:
     else:
         program_dirs = find_program_dirs(dataset_root)
 
+    jobs = max(1, args.jobs)
     ok = 0
     skipped = 0
     failed = 0
 
-    for program_dir in program_dirs:
-        pid = program_dir.name
-        put = find_put_file(program_dir, args.lang)
-        variants_dir = variants_root / pid
-        tests_dir = tests_root / pid
-        out_dir = out_root / pid
-
-        if not program_dir.exists():
-            skipped += 1
-            print(f"[SKIP] problem dir not found: {program_dir}")
-            continue
-        if put is None:
-            skipped += 1
-            print(f"[SKIP] missing put/sol in: {program_dir}")
-            continue
-        if not variants_dir.exists():
-            skipped += 1
-            print(f"[SKIP] variants not found: {variants_dir}")
-            continue
-        if not tests_dir.exists():
-            skipped += 1
-            print(f"[SKIP] tests not found: {tests_dir}")
-            continue
-
-        cmd = [
-            py, str(root / "LLM_Gen" / "differential_testing.py"),
-            "--lang", args.lang,
-            "--variant_mode", args.variant_mode,
-            "--put", str(put),
-            "--variants", str(variants_dir),
-            "--tests", str(tests_dir),
-            "--out", str(out_dir),
-            "--timeout", str(args.timeout),
-        ]
-        if args.min_votes is not None:
-            cmd.extend(["--min_votes", str(args.min_votes)])
-
-        try:
-            run(cmd, cwd=root)
-            ok += 1
-        except subprocess.CalledProcessError as e:
-            failed += 1
-            print(f"[FAIL] {pid}: {e}")
+    if jobs == 1:
+        for program_dir in program_dirs:
+            status, _, message = run_problem(
+                root=root,
+                py=py,
+                program_dir=program_dir,
+                lang=args.lang,
+                variants_root=variants_root,
+                tests_root=tests_root,
+                out_root=out_root,
+                timeout=args.timeout,
+                min_votes=args.min_votes,
+                variant_mode=args.variant_mode,
+            )
+            print(message)
+            if status == "ok":
+                ok += 1
+            elif status == "skipped":
+                skipped += 1
+            else:
+                failed += 1
+    else:
+        with ThreadPoolExecutor(max_workers=jobs) as executor:
+            futures = [
+                executor.submit(
+                    run_problem,
+                    root,
+                    py,
+                    program_dir,
+                    args.lang,
+                    variants_root,
+                    tests_root,
+                    out_root,
+                    args.timeout,
+                    args.min_votes,
+                    args.variant_mode,
+                )
+                for program_dir in program_dirs
+            ]
+            for future in as_completed(futures):
+                status, _, message = future.result()
+                print(message)
+                if status == "ok":
+                    ok += 1
+                elif status == "skipped":
+                    skipped += 1
+                else:
+                    failed += 1
 
     print(
-        f"[DONE] total={len(program_dirs)} ok={ok} skipped={skipped} failed={failed} out_root={out_root}"
+        f"[DONE] total={len(program_dirs)} ok={ok} skipped={skipped} failed={failed} jobs={jobs} out_root={out_root}"
     )
 
 

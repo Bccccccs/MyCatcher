@@ -5,6 +5,8 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+COMPILE_CACHE = {}
+
 
 def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8")
@@ -28,24 +30,34 @@ def run_python(py_file: Path, stdin_text: str, timeout: float) -> str:
     return normalize_output(p.stdout.decode("utf-8", errors="ignore"))
 
 def compile_cpp(src: Path, build_dir: Path) -> Path:
+    src_key = str(src.resolve())
+    cached = COMPILE_CACHE.get(src_key)
+    if cached is not None:
+        ok, payload = cached
+        if ok:
+            return payload
+        raise RuntimeError(payload)
+
     build_dir.mkdir(parents=True, exist_ok=True)
 
     h = hashlib.sha256(src.read_bytes()).hexdigest()[:16]
     exe = build_dir / f"{src.stem}_{h}"
 
     if exe.exists():
+        COMPILE_CACHE[src_key] = (True, exe)
         return exe
 
     cmd = ["g++-15", "-std=c++17", "-O2", "-pipe", str(src), "-o", str(exe)]
-    print("Compile:", " ".join(cmd))
     p = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     if p.returncode != 0:
-        print("Compile error:", p.stderr.decode())
-        raise RuntimeError(
+        err = (
             f"C++ compile failed: {src}\n"
             f"{p.stderr.decode('utf-8', errors='ignore')}"
         )
+        COMPILE_CACHE[src_key] = (False, err)
+        raise RuntimeError(err)
+    COMPILE_CACHE[src_key] = (True, exe)
     return exe
 
 
