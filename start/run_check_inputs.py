@@ -101,7 +101,6 @@ def main() -> None:
         inputs_dir = inputs_root / program_dir.name
         if not spec.exists() or not checker.exists() or not inputs_dir.exists():
             skipped += 1
-            print(f"[SKIP] missing spec.txt/checker/inputs: {program_dir}")
             continue
 
         print(f"[INFO] checking {program_dir.name}")

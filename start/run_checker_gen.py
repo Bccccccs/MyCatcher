@@ -42,6 +42,9 @@ def main() -> None:
     if args.spec:
         spec = resolve_path(root, args.spec)
         out = resolve_out_for_spec(root, spec, args.out)
+        if out.exists():
+            print(f"[SKIP] checker exists: {out}")
+            return
         run([
             py, "-m", "LLM_Gen.checker_generator",
             "--spec", str(spec),
@@ -62,10 +65,13 @@ def main() -> None:
         spec = program_dir / "spec.txt"
         if not spec.exists():
             skipped += 1
-            print(f"[SKIP] missing spec.txt: {spec}")
             continue
 
         out = resolve_out_for_spec(root, spec, args.out)
+        if out.exists():
+            skipped += 1
+            print(f"[SKIP] checker exists: {out}")
+            continue
         run([
             py, "-m", "LLM_Gen.checker_generator",
             "--spec", str(spec),
