@@ -1,0 +1,38 @@
+/Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/start/run_clean.py
+>>> Cleaning inputs + per-problem generator/checker files (keeping PUTs/variants)...
+ - Cleaning /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs
+ - Cleaning /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02583/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02583/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02577/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02577/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02585/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02585/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02547/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02547/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02578/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02578/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02590/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02590/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02589/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02589/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02580/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02580/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02574/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02574/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02575/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02575/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02581/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02581/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02572/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02572/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02595/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02595/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02550/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02550/input_gen.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02594/check_input.py
+ - Removing generated tool /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02594/input_gen.py
+>>> Clean finished.
+
+进程已结束，退出代码为 0
+该文件用于展示每次运行前清理上一次生成的输入 输入生成器 输入检查器

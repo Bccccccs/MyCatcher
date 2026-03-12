@@ -1,0 +1,34 @@
+/Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/start/run_input_gen_by_generator.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02547/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02547 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02550/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02550 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02572/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02572 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02574/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02574 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02575/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02575 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02577/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02577 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02578/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02578 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02580/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02580 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02581/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02581 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02583/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02583 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02585/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02585 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02589/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02589 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02590/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02590 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02594/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02594 --num 20 --seed 1
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02595/input_gen.py --out_dir /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02595 --num 20 --seed 1
+[DONE] generated=15, skipped=316, out_root=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs
+
+进程已结束，退出代码为 0
