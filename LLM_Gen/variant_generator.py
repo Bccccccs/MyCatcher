@@ -179,7 +179,7 @@ def build_parsed_output_file(out_file: Path, lang: str) -> Path:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--spec.txt", dest="spec_txt", required=True, help="Path to spec.txt (problem description)")
-    parser.add_argument("--put", required=True, help="Path to PUT file (py or cpp)")
+    parser.add_argument("--put", default=None, help="Path to PUT file (py or cpp). Optional for templates that do not use {code}.")
     parser.add_argument("--out", required=True, help="Output directory for variants")
     parser.add_argument("--k", type=int, default=5, help="Number of variants to generate")
     parser.add_argument(
@@ -230,7 +230,7 @@ def main():
     args = parser.parse_args()
 
     spec_path = Path(args.spec_txt)
-    put_path = Path(args.put)
+    put_path = Path(args.put) if args.put else None
     out_dir = Path(args.out)
 
     template_path = resolve_template_path(args.template)
@@ -238,7 +238,7 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     pro_des = load_text(spec_path).strip()
-    code = load_text(put_path).strip()
+    code = load_text(put_path).strip() if put_path else ""
     template = load_text(template_path)
 
     client = get_client()

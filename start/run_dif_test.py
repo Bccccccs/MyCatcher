@@ -135,6 +135,7 @@ def main() -> None:
     ok = 0
     skipped = 0
     failed = 0
+    skip_messages: list[str] = []
 
     if jobs == 1:
         for program_dir in program_dirs:
@@ -150,12 +151,14 @@ def main() -> None:
                 min_votes=args.min_votes,
                 variant_mode=args.variant_mode,
             )
-            print(message)
             if status == "ok":
+                print(message)
                 ok += 1
             elif status == "skipped":
+                skip_messages.append(message)
                 skipped += 1
             else:
+                print(message)
                 failed += 1
     else:
         with ThreadPoolExecutor(max_workers=jobs) as executor:
@@ -177,13 +180,22 @@ def main() -> None:
             ]
             for future in as_completed(futures):
                 status, _, message = future.result()
-                print(message)
                 if status == "ok":
+                    print(message)
                     ok += 1
                 elif status == "skipped":
+                    skip_messages.append(message)
                     skipped += 1
                 else:
+                    print(message)
                     failed += 1
+
+    if skip_messages:
+        print(f"[SKIP_SUMMARY] skipped={skipped}")
+        for msg in skip_messages[:5]:
+            print(msg)
+        if len(skip_messages) > 5:
+            print(f"[SKIP_SUMMARY] ... {len(skip_messages) - 5} more skipped problems")
 
     print(
         f"[DONE] total={len(program_dirs)} ok={ok} skipped={skipped} failed={failed} jobs={jobs} out_root={out_root}"

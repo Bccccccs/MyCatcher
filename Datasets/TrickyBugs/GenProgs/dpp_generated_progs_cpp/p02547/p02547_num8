@@ -1,30 +1,26 @@
 #include <iostream>
-#include <vector>
-
 using namespace std;
-
-bool checkForDoublets(const vector<pair<int, int>>& diceRolls) {
-    int count = 0;
-    for (int i = 0; i < diceRolls.size() - 2; i++) {
-        if (diceRolls[i].first == diceRolls[i].second &&
-            diceRolls[i + 1].first == diceRolls[i + 1].second &&
-            diceRolls[i + 2].first == diceRolls[i + 2].second) {
-            count++;
-        }
-    }
-    return count >= 1;
-}
 
 int main() {
     int N;
     cin >> N;
+    int count = 0;
+    bool found = false;
 
-    vector<pair<int, int>> diceRolls(N);
     for (int i = 0; i < N; i++) {
-        cin >> diceRolls[i].first >> diceRolls[i].second;
+        int a, b;
+        cin >> a >> b;
+        if (a == b) {
+            count++;
+            if (count >= 3) {
+                found = true;
+            }
+        } else {
+            count = 0;
+        }
     }
 
-    if (checkForDoublets(diceRolls)) {
+    if (found) {
         cout << "Yes" << endl;
     } else {
         cout << "No" << endl;

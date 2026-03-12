@@ -1,24 +1,32 @@
 #include <iostream>
-#include <vector>
+using namespace std;
 
 int main() {
     int N;
-    std::cin >> N;
-
-    std::vector<std::pair<int, int>> rolls(N);
-
-    for (int i = 0; i < N; ++i) {
-        std::cin >> rolls[i].first >> rolls[i].second;
-    }
-
-    for (int i = 0; i < N - 2; ++i) {
-        if (rolls[i].first == rolls[i].second && rolls[i+1].first == rolls[i+1].second && rolls[i+2].first == rolls[i+2].second) {
-            std::cout << "Yes" << std::endl;
-            return 0;
+    cin >> N;
+    
+    int count = 0;
+    bool found = false;
+    
+    for (int i = 0; i < N; i++) {
+        int a, b;
+        cin >> a >> b;
+        
+        if (a == b) {
+            count++;
+            if (count >= 3) {
+                found = true;
+            }
+        } else {
+            count = 0;
         }
     }
-
-    std::cout << "No" << std::endl;
-
+    
+    if (found) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+    
     return 0;
 }
