@@ -2,7 +2,7 @@ import argparse
 import subprocess
 import sys
 from pathlib import Path
-
+import random
 
 def run(cmd: list[str], cwd: Path) -> None:
     print("\n>>>", " ".join(map(str, cmd)))
@@ -25,7 +25,7 @@ def main() -> None:
     ap.add_argument("--generator-name", default="input_gen.py", help="Generator filename next to spec.txt")
     ap.add_argument("--out-root", default="outputs/inputs", help="Input data output root")
     ap.add_argument("--num", type=int, default=10)
-    ap.add_argument("--seed", type=int, default=1)
+    ap.add_argument("--seed", type=int, default=2)
     args = ap.parse_args()
 
     root = Path(__file__).resolve().parent.parent
@@ -37,13 +37,14 @@ def main() -> None:
         generator = spec.parent / args.generator_name
         if not generator.exists():
             raise FileNotFoundError(f"Generator not found: {generator}")
+        out_dir = out_root / spec.parent.name
         run([
             py, str(generator),
-            "--out_dir", str(out_root),
+            "--out_dir", str(out_dir),
             "--num", str(args.num),
             "--seed", str(args.seed),
         ], cwd=root)
-        print(f"[DONE] inputs -> {out_root}")
+        print(f"[DONE] inputs -> {out_dir}")
         return
 
     dataset_root = resolve_path(root, args.dataset_root)
@@ -57,7 +58,6 @@ def main() -> None:
         generator = program_dir / args.generator_name
         if not spec.exists() or not generator.exists():
             skipped += 1
-            print(f"[SKIP] missing spec.txt/generator: {program_dir}")
             continue
 
         out_dir = out_root / program_dir.name

@@ -58,11 +58,14 @@ def main():
         for program_dir in program_dirs:
             spec = program_dir / "spec.txt"
             if not spec.exists():
-                print(f"[SKIP] missing spec.txt: {spec}")
                 skipped += 1
                 continue
 
             out = resolve_out_for_spec(root, spec, args.out)
+            if out.exists():
+                skipped += 1
+                print(f"[SKIP] generator exists: {out}")
+                continue
             run([
                 py, "-m", "LLM_Gen.generator_generator",
                 "--spec", str(spec),
@@ -77,6 +80,9 @@ def main():
 
     spec = resolve_path(root, args.spec)
     out = resolve_out_for_spec(root, spec, args.out)
+    if out.exists():
+        print(f"[SKIP] generator exists: {out}")
+        return
 
     run([
         py, "-m", "LLM_Gen.generator_generator",

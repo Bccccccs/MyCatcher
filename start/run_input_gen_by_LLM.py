@@ -71,7 +71,6 @@ def main() -> None:
         put = find_put_file(program_dir)
         if not spec.exists() or put is None:
             skipped += 1
-            print(f"[SKIP] missing spec.txt/put: {program_dir}")
             continue
 
         out_dir = out_root / program_dir.name
