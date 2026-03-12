@@ -1,60 +1,64 @@
 #include <iostream>
 #include <vector>
-
+#include <unordered_map>
+#include <algorithm>
 using namespace std;
-
-int f(int x, int m) {
-    return x % m;
-}
 
 int main() {
     long long N, X, M;
     cin >> N >> X >> M;
 
-    vector<int> A;
-    A.push_back(X);
+    if (M == 1) {
+        cout << 0 << endl;
+        return 0;
+    }
 
-    int cycleStart = -1;
-    int cycleEnd = -1;
-    long long cycleSum = 0;
+    unordered_map<long long, int> index_map;
+    vector<long long> value_seq;
+    vector<long long> prefix_sum;
 
-    for (int i = 1; i <= N; i++) {
-        int next = f(A[i - 1] * A[i - 1], M);
-        A.push_back(next);
+    long long current = X % M;
+    long long sum = 0;
+    int cycle_start = -1;
 
-        if (cycleStart == -1 && i >= 2 && next == A[1]) {
-            cycleStart = i - 1;
-        }
-
-        if (cycleStart != -1 && next == A[cycleStart]) {
-            cycleEnd = i - 1;
+    for (int i = 0; i < min(N, M + 10LL); ++i) {
+        if (index_map.find(current) != index_map.end()) {
+            cycle_start = index_map[current];
             break;
         }
-
-        if (cycleStart != -1) {
-            cycleSum += next;
+        index_map[current] = i;
+        value_seq.push_back(current);
+        sum += current;
+        prefix_sum.push_back(sum);
+        current = (current * current) % M;
+        if (N == value_seq.size()) {
+            cout << sum << endl;
+            return 0;
         }
     }
 
-    long long sum = 0;
-    if (cycleStart != -1) {
-        long long cycleLength = cycleEnd - cycleStart + 1;
-        long long cycles = (N - cycleStart + 1) / cycleLength;
-        long long remainder = (N - cycleStart + 1) % cycleLength;
-
-        long long cycleSumTotal = cycleSum * cycles;
-        for (int i = cycleStart; i <= cycleStart + remainder - 1; i++) {
-            cycleSumTotal += A[i];
-        }
-
-        sum = cycleSumTotal;
-    } else {
-        for (int i = 0; i <= N; i++) {
-            sum += A[i];
-        }
+    if (cycle_start == -1) {
+        cout << sum << endl;
+        return 0;
     }
 
-    cout << sum << endl;
+    int cycle_len = value_seq.size() - cycle_start;
+    long long cycle_sum = prefix_sum.back() - (cycle_start > 0 ? prefix_sum[cycle_start - 1] : 0);
 
+    long long result = 0;
+    if (cycle_start > 0) {
+        result += prefix_sum[cycle_start - 1];
+        N -= cycle_start;
+    }
+
+    long long full_cycles = N / cycle_len;
+    result += full_cycles * cycle_sum;
+
+    long long remainder = N % cycle_len;
+    for (int i = 0; i < remainder; ++i) {
+        result += value_seq[cycle_start + i];
+    }
+
+    cout << result << endl;
     return 0;
 }

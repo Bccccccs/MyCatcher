@@ -1,28 +1,28 @@
-#include<iostream>
-#include<vector>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
 int main() {
-    int n;
-    cin >> n;
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
     
-    vector<int> a(n);
-    for(int i=0; i<n; i++) {
-        cin >> a[i];
+    int N;
+    std::cin >> N;
+    
+    std::vector<long long> H(N);
+    for (int i = 0; i < N; ++i) {
+        std::cin >> H[i];
     }
     
-    int ans = 0;
-    int max_height = 0;
-    
-    for(int i=0; i<n; i++) {
-        if(a[i] > max_height) {
-            ans += a[i] - max_height;
-        } else {
-            max_height = a[i];
+    long long operations = 0;
+    for (int i = 1; i < N; ++i) {
+        if (H[i] < H[i - 1]) {
+            operations += H[i - 1] - H[i];
+            H[i] = H[i - 1];
         }
     }
     
-    cout << ans << endl;
+    std::cout << operations << '\n';
     
     return 0;
 }

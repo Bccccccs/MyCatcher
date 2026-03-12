@@ -2,18 +2,10 @@
 using namespace std;
 
 int main() {
-    int N, M;
-    cin >> N >> M;
-    
-    int count = 0;
-    
-    // If one empty set and one odd set is chosen, sum will be odd
-    count += N*(N-1)/2;
-    
-    // If two even sets are chosen, sum will be even
-    count += M*(M-1)/2;
-    
-    cout << count << endl;
-    
+    long long n, m;
+    cin >> n >> m;
+    long long red_pairs = n * (n - 1) / 2;
+    long long blue_pairs = m * (m - 1) / 2;
+    cout << red_pairs + blue_pairs << endl;
     return 0;
 }

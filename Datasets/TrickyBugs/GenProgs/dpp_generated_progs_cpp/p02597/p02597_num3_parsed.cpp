@@ -1,29 +1,22 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <string>
 using namespace std;
 
 int main() {
     int N;
-    cin >> N;
-    string colors;
-    cin >> colors;
+    string S;
+    cin >> N >> S;
 
-    int count = 0;
-    int whiteCount = 0;
-    for(int i = 0; i < N; i++) {
-        if(colors[i] == 'W') {
-            whiteCount++;
-            count++;
-        } else {
-            if(whiteCount > 0) {
-                count--;
-            }
-        }
+    int totalR = 0;
+    for (char c : S) {
+        if (c == 'R') totalR++;
     }
 
-    cout << count << endl;
+    int rInLeft = 0;
+    for (int i = 0; i < totalR; i++) {
+        if (S[i] == 'R') rInLeft++;
+    }
 
+    cout << totalR - rInLeft << endl;
     return 0;
 }

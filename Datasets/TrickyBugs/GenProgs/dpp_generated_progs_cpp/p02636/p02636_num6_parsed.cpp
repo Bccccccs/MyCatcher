@@ -1,39 +1,52 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
+#include <cstring>
+using namespace std;
 
 const int MOD = 998244353;
 
 int main() {
-    std::string S;
-    std::cin >> S;
-
-    int N = S.length();
-    std::vector<std::vector<int>> dp(N + 1, std::vector<int>(N + 1));
-
-    // Initialize the dp array
+    string S;
+    cin >> S;
+    int n = S.size();
+    
+    vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0));
     dp[0][0] = 1;
-
-    // Dynamic programming
-    for (int i = 1; i <= N; i++) {
-        for (int j = 0; j <= N; j++) {
-            // Case 1: Use the i-th character as the rightmost character
-            dp[i][j] = dp[i - 1][j];
-
-            // Case 2: Use the i-th character as the leftmost character
-            if (j >= 1 && S[i - 1] == '1') {
-                dp[i][j] = (dp[i][j] + dp[i - 2][j - 1]) % MOD;
+    
+    for (char c : S) {
+        vector<vector<int>> ndp(n + 1, vector<int>(n + 1, 0));
+        for (int a = 0; a <= n; ++a) {
+            for (int b = 0; b <= n; ++b) {
+                if (dp[a][b] == 0) continue;
+                int val = dp[a][b];
+                if (c == '0') {
+                    if (b > 0) {
+                        ndp[a][b - 1] = (ndp[a][b - 1] + val) % MOD;
+                    } else {
+                        ndp[a + 1][b] = (ndp[a + 1][b] + val) % MOD;
+                    }
+                } else {
+                    if (a > 0) {
+                        ndp[a - 1][b] = (ndp[a - 1][b] + val) % MOD;
+                    } else {
+                        ndp[a][b + 1] = (ndp[a][b + 1] + val) % MOD;
+                    }
+                }
+                ndp[a][b] = (ndp[a][b] + val) % MOD;
             }
         }
+        dp = move(ndp);
     }
-
-    // Count the number of strings
-    int numStrings = 0;
-    for (int j = 0; j <= N; j++) {
-        numStrings = (numStrings + dp[N][j]) % MOD;
+    
+    int ans = 0;
+    for (int a = 0; a <= n; ++a) {
+        for (int b = 0; b <= n; ++b) {
+            ans = (ans + dp[a][b]) % MOD;
+        }
     }
-
-    std::cout << numStrings << std::endl;
-
+    
+    cout << ans << endl;
     return 0;
 }

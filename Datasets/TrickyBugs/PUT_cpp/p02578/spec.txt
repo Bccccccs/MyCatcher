@@ -1,0 +1,28 @@
+Problem Description
+
+You are given an integer N and a sequence of heights H of length N.
+
+In one operation, you may increase any height by 1.
+
+Find the minimum total number of increment operations needed to make the sequence non-decreasing, i.e.,
+
+H1 <= H2 <= ... <= HN.
+
+Input Format
+
+The first line contains an integer:
+
+N
+
+The second line contains N integers:
+
+H1 H2 ... HN
+
+Constraints
+
+1 <= N <= 2 x 10^5
+1 <= Hi <= 10^9
+
+Output Format
+
+Output a single integer: the minimum number of operations required.

@@ -1,38 +1,66 @@
-```
 #include <iostream>
 #include <vector>
-#include <unordered_set>
+#include <map>
+#include <set>
+#include <algorithm>
+#include <unordered_map>
 using namespace std;
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int H, W, M;
     cin >> H >> W >> M;
-    
-    vector<int> row_count(H, 0);
-    vector<int> col_count(W, 0);
-    unordered_set<int> targets;
-    
-    for (int i = 0; i < M; i++) {
+
+    vector<int> rowCount(H + 1, 0);
+    vector<int> colCount(W + 1, 0);
+    map<pair<int, int>, bool> bombs;
+
+    for (int i = 0; i < M; ++i) {
         int h, w;
         cin >> h >> w;
-        row_count[h-1]++;
-        col_count[w-1]++;
-        targets.insert((h-1) * W + (w-1));
+        rowCount[h]++;
+        colCount[w]++;
+        bombs[{h, w}] = true;
     }
-    
-    int max_target = 0;
-    for (int i = 0; i < H; i++) {
-        for (int j = 0; j < W; j++) {
-            int count = row_count[i] + col_count[j];
-            if (targets.count(i * W + j)) {
-                count--;
-            }
-            max_target = max(max_target, count);
+
+    int maxRow = 0;
+    for (int i = 1; i <= H; ++i) {
+        maxRow = max(maxRow, rowCount[i]);
+    }
+    vector<int> maxRows;
+    for (int i = 1; i <= H; ++i) {
+        if (rowCount[i] == maxRow) {
+            maxRows.push_back(i);
         }
     }
-    
-    cout << max_target << endl;
-    
+
+    int maxCol = 0;
+    for (int i = 1; i <= W; ++i) {
+        maxCol = max(maxCol, colCount[i]);
+    }
+    vector<int> maxCols;
+    for (int i = 1; i <= W; ++i) {
+        if (colCount[i] == maxCol) {
+            maxCols.push_back(i);
+        }
+    }
+
+    int ans = maxRow + maxCol - 1;
+    bool foundBetter = false;
+
+    for (int r : maxRows) {
+        for (int c : maxCols) {
+            if (bombs.find({r, c}) == bombs.end()) {
+                ans = maxRow + maxCol;
+                foundBetter = true;
+                break;
+            }
+        }
+        if (foundBetter) break;
+    }
+
+    cout << ans << "\n";
     return 0;
 }
-```

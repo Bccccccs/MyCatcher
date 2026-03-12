@@ -1,37 +1,51 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 const int MOD = 1000000007;
+
+int modPow(int a, int e, int mod) {
+    int res = 1;
+    while (e) {
+        if (e & 1) res = 1LL * res * a % mod;
+        a = 1LL * a * a % mod;
+        e >>= 1;
+    }
+    return res;
+}
+
+int modInv(int a, int mod) {
+    return modPow(a, mod - 2, mod);
+}
 
 int main() {
     int N, K;
     cin >> N >> K;
 
-    // Initialize the values of the first N+1 integers
-    vector<int> values(N+1);
-    for (int i = 0; i <= N; i++) {
-        values[i] = (int)pow(10, 100) + i;
+    vector<int> fact(N + 2), invFact(N + 2);
+    fact[0] = 1;
+    for (int i = 1; i <= N + 1; ++i) {
+        fact[i] = 1LL * fact[i - 1] * i % MOD;
+    }
+    invFact[N + 1] = modInv(fact[N + 1], MOD);
+    for (int i = N; i >= 0; --i) {
+        invFact[i] = 1LL * invFact[i + 1] * (i + 1) % MOD;
     }
 
-    // Calculate the number of possible values of the sum
-    vector<vector<int>> dp(K+1, vector<int>(N+1));
-    dp[0][0] = 1;
-    for (int i = 1; i <= K; i++) {
-        for (int j = 0; j <= N; j++) {
-            dp[i][j] = (dp[i][j] + dp[i-1][j]) % MOD;
-            if (j + 1 <= N) {
-                dp[i][j+1] = (dp[i][j+1] + dp[i][j]) % MOD;
-            }
-        }
+    auto comb = [&](int n, int r) -> int {
+        if (r < 0 || r > n) return 0;
+        return 1LL * fact[n] * invFact[r] % MOD * invFact[n - r] % MOD;
+    };
+
+    int ans = 0;
+    for (int i = K; i <= N + 1; ++i) {
+        long long min_sum = 1LL * i * (i - 1) / 2;
+        long long max_sum = 1LL * i * (2 * N - i + 1) / 2;
+        long long count = max_sum - min_sum + 1;
+        ans = (ans + count % MOD) % MOD;
     }
 
-    int result = 0;
-    for (int i = 0; i <= N; i++) {
-        result = (result + dp[K][i]) % MOD;
-    }
-
-    cout << result << endl;
-
+    cout << ans << endl;
     return 0;
 }

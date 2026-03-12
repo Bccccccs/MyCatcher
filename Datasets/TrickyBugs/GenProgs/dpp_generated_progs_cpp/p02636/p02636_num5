@@ -1,43 +1,58 @@
-```cpp
 #include <iostream>
 #include <vector>
-#define mod 998244353
+#include <string>
+#include <algorithm>
+#include <cstring>
 using namespace std;
 
+const int MOD = 998244353;
+
 int main() {
-    string s;
-    cin >> s;
-    int n = s.length();
-  
-    // Dynamic programming to calculate the number of strings
-    // Initialize dp matrix
-    vector<vector<int>> dp(n+1, vector<int>(n+1));
-  
-    // Base case
+    string S;
+    cin >> S;
+    int n = S.size();
+
+    vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0));
     dp[0][0] = 1;
-  
-    // Fill dp matrix
-    for(int i=1; i<=n; i++) {
-        dp[i][0] = (dp[i-1][1] * 2) % mod;
-        for(int j=1; j<=i; j++) {
-            if(j == 1) {
-                dp[i][j] = (dp[i-1][1] + dp[i-1][2]) % mod;
-            }
-            else {
-                dp[i][j] = (dp[i-1][j-1] + dp[i-1][j+1]) % mod;
+
+    for (char c : S) {
+        vector<vector<int>> ndp(n + 1, vector<int>(n + 1, 0));
+
+        for (int a = 0; a <= n; ++a) {
+            for (int b = 0; b <= n; ++b) {
+                if (dp[a][b] == 0) continue;
+
+                int val = dp[a][b];
+
+                if (c == '0') {
+                    if (b > 0) {
+                        ndp[a][b - 1] = (ndp[a][b - 1] + val) % MOD;
+                    } else {
+                        ndp[a + 1][b] = (ndp[a + 1][b] + val) % MOD;
+                    }
+                } else {
+                    if (a > 0) {
+                        ndp[a - 1][b] = (ndp[a - 1][b] + val) % MOD;
+                    } else {
+                        ndp[a][b + 1] = (ndp[a][b + 1] + val) % MOD;
+                    }
+                }
+
+                ndp[a][b] = (ndp[a][b] + val) % MOD;
             }
         }
+
+        dp = move(ndp);
     }
-  
-    // Calculate the number of strings
-    int ans = 0;
-    for(int i=0; i<=n; i++) {
-      ans += dp[n][i];
-      ans %= mod;
+
+    long long ans = 0;
+    for (int a = 0; a <= n; ++a) {
+        for (int b = 0; b <= n; ++b) {
+            ans = (ans + dp[a][b]) % MOD;
+        }
     }
-  
+
     cout << ans << endl;
-  
+
     return 0;
 }
-```

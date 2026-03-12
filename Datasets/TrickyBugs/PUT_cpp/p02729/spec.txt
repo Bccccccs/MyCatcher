@@ -1,0 +1,20 @@
+Problem Description
+
+You are given two integers n and m.
+
+There are n red balls and m blue balls.
+Count the number of ways to choose two balls of the same color.
+
+Input Format
+
+The input contains two integers:
+
+n m
+
+Constraints
+
+1 ≤ n, m ≤ 10^9
+
+Output Format
+
+Output a single integer representing the number of ways to choose two balls of the same color.

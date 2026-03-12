@@ -96,14 +96,81 @@ def sanitize_llm_code(raw: str, lang: str) -> str:
         if fl in {"cpp", "c++", "python", "py"}:
             code = "\n".join(rest).lstrip()
 
-    # If user asked for C++ but model returned Python-style "def", fail fast (可选更严格)
-    if lang == "cpp":
-        # 非严格判断：出现明显 Python 关键字则提示（不直接报错也行）
-        if re.search(r"^\s*def\s+\w+\s*\(", code, flags=re.M):
-            # 这里不强制 raise，避免误伤；但建议你先让它报错更早发现问题
-            pass
+    code = extract_code_body(code, lang)
 
     return code.strip()
+
+
+def extract_code_body(code: str, lang: str) -> str:
+    if not code:
+        return ""
+
+    lines = code.splitlines()
+    if lang == "cpp":
+        start_patterns = (
+            r"^\s*#include\b",
+            r"^\s*using\s+namespace\b",
+            r"^\s*int\s+main\s*\(",
+            r"^\s*(?:static\s+)?(?:inline\s+)?(?:long\s+long|long|int|void|bool|char|double|string|vector<)",
+            r"^\s*template\s*<",
+        )
+    else:
+        start_patterns = (
+            r"^\s*from\s+\S+\s+import\s+",
+            r"^\s*import\s+\S+",
+            r"^\s*def\s+\w+\s*\(",
+            r"^\s*class\s+\w+\s*[\(:]",
+            r"^\s*if\s+__name__\s*==\s*[\"']__main__[\"']\s*:",
+        )
+
+    start_idx = 0
+    for i, line in enumerate(lines):
+        if any(re.search(pattern, line) for pattern in start_patterns):
+            start_idx = i
+            break
+
+    trimmed = "\n".join(lines[start_idx:]).strip()
+    if not trimmed:
+        return ""
+
+    if lang == "cpp":
+        end_markers = (
+            "\nI have made the following changes",
+            "\nExplanation:",
+            "\nHere is",
+            "\nThis code",
+            "\nNote:",
+        )
+    else:
+        end_markers = (
+            "\nI have made the following changes",
+            "\nExplanation:",
+            "\nHere is",
+            "\nThis Python",
+            "\nNote:",
+        )
+
+    cut_positions = [trimmed.find(marker) for marker in end_markers if trimmed.find(marker) != -1]
+    if cut_positions:
+        trimmed = trimmed[:min(cut_positions)].rstrip()
+
+    return trimmed
+
+
+def build_output_file(out_dir: Path, lang: str, naming: str, name_prefix: str | None, index: int) -> Path:
+    ext = ".py" if lang == "py" else ".cpp"
+    if naming == "trickybugs":
+        if not name_prefix:
+            raise ValueError("--name-prefix is required when --naming=trickybugs")
+        return out_dir / f"{name_prefix}{index}"
+    return out_dir / f"variant_{index:03d}{ext}"
+
+
+def build_parsed_output_file(out_file: Path, lang: str) -> Path:
+    ext = ".py" if lang == "py" else ".cpp"
+    if out_file.suffix == ext:
+        return out_file.with_name(f"{out_file.stem}_parsed{ext}")
+    return out_file.with_name(f"{out_file.name}_parsed{ext}")
 
 
 # ----------------------------
@@ -111,10 +178,27 @@ def sanitize_llm_code(raw: str, lang: str) -> str:
 # ----------------------------
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--spec", required=True, help="Path to spec.txt (problem description)")
+    parser.add_argument("--spec.txt", dest="spec_txt", required=True, help="Path to spec.txt (problem description)")
     parser.add_argument("--put", required=True, help="Path to PUT file (py or cpp)")
     parser.add_argument("--out", required=True, help="Output directory for variants")
     parser.add_argument("--k", type=int, default=5, help="Number of variants to generate")
+    parser.add_argument(
+        "--naming",
+        choices=["default", "trickybugs"],
+        default="default",
+        help="Output naming scheme",
+    )
+    parser.add_argument(
+        "--name-prefix",
+        default=None,
+        help="Custom prefix for variant filenames, e.g. p03000_num",
+    )
+    parser.add_argument(
+        "--index-start",
+        type=int,
+        default=1,
+        help="Starting index for variant numbering",
+    )
 
     # 只保留 tc/dfp 两种（你传 PromptTemplates/genprog_tc 也行）
     parser.add_argument(
@@ -145,7 +229,7 @@ def main():
 
     args = parser.parse_args()
 
-    spec_path = Path(args.spec)
+    spec_path = Path(args.spec_txt)
     put_path = Path(args.put)
     out_dir = Path(args.out)
 
@@ -159,10 +243,10 @@ def main():
 
     client = get_client()
 
-    ext = ".py" if args.lang == "py" else ".cpp"
     print("Trying to generate {} variant code by {}...".format(args.k,args.lang))
     print("#"*50)
-    for i in range(1, args.k + 1):
+    for offset in range(args.k):
+        index = args.index_start + offset
         prompt = build_prompt(template, pro_des=pro_des, code=code, lang=args.lang)
 
         resp = client.chat.completions.create(
@@ -175,12 +259,22 @@ def main():
 
         if not variant_code:
             raise RuntimeError(
-                f"LLM returned empty code for variant {i}. Raw response preview:\n{raw[:400]}"
+                f"LLM returned empty code for variant {index}. Raw response preview:\n{raw[:400]}"
             )
 
-        out_file = out_dir / f"variant_{i:03d}{ext}"
+        out_file = build_output_file(
+            out_dir=out_dir,
+            lang=args.lang,
+            naming=args.naming,
+            name_prefix=args.name_prefix,
+            index=index,
+        )
+        parsed_out_file = build_parsed_output_file(out_file, args.lang)
+
         out_file.write_text(variant_code + "\n", encoding="utf-8")
+        parsed_out_file.write_text(variant_code + "\n", encoding="utf-8")
         print(f"[OK] wrote {out_file}")
+        print(f"[OK] wrote {parsed_out_file}")
 
         if args.sleep > 0:
             time.sleep(args.sleep)

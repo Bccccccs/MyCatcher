@@ -1,15 +1,11 @@
 #include <iostream>
+using namespace std;
 
 int main() {
-    int N, M;
-    std::cin >> N >> M;
-
-    int count = 0;
-    if (N > 0 && M > 0) {
-        count = N * M;
-    }
-
-    std::cout << count << std::endl;
-
+    long long n, m;
+    cin >> n >> m;
+    long long red_pairs = n * (n - 1) / 2;
+    long long blue_pairs = m * (m - 1) / 2;
+    cout << red_pairs + blue_pairs << endl;
     return 0;
 }

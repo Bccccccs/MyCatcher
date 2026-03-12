@@ -1,55 +1,63 @@
 #include <iostream>
 #include <vector>
+#include <unordered_map>
+using namespace std;
 
 int main() {
-    long long N, X, M;
-    std::cin >> N >> X >> M;
+    long long N;
+    long long X, M;
+    cin >> N >> X >> M;
 
-    std::vector<long long> A(M, -1);
-    std::vector<long long> prefixSum;
-    prefixSum.push_back(X);
-    A[X] = 0;
+    if (M == 1) {
+        cout << 0 << endl;
+        return 0;
+    }
 
-    long long nextValue = X;
-    long long cycleStartIndex = -1;
-    long long cycleLength = 0;
+    unordered_map<long long, int> index_map;
+    vector<long long> value_seq;
+    vector<long long> prefix_sum;
 
-    for (long long i = 1; i < N; i++) {
-        nextValue = (nextValue * nextValue) % M;
-        prefixSum.push_back((prefixSum[i - 1] + nextValue) % M);
-        
-        if (A[nextValue] != -1) {
-            cycleStartIndex = A[nextValue];
-            cycleLength = prefixSum.size() - A[nextValue];
+    long long current = X % M;
+    long long sum = 0;
+    int cycle_start = -1;
+
+    for (int i = 0; i < N; ++i) {
+        if (index_map.find(current) != index_map.end()) {
+            cycle_start = index_map[current];
             break;
         }
-        
-        A[nextValue] = i;
+        index_map[current] = i;
+        value_seq.push_back(current);
+        sum += current;
+        prefix_sum.push_back(sum);
+        current = (current * current) % M;
+        if (current == 0) {
+            cout << sum << endl;
+            return 0;
+        }
     }
-    
-    if (cycleStartIndex != -1) {
-        long long cycleSum = 0;
-        for (long long i = cycleStartIndex; i < prefixSum.size(); i++) {
-            cycleSum += prefixSum[i];
-        }
-        
-        long long nonCycleSum = 0;
-        for (long long i = 0; i < cycleStartIndex; i++) {
-            nonCycleSum += prefixSum[i];
-        }
 
-        long long completeCycles = (N - cycleStartIndex) / cycleLength;
-        long long remainingValues = (N - cycleStartIndex) % cycleLength;
+    if (cycle_start == -1) {
+        cout << sum << endl;
+        return 0;
+    }
 
-        long long result = nonCycleSum + completeCycles * cycleSum;
-        for (long long i = cycleStartIndex; i < cycleStartIndex + remainingValues; i++) {
-            result += prefixSum[i];
-        }
+    int cycle_len = value_seq.size() - cycle_start;
+    long long cycle_sum = prefix_sum.back() - (cycle_start > 0 ? prefix_sum[cycle_start - 1] : 0);
 
-        std::cout << result << std::endl;
+    long long total = 0;
+    if (N <= value_seq.size()) {
+        total = prefix_sum[N - 1];
     } else {
-        std::cout << prefixSum[N - 1] << std::endl;
+        total = prefix_sum[cycle_start - 1];
+        long long remaining = N - cycle_start;
+        total += (remaining / cycle_len) * cycle_sum;
+        long long extra = remaining % cycle_len;
+        if (extra > 0) {
+            total += prefix_sum[cycle_start + extra - 1] - (cycle_start > 0 ? prefix_sum[cycle_start - 1] : 0);
+        }
     }
 
+    cout << total << endl;
     return 0;
 }

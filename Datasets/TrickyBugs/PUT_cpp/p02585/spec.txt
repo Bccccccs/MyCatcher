@@ -1,0 +1,35 @@
+Problem Description
+
+There are N positions arranged as a permutation P.
+Position i has a score C_i.
+
+You choose a starting position and move exactly K times.
+Each move sends you from position x to position P_x, and you gain score C_{new position}.
+
+Find the maximum total score you can obtain.
+
+Input Format
+
+The first line contains two integers:
+
+N K
+
+The second line contains N integers:
+
+P1 P2 ... PN
+
+The third line contains N integers:
+
+C1 C2 ... CN
+
+Constraints
+
+1 <= N <= 5000
+1 <= K <= 10^9
+1 <= Pi <= N
+P is a permutation of 1..N
+-10^9 <= Ci <= 10^9
+
+Output Format
+
+Output a single integer: the maximum possible total score.

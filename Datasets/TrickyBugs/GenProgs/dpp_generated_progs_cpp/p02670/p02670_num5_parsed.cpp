@@ -1,42 +1,152 @@
 #include <iostream>
 #include <vector>
-
+#include <queue>
+#include <algorithm>
 using namespace std;
 
+const int INF = 1e9;
+const int dx[4] = {1, -1, 0, 0};
+const int dy[4] = {0, 0, 1, -1};
+
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int N;
     cin >> N;
-
-    vector<int> P(N * N + 1);
-    for (int i = 1; i <= N * N; i++) {
-        cin >> P[i];
+    int total = N * N;
+    vector<int> order(total);
+    for (int i = 0; i < total; ++i) {
+        cin >> order[i];
+        order[i]--;
     }
 
-    vector<int> row(N * N + 1), col(N * N + 1);
-    for (int i = 1; i <= N * N; i++) {
-        int r = (P[i] - 1) / N + 1;
-        int c = (P[i] - 1) % N + 1;
-        row[i] = r;
-        col[i] = c;
-    }
+    vector<vector<int>> dist(N, vector<int>(N, INF));
+    queue<pair<int, int>> q;
 
-    vector<vector<int>> f(N + 1, vector<int>(N + 1));
-    for (int i = 1; i <= N * N; i++) {
-        f[row[i]][col[i]] = 1;
-        if (row[i] > 1 && f[row[i] - 1][col[i]]) {
-            f[row[i]][col[i]] = max(f[row[i]][col[i]], f[row[i] - 1][col[i]] + 1);
-        }
-        if (col[i] > 1 && f[row[i]][col[i] - 1]) {
-            f[row[i]][col[i]] = max(f[row[i]][col[i]], f[row[i]][col[i] - 1] + 1);
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            if (i == 0 || i == N - 1 || j == 0 || j == N - 1) {
+                dist[i][j] = 1;
+                q.emplace(i, j);
+            }
         }
     }
 
-    int ans = 0;
-    for (int i = 1; i <= N * N; i++) {
-        ans = max(ans, f[row[i]][col[i]]);
+    while (!q.empty()) {
+        auto [x, y] = q.front();
+        q.pop();
+        for (int d = 0; d < 4; ++d) {
+            int nx = x + dx[d];
+            int ny = y + dy[d];
+            if (nx >= 0 && nx < N && ny >= 0 && ny < N && dist[nx][ny] > dist[x][y] + 1) {
+                dist[nx][ny] = dist[x][y] + 1;
+                q.emplace(nx, ny);
+            }
+        }
     }
 
-    cout << ans - 1 << endl;
+    vector<vector<bool>> occupied(N, vector<bool>(N, false));
+    vector<int> parent(total);
+    for (int i = 0; i < total; ++i) parent[i] = i;
 
+    function<int(int)> find = [&](int x) {
+        if (parent[x] != x) parent[x] = find(parent[x]);
+        return parent[x];
+    };
+
+    auto union_sets = [&](int a, int b) {
+        a = find(a);
+        b = find(b);
+        if (a != b) {
+            parent[b] = a;
+        }
+    };
+
+    auto cell_id = [&](int x, int y) {
+        return x * N + y;
+    };
+
+    long long total_inconvenience = 0;
+
+    for (int idx : order) {
+        int x = idx / N;
+        int y = idx % N;
+        int inconvenience = dist[x][y];
+        total_inconvenience += inconvenience;
+
+        occupied[x][y] = true;
+        int id = cell_id(x, y);
+        for (int d = 0; d < 4; ++d) {
+            int nx = x + dx[d];
+            int ny = y + dy[d];
+            if (nx >= 0 && nx < N && ny >= 0 && ny < N && occupied[nx][ny]) {
+                union_sets(id, cell_id(nx, ny));
+            }
+        }
+
+        if (inconvenience > 1) {
+            vector<pair<int, int>> component_cells;
+            queue<pair<int, int>> comp_q;
+            vector<vector<bool>> visited(N, vector<bool>(N, false));
+            comp_q.emplace(x, y);
+            visited[x][y] = true;
+            int root = find(id);
+
+            while (!comp_q.empty()) {
+                auto [cx, cy] = comp_q.front();
+                comp_q.pop();
+                component_cells.emplace_back(cx, cy);
+                for (int d = 0; d < 4; ++d) {
+                    int nx = cx + dx[d];
+                    int ny = cy + dy[d];
+                    if (nx >= 0 && nx < N && ny >= 0 && ny < N && occupied[nx][ny] && !visited[nx][ny]) {
+                        if (find(cell_id(nx, ny)) == root) {
+                            visited[nx][ny] = true;
+                            comp_q.emplace(nx, ny);
+                        }
+                    }
+                }
+            }
+
+            int min_dist = INF;
+            for (auto [cx, cy] : component_cells) {
+                for (int d = 0; d < 4; ++d) {
+                    int nx = cx + dx[d];
+                    int ny = cy + dy[d];
+                    if (nx >= 0 && nx < N && ny >= 0 && ny < N && !occupied[nx][ny]) {
+                        min_dist = min(min_dist, dist[nx][ny] + 1);
+                    }
+                }
+                if (cx == 0 || cx == N - 1 || cy == 0 || cy == N - 1) {
+                    min_dist = 1;
+                }
+            }
+
+            if (min_dist < INF) {
+                for (auto [cx, cy] : component_cells) {
+                    dist[cx][cy] = min_dist;
+                }
+                queue<pair<int, int>> update_q;
+                for (auto [cx, cy] : component_cells) {
+                    update_q.emplace(cx, cy);
+                }
+                while (!update_q.empty()) {
+                    auto [cx, cy] = update_q.front();
+                    update_q.pop();
+                    for (int d = 0; d < 4; ++d) {
+                        int nx = cx + dx[d];
+                        int ny = cy + dy[d];
+                        if (nx >= 0 && nx < N && ny >= 0 && ny < N && occupied[nx][ny] && dist[nx][ny] > dist[cx][cy] + 1) {
+                            dist[nx][ny] = dist[cx][cy] + 1;
+                            update_q.emplace(nx, ny);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    cout << total_inconvenience << '\n';
     return 0;
 }

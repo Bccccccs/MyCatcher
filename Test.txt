@@ -1,0 +1,646 @@
+/Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/start/run_dif_test.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02550/sol_129.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02550 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02550 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02550 --timeout 2.0
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02574/sol_7.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02574 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02574 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02574 --timeout 2.0
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02572/sol_85.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02572 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02572 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02572 --timeout 2.0
+
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02547/sol_31.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02547 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02547 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02547 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_001.in status=AGREE votes=9/10 oracle='Yes' put='Yes'
+[VOTE] test_002.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_003.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_004.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_005.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_006.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_007.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_008.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_009.in status=AGREE votes=10/10 oracle='No' put='No'
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02547
+[OK] p02547
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02575/sol_54.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02575 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02575 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02575 --timeout 2.0
+[VOTE] test_000.in status=PUT_FAIL votes=10/10 oracle='362291306'
+[VOTE] test_001.in status=PUT_FAIL votes=10/10 oracle='20836934354'
+[VOTE] test_002.in status=PUT_FAIL votes=10/10 oracle='40610720528'
+[VOTE] test_003.in status=PUT_FAIL votes=10/10 oracle='5234886919'
+[VOTE] test_004.in status=PUT_FAIL votes=10/10 oracle='1582505993'
+[VOTE] test_005.in status=PUT_FAIL votes=10/10 oracle='19076623168'
+[VOTE] test_006.in status=PUT_FAIL votes=10/10 oracle='42853119385'
+[VOTE] test_007.in status=PUT_FAIL votes=10/10 oracle='13800623227'
+[VOTE] test_008.in status=PUT_FAIL votes=10/10 oracle='11816860548'
+[VOTE] test_009.in status=PUT_FAIL votes=10/10 oracle='682004497'
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02550
+[OK] p02550
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02577/sol_36.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02577 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02577 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02577 --timeout 2.0
+[VOTE] test_000.in status=FOUND votes=10/10 oracle='No' put='Yes' case=case_0001
+[VOTE] test_001.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_002.in status=FOUND votes=10/10 oracle='No' put='Yes' case=case_0003
+[VOTE] test_003.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_004.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_005.in status=AGREE votes=9/10 oracle='Yes' put='Yes'
+[VOTE] test_006.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_007.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_008.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_009.in status=AGREE votes=10/10 oracle='No' put='No'
+[DONE] saved 2 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02577
+[OK] p02577
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02578/sol_19.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02578 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02578 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02578 --timeout 2.0
+[VOTE] test_000.in status=FOUND votes=10/10 oracle='476811596741' put='7623798905771' case=case_0001
+[VOTE] test_001.in status=FOUND votes=10/10 oracle='166825056424' put='2687779316355' case=case_0002
+[VOTE] test_002.in status=FOUND votes=10/10 oracle='82669' put='1939668612469' case=case_0003
+[VOTE] test_003.in status=FOUND votes=10/10 oracle='69308348339' put='1206502207673' case=case_0004
+[VOTE] test_004.in status=FOUND votes=10/10 oracle='52619' put='1595706651819' case=case_0005
+[VOTE] test_005.in status=FOUND votes=10/10 oracle='125407' put='2587647744031' case=case_0006
+[VOTE] test_006.in status=FOUND votes=10/10 oracle='0' put='8065658336382' case=case_0007
+[VOTE] test_007.in status=FOUND votes=10/10 oracle='0' put='6924192758440' case=case_0008
+[VOTE] test_008.in status=FOUND votes=10/10 oracle='0' put='5860560895808' case=case_0009
+[VOTE] test_009.in status=FOUND votes=10/10 oracle='25119' put='1081697537785' case=case_0010
+[DONE] saved 10 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02578
+[OK] p02578
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02580/sol_39.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02580 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02580 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02580 --timeout 2.0
+[VOTE] test_000.in status=PUT_FAIL votes=10/10 oracle='15'
+[VOTE] test_001.in status=PUT_FAIL votes=10/10 oracle='19'
+[VOTE] test_002.in status=PUT_FAIL votes=10/10 oracle='15'
+[VOTE] test_003.in status=PUT_FAIL votes=10/10 oracle='48'
+[VOTE] test_004.in status=PUT_FAIL votes=10/10 oracle='20'
+[VOTE] test_005.in status=PUT_FAIL votes=10/10 oracle='17'
+[VOTE] test_006.in status=PUT_FAIL votes=10/10 oracle='39'
+[VOTE] test_007.in status=PUT_FAIL votes=10/10 oracle='12'
+[VOTE] test_008.in status=PUT_FAIL votes=10/10 oracle='31'
+[VOTE] test_009.in status=PUT_FAIL votes=10/10 oracle='20'
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02580
+[OK] p02580
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02581/sol_154.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02581 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02581 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02581 --timeout 2.0
+[VOTE] test_000.in status=FOUND votes=6/10 oracle='setwise coprime' put='pairwise coprime' case=case_0001
+[VOTE] test_001.in status=NO_MAJORITY votes=5/10 oracle='setwise coprime'
+[VOTE] test_002.in status=FOUND votes=6/10 oracle='setwise coprime' put='pairwise coprime' case=case_0003
+[VOTE] test_003.in status=FOUND votes=6/10 oracle='setwise coprime' put='pairwise coprime' case=case_0004
+[VOTE] test_004.in status=NO_MAJORITY votes=5/10 oracle='setwise coprime'
+[VOTE] test_005.in status=NO_MAJORITY votes=5/10 oracle='setwise coprime'
+[VOTE] test_006.in status=FOUND votes=6/10 oracle='setwise coprime' put='pairwise coprime' case=case_0007
+[VOTE] test_007.in status=FOUND votes=6/10 oracle='setwise coprime' put='pairwise coprime' case=case_0008
+[VOTE] test_008.in status=NO_MAJORITY votes=5/10 oracle='setwise coprime'
+[VOTE] test_009.in status=FOUND votes=6/10 oracle='setwise coprime' put='pairwise coprime' case=case_0010
+[VARIANT_FAIL_SUMMARY]
+  p02574_num5_parsed.cpp: 10
+[DONE] saved 6 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02574
+[OK] p02574
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02583/sol_125.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02583 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02583 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02583 --timeout 2.0
+[VOTE] test_001.in status=AGREE votes=9/10 oracle='7641' put='7641'
+[VOTE] test_002.in status=AGREE votes=9/10 oracle='33380' put='33380'
+[VOTE] test_003.in status=AGREE votes=9/10 oracle='14537' put='14537'
+[VOTE] test_004.in status=AGREE votes=9/10 oracle='6375' put='6375'
+[VOTE] test_005.in status=AGREE votes=9/10 oracle='34043' put='34043'
+[VOTE] test_006.in status=AGREE votes=9/10 oracle='4123' put='4123'
+[VOTE] test_007.in status=AGREE votes=9/10 oracle='11992' put='11992'
+[VOTE] test_008.in status=AGREE votes=9/10 oracle='39197' put='39197'
+[VOTE] test_009.in status=AGREE votes=9/10 oracle='43570' put='43570'
+[VOTE] test_010.in status=AGREE votes=9/10 oracle='45804' put='45804'
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02583
+[OK] p02583
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02585/sol_39.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02585 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02585 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02585 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=9/10 oracle='11356251209243769' put='11356251209243769'
+[VOTE] test_001.in status=AGREE votes=8/10 oracle='3956115445051552' put='3956115445051552'
+[VOTE] test_002.in status=PUT_FAIL votes=9/10 oracle='91844746374923631'
+[VOTE] test_003.in status=AGREE votes=9/10 oracle='76575858909810222' put='76575858909810222'
+[VOTE] test_004.in status=AGREE votes=10/10 oracle='12229741680623527' put='12229741680623527'
+[VOTE] test_005.in status=AGREE votes=8/10 oracle='35951760082699900' put='35951760082699900'
+[VOTE] test_006.in status=AGREE votes=10/10 oracle='4180033964' put='4180033964'
+[VOTE] test_007.in status=AGREE votes=9/10 oracle='50382294986046159' put='50382294986046159'
+[VOTE] test_008.in status=AGREE votes=9/10 oracle='11870519023408346' put='11870519023408346'
+[VOTE] test_009.in status=AGREE votes=8/10 oracle='831053448741318530' put='831053448741318530'
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02585
+[OK] p02585
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02589/sol_18.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02589 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02589 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02589 --timeout 2.0
+[VOTE] test_000.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_001.in status=NO_MAJORITY votes=1/10 oracle='66'
+[VOTE] test_002.in status=NO_MAJORITY votes=2/10 oracle='48'
+[VOTE] test_003.in status=NO_MAJORITY votes=3/10 oracle='0'
+[VOTE] test_004.in status=NO_MAJORITY votes=3/10 oracle='15'
+[VOTE] test_005.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_006.in status=AGREE votes=7/10 oracle='2' put='2'
+[VOTE] test_007.in status=NO_MAJORITY votes=3/10 oracle='0'
+[VOTE] test_008.in status=NO_MAJORITY votes=2/10 oracle='0'
+[VOTE] test_009.in status=NO_MAJORITY votes=3/10 oracle='0'
+[VARIANT_FAIL_SUMMARY]
+  p02581_num0_parsed.cpp: 4
+  p02581_num1_parsed.cpp: 4
+  p02581_num2_parsed.cpp: 4
+  p02581_num3_parsed.cpp: 4
+  p02581_num4_parsed.cpp: 4
+  p02581_num5_parsed.cpp: 4
+  p02581_num6_parsed.cpp: 4
+  p02581_num7_parsed.cpp: 2
+  p02581_num8_parsed.cpp: 2
+  p02581_num9_parsed.cpp: 4
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02581
+[OK] p02581
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02590/sol_2.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02590 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02590 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02590 --timeout 2.0
+[VOTE] test_000.in status=NO_MAJORITY votes=1/10 oracle='2428'
+[VOTE] test_001.in status=NO_MAJORITY votes=1/10 oracle='275'
+[VOTE] test_002.in status=NO_MAJORITY votes=1/10 oracle='28785754'
+[VOTE] test_003.in status=NO_MAJORITY votes=1/10 oracle='1048630'
+[VOTE] test_004.in status=NO_MAJORITY votes=1/10 oracle='16428811'
+[VOTE] test_005.in status=NO_MAJORITY votes=1/10 oracle='6792307'
+[VOTE] test_006.in status=NO_MAJORITY votes=1/10 oracle='15362980'
+[VOTE] test_007.in status=NO_MAJORITY votes=1/10 oracle='30366'
+[VOTE] test_008.in status=NO_MAJORITY votes=1/10 oracle='6195879'
+[VOTE] test_009.in status=NO_MAJORITY votes=1/10 oracle='25'
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02589
+[OK] p02589
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02594/sol_52.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02594 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02594 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02594 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_001.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_002.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_003.in status=FOUND votes=10/10 oracle='Yes' put='No' case=case_0004
+[VOTE] test_004.in status=FOUND votes=10/10 oracle='Yes' put='No' case=case_0005
+[VOTE] test_005.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_006.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_007.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_008.in status=FOUND votes=10/10 oracle='Yes' put='No' case=case_0009
+[VOTE] test_009.in status=AGREE votes=10/10 oracle='No' put='No'
+[DONE] saved 3 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02594
+[OK] p02594
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02595/sol_79.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02595 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02595 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02595 --timeout 2.0
+[VOTE] test_000.in status=NO_MAJORITY votes=3/10 oracle='-1'
+[VOTE] test_001.in status=NO_MAJORITY votes=4/10 oracle='-1'
+[VOTE] test_003.in status=NO_MAJORITY votes=1/10 oracle='44497'
+[VOTE] test_004.in status=NO_MAJORITY votes=2/10 oracle='1999'
+[VOTE] test_005.in status=NO_MAJORITY votes=1/10 oracle='99999'
+[VOTE] test_006.in status=NO_MAJORITY votes=2/10 oracle='192930'
+[VOTE] test_007.in status=NO_MAJORITY votes=1/10 oracle='399999'
+[VARIANT_FAIL_SUMMARY]
+  p02575_num0_parsed.cpp: 4
+  p02575_num2_parsed.cpp: 4
+  p02575_num4_parsed.cpp: 6
+  p02575_num5_parsed.cpp: 4
+  p02575_num6_parsed.cpp: 4
+  p02575_num7_parsed.cpp: 2
+  p02575_num8_parsed.cpp: 7
+  p02575_num9_parsed.cpp: 5
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02575
+[OK] p02575
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02596/sol_50.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02596 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02596 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02596 --timeout 2.0
+[VOTE] test_000.in status=FOUND votes=8/10 oracle='2014' put='1' case=case_0001
+[VOTE] test_001.in status=FOUND votes=8/10 oracle='46523' put='45' case=case_0002
+[VOTE] test_002.in status=FOUND votes=8/10 oracle='1830' put='4' case=case_0003
+[VOTE] test_003.in status=FOUND votes=8/10 oracle='71454' put='45' case=case_0004
+[VOTE] test_004.in status=FOUND votes=8/10 oracle='42684' put='95' case=case_0005
+[VOTE] test_005.in status=FOUND votes=8/10 oracle='86441' put='115' case=case_0006
+[VOTE] test_006.in status=FOUND votes=8/10 oracle='25197' put='41' case=case_0007
+[VOTE] test_007.in status=FOUND votes=8/10 oracle='4' put='1' case=case_0008
+[VOTE] test_008.in status=FOUND votes=8/10 oracle='69904' put='113' case=case_0009
+[VOTE] test_009.in status=FOUND votes=8/10 oracle='15929' put='22' case=case_0010
+[DONE] saved 10 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02595
+[OK] p02595
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02597/sol_78.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02597 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02597 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02597 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=10/10 oracle='3502' put='3502'
+[VOTE] test_001.in status=AGREE votes=10/10 oracle='8' put='8'
+[VOTE] test_002.in status=AGREE votes=10/10 oracle='1896' put='1896'
+[VOTE] test_003.in status=AGREE votes=10/10 oracle='1235' put='1235'
+[VOTE] test_004.in status=AGREE votes=10/10 oracle='670' put='670'
+[VOTE] test_005.in status=AGREE votes=10/10 oracle='10' put='10'
+[VOTE] test_006.in status=AGREE votes=10/10 oracle='1023' put='1023'
+[VOTE] test_007.in status=AGREE votes=10/10 oracle='14' put='14'
+[VOTE] test_008.in status=AGREE votes=10/10 oracle='987' put='987'
+[VOTE] test_009.in status=AGREE votes=10/10 oracle='34474' put='34474'
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02597
+[OK] p02597
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02598/sol_6.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02598 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02598 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02598 --timeout 2.0
+[VOTE] test_001.in status=AGREE votes=9/10 oracle='1' put='1'
+[VOTE] test_002.in status=NO_MAJORITY votes=5/10 oracle='0'
+[VOTE] test_003.in status=AGREE votes=10/10 oracle='1' put='1'
+[VOTE] test_004.in status=NO_MAJORITY votes=5/10 oracle='0'
+[VOTE] test_005.in status=AGREE votes=9/10 oracle='999697797' put='999697797'
+[VOTE] test_006.in status=AGREE votes=9/10 oracle='508' put='508'
+[VOTE] test_007.in status=FOUND votes=9/10 oracle='333' put='334' case=case_0007
+[VOTE] test_008.in status=AGREE votes=9/10 oracle='100000' put='100000'
+[VOTE] test_009.in status=NO_MAJORITY votes=5/10 oracle='0'
+[VOTE] test_010.in status=NO_MAJORITY votes=5/10 oracle='0'
+[DONE] saved 1 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02598
+[OK] p02598
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02599/sol_61.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02599 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02599 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02599 --timeout 2.0
+[VOTE] test_000.in status=NO_MAJORITY votes=4/10 oracle='-1'
+[VOTE] test_001.in status=NO_MAJORITY votes=3/10 oracle='195225786'
+[VOTE] test_002.in status=NO_MAJORITY votes=3/10 oracle='3003'
+[VOTE] test_003.in status=NO_MAJORITY votes=3/10 oracle='-1'
+[VOTE] test_004.in status=NO_MAJORITY votes=3/10 oracle='195225786'
+[VOTE] test_005.in status=NO_MAJORITY votes=3/10 oracle='195225786'
+[VOTE] test_006.in status=NO_MAJORITY votes=3/10 oracle='195225786'
+[VOTE] test_007.in status=NO_MAJORITY votes=3/10 oracle='195225786'
+[VOTE] test_008.in status=NO_MAJORITY votes=3/10 oracle='53658'
+[VOTE] test_009.in status=NO_MAJORITY votes=4/10 oracle='-1'
+[VARIANT_FAIL_SUMMARY]
+  p02596_num0_parsed.cpp: 10
+  p02596_num1_parsed.cpp: 10
+  p02596_num4_parsed.cpp: 10
+  p02596_num5_parsed.cpp: 10
+  p02596_num6_parsed.cpp: 10
+  p02596_num7_parsed.cpp: 10
+  p02596_num9_parsed.cpp: 8
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02596
+[OK] p02596
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02613/sol_148.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02613 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02613 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02613 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=10/10 oracle='RE x 1881' put='RE x 1881'
+[VOTE] test_001.in status=AGREE votes=10/10 oracle='RE x 24851' put='RE x 24851'
+[VOTE] test_002.in status=AGREE votes=10/10 oracle='RE x 12329' put='RE x 12329'
+[VOTE] test_003.in status=AGREE votes=10/10 oracle='RE x 15689' put='RE x 15689'
+[VOTE] test_004.in status=AGREE votes=10/10 oracle='RE x 21543' put='RE x 21543'
+[VOTE] test_005.in status=AGREE votes=10/10 oracle='RE x 19237' put='RE x 19237'
+[VOTE] test_006.in status=AGREE votes=10/10 oracle='RE x 23341' put='RE x 23341'
+[VOTE] test_007.in status=AGREE votes=10/10 oracle='RE x 17429' put='RE x 17429'
+[VOTE] test_008.in status=AGREE votes=10/10 oracle='RE x 1774' put='RE x 1774'
+[VOTE] test_009.in status=AGREE votes=10/10 oracle='RE x 340' put='RE x 340'
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02613
+[OK] p02613
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02616/sol_158.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02616 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02616 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02616 --timeout 2.0
+[VOTE] test_000.in status=FOUND votes=7/10 oracle='906625957' put='590579558' case=case_0001
+[VOTE] test_001.in status=AGREE votes=10/10 oracle='127997948' put='127997948'
+[VOTE] test_002.in status=AGREE votes=10/10 oracle='927825549' put='927825549'
+[VOTE] test_003.in status=NO_MAJORITY votes=4/10 oracle='138185147'
+[VOTE] test_004.in status=AGREE votes=9/10 oracle='799486812' put='799486812'
+[VOTE] test_005.in status=AGREE votes=10/10 oracle='413712500' put='413712500'
+[VOTE] test_006.in status=AGREE votes=6/10 oracle='908076161' put='908076161'
+[VOTE] test_007.in status=AGREE votes=9/10 oracle='362384864' put='362384864'
+[VOTE] test_008.in status=FOUND votes=6/10 oracle='927973890' put='586293212' case=case_0009
+[VOTE] test_009.in status=FOUND votes=7/10 oracle='684016415' put='50808218' case=case_0010
+[DONE] saved 3 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02616
+[OK] p02616
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02623/sol_115.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02623 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02623 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02623 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=9/10 oracle='1863' put='1863'
+[VOTE] test_001.in status=FOUND votes=9/10 oracle='499' put='247' case=case_0002
+[VOTE] test_002.in status=FOUND votes=9/10 oracle='1046' put='9' case=case_0003
+[VOTE] test_003.in status=AGREE votes=9/10 oracle='1025' put='1025'
+[VOTE] test_004.in status=FOUND votes=9/10 oracle='1339' put='197' case=case_0005
+[VOTE] test_005.in status=FOUND votes=9/10 oracle='78971' put='77717' case=case_0006
+[VOTE] test_006.in status=FOUND votes=9/10 oracle='190089' put='118989' case=case_0007
+[VOTE] test_007.in status=AGREE votes=9/10 oracle='129640' put='129640'
+[VOTE] test_008.in status=FOUND votes=9/10 oracle='47818' put='21' case=case_0009
+[VOTE] test_009.in status=AGREE votes=9/10 oracle='184685' put='184685'
+[DONE] saved 6 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02623
+[OK] p02623
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02626/sol_176.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02626 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02626 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02626 --timeout 2.0
+[VOTE] test_000.in status=FOUND votes=10/10 oracle='879139559' put='236488947' case=case_0001
+[VOTE] test_001.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_002.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_003.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_004.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_005.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_006.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_007.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_008.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_009.in status=NO_VARIANT_OUTPUT votes=0/10
+[VARIANT_FAIL_SUMMARY]
+  p02572_num0_parsed.cpp: 9
+  p02572_num1_parsed.cpp: 9
+  p02572_num2_parsed.cpp: 9
+  p02572_num3_parsed.cpp: 9
+  p02572_num4_parsed.cpp: 9
+  p02572_num5_parsed.cpp: 9
+  p02572_num6_parsed.cpp: 9
+  p02572_num7_parsed.cpp: 9
+  p02572_num8_parsed.cpp: 9
+  p02572_num9_parsed.cpp: 9
+[DONE] saved 1 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02572
+[OK] p02572
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02628/sol_82.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02628 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02628 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02628 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=7/10 oracle='-1' put='-1'
+[VOTE] test_001.in status=NO_MAJORITY votes=5/10 oracle='-1'
+[VOTE] test_002.in status=AGREE votes=7/10 oracle='-1' put='-1'
+[VOTE] test_003.in status=AGREE votes=7/10 oracle='-1' put='-1'
+[VOTE] test_004.in status=AGREE votes=8/10 oracle='-1' put='-1'
+[VOTE] test_005.in status=AGREE votes=7/10 oracle='-1' put='-1'
+[VOTE] test_006.in status=AGREE votes=7/10 oracle='-1' put='-1'
+[VOTE] test_007.in status=AGREE votes=7/10 oracle='-1' put='-1'
+[VOTE] test_008.in status=AGREE votes=7/10 oracle='-1' put='-1'
+[VOTE] test_009.in status=AGREE votes=8/10 oracle='-1' put='-1'
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02626
+[OK] p02626
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02635/sol_124.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02635 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02635 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02635 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=10/10 oracle='121526934' put='121526934'
+[VOTE] test_001.in status=AGREE votes=10/10 oracle='886126712' put='886126712'
+[VOTE] test_002.in status=AGREE votes=10/10 oracle='-565408086' put='-565408086'
+[VOTE] test_003.in status=FOUND votes=10/10 oracle='201531157' put='-459999589' case=case_0004
+[VOTE] test_004.in status=AGREE votes=10/10 oracle='254049194' put='254049194'
+[VOTE] test_005.in status=AGREE votes=10/10 oracle='-1690253318' put='-1690253318'
+[VOTE] test_006.in status=AGREE votes=10/10 oracle='-1548704203' put='-1548704203'
+[VOTE] test_007.in status=AGREE votes=10/10 oracle='-2126075471' put='-2126075471'
+[VOTE] test_008.in status=FOUND votes=10/10 oracle='-890116358' put='-1644945193' case=case_0009
+[VOTE] test_009.in status=FOUND votes=10/10 oracle='1490297427' put='823174181' case=case_0010
+[DONE] saved 3 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02628
+[OK] p02628
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02636/sol_34.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02636 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02636 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02636 --timeout 2.0
+[VOTE] test_000.in status=FOUND votes=8/10 oracle='122752922' put='363432620' case=case_0001
+[VOTE] test_001.in status=FOUND votes=8/10 oracle='442978742' put='776139440' case=case_0002
+[VOTE] test_002.in status=FOUND votes=8/10 oracle='2097152' put='40054' case=case_0003
+[VOTE] test_003.in status=FOUND votes=8/10 oracle='868476537' put='248942138' case=case_0004
+[VOTE] test_004.in status=FOUND votes=8/10 oracle='441249859' put='703344858' case=case_0005
+[VOTE] test_005.in status=FOUND votes=8/10 oracle='814591092' put='557180710' case=case_0006
+[VOTE] test_006.in status=FOUND votes=8/10 oracle='203647773' put='520547840' case=case_0007
+[VOTE] test_007.in status=FOUND votes=8/10 oracle='417706019' put='965873607' case=case_0008
+[VOTE] test_008.in status=FOUND votes=8/10 oracle='35577218' put='239304433' case=case_0009
+[VOTE] test_009.in status=FOUND votes=8/10 oracle='919222256' put='143826010' case=case_0010
+[DONE] saved 10 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02636
+[OK] p02636
+[SKIP] tests not found: /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02638
+[SKIP] tests not found: /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02641
+[SKIP] tests not found: /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02652
+[SKIP] tests not found: /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02653
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02659/sol_29.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02659 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02659 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02659 --timeout 2.0
+[VOTE] test_000.in status=NO_MAJORITY votes=1/10 oracle='764734807'
+[VOTE] test_001.in status=NO_MAJORITY votes=1/10 oracle='356273721'
+[VOTE] test_002.in status=NO_MAJORITY votes=1/10 oracle='374823172'
+[VOTE] test_003.in status=NO_MAJORITY votes=1/10 oracle='505164914'
+[VOTE] test_004.in status=NO_MAJORITY votes=1/10 oracle='391488316'
+[VOTE] test_005.in status=NO_MAJORITY votes=1/10 oracle='162898967'
+[VOTE] test_006.in status=NO_MAJORITY votes=1/10 oracle='510367957'
+[VOTE] test_007.in status=NO_MAJORITY votes=1/10 oracle='863726829'
+[VOTE] test_008.in status=NO_MAJORITY votes=1/10 oracle='984004731'
+[VOTE] test_009.in status=NO_MAJORITY votes=2/10 oracle='0'
+[VARIANT_FAIL_SUMMARY]
+  p02635_num1_parsed.cpp: 4
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02635
+[OK] p02635
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02669/sol_6.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02669 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02669 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02669 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=8/10 oracle='101943224' put='101943224'
+[VOTE] test_001.in status=NO_MAJORITY votes=5/10 oracle='2475916861'
+[VOTE] test_002.in status=AGREE votes=8/10 oracle='1046767952' put='1046767952'
+[VOTE] test_003.in status=NO_MAJORITY votes=5/10 oracle='3304047873'
+[VOTE] test_004.in status=NO_MAJORITY votes=5/10 oracle='7751766131'
+[VOTE] test_005.in status=AGREE votes=8/10 oracle='869281957' put='869281957'
+[VOTE] test_006.in status=AGREE votes=8/10 oracle='1333961136' put='1333961136'
+[VOTE] test_007.in status=NO_MAJORITY votes=5/10 oracle='4708013947'
+[VOTE] test_008.in status=AGREE votes=8/10 oracle='331310989' put='331310989'
+[VOTE] test_009.in status=NO_MAJORITY votes=5/10 oracle='4366792207'
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02659
+[OK] p02659
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02670/sol_68.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02670 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02670 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02670 --timeout 2.0
+[VOTE] test_001.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_002.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_003.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_004.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_005.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_006.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_007.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_008.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_009.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_010.in status=NO_VARIANT_OUTPUT votes=0/10
+[VARIANT_FAIL_SUMMARY]
+  p02669_num0_parsed.cpp: 10
+  p02669_num1_parsed.cpp: 10
+  p02669_num2_parsed.cpp: 10
+  p02669_num3_parsed.cpp: 10
+  p02669_num4_parsed.cpp: 10
+  p02669_num5_parsed.cpp: 10
+  p02669_num6_parsed.cpp: 10
+  p02669_num7_parsed.cpp: 10
+  p02669_num8_parsed.cpp: 10
+  p02669_num9_parsed.cpp: 10
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02669
+[OK] p02669
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02682/sol_9.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02682 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02682 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02682 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=8/10 oracle='196676842' put='196676842'
+[VOTE] test_001.in status=NO_MAJORITY votes=5/10 oracle='852516353'
+[VOTE] test_002.in status=AGREE votes=10/10 oracle='48460314' put='48460314'
+[VOTE] test_003.in status=FOUND votes=7/10 oracle='0' put='715557943' case=case_0004
+[VOTE] test_004.in status=AGREE votes=9/10 oracle='-719117540' put='-719117540'
+[VOTE] test_005.in status=AGREE votes=8/10 oracle='1' put='1'
+[VOTE] test_006.in status=AGREE votes=7/10 oracle='-920809' put='-920809'
+[VOTE] test_008.in status=NO_MAJORITY votes=5/10 oracle='9299189'
+[VOTE] test_009.in status=AGREE votes=8/10 oracle='399496699' put='399496699'
+[DONE] saved 1 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02682
+[OK] p02682
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02683/sol_24.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02683 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02683 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02683 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=6/10 oracle='10990398063547' put='10990398063547'
+[VOTE] test_001.in status=AGREE votes=6/10 oracle='194573539730950' put='194573539730950'
+[VOTE] test_002.in status=AGREE votes=6/10 oracle='191449129841484' put='191449129841484'
+[VOTE] test_003.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_004.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_005.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_006.in status=AGREE votes=6/10 oracle='176604988141468' put='176604988141468'
+[VOTE] test_007.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_008.in status=NO_VARIANT_OUTPUT votes=0/10
+[VOTE] test_009.in status=NO_VARIANT_OUTPUT votes=0/10
+[VARIANT_FAIL_SUMMARY]
+  p02590_num0_parsed.cpp: 9
+  p02590_num1_parsed.cpp: 6
+  p02590_num2_parsed.cpp: 9
+  p02590_num3_parsed.cpp: 6
+  p02590_num4_parsed.cpp: 6
+  p02590_num5_parsed.cpp: 6
+  p02590_num6_parsed.cpp: 6
+  p02590_num7_parsed.cpp: 6
+  p02590_num8_parsed.cpp: 6
+  p02590_num9_parsed.cpp: 6
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02590
+[OK] p02590
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02689/sol_81.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02689 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02689 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02689 --timeout 2.0
+[VOTE] test_000.in status=NO_MAJORITY votes=3/10 oracle='37'
+[VOTE] test_001.in status=NO_MAJORITY votes=3/10 oracle='1944558'
+[VOTE] test_002.in status=NO_MAJORITY votes=3/10 oracle='30532212'
+[VOTE] test_003.in status=NO_MAJORITY votes=3/10 oracle='1910'
+[VOTE] test_004.in status=NO_MAJORITY votes=3/10 oracle='499465'
+[VOTE] test_005.in status=NO_MAJORITY votes=3/10 oracle='43398131'
+[VOTE] test_006.in status=NO_MAJORITY votes=3/10 oracle='16444'
+[VOTE] test_007.in status=NO_MAJORITY votes=3/10 oracle='143119'
+[VOTE] test_008.in status=NO_MAJORITY votes=3/10 oracle='56354347'
+[VOTE] test_009.in status=NO_MAJORITY votes=3/10 oracle='10383'
+[VARIANT_FAIL_SUMMARY]
+  p02670_num1_parsed.cpp: 5
+  p02670_num9_parsed.cpp: 10
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02670
+[OK] p02670
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02695/sol_2.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02695 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02695 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02695 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=10/10 oracle='387682510' put='387682510'
+[VOTE] test_001.in status=AGREE votes=10/10 oracle='751444082' put='751444082'
+[VOTE] test_002.in status=AGREE votes=10/10 oracle='-2147442103' put='-2147442103'
+[VOTE] test_003.in status=AGREE votes=10/10 oracle='-1' put='-1'
+[VOTE] test_004.in status=AGREE votes=10/10 oracle='-1' put='-1'
+[VOTE] test_005.in status=AGREE votes=10/10 oracle='-2055314800' put='-2055314800'
+[VOTE] test_006.in status=FOUND votes=10/10 oracle='1387312180' put='-1' case=case_0007
+[VOTE] test_007.in status=AGREE votes=10/10 oracle='-1' put='-1'
+[VOTE] test_008.in status=AGREE votes=10/10 oracle='565114344' put='565114344'
+[VOTE] test_009.in status=AGREE votes=10/10 oracle='137991935' put='137991935'
+[DONE] saved 1 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02683
+[OK] p02683
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02700/sol_158.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02700 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02700 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02700 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=7/10 oracle='0' put='0'
+[VOTE] test_001.in status=AGREE votes=6/10 oracle='288021300' put='288021300'
+[VOTE] test_002.in status=AGREE votes=6/10 oracle='601843423' put='601843423'
+[VOTE] test_003.in status=NO_MAJORITY votes=5/10 oracle='855514450'
+[VOTE] test_004.in status=FOUND votes=7/10 oracle='2145707319' put='4903876079' case=case_0005
+[VOTE] test_005.in status=FOUND votes=8/10 oracle='2142990370' put='3468591896' case=case_0006
+[VOTE] test_006.in status=AGREE votes=6/10 oracle='1556537190' put='1556537190'
+[VOTE] test_007.in status=FOUND votes=6/10 oracle='2140163089' put='2624275769' case=case_0008
+[VOTE] test_008.in status=FOUND votes=6/10 oracle='2145440480' put='3917172546' case=case_0009
+[VOTE] test_009.in status=NO_MAJORITY votes=5/10 oracle='750605628'
+[VARIANT_FAIL_SUMMARY]
+  p02695_num5_parsed.cpp: 10
+  p02695_num7_parsed.cpp: 10
+[DONE] saved 4 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02695
+[OK] p02695
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02599/sol_61.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02599 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02599 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02599 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=10/10 oracle='4061' put='4061'
+[VOTE] test_001.in status=AGREE votes=10/10 oracle='8441' put='8441'
+[VOTE] test_002.in status=AGREE votes=10/10 oracle='9425' put='9425'
+[VOTE] test_003.in status=AGREE votes=10/10 oracle='3618' put='3618'
+[VOTE] test_004.in status=AGREE votes=10/10 oracle='6406' put='6406'
+[VOTE] test_005.in status=AGREE votes=10/10 oracle='52521' put='52521'
+[VOTE] test_006.in status=AGREE votes=10/10 oracle='20543' put='20543'
+[VOTE] test_007.in status=AGREE votes=10/10 oracle='30530' put='30530'
+[VOTE] test_008.in status=AGREE votes=10/10 oracle='31355' put='31355'
+[VOTE] test_009.in status=AGREE votes=10/10 oracle='80802' put='80802'
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02599
+[OK] p02599
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02689/sol_81.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02689 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02689 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02689 --timeout 2.0
+[VOTE] test_000.in status=FOUND votes=10/10 oracle='3152' put='-297251664' case=case_0001
+[VOTE] test_001.in status=FOUND votes=10/10 oracle='8572' put='-297246244' case=case_0002
+[VOTE] test_002.in status=FOUND votes=10/10 oracle='14567' put='-297240249' case=case_0003
+[VOTE] test_003.in status=FOUND votes=10/10 oracle='20743' put='-297234073' case=case_0004
+[VOTE] test_004.in status=FOUND votes=10/10 oracle='26866' put='-297227950' case=case_0005
+[VOTE] test_005.in status=FOUND votes=10/10 oracle='33238' put='-297221578' case=case_0006
+[VOTE] test_006.in status=FOUND votes=10/10 oracle='39431' put='-297215385' case=case_0007
+[VOTE] test_007.in status=FOUND votes=10/10 oracle='45679' put='-297209137' case=case_0008
+[VOTE] test_008.in status=FOUND votes=10/10 oracle='51907' put='-297202909' case=case_0009
+[VOTE] test_009.in status=FOUND votes=10/10 oracle='58308' put='-297196508' case=case_0010
+[DONE] saved 10 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02689
+[OK] p02689
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02708/sol_185.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02708 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02708 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02708 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=10/10 oracle='Yes' put='Yes'
+[VOTE] test_001.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_002.in status=AGREE votes=10/10 oracle='Yes' put='Yes'
+[VOTE] test_003.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_004.in status=FOUND votes=10/10 oracle='No' put='Yes' case=case_0005
+[VOTE] test_005.in status=AGREE votes=10/10 oracle='No' put='No'
+[VOTE] test_006.in status=AGREE votes=10/10 oracle='Yes' put='Yes'
+[VOTE] test_007.in status=AGREE votes=10/10 oracle='Yes' put='Yes'
+[VOTE] test_008.in status=AGREE votes=10/10 oracle='Yes' put='Yes'
+[VOTE] test_009.in status=AGREE votes=10/10 oracle='No' put='No'
+[DONE] saved 1 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02700
+[OK] p02700
+[SKIP] tests not found: /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02709
+[SKIP] tests not found: /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02715
+[SKIP] tests not found: /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02716
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02702/sol_168.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02702 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02702 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02702 --timeout 2.0
+[VOTE] test_000.in status=AGREE votes=10/10 oracle='101465' put='101465'
+[VOTE] test_001.in status=AGREE votes=10/10 oracle='400522' put='400522'
+[VOTE] test_002.in status=AGREE votes=10/10 oracle='896112' put='896112'
+[VOTE] test_003.in status=AGREE votes=10/10 oracle='1592596' put='1592596'
+[VOTE] test_004.in status=AGREE votes=10/10 oracle='2487162' put='2487162'
+[VOTE] test_005.in status=AGREE votes=10/10 oracle='3576037' put='3576037'
+[VOTE] test_006.in status=AGREE votes=10/10 oracle='4868737' put='4868737'
+[VOTE] test_007.in status=AGREE votes=10/10 oracle='6356019' put='6356019'
+[VOTE] test_008.in status=AGREE votes=10/10 oracle='8048760' put='8048760'
+[VOTE] test_009.in status=AGREE votes=10/10 oracle='9930253' put='9930253'
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02702
+[OK] p02702
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02726/sol_64.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02726 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02726 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02726 --timeout 2.0
+[VOTE] test_000.in status=FOUND votes=10/10 oracle='Yes' put='No' case=case_0001
+[VOTE] test_001.in status=FOUND votes=6/10 oracle='Yes' put='No' case=case_0002
+[VOTE] test_002.in status=FOUND votes=10/10 oracle='Yes' put='No' case=case_0003
+[VOTE] test_003.in status=FOUND votes=10/10 oracle='Yes' put='No' case=case_0004
+[VOTE] test_004.in status=FOUND votes=10/10 oracle='Yes' put='No' case=case_0005
+[VOTE] test_005.in status=FOUND votes=6/10 oracle='Yes' put='No' case=case_0006
+[VOTE] test_006.in status=AGREE votes=10/10 oracle='Yes' put='Yes'
+[VOTE] test_007.in status=AGREE votes=6/10 oracle='Yes' put='Yes'
+[VOTE] test_008.in status=AGREE votes=10/10 oracle='Yes' put='Yes'
+[VOTE] test_009.in status=FOUND votes=6/10 oracle='Yes' put='No' case=case_0010
+[DONE] saved 7 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02718
+[OK] p02718
+[SKIP] tests not found: /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02728
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02729/sol_38.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02729 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02729 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02729 --timeout 2.0
+[VOTE] test_000.in status=FOUND votes=10/10 oracle='845006477527277856' put='233496864' case=case_0001
+[VOTE] test_001.in status=FOUND votes=10/10 oracle='6678777338818510' put='114323406' case=case_0002
+[VOTE] test_002.in status=FOUND votes=10/10 oracle='79301258626813215' put='380718367' case=case_0003
+[VOTE] test_003.in status=FOUND votes=10/10 oracle='418883847109175590' put='1024944422' case=case_0004
+[VOTE] test_004.in status=FOUND votes=10/10 oracle='689488229280895697' put='-1223044399' case=case_0005
+[VOTE] test_005.in status=FOUND votes=10/10 oracle='678824020461333925' put='479833509' case=case_0006
+[VOTE] test_006.in status=FOUND votes=10/10 oracle='91220438107631326' put='-777441570' case=case_0007
+[VOTE] test_007.in status=FOUND votes=10/10 oracle='237620095830633030' put='-612718010' case=case_0008
+[VOTE] test_008.in status=FOUND votes=10/10 oracle='212993773481577205' put='-541242635' case=case_0009
+[VOTE] test_009.in status=FOUND votes=10/10 oracle='462260694296242405' put='-47765275' case=case_0010
+[DONE] saved 10 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02729
+[OK] p02729
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02703/sol_68.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02703 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02703 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02703 --timeout 2.0
+[VOTE] test_000.in status=NO_MAJORITY votes=3/10 oracle='4611686018427387903'
+[VOTE] test_001.in status=AGREE votes=8/10 oracle='721741716' put='721741716'
+[VOTE] test_002.in status=NO_MAJORITY votes=3/10 oracle='4611686018427387903'
+[VOTE] test_003.in status=AGREE votes=7/10 oracle='745098747' put='745098747'
+[VOTE] test_004.in status=AGREE votes=8/10 oracle='370848287' put='370848287'
+[VOTE] test_005.in status=AGREE votes=8/10 oracle='830353431' put='830353431'
+[VOTE] test_006.in status=AGREE votes=8/10 oracle='188623263' put='188623263'
+[VOTE] test_007.in status=NO_MAJORITY votes=3/10 oracle='4611686018427387903'
+[VOTE] test_008.in status=AGREE votes=8/10 oracle='1315437065' put='1315437065'
+[VOTE] test_009.in status=NO_MAJORITY votes=3/10 oracle='4611686018427387903'
+[VARIANT_FAIL_SUMMARY]
+  p02703_num3_parsed.cpp: 10
+  p02703_num4_parsed.cpp: 1
+  p02703_num6_parsed.cpp: 10
+[DONE] saved 0 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02703
+[OK] p02703
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02708/sol_185.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02708 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02708 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02708 --timeout 2.0
+[VOTE] test_000.in status=FOUND votes=10/10 oracle='529331039' put='822010759' case=case_0001
+[VOTE] test_001.in status=FOUND votes=10/10 oracle='788074008' put='80753721' case=case_0002
+[VOTE] test_002.in status=FOUND votes=10/10 oracle='31009106' put='323688826' case=case_0003
+[VOTE] test_003.in status=FOUND votes=10/10 oracle='17109679' put='309789399' case=case_0004
+[VOTE] test_004.in status=FOUND votes=10/10 oracle='479845922' put='772525642' case=case_0005
+[VOTE] test_005.in status=FOUND votes=10/10 oracle='744755605' put='37435318' case=case_0006
+[VOTE] test_006.in status=FOUND votes=10/10 oracle='635365738' put='928045458' case=case_0007
+[VOTE] test_007.in status=FOUND votes=10/10 oracle='720279481' put='12959194' case=case_0008
+[VOTE] test_008.in status=FOUND votes=10/10 oracle='885434573' put='178114286' case=case_0009
+[VOTE] test_009.in status=FOUND votes=10/10 oracle='769261931' put='61941644' case=case_0010
+[DONE] saved 10 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02708
+[OK] p02708
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/LLM_Gen/differential_testing.py --lang cpp --variant_mode trickybugs --put /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02726/sol_64.cpp --variants /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp/p02726 --tests /Users/bcccccc/PycharmProjects/MyCatcher/outputs/inputs/p02726 --out /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02726 --timeout 2.0
+[VOTE] test_000.in status=FOUND votes=10/10 oracle='0' put='1' case=case_0001
+[VOTE] test_001.in status=FOUND votes=10/10 oracle='0' put='2' case=case_0002
+[VOTE] test_002.in status=FOUND votes=10/10 oracle='0' put='1' case=case_0003
+[VOTE] test_003.in status=FOUND votes=10/10 oracle='0' put='2' case=case_0004
+[VOTE] test_004.in status=FOUND votes=10/10 oracle='0' put='-1490015088' case=case_0005
+[VOTE] test_005.in status=FOUND votes=10/10 oracle='0' put='1' case=case_0006
+[VOTE] test_006.in status=FOUND votes=10/10 oracle='0' put='1842190944' case=case_0007
+[VOTE] test_007.in status=FOUND votes=10/10 oracle='0' put='-1490175848' case=case_0008
+[VOTE] test_008.in status=FOUND votes=10/10 oracle='0' put='2' case=case_0009
+[VOTE] test_009.in status=FOUND votes=10/10 oracle='0' put='2' case=case_0010
+[DONE] saved 10 bug-triggering cases into /Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02726
+[OK] p02726
+[DONE] total=331 ok=40 skipped=291 failed=0 jobs=4 out_root=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp
+

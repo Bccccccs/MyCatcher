@@ -2,13 +2,10 @@
 using namespace std;
 
 int main() {
-    int N, M;
-    cin >> N >> M;
-
-    int even_balls = N;
-    int odd_balls = M;
-
-    cout << even_balls * odd_balls << endl;
-
+    long long n, m;
+    cin >> n >> m;
+    long long red_pairs = n * (n - 1) / 2;
+    long long blue_pairs = m * (m - 1) / 2;
+    cout << red_pairs + blue_pairs << endl;
     return 0;
 }

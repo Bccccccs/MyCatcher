@@ -1,61 +1,55 @@
 #include <iostream>
 #include <vector>
-#include <cstring>
+#include <map>
+#include <set>
+#include <algorithm>
+#include <utility>
 using namespace std;
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int H, W, M;
     cin >> H >> W >> M;
-    
-    vector<int> rowTargets(H+1, 0);
-    vector<int> colTargets(W+1, 0);
-    vector<pair<int, int>> targets;
-    
-    for (int i = 0; i < M; i++) {
+
+    vector<int> rowCount(H + 1, 0);
+    vector<int> colCount(W + 1, 0);
+    set<pair<int, int>> bombs;
+
+    for (int i = 0; i < M; ++i) {
         int h, w;
         cin >> h >> w;
-        rowTargets[h]++;
-        colTargets[w]++;
-        targets.push_back(make_pair(h, w));
+        rowCount[h]++;
+        colCount[w]++;
+        bombs.insert({h, w});
     }
-    
-    // find the row and column with most targets
-    int maxRowTargets = 0, maxColTargets = 0;
-    
-    for (int i = 1; i <= H; i++) {
-        maxRowTargets = max(maxRowTargets, rowTargets[i]);
+
+    int maxRow = *max_element(rowCount.begin(), rowCount.end());
+    int maxCol = *max_element(colCount.begin(), colCount.end());
+
+    vector<int> maxRows, maxCols;
+    for (int i = 1; i <= H; ++i) {
+        if (rowCount[i] == maxRow) maxRows.push_back(i);
     }
-    
-    for (int i = 1; i <= W; i++) {
-        maxColTargets = max(maxColTargets, colTargets[i]);
+    for (int i = 1; i <= W; ++i) {
+        if (colCount[i] == maxCol) maxCols.push_back(i);
     }
-    
-    // find the number of squares with most targets
-    int maxSquares = 0;
-    
-    for (int i = 1; i <= H; i++) {
-        if (rowTargets[i] == maxRowTargets) {
-            maxSquares++;
+
+    int ans = maxRow + maxCol - 1;
+    bool foundBetter = false;
+
+    for (int r : maxRows) {
+        for (int c : maxCols) {
+            if (bombs.find({r, c}) == bombs.end()) {
+                ans = maxRow + maxCol;
+                foundBetter = true;
+                break;
+            }
         }
+        if (foundBetter) break;
     }
-    
-    for (int i = 1; i <= W; i++) {
-        if (colTargets[i] == maxColTargets) {
-            maxSquares++;
-        }
-    }
-    
-    // check if any target is in both the row and column with most targets
-    for (int i = 0; i < M; i++) {
-        int h = targets[i].first;
-        int w = targets[i].second;
-        
-        if (rowTargets[h] == maxRowTargets && colTargets[w] == maxColTargets) {
-            maxSquares--;
-        }
-    }
-    
-    cout << maxSquares << endl;
-    
+
+    cout << ans << "\n";
     return 0;
 }

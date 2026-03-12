@@ -1,14 +1,18 @@
 #include <iostream>
-#include <cmath>
-#include <iomanip>
+#include <string>
+using namespace std;
 
 int main() {
     long long A;
-    double B;
-    std::cin >> A >> B;
-
-    long long result = (long long)(A * B);
-    std::cout << result << std::endl;
-
+    string B;
+    cin >> A >> B;
+    
+    long long integer_part = (B[0] - '0');
+    long long decimal_part = (B[2] - '0') * 10 + (B[3] - '0');
+    long long B_integer = integer_part * 100 + decimal_part;
+    
+    long long result = A * B_integer / 100;
+    cout << result << endl;
+    
     return 0;
 }

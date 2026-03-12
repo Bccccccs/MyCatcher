@@ -1,28 +1,24 @@
 #include <iostream>
 #include <string>
-
+#include <vector>
 using namespace std;
 
 int main() {
-    string S;
-    cin >> S;
-
-    int n = S.length();
-    int count = 0;
-
-    // Iterate through all possible pairs of indices
-    for (int i = 0; i < n; i++) {
-        for (int j = i; j < n; j++) {
-            // Check if the substring from i to j is a multiple of 2019
-            string substring = S.substr(i, j - i + 1);
-            int num = stoi(substring);
-            if (num % 2019 == 0) {
-                count++;
-            }
-        }
+    string s;
+    cin >> s;
+    int n = s.length();
+    long long ans = 0;
+    int mod = 2019;
+    vector<int> cnt(mod, 0);
+    cnt[0] = 1;
+    int cur = 0;
+    int pow10 = 1;
+    for (int i = n - 1; i >= 0; --i) {
+        cur = (cur + (s[i] - '0') * pow10) % mod;
+        pow10 = (pow10 * 10) % mod;
+        ans += cnt[cur];
+        cnt[cur]++;
     }
-
-    cout << count;
-
+    cout << ans << endl;
     return 0;
 }

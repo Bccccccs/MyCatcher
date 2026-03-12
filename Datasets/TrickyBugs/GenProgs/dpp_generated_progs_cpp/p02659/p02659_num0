@@ -1,19 +1,15 @@
 #include <iostream>
-#include <cmath>
+#include <string>
+using namespace std;
 
 int main() {
-    double A;
-    double B;
-    std::cin >> A >> B;
-    
-    // Multiply A and B
-    double result = A * B;
-    
-    // Truncate the fractional part
-    int integerResult = std::trunc(result);
-    
-    // Print the result
-    std::cout << integerResult << std::endl;
+    long long A;
+    string B;
+    cin >> A >> B;
+
+    long long B_int = (B[0] - '0') * 100 + (B[2] - '0') * 10 + (B[3] - '0');
+    long long result = A * B_int / 100;
+    cout << result << endl;
 
     return 0;
 }

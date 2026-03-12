@@ -1,51 +1,82 @@
 #include <iostream>
 #include <vector>
-#include <unordered_set>
-
+#include <string>
+#include <unordered_map>
+#include <algorithm>
 using namespace std;
 
-// Function to count the number of unordered pairs
-int countUnorderedPairs(vector<string>& strings) {
-    // Create a set to store the unique substrings
-    unordered_set<string> substrings;
-    
-    // Iterate through each string
-    for (const auto& s : strings) {
-        // Remove the first character of the string
-        string substring = s.substr(1);
-        
-        // Check if the substring is already in the set
-        if (substrings.count(substring) > 0) {
-            // If yes, return 1 as Limak can obtain one string from the other
-            return 1;
+struct Node {
+    unordered_map<char, int> next;
+    int cnt = 0;
+};
+
+vector<Node> trie(1);
+
+int insert(const string &s) {
+    int node = 0;
+    for (char c : s) {
+        if (!trie[node].next.count(c)) {
+            trie[node].next[c] = trie.size();
+            trie.emplace_back();
         }
-        
-        // Insert the substring into the set
-        substrings.insert(substring);
+        node = trie[node].next[c];
     }
-    
-    // If no unordered pair found, return 0
-    return 0;
+    trie[node].cnt++;
+    return node;
 }
 
 int main() {
-    // Read the value of N
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int N;
     cin >> N;
-    
-    // Create a vector to store the strings
-    vector<string> strings(N);
-    
-    // Read the strings
+    vector<string> strs(N);
+    vector<int> endNode(N);
     for (int i = 0; i < N; i++) {
-        cin >> strings[i];
+        cin >> strs[i];
+        endNode[i] = insert(strs[i]);
     }
-    
-    // Count the number of unordered pairs
-    int pairs = countUnorderedPairs(strings);
-    
-    // Print the result
-    cout << pairs << endl;
-    
+
+    vector<int> freq(26, 0);
+    for (int i = 0; i < N; i++) {
+        freq[strs[i][0] - 'a']++;
+    }
+
+    long long ans = 0;
+    for (int i = 0; i < N; i++) {
+        const string &s = strs[i];
+        int len = s.size();
+        vector<bool> inside(26, false);
+        int node = 0;
+        for (int j = 0; j < len - 1; j++) {
+            char c = s[j];
+            if (!trie[node].next.count(c)) break;
+            node = trie[node].next[c];
+            inside[s[j + 1] - 'a'] = true;
+        }
+        for (int ch = 0; ch < 26; ch++) {
+            if (!inside[ch]) continue;
+            char b = 'a' + ch;
+            if (!trie[node].next.count(b)) continue;
+            int target = trie[node].next[b];
+            ans += trie[target].cnt;
+        }
+        if (len > 1) {
+            bool aInside = false;
+            char a = s[0];
+            for (int j = 1; j < len; j++) {
+                if (s[j] == a) {
+                    aInside = true;
+                    break;
+                }
+            }
+            if (aInside) {
+                ans += freq[s.back() - 'a'];
+            }
+        }
+    }
+
+    cout << ans << '\n';
     return 0;
 }

@@ -1,39 +1,61 @@
 #include <iostream>
-
+#include <vector>
+#include <unordered_map>
 using namespace std;
 
-int f(int x, int m) {
-    return x % m;
-}
-
 int main() {
-    long long N;
-    int X, M;
+    long long N, X, M;
     cin >> N >> X >> M;
 
-    long long sum = X;
-    int prev = X;
+    if (M == 1) {
+        cout << 0 << endl;
+        return 0;
+    }
 
-    for (int i = 2; i <= N; i++) {
-        int curr = f(prev * prev, M);
-        sum += curr;
-        prev = curr;
+    unordered_map<long long, int> index_map;
+    vector<long long> value_seq;
+    vector<long long> prefix_sum;
 
-        if (curr == X) {
-            int cycle_length = i - 1;
-            int remaining = N - i + 1;
-            sum += (remaining / cycle_length) * sum;
+    long long current = X % M;
+    long long sum = 0;
+    int cycle_start = -1;
 
-            for (int j = 0; j < remaining % cycle_length; j++) {
-                sum += f(prev * prev, M);
-                prev = f(prev * prev, M);
-            }
-
+    for (int i = 0; i < N; ++i) {
+        if (index_map.find(current) != index_map.end()) {
+            cycle_start = index_map[current];
             break;
+        }
+        index_map[current] = i;
+        value_seq.push_back(current);
+        sum += current;
+        prefix_sum.push_back(sum);
+        current = (current * current) % M;
+    }
+
+    if (cycle_start == -1) {
+        cout << sum << endl;
+        return 0;
+    }
+
+    long long result = 0;
+    int cycle_len = value_seq.size() - cycle_start;
+    long long cycle_sum = prefix_sum.back() - (cycle_start > 0 ? prefix_sum[cycle_start - 1] : 0);
+
+    if (N <= value_seq.size()) {
+        result = prefix_sum[N - 1];
+    } else {
+        result = prefix_sum[cycle_start - 1];
+        long long remaining = N - cycle_start;
+        long long full_cycles = remaining / cycle_len;
+        long long remainder = remaining % cycle_len;
+
+        result += full_cycles * cycle_sum;
+        if (remainder > 0) {
+            long long rem_sum = prefix_sum[cycle_start + remainder - 1] - (cycle_start > 0 ? prefix_sum[cycle_start - 1] : 0);
+            result += rem_sum;
         }
     }
 
-    cout << sum << endl;
-
+    cout << result << endl;
     return 0;
 }

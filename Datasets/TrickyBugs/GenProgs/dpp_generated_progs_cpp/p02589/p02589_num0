@@ -1,38 +1,87 @@
 #include <iostream>
-#include <unordered_set>
 #include <vector>
-
+#include <string>
+#include <unordered_map>
+#include <algorithm>
 using namespace std;
 
+struct TrieNode {
+    unordered_map<char, TrieNode*> children;
+    int cnt = 0;
+};
+
+void insert(TrieNode* root, const string& s) {
+    TrieNode* node = root;
+    for (char c : s) {
+        if (!node->children.count(c)) {
+            node->children[c] = new TrieNode();
+        }
+        node = node->children[c];
+        node->cnt++;
+    }
+}
+
+int query(TrieNode* root, const string& s) {
+    TrieNode* node = root;
+    for (char c : s) {
+        if (!node->children.count(c)) return 0;
+        node = node->children[c];
+    }
+    return node->cnt;
+}
+
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int N;
     cin >> N;
-
-    vector<string> strings(N);
-    unordered_set<string> uniqueStrings;
-
-    for (int i = 0; i < N; i++) {
-        cin >> strings[i];
-        uniqueStrings.insert(strings[i]);
+    vector<string> S(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> S[i];
     }
 
-    int count = 0;
+    TrieNode* root = new TrieNode();
+    unordered_map<string, int> freq;
 
-    for (int i = 0; i < N; i++) {
-        string str = strings[i];
-        int len = str.length();
+    for (const string& s : S) {
+        insert(root, s);
+        freq[s]++;
+    }
 
-        for (int j = 0; j < len - 1; j++) {
-            string prefix = str.substr(0, j + 1);
-            string suffix = str.substr(j + 1);
+    long long ans = 0;
 
-            if (uniqueStrings.count(prefix) > 0 || uniqueStrings.count(suffix) > 0) {
-                count++;
+    for (const string& s : S) {
+        int len = s.length();
+        vector<bool> has(26, false);
+        for (int k = 1; k < len; ++k) {
+            has[s[k] - 'a'] = true;
+        }
+        for (char a = 'a'; a <= 'z'; ++a) {
+            if (!has[a - 'a']) continue;
+            string x = s.substr(1);
+            string target = x + a;
+            int cnt = query(root, target);
+            ans += cnt;
+        }
+    }
+
+    for (const auto& p : freq) {
+        const string& s = p.first;
+        long long c = p.second;
+        if (c > 1) {
+            int len = s.length();
+            vector<bool> has(26, false);
+            for (int k = 1; k < len; ++k) {
+                has[s[k] - 'a'] = true;
+            }
+            if (has[s[0] - 'a']) {
+                ans -= c * (c - 1);
             }
         }
     }
 
-    cout << count << endl;
+    cout << ans << '\n';
 
     return 0;
 }

@@ -1,0 +1,26 @@
+Problem Description
+
+There are n candidates, and the i-th candidate receives a_i votes.
+
+A candidate is considered popular enough if their number of votes is at least one fourth of the average number of votes among the top m candidates, that is, at least total_votes / (4m).
+
+Determine whether all of the top m candidates satisfy this condition.
+
+Input Format
+
+The first line contains two integers:
+
+n m
+
+The second line contains n integers:
+
+a_1 a_2 … a_n
+
+Constraints
+
+1 ≤ m ≤ n ≤ 10^5
+1 ≤ a_i ≤ 10^9
+
+Output Format
+
+Output “Yes” if the m-th largest vote count is at least total_votes / (4m), otherwise output “No”.

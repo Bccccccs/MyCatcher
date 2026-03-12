@@ -1,0 +1,29 @@
+Problem Description
+
+You are given N lowercase strings.
+Count the number of ordered pairs of indices (i, j) with i != j such that:
+
+there exists a non-empty string x and letters a, b (a may equal b) with
+s_i = a + x
+s_j = x + b
+and the letter a appears at least once inside x.
+
+Input Format
+
+The first line contains an integer:
+
+N
+
+Each of the next N lines contains one lowercase string:
+
+S_i
+
+Constraints
+
+1 <= N <= 2 x 10^5
+Strings consist of lowercase English letters.
+The total length of all strings does not exceed 10^6.
+
+Output Format
+
+Output a single integer: the number of valid ordered pairs.

@@ -1,0 +1,27 @@
+Problem Description
+
+You are given N stick lengths.
+Count the number of triples (i, j, k) with i < j < k such that the three sticks can form a non-degenerate triangle and all three lengths are pairwise distinct.
+
+A triple (a, b, c) forms a non-degenerate triangle iff:
+
+max(a, b, c) < a + b + c - max(a, b, c)
+
+Input Format
+
+The first line contains an integer:
+
+N
+
+The second line contains N integers:
+
+L1 L2 ... LN
+
+Constraints
+
+3 <= N <= 100
+1 <= Li <= 1000
+
+Output Format
+
+Output a single integer: the number of valid triples.

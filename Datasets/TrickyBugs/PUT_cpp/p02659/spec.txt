@@ -1,0 +1,24 @@
+Problem Description
+
+You are given an integer A and a decimal number B.
+The decimal number B contains exactly two digits after the decimal point.
+Compute the value of A × B and output the result as an integer.
+
+Input Format
+
+The input contains two values separated by space:
+
+A B
+
+A is an integer.
+B is a decimal number represented as a string with exactly two digits after the decimal point.
+
+Constraints
+
+1 ≤ A ≤ 10^9
+0.00 ≤ B ≤ 9.99
+B is always in the format d.dd where d is a digit from 0 to 9.
+
+Output Format
+
+Output a single integer representing the result of A × B.

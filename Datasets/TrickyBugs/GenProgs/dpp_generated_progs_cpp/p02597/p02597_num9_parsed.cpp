@@ -1,30 +1,22 @@
 #include <iostream>
-#include <vector>
+#include <string>
 using namespace std;
 
 int main() {
     int N;
-    cin >> N;
+    string S;
+    cin >> N >> S;
 
-    string colors;
-    cin >> colors;
-
-    int operations = 0;
-    int redCount = 0;
-
-    // Count the number of red stones
-    for (int i = 0; i < N; i++) {
-        if (colors[i] == 'R') {
-            redCount++;
-        }
+    int totalR = 0;
+    for (char c : S) {
+        if (c == 'R') totalR++;
     }
 
-    // Move the red stones to the end of the row
-    for (int i = 0; i < redCount; i++) {
-        if (colors[i] == 'W') {
-            operations++;
-        }
+    int wrongR = 0;
+    for (int i = 0; i < totalR; i++) {
+        if (S[i] == 'W') wrongR++;
     }
-    cout << operations << endl;
+
+    cout << wrongR << endl;
     return 0;
 }

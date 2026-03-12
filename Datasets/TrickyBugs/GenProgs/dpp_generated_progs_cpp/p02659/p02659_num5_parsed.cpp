@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 int main() {
-    double A;
-    double B;
-    std::cin >> A >> B;
+    long long A;
+    string B;
+    cin >> A >> B;
 
-    long long result = static_cast<long long>(A * B);
-    std::cout << result << std::endl;
-
+    long long B_int = (B[0] - '0') * 100 + (B[2] - '0') * 10 + (B[3] - '0');
+    long long result = A * B_int / 100;
+    cout << result << endl;
     return 0;
 }

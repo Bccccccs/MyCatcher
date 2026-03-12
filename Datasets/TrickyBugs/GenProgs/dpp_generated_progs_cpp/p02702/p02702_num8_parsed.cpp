@@ -1,27 +1,24 @@
 #include <iostream>
 #include <string>
+#include <vector>
+using namespace std;
 
 int main() {
-    std::string S;
-    std::cin >> S;
-    
-    int count = 0;
-    int mod[2019] = {0};
-    int current = 0;
-    int ten_pow = 1;
-    
-    mod[0] = 1;
-    
-    for (int i = S.size() - 1; i >= 0; i--) {
-        int digit = S[i] - '0';
-        current = (digit * ten_pow + current) % 2019;
-        ten_pow = (ten_pow * 10) % 2019;
-        
-        count += mod[current];
-        mod[current]++;
+    string s;
+    cin >> s;
+    int n = s.length();
+    long long ans = 0;
+    int mod = 2019;
+    vector<int> cnt(mod, 0);
+    cnt[0] = 1;
+    int cur = 0;
+    int pow10 = 1;
+    for (int i = n - 1; i >= 0; --i) {
+        cur = (cur + (s[i] - '0') * pow10) % mod;
+        pow10 = (pow10 * 10) % mod;
+        ans += cnt[cur];
+        cnt[cur]++;
     }
-    
-    std::cout << count << std::endl;
-    
+    cout << ans << endl;
     return 0;
 }

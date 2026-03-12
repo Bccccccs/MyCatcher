@@ -7,32 +7,24 @@ int main() {
     int N;
     cin >> N;
     vector<int> A(3 * N);
-    for (int i = 0; i < 3 * N; i++) {
+    for (int i = 0; i < 3 * N; ++i) {
         cin >> A[i];
     }
 
-    sort(A.begin(), A.end());
+    vector<vector<int>> dp(3 * N + 1, vector<int>(3 * N + 1, 0));
 
-    vector<int> prefixSum(3 * N + 1, 0);
-    for (int i = 0; i < 3 * N; i++) {
-        prefixSum[i + 1] = prefixSum[i] + A[i];
-    }
-
-    vector<vector<int>> dp(N + 1, vector<int>(N + 1, 0));
-    for (int i = 1; i <= N; i++) {
-        for (int j = 0; j <= i; j++) {
-            dp[i][j] = dp[i - 1][j];
-            if (j > 0) {
-                dp[i][j] = max(dp[i][j], dp[i - 1][j - 1] + A[3 * (i - 1) + j - 1] - prefixSum[3 * (i - 1) + j - 1]);
+    for (int len = 2; len <= 3 * N; len += 2) {
+        for (int l = 0; l + len <= 3 * N; ++l) {
+            int r = l + len - 1;
+            if (A[l] == A[r]) {
+                dp[l][r] = max(dp[l][r], dp[l + 1][r - 1] + 1);
+            }
+            for (int k = l + 1; k < r; k += 2) {
+                dp[l][r] = max(dp[l][r], dp[l][k] + dp[k + 1][r]);
             }
         }
     }
 
-    int result = 0;
-    for (int i = 0; i <= N; i++) {
-        result = max(result, dp[N][i]);
-    }
-    cout << result << endl;
-
+    cout << dp[0][3 * N - 1] << endl;
     return 0;
 }

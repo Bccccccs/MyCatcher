@@ -1,75 +1,87 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <climits>
-
+#include <algorithm>
+#include <limits>
 using namespace std;
 
-struct ExchangeCounter {
-    long long silver;
-    long long time;
-};
+const long long INF = numeric_limits<long long>::max() / 2;
 
 struct Edge {
     int to;
-    int silverCost;
-    int timeCost;
+    int costCoin;
+    long long costTime;
 };
 
-void dijkstra(int start, int N, vector<vector<Edge>>& graph, vector<long long>& minTime) {
-    minTime[start] = 0;
+struct State {
+    int city;
+    int coin;
+    long long time;
+    bool operator>(const State& other) const {
+        return time > other.time;
+    }
+};
 
-    priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long, int>>> pq;
-    pq.push(make_pair(0, start));
-
+int main() {
+    int n, m, s;
+    cin >> n >> m >> s;
+    
+    vector<vector<Edge>> graph(n);
+    for (int i = 0; i < m; ++i) {
+        int u, v, a;
+        long long b;
+        cin >> u >> v >> a >> b;
+        u--; v--;
+        graph[u].push_back({v, a, b});
+        graph[v].push_back({u, a, b});
+    }
+    
+    vector<int> c(n), d(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> c[i] >> d[i];
+    }
+    
+    int maxCoin = 50 * 50;
+    if (s > maxCoin) s = maxCoin;
+    
+    vector<vector<long long>> dist(n, vector<long long>(maxCoin + 1, INF));
+    priority_queue<State, vector<State>, greater<State>> pq;
+    
+    dist[0][s] = 0;
+    pq.push({0, s, 0});
+    
     while (!pq.empty()) {
-        int u = pq.top().second;
-        long long timeU = pq.top().first;
+        State cur = pq.top();
         pq.pop();
-
-        if (timeU > minTime[u]) {
-            continue;
+        
+        if (cur.time > dist[cur.city][cur.coin]) continue;
+        
+        int newCoin = min(cur.coin + c[cur.city], maxCoin);
+        long long newTime = cur.time + d[cur.city];
+        if (newTime < dist[cur.city][newCoin]) {
+            dist[cur.city][newCoin] = newTime;
+            pq.push({cur.city, newCoin, newTime});
         }
-
-        for (Edge& edge : graph[u]) {
-            int v = edge.to;
-            int silverCost = edge.silverCost;
-            int timeCost = edge.timeCost;
-
-            long long timeV = minTime[u] + timeCost;
-            if (timeV < minTime[v] && silverCost <= minTime[u]) {
-                minTime[v] = timeV;
-                pq.push(make_pair(timeV, v));
+        
+        for (const Edge& e : graph[cur.city]) {
+            if (cur.coin >= e.costCoin) {
+                int nextCoin = cur.coin - e.costCoin;
+                long long nextTime = cur.time + e.costTime;
+                if (nextTime < dist[e.to][nextCoin]) {
+                    dist[e.to][nextCoin] = nextTime;
+                    pq.push({e.to, nextCoin, nextTime});
+                }
             }
         }
     }
-}
-
-int main() {
-    int N, M, S;
-    cin >> N >> M >> S;
-
-    vector<vector<Edge>> graph(N + 1);
-    for (int i = 0; i < M; i++) {
-        int U, V, A, B;
-        cin >> U >> V >> A >> B;
-        graph[U].push_back({V, A, B});
-        graph[V].push_back({U, A, B});
+    
+    for (int i = 1; i < n; ++i) {
+        long long ans = INF;
+        for (int coin = 0; coin <= maxCoin; ++coin) {
+            ans = min(ans, dist[i][coin]);
+        }
+        cout << ans << endl;
     }
-
-    vector<ExchangeCounter> exchangeCounters(N + 1);
-    for (int i = 1; i <= N; i++) {
-        cin >> exchangeCounters[i].silver >> exchangeCounters[i].time;
-    }
-
-    vector<long long> minTime(N + 1, LLONG_MAX);
-
-    dijkstra(1, N, graph, minTime);
-
-    for (int t = 2; t <= N; t++) {
-        long long timeNeeded = minTime[t] + exchangeCounters[t].time;
-        cout << timeNeeded << endl;
-    }
-
+    
     return 0;
 }

@@ -1,41 +1,41 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int N, M;
     cin >> N >> M;
 
-    vector<int> H(N);
-    for (int i = 0; i < N; i++) {
-        cin >> H[i];
+    vector<int> h(N + 1);
+    for (int i = 1; i <= N; ++i) {
+        cin >> h[i];
     }
 
-    vector<vector<int>> adj(N);
-    for (int i = 0; i < M; i++) {
-        int A, B;
-        cin >> A >> B;
-        A--;
-        B--;
-        adj[A].push_back(B);
+    vector<vector<int>> adj(N + 1);
+    for (int i = 0; i < M; ++i) {
+        int a, b;
+        cin >> a >> b;
+        adj[a].push_back(b);
+        adj[b].push_back(a);
     }
 
-    int ans = 0;
-    for (int i = 0; i < N; i++) {
+    int good_count = 0;
+    for (int i = 1; i <= N; ++i) {
         bool good = true;
-        for (int j = 0; j < adj[i].size(); j++) {
-            if (H[i] <= H[adj[i][j]]) {
+        for (int neighbor : adj[i]) {
+            if (h[i] <= h[neighbor]) {
                 good = false;
                 break;
             }
         }
         if (good) {
-            ans++;
+            ++good_count;
         }
     }
 
-    cout << ans << endl;
-
+    cout << good_count << '\n';
     return 0;
 }

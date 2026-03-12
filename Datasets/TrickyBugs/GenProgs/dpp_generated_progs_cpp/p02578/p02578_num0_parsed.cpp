@@ -1,32 +1,32 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
     int N;
     cin >> N;
     
-    vector<int> heights(N);
-    for (int i = 0; i < N; i++) {
-        cin >> heights[i];
+    vector<long long> H(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> H[i];
     }
     
-    vector<int> stools(N);
-    stools[0] = 0;
+    long long operations = 0;
+    long long current_max = H[0];
     
-    for (int i = 1; i < N; i++) {
-        if (heights[i] > heights[i-1]) {
-            stools[i] = stools[i-1] + (heights[i] - heights[i-1]);
+    for (int i = 1; i < N; ++i) {
+        if (H[i] < current_max) {
+            operations += current_max - H[i];
         } else {
-            stools[i] = stools[i-1];
+            current_max = H[i];
         }
     }
     
-    int totalHeight = stools[N-1];
-    
-    cout << totalHeight << endl;
+    cout << operations << '\n';
     
     return 0;
 }

@@ -1,45 +1,87 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 #include <algorithm>
-
+#include <climits>
 using namespace std;
 
-// Function to find the number of pairs of viewers
-int findPairs(int N, const vector<int>& seats) {
-    vector<vector<int>> matrix(N, vector<int>(N, 0));
-    vector<pair<int, int>> location(N * N + 1);
-    vector<int> dx = {-1, 1, 0, 0};
-    vector<int> dy = {0, 0, -1, 1};
-    int ans = 0;
+struct Cell {
+    int r, c;
+};
 
-    // Fill the matrix and location vector
-    for (int i = 0; i < N * N; i++) {
-        int row = i / N;
-        int col = i % N;
-        matrix[row][col] = seats[i];
-        location[seats[i]] = make_pair(row, col);
+int N;
+vector<vector<int>> dist;
+vector<vector<bool>> occupied;
+const int dr[4] = {-1, 1, 0, 0};
+const int dc[4] = {0, 0, -1, 1};
+
+void bfs() {
+    queue<Cell> q;
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            if (!occupied[i][j]) {
+                dist[i][j] = 0;
+                q.push({i, j});
+            }
+        }
     }
-
-    // Calculate the number of pairs of viewers
-    for (int i = 1; i < N * N; i++) {
-        pair<int, int> curr = location[i];
-        pair<int, int> next = location[i + 1];
-        int dist = abs(curr.first - next.first) + abs(curr.second - next.second);
-        ans += dist;
+    while (!q.empty()) {
+        Cell cur = q.front(); q.pop();
+        for (int d = 0; d < 4; ++d) {
+            int nr = cur.r + dr[d];
+            int nc = cur.c + dc[d];
+            if (nr >= 0 && nr < N && nc >= 0 && nc < N) {
+                if (dist[nr][nc] > dist[cur.r][cur.c] + 1) {
+                    dist[nr][nc] = dist[cur.r][cur.c] + 1;
+                    q.push({nr, nc});
+                }
+            }
+        }
     }
-
-    return ans;
 }
 
 int main() {
-    int N;
-    cin >> N;
-    vector<int> seats(N * N);
-    for (int i = 0; i < N * N; i++) {
-        cin >> seats[i];
-    }
-    int ans = findPairs(N, seats);
-    cout << ans << endl;
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
     
+    cin >> N;
+    int total = N * N;
+    vector<int> order(total);
+    for (int i = 0; i < total; ++i) {
+        cin >> order[i];
+        order[i]--;
+    }
+    
+    occupied.assign(N, vector<bool>(N, false));
+    dist.assign(N, vector<int>(N, INT_MAX));
+    
+    long long ans = 0;
+    for (int idx : order) {
+        int r = idx / N;
+        int c = idx % N;
+        if (dist[r][c] == INT_MAX) {
+            bfs();
+        }
+        ans += dist[r][c];
+        occupied[r][c] = true;
+        dist[r][c] = 0;
+        queue<Cell> q;
+        q.push({r, c});
+        while (!q.empty()) {
+            Cell cur = q.front(); q.pop();
+            for (int d = 0; d < 4; ++d) {
+                int nr = cur.r + dr[d];
+                int nc = cur.c + dc[d];
+                if (nr >= 0 && nr < N && nc >= 0 && nc < N) {
+                    if (dist[nr][nc] > dist[cur.r][cur.c] + 1) {
+                        dist[nr][nc] = dist[cur.r][cur.c] + 1;
+                        q.push({nr, nc});
+                    }
+                }
+            }
+        }
+    }
+    
+    cout << ans << '\n';
     return 0;
 }

@@ -1,30 +1,28 @@
 #include <iostream>
 #include <vector>
-
-using namespace std;
+#include <algorithm>
 
 int main() {
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    
     int N;
-    cin >> N;
-
-    vector<int> A(N);
-    for (int i = 0; i < N; i++) {
-        cin >> A[i];
+    std::cin >> N;
+    
+    std::vector<long long> H(N);
+    for (int i = 0; i < N; ++i) {
+        std::cin >> H[i];
     }
-
-    int minStoolHeight = 0;
-    int maxPersonHeight = A[0];
-
-    for (int i = 1; i < N; i++) {
-        if (A[i] > maxPersonHeight) {
-            maxPersonHeight = A[i];
-            continue;
+    
+    long long operations = 0;
+    for (int i = 1; i < N; ++i) {
+        if (H[i] < H[i - 1]) {
+            operations += H[i - 1] - H[i];
+            H[i] = H[i - 1];
         }
-
-        minStoolHeight += maxPersonHeight - A[i];
     }
-
-    cout << minStoolHeight << endl;
-
+    
+    std::cout << operations << '\n';
+    
     return 0;
 }

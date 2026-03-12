@@ -1,45 +1,41 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int N, M;
     cin >> N >> M;
-    
-    vector<int> observatories(N);
-    for (int i = 0; i < N; i++) {
-        cin >> observatories[i];
+
+    vector<int> h(N + 1);
+    for (int i = 1; i <= N; ++i) {
+        cin >> h[i];
     }
-    
-    vector<vector<int>> roads(M, vector<int>(2));
-    for (int i = 0; i < M; i++) {
-        cin >> roads[i][0] >> roads[i][1];
+
+    vector<vector<int>> adj(N + 1);
+    for (int i = 0; i < M; ++i) {
+        int a, b;
+        cin >> a >> b;
+        adj[a].push_back(b);
+        adj[b].push_back(a);
     }
-    
-    vector<bool> goodObservatories(N, true);
-    
-    for (int i = 0; i < M; i++) {
-        int a = roads[i][0] - 1;
-        int b = roads[i][1] - 1;
-        
-        if (observatories[a] <= observatories[b]) {
-            goodObservatories[a] = false;
+
+    int good_count = 0;
+    for (int i = 1; i <= N; ++i) {
+        bool good = true;
+        for (int neighbor : adj[i]) {
+            if (h[i] <= h[neighbor]) {
+                good = false;
+                break;
+            }
         }
-        if (observatories[b] <= observatories[a]) {
-            goodObservatories[b] = false;
-        }
-    }
-    
-    int count = 0;
-    for (bool isGood : goodObservatories) {
-        if (isGood) {
-            count++;
+        if (good) {
+            ++good_count;
         }
     }
-    
-    cout << count << endl;
-    
+
+    cout << good_count << '\n';
     return 0;
 }

@@ -1,61 +1,63 @@
 #include <iostream>
 #include <vector>
-#include <unordered_set>
-
+#include <map>
+#include <set>
+#include <algorithm>
+#include <unordered_map>
 using namespace std;
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int H, W, M;
     cin >> H >> W >> M;
 
-    vector<int> row_targets(H, 0);
-    vector<int> col_targets(W, 0);
-    unordered_set<int> targets;
+    vector<int> rowCount(H + 1, 0);
+    vector<int> colCount(W + 1, 0);
+    set<pair<int, int>> bombs;
 
-    for (int i = 0; i < M; i++) {
+    for (int i = 0; i < M; ++i) {
         int h, w;
         cin >> h >> w;
-        h--;
-        w--;
-
-        targets.insert(h * W + w);
-        row_targets[h]++;
-        col_targets[w]++;
+        rowCount[h]++;
+        colCount[w]++;
+        bombs.insert({h, w});
     }
 
-    int max_row_targets = 0;
-    int max_col_targets = 0;
-
-    for (int i = 0; i < H; i++) {
-        max_row_targets = max(max_row_targets, row_targets[i]);
+    int maxRow = 0;
+    for (int i = 1; i <= H; ++i) {
+        maxRow = max(maxRow, rowCount[i]);
     }
-
-    for (int i = 0; i < W; i++) {
-        max_col_targets = max(max_col_targets, col_targets[i]);
-    }
-
-    int max_targets = max_row_targets + max_col_targets;
-
-    int num_max_rows = 0;
-    int num_max_cols = 0;
-
-    for (int i = 0; i < H; i++) {
-        if (row_targets[i] == max_row_targets) {
-            num_max_rows++;
+    vector<int> maxRows;
+    for (int i = 1; i <= H; ++i) {
+        if (rowCount[i] == maxRow) {
+            maxRows.push_back(i);
         }
     }
 
-    for (int i = 0; i < W; i++) {
-        if (col_targets[i] == max_col_targets) {
-            num_max_cols++;
+    int maxCol = 0;
+    for (int i = 1; i <= W; ++i) {
+        maxCol = max(maxCol, colCount[i]);
+    }
+    vector<int> maxCols;
+    for (int i = 1; i <= W; ++i) {
+        if (colCount[i] == maxCol) {
+            maxCols.push_back(i);
         }
     }
 
-    if (num_max_rows * num_max_cols > M) {
-        max_targets--;
+    int ans = maxRow + maxCol - 1;
+
+    for (int r : maxRows) {
+        for (int c : maxCols) {
+            if (bombs.find({r, c}) == bombs.end()) {
+                cout << maxRow + maxCol << '\n';
+                return 0;
+            }
+        }
     }
 
-    cout << max_targets << endl;
-
+    cout << ans << '\n';
     return 0;
 }

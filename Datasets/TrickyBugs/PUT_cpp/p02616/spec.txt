@@ -1,0 +1,26 @@
+Problem Description
+
+You are given N integers and an integer K.
+
+Choose exactly K numbers from the given integers so that their product is maximized.
+
+Since the answer can be very large, output the result modulo 10^9 + 7.
+
+Input Format
+
+The first line contains two integers:
+
+N K
+
+The second line contains N integers:
+
+a_1 a_2 … a_N
+
+Constraints
+
+1 <= K <= N <= 2 x 10^5
+-10^9 <= a_i <= 10^9
+
+Output Format
+
+Output a single integer: the maximum possible product of exactly K chosen numbers, taken modulo 10^9 + 7.

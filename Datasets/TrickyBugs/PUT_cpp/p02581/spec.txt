@@ -1,0 +1,32 @@
+Problem Description
+
+There are 3N cards laid out in a line. Each number from 1 to N appears exactly three times.
+
+Your score starts at 0.
+You repeatedly perform the following operation until no card remains:
+
+1. Choose an index i (1 <= i <= current length).
+2. Remove the i-th card from the left and the i-th card from the right.
+3. If the two removed cards have the same number, increase your score by 1.
+
+Find the maximum possible final score.
+
+Input Format
+
+The first line contains an integer:
+
+N
+
+The second line contains 3N integers:
+
+A1 A2 ... A3N
+
+Constraints
+
+1 <= N <= 2000
+Ai is an integer in [1, N]
+Each value v in [1, N] appears exactly three times in the sequence.
+
+Output Format
+
+Output a single integer: the maximum possible score.

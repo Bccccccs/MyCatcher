@@ -1,37 +1,55 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+#include <climits>
 using namespace std;
 
 int main() {
-    int N, K;
+    int N;
+    long long K;
     cin >> N >> K;
-
     vector<int> P(N);
-    for (int i = 0; i < N; i++) {
+    vector<long long> C(N);
+    for (int i = 0; i < N; ++i) {
         cin >> P[i];
+        P[i]--;
     }
-
-    vector<int> C(N);
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; ++i) {
         cin >> C[i];
     }
 
-    long long answer = -1e18;
-    for (int start = 0; start < N; start++) {
-        int current = start;
-        long long score = 0;
-        int count = 0;
-        while (count < K && current != -1) {
-            current = P[current] - 1;
-            score += C[current];
-            answer = max(answer, score);
-            count++;
+    long long ans = LLONG_MIN;
+    for (int start = 0; start < N; ++start) {
+        int cur = start;
+        long long cycle_sum = 0;
+        int cycle_len = 0;
+        while (true) {
+            cur = P[cur];
+            cycle_sum += C[cur];
+            cycle_len++;
+            if (cur == start) break;
+        }
+
+        long long path_sum = 0;
+        int steps = 0;
+        cur = start;
+        while (true) {
+            cur = P[cur];
+            steps++;
+            path_sum += C[cur];
+
+            if (steps > K) break;
+
+            long long score = path_sum;
+            if (cycle_sum > 0) {
+                long long full_cycles = (K - steps) / cycle_len;
+                score += full_cycles * cycle_sum;
+            }
+            ans = max(ans, score);
+
+            if (cur == start) break;
         }
     }
-
-    cout << answer << endl;
-
+    cout << ans << endl;
     return 0;
 }

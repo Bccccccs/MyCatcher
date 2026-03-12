@@ -1,47 +1,64 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits>
 
 using namespace std;
 
 int main() {
-    int N, K;
+    int N;
+    long long K;
     cin >> N >> K;
     
-    vector<int> P(N+1), C(N+1);
-    for (int i = 1; i <= N; i++) {
+    vector<int> P(N);
+    vector<long long> C(N);
+    
+    for (int i = 0; i < N; ++i) {
         cin >> P[i];
+        P[i]--;
     }
-    for (int i = 1; i <= N; i++) {
+    for (int i = 0; i < N; ++i) {
         cin >> C[i];
     }
     
-    long long ans = -1e18;
+    long long answer = LLONG_MIN;
     
-    for (int i = 1; i <= N; i++) {
-        vector<int> visited(N+1);
-        int pos = i;
+    for (int start = 0; start < N; ++start) {
+        int current = start;
         long long cycle_sum = 0;
-        long long cycle_len = 0;
-        while (!visited[pos]) {
-            visited[pos] = 1;
-            cycle_sum += C[pos];
+        int cycle_len = 0;
+        
+        while (true) {
+            current = P[current];
+            cycle_sum += C[current];
             cycle_len++;
-            pos = P[pos];
+            if (current == start) break;
         }
-        if (cycle_sum <= 0) {
-            for (int j = 1; j < cycle_len && j <= K; j++) {
-                long long score = cycle_sum * (K / cycle_len - (j - 1) / cycle_len - 1);
-                ans = max(ans, score);
+        
+        long long path_sum = 0;
+        int steps = 0;
+        current = start;
+        
+        while (true) {
+            current = P[current];
+            steps++;
+            path_sum += C[current];
+            
+            if (steps > K) break;
+            
+            long long cycles = 0;
+            if (cycle_sum > 0) {
+                cycles = (K - steps) / cycle_len;
             }
-        }
-        for (int j = 1; j <= cycle_len && j <= K; j++) {
-            long long score = cycle_sum * ((K - j + cycle_len) / cycle_len);
-            ans = max(ans, score);
+            
+            long long total = path_sum + cycles * cycle_sum;
+            answer = max(answer, total);
+            
+            if (current == start) break;
         }
     }
     
-    cout << ans << endl;
+    cout << answer << endl;
     
     return 0;
 }

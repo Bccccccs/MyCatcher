@@ -1,67 +1,83 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <algorithm>
 #include <limits>
+using namespace std;
 
-typedef long long ll;
-typedef std::pair<int, int> pii;
-typedef std::pair<ll, int> pli;
+const long long INF = numeric_limits<long long>::max() / 4;
 
-const ll INF = 1e18;
+struct Edge {
+    int to, a, b;
+};
+
+struct State {
+    int city;
+    long long time;
+    int coins;
+    bool operator>(const State& other) const {
+        return time > other.time;
+    }
+};
 
 int main() {
-    int N, M, S;
-    std::cin >> N >> M >> S;
+    int n, m;
+    long long s;
+    cin >> n >> m >> s;
 
-    std::vector<std::vector<pii>> adj(N + 1);
-
-    for (int i = 0; i < M; i++) {
-        int U, V, A, B;
-        std::cin >> U >> V >> A >> B;
-        adj[U].push_back({V, A});
-        adj[V].push_back({U, A});
+    vector<vector<Edge>> graph(n);
+    for (int i = 0; i < m; ++i) {
+        int u, v, a, b;
+        cin >> u >> v >> a >> b;
+        u--; v--;
+        graph[u].push_back({v, a, b});
+        graph[v].push_back({u, a, b});
     }
 
-    std::vector<ll> C(N + 1), D(N + 1);
-
-    for (int i = 1; i <= N; i++) {
-        std::cin >> C[i] >> D[i];
+    vector<int> c(n), d(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> c[i] >> d[i];
     }
 
-    std::vector<ll> dist(N + 1, INF);
-    dist[1] = S;
+    int maxCoins = 50 * 50 + 50;
+    if (s > maxCoins) s = maxCoins;
 
-    std::priority_queue<pli, std::vector<pli>, std::greater<pli>> pq;
-    pq.push({S, 1});
+    vector<vector<long long>> dist(n, vector<long long>(maxCoins + 1, INF));
+    priority_queue<State, vector<State>, greater<State>> pq;
+
+    dist[0][s] = 0;
+    pq.push({0, 0, (int)s});
 
     while (!pq.empty()) {
-        pli top = pq.top();
+        State cur = pq.top();
         pq.pop();
-        ll d = top.first;
-        int u = top.second;
 
-        if (d > dist[u]) {
-            continue;
+        if (cur.time > dist[cur.city][cur.coins]) continue;
+
+        int nc = min(maxCoins, cur.coins + c[cur.city]);
+        if (dist[cur.city][nc] > cur.time + d[cur.city]) {
+            dist[cur.city][nc] = cur.time + d[cur.city];
+            pq.push({cur.city, dist[cur.city][nc], nc});
         }
 
-        for (pii edge : adj[u]) {
-            int v = edge.first;
-            int A = edge.second;
-            if (d >= A && dist[v] > d - A) {
-                dist[v] = d - A;
-                pq.push({dist[v], v});
+        for (const Edge& e : graph[cur.city]) {
+            if (cur.coins >= e.a) {
+                int newCoins = cur.coins - e.a;
+                long long newTime = cur.time + e.b;
+                if (dist[e.to][newCoins] > newTime) {
+                    dist[e.to][newCoins] = newTime;
+                    pq.push({e.to, newTime, newCoins});
+                }
             }
-        }
-
-        ll exchange_time = d / C[u] + (d % C[u] != 0);
-        if (dist[u] + exchange_time < dist[u + 1]) {
-            dist[u + 1] = dist[u] + exchange_time;
-            pq.push({dist[u + 1], u + 1});
         }
     }
 
-    for (int i = 2; i <= N; i++) {
-        std::cout << dist[i] - S << '\n';
+    for (int i = 1; i < n; ++i) {
+        long long ans = INF;
+        for (int coins = 0; coins <= maxCoins; ++coins) {
+            ans = min(ans, dist[i][coins]);
+        }
+        cout << ans << endl;
     }
 
     return 0;

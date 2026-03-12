@@ -1,37 +1,24 @@
-Here's a possible solution to achieve the given program intention:
-
-```cpp
 #include <iostream>
-#include <vector>
 #include <string>
-
+#include <vector>
 using namespace std;
 
 int main() {
-    string S;
-    cin >> S;
-
-    int count = 0;
-    int n = S.length();
-
-    vector<int> prefixSum(n + 1, 0);
-    vector<int> modCount(2019, 0);
-  
-    // Calculating prefix sum
-    for (int i = 1; i <= n; i++) {
-        prefixSum[i] = (prefixSum[i - 1] * 10 + (S[i - 1] - '0')) % 2019;
-        modCount[prefixSum[i]]++;
+    string s;
+    cin >> s;
+    int n = s.length();
+    long long ans = 0;
+    int mod = 2019;
+    vector<int> cnt(mod, 0);
+    cnt[0] = 1;
+    int cur = 0;
+    int pow10 = 1;
+    for (int i = n - 1; i >= 0; --i) {
+        cur = (cur + (s[i] - '0') * pow10) % mod;
+        ans += cnt[cur];
+        cnt[cur]++;
+        pow10 = (pow10 * 10) % mod;
     }
-
-    // Counting pairs
-    for (int i = 0; i < 2019; i++) {
-        count += (modCount[i] * (modCount[i] - 1)) / 2;
-    }
-
-    cout << count << endl;
-
+    cout << ans << endl;
     return 0;
 }
-```
-
-Note: Make sure to include the necessary header files and use the appropriate namespace if needed.

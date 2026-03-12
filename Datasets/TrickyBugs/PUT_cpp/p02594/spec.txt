@@ -1,0 +1,18 @@
+Problem Description
+
+An air conditioner can keep a room comfortable only when the temperature is at least 30 degrees.
+Given today's temperature X, determine whether the room is comfortable.
+
+Input Format
+
+The input contains a single integer:
+
+X
+
+Constraints
+
+-100 <= X <= 100
+
+Output Format
+
+Output "Yes" if X >= 30, otherwise output "No".

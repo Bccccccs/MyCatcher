@@ -1,0 +1,23 @@
+Problem Description
+
+There are N vertices numbered from 1 to N.
+For every i from 1 to N−1, there is an edge between vertex i and vertex i+1.
+In addition, there is one extra edge between vertex X and vertex Y.
+
+For each k from 1 to N−1, determine how many pairs of vertices (i, j) with i < j have shortest path length exactly k.
+
+Input Format
+
+The input contains three integers:
+
+N X Y
+
+Constraints
+
+3 ≤ N ≤ 2000
+1 ≤ X < Y ≤ N
+
+Output Format
+
+Output N−1 lines.
+On the k-th line, output the number of pairs of vertices whose shortest path length is exactly k.

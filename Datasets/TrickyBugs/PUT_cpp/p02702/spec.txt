@@ -1,0 +1,20 @@
+Problem Description
+
+You are given a string s consisting of digits.
+
+Count the number of contiguous substrings of s that represent integers divisible by 2019.
+
+Input Format
+
+The input contains a single string:
+
+s
+
+Constraints
+
+1 ≤ |s| ≤ 200000
+s consists only of characters ‘0’ to ‘9’
+
+Output Format
+
+Output a single integer representing the number of contiguous substrings of s that are divisible by 2019.

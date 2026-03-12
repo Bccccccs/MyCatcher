@@ -1,63 +1,130 @@
-// C++ program to find the maximum product
-// of K elements in an array modulo 10^9+7
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <queue>
+#include <functional>
+#include <cmath>
 
 using namespace std;
 
-const int MOD = 1000000007;
+const long long MOD = 1000000007LL;
 
-// Function to find the maximum product of K elements
-// in an array modulo 10^9+7
-int maxProduct(int n, int k, vector<int>& arr) {
-    // Sort the array in non-decreasing order
-    sort(arr.begin(), arr.end());
+long long modpow(long long a, long long e) {
+    long long res = 1;
+    a %= MOD;
+    while (e > 0) {
+        if (e & 1) res = (res * a) % MOD;
+        a = (a * a) % MOD;
+        e >>= 1;
+    }
+    return res;
+}
 
-    long long int product = 1;
+long long modinv(long long a) {
+    return modpow(a, MOD - 2);
+}
 
-    if (arr[n - 1] <= 0 && k % 2 == 1) {
-        // If the maximum element in the array is negative
-        // and k is odd, then the maximum product will be
-        // negative. So, we need to take the product of
-        // k largest negative elements instead.
-        int i = n - 1;
-        while (k--) {
-            product = (product * arr[i] + MOD) % MOD;
-            i--;
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int N, K;
+    cin >> N >> K;
+    vector<long long> arr(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> arr[i];
+    }
+
+    if (N == K) {
+        long long ans = 1;
+        for (int i = 0; i < N; ++i) {
+            ans = (ans * (arr[i] % MOD + MOD) % MOD) % MOD;
         }
-    } else {
-        // If the maximum element in the array is non-negative,
-        // then the maximum product will be the product of
-        // the k largest elements.
-        int i = n - 1;
-        int j = 0;
-        while (k--) {
-            if (i >= 0 && (arr[i] > abs(arr[j]) || j == n - 1)) {
-                product = (product * arr[i] + MOD) % MOD;
-                i--;
+        cout << ans << '\n';
+        return 0;
+    }
+
+    vector<long long> pos, neg;
+    for (long long v : arr) {
+        if (v >= 0) pos.push_back(v);
+        else neg.push_back(v);
+    }
+
+    sort(pos.rbegin(), pos.rend());
+    sort(neg.begin(), neg.end());
+
+    int pn = pos.size();
+    int nn = neg.size();
+
+    if (pn == 0 && K % 2 == 1) {
+        sort(neg.rbegin(), neg.rend());
+        long long ans = 1;
+        for (int i = 0; i < K; ++i) {
+            ans = (ans * (neg[i] % MOD + MOD) % MOD) % MOD;
+        }
+        cout << ans << '\n';
+        return 0;
+    }
+
+    vector<long long> candidates;
+    int pi = 0, ni = 0;
+    while (K > 0) {
+        if (K == 1) {
+            if (pi < pn) candidates.push_back(pos[pi++]);
+            else candidates.push_back(neg[ni++]);
+            K--;
+        } else {
+            long long pos_pair = -1e18;
+            long long neg_pair = -1e18;
+            if (pi + 1 < pn) {
+                pos_pair = pos[pi] * pos[pi + 1];
+            }
+            if (ni + 1 < nn) {
+                neg_pair = neg[ni] * neg[ni + 1];
+            }
+            if (pos_pair >= neg_pair && pi + 1 < pn) {
+                candidates.push_back(pos[pi]);
+                candidates.push_back(pos[pi + 1]);
+                pi += 2;
+                K -= 2;
+            } else if (ni + 1 < nn) {
+                candidates.push_back(neg[ni]);
+                candidates.push_back(neg[ni + 1]);
+                ni += 2;
+                K -= 2;
             } else {
-                product = (product * arr[j] + MOD) % MOD;
-                j++;
+                if (pi < pn) {
+                    candidates.push_back(pos[pi++]);
+                    K--;
+                } else {
+                    candidates.push_back(neg[ni++]);
+                    K--;
+                }
             }
         }
     }
 
-    return product;
-}
-
-int main() {
-    int n, k;
-    cin >> n >> k;
-
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+    long long ans = 1;
+    bool all_negative = true;
+    for (long long v : candidates) {
+        ans = (ans * (v % MOD + MOD) % MOD) % MOD;
+        if (v >= 0) all_negative = false;
     }
 
-    int maxProd = maxProduct(n, k, arr);
-    cout << maxProd << endl;
+    if (all_negative && pn > 0) {
+        long long best = 1;
+        vector<long long> mod_arr(N);
+        for (int i = 0; i < N; ++i) mod_arr[i] = (arr[i] % MOD + MOD) % MOD;
+        sort(arr.begin(), arr.end(), [](long long a, long long b) {
+            return abs(a) < abs(b);
+        });
+        for (int i = 0; i < K; ++i) {
+            best = (best * mod_arr[i]) % MOD;
+        }
+        cout << best << '\n';
+        return 0;
+    }
 
+    cout << ans << '\n';
     return 0;
 }

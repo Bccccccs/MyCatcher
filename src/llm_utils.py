@@ -12,11 +12,11 @@ def get_client() -> OpenAI:
         raise RuntimeError("OPENAI_API_KEY is not set. Put it in .env or export it.")
     return OpenAI(api_key=api_key, base_url=base_url)
 
-_CODE_FENCE_RE = re.compile(r"```(?:python)?\s*(.*?)```", re.DOTALL | re.IGNORECASE)
+_CODE_FENCE_RE = re.compile(r"```(?:[a-zA-Z0-9_+\-#.]*)?\s*(.*?)```", re.DOTALL | re.IGNORECASE)
 
 def only_code(text: str) -> str:
     """
-    Extract python code from an LLM response.
+    Extract code from an LLM response.
     Priority: fenced code block; fallback: raw text.
     """
     if not text:

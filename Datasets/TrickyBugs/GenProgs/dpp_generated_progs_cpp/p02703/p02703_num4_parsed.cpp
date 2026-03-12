@@ -1,79 +1,78 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <climits>
+#include <tuple>
 #include <algorithm>
-
+#include <climits>
 using namespace std;
 
-typedef long long ll;
-typedef pair<ll, int> pii;
-
-const ll INF = 1e18;
-
 struct Edge {
-    int to;
-    ll cost;
-    ll time;
-
-    Edge(int to, ll cost, ll time) : to(to), cost(cost), time(time) {}
+    int to, a, b;
 };
 
-void dijkstra(int N, const vector<vector<Edge>> &adj, vector<ll> &dist) {
-    priority_queue<pii, vector<pii>, greater<pii>> pq;
-    dist[1] = 0;
-    pq.push({0, 1});
-
-    while (!pq.empty()) {
-        int u = pq.top().second;
-        pq.pop();
-
-        for (const Edge &e : adj[u]) {
-            int v = e.to;
-            ll cost = e.cost;
-            ll time = e.time;
-
-            if (dist[v] > dist[u] + time && dist[u] + time <= cost) {
-                dist[v] = dist[u] + time;
-                pq.push({dist[v], v});
-            }
-        }
-    }
-}
+struct Exchange {
+    int c, d;
+};
 
 int main() {
-    int N, M, S;
-    cin >> N >> M >> S;
-
-    vector<vector<Edge>> adj(N + 1);
-    for (int i = 0; i < M; i++) {
+    int n, m, s;
+    cin >> n >> m >> s;
+    
+    vector<vector<Edge>> graph(n + 1);
+    for (int i = 0; i < m; i++) {
         int u, v, a, b;
         cin >> u >> v >> a >> b;
-        adj[u].push_back({v, a, b});
-        adj[v].push_back({u, a, b});
+        graph[u].push_back({v, a, b});
+        graph[v].push_back({u, a, b});
     }
-
-    vector<ll> C(N + 1), D(N + 1);
-    for (int i = 1; i <= N; i++) {
-        cin >> C[i] >> D[i];
+    
+    vector<Exchange> exch(n + 1);
+    for (int i = 1; i <= n; i++) {
+        cin >> exch[i].c >> exch[i].d;
     }
-
-    vector<ll> dist(N + 1, INF);
-    dijkstra(N, adj, dist);
-
-    for (int t = 2; t <= N; t++) {
-        if (dist[t] == INF) {
-            cout << -1 << endl;
-        } else {
-            ll min_time = LLONG_MAX;
-            for (int i = 0; i <= N; i++) {
-                if (dist[i] != INF && i != 0) {
-                    min_time = min(min_time, dist[i] + D[i] + (abs(S - C[i]) + C[t] - 1) / C[t]);
+    
+    const int MAX_COIN = 2500;
+    int coin_limit = min(s + (n - 1) * 50, MAX_COIN);
+    
+    vector<vector<long long>> dist(n + 1, vector<long long>(coin_limit + 1, LLONG_MAX));
+    using State = tuple<long long, int, int>;
+    priority_queue<State, vector<State>, greater<State>> pq;
+    
+    dist[1][min(s, coin_limit)] = 0;
+    pq.push({0, 1, min(s, coin_limit)});
+    
+    while (!pq.empty()) {
+        auto [time, city, coins] = pq.top();
+        pq.pop();
+        
+        if (time > dist[city][coins]) continue;
+        
+        int new_coins = min(coins + exch[city].c, coin_limit);
+        long long new_time = time + exch[city].d;
+        if (new_time < dist[city][new_coins]) {
+            dist[city][new_coins] = new_time;
+            pq.push({new_time, city, new_coins});
+        }
+        
+        for (auto& e : graph[city]) {
+            if (coins >= e.a) {
+                int nc = coins - e.a;
+                long long nt = time + e.b;
+                if (nt < dist[e.to][nc]) {
+                    dist[e.to][nc] = nt;
+                    pq.push({nt, e.to, nc});
                 }
             }
-            cout << min_time << endl;
         }
     }
-
+    
+    for (int i = 2; i <= n; i++) {
+        long long ans = LLONG_MAX;
+        for (int c = 0; c <= coin_limit; c++) {
+            ans = min(ans, dist[i][c]);
+        }
+        cout << ans << endl;
+    }
+    
     return 0;
 }

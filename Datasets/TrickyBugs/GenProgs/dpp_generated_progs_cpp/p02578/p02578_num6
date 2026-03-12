@@ -4,25 +4,29 @@
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
     
-    vector<int> heights(n);
-    for (int i = 0; i < n; i++) {
-        cin >> heights[i];
+    int N;
+    cin >> N;
+    
+    vector<long long> H(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> H[i];
     }
     
-    int minTotalHeight = 0;
-    int maxHeight = heights[0];
-    for (int i = 1; i < n; i++) {
-        if (heights[i] > maxHeight) {
-            maxHeight = heights[i];
+    long long operations = 0;
+    long long current_max = H[0];
+    
+    for (int i = 1; i < N; ++i) {
+        if (H[i] < current_max) {
+            operations += current_max - H[i];
         } else {
-            minTotalHeight += (maxHeight - heights[i]);
+            current_max = H[i];
         }
     }
     
-    cout << minTotalHeight << endl;
+    cout << operations << '\n';
     
     return 0;
 }

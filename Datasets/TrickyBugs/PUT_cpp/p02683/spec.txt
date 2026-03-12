@@ -1,0 +1,36 @@
+
+Problem Description
+
+You are given n books.
+Each book has a cost and contributes some amount to each of m different algorithms.
+
+Your goal is to choose a subset of the books such that for every algorithm, the total contribution is at least k.
+
+Find the minimum total cost required to satisfy this condition.
+If it is impossible, output -1.
+
+Input Format
+
+The first line contains three integers:
+
+n m k
+
+Then n lines follow.
+The i-th of these lines contains:
+
+c_i a_{i,1} a_{i,2} … a_{i,m}
+
+where c_i is the cost of the i-th book, and a_{i,j} is its contribution to the j-th algorithm.
+
+Constraints
+
+1 ≤ n ≤ 12
+1 ≤ m ≤ 12
+1 ≤ k ≤ 10^9
+1 ≤ c_i ≤ 10^9
+0 ≤ a_{i,j} ≤ 10^9
+
+Output Format
+
+Output a single integer representing the minimum total cost to achieve at least k contribution in every algorithm.
+If no such subset exists, output -1.

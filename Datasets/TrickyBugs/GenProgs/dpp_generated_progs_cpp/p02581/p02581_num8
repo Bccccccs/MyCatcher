@@ -1,33 +1,50 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+#include <cstring>
 using namespace std;
 
-int main() {
-    int N;
-    cin >> N;
-    vector<int> A(3*N);
-    for (int i = 0; i < 3*N; i++) {
-        cin >> A[i];
+const int MAXN = 2005;
+int dp[MAXN][MAXN];
+int pos[MAXN][3];
+int seq[MAXN * 3];
+int N;
+
+int solve(int l, int r) {
+    if (l > r) return 0;
+    if (dp[l][r] != -1) return dp[l][r];
+    int res = 0;
+    int a = seq[l];
+    int idx1 = -1, idx2 = -1;
+    for (int k = 0; k < 3; ++k) {
+        if (pos[a][k] == l) idx1 = k;
+        else if (pos[a][k] == r) idx2 = k;
     }
-
-    sort(A.begin(), A.end());
-    int points = 0;
-
-    // Perform N-1 operations
-    for (int i = N; i < 3*N; i += 2) {
-        if (A[i] == A[i-1] && A[i] == A[i-2]) {
-            points++;
+    if (idx1 != -1 && idx2 != -1) {
+        int p1 = pos[a][(idx1 + 1) % 3];
+        int p2 = pos[a][(idx1 + 2) % 3];
+        if (p1 > p2) swap(p1, p2);
+        if (p1 >= l && p2 <= r) {
+            res = max(res, 1 + solve(p1 + 1, p2 - 1) + solve(l + 1, p1 - 1) + solve(p2 + 1, r - 1));
         }
     }
+    res = max(res, solve(l + 1, r));
+    res = max(res, solve(l, r - 1));
+    return dp[l][r] = res;
+}
 
-    // Check the remaining three cards
-    if (A[3*N-1] == A[3*N-2] && A[3*N-1] == A[3*N-3]) {
-        points++;
+int main() {
+    cin >> N;
+    int m = 3 * N;
+    for (int i = 0; i < m; ++i) {
+        cin >> seq[i];
     }
-
-    cout << points << endl;
-
+    vector<int> cnt(N + 1, 0);
+    for (int i = 0; i < m; ++i) {
+        int v = seq[i];
+        pos[v][cnt[v]++] = i;
+    }
+    memset(dp, -1, sizeof(dp));
+    cout << solve(0, m - 1) << endl;
     return 0;
 }

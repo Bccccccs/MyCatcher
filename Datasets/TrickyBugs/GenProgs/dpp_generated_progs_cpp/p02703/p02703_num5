@@ -1,78 +1,91 @@
-```
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <algorithm>
 #include <limits>
+using namespace std;
 
-typedef long long ll;
-
-#define INF std::numeric_limits<ll>::max()
+const long long INF = 1e18;
+const int MAX_COIN = 2500; // n * max(c_i) <= 50 * 50 = 2500
 
 struct Edge {
-    int to;
-    int silverCost;
-    int timeCost;
-
-    Edge(int t, int s, int tc)
-        : to(t), silverCost(s), timeCost(tc) {}
+    int to, a, b;
 };
 
-void shortestPath(int N, const std::vector<std::vector<Edge>>& graph, int startingCity, std::vector<ll>& minTime) {
-    std::priority_queue<std::pair<ll, int>, std::vector<std::pair<ll, int>>, std::greater<std::pair<ll, int>>> pq;
-    minTime[startingCity] = 0;
-    pq.push(std::make_pair(0, startingCity));
-
-    while (!pq.empty()) {
-        auto top = pq.top();
-        pq.pop();
-        ll curTime = top.first;
-        int curCity = top.second;
-
-        if (curTime > minTime[curCity])
-            continue;
-
-        for (const auto& edge : graph[curCity]) {
-            if (curTime + edge.timeCost < minTime[edge.to]) {
-                minTime[edge.to] = curTime + edge.timeCost;
-                pq.push(std::make_pair(minTime[edge.to], edge.to));
-            }
-        }
+struct State {
+    int city;
+    int coin;
+    long long time;
+    bool operator>(const State& other) const {
+        return time > other.time;
     }
-}
+};
 
 int main() {
-    int N, M, S;
-    std::cin >> N >> M >> S;
+    int n, m;
+    long long s;
+    cin >> n >> m >> s;
 
-    std::vector<std::vector<Edge>> graph(N + 1);
-    for (int i = 0; i < M; ++i) {
-        int U, V, A, B;
-        std::cin >> U >> V >> A >> B;
-        graph[U].emplace_back(V, A, B);
-        graph[V].emplace_back(U, A, B);
+    vector<vector<Edge>> graph(n);
+    for (int i = 0; i < m; i++) {
+        int u, v, a, b;
+        cin >> u >> v >> a >> b;
+        u--; v--;
+        graph[u].push_back({v, a, b});
+        graph[v].push_back({u, a, b});
     }
 
-    std::vector<int> C(N + 1), D(N + 1);
-    for (int i = 1; i <= N; ++i) {
-        std::cin >> C[i] >> D[i];
+    vector<int> c(n), d(n);
+    for (int i = 0; i < n; i++) {
+        cin >> c[i] >> d[i];
     }
 
-    std::vector<ll> minTime(N + 1, INF);
-    shortestPath(N, graph, 1, minTime);
+    int maxCoin = MAX_COIN;
+    vector<vector<long long>> dist(n, vector<long long>(maxCoin + 1, INF));
+    priority_queue<State, vector<State>, greater<State>> pq;
 
-    for (int t = 2; t <= N; ++t) {
-        ll bestTime = INF;
-        for (int gold = 0; gold <= minTime[t] * S && gold <= 1000000000; ++gold) {
-            ll remainingTime = minTime[t] * S - gold;
-            ll exchangeTime = (gold * D[t] + C[t] - 1) / C[t];
+    int startCoin = min((long long)maxCoin, s);
+    dist[0][startCoin] = 0;
+    pq.push({0, startCoin, 0});
 
-            if (remainingTime < exchangeTime) {
-                bestTime = std::min(bestTime, gold + minTime[t]);
+    while (!pq.empty()) {
+        State cur = pq.top();
+        pq.pop();
+        int u = cur.city;
+        int coin = cur.coin;
+        long long time = cur.time;
+        if (time > dist[u][coin]) continue;
+
+        // Exchange at city u
+        if (coin < maxCoin) {
+            int newCoin = min(maxCoin, coin + c[u]);
+            long long newTime = time + d[u];
+            if (newTime < dist[u][newCoin]) {
+                dist[u][newCoin] = newTime;
+                pq.push({u, newCoin, newTime});
             }
         }
-        std::cout << bestTime << '\n';
+
+        // Travel along edges
+        for (const Edge& e : graph[u]) {
+            if (coin >= e.a) {
+                int newCoin = coin - e.a;
+                long long newTime = time + e.b;
+                if (newTime < dist[e.to][newCoin]) {
+                    dist[e.to][newCoin] = newTime;
+                    pq.push({e.to, newCoin, newTime});
+                }
+            }
+        }
+    }
+
+    for (int i = 1; i < n; i++) {
+        long long ans = INF;
+        for (int coin = 0; coin <= maxCoin; coin++) {
+            ans = min(ans, dist[i][coin]);
+        }
+        cout << ans << endl;
     }
 
     return 0;
 }
-```

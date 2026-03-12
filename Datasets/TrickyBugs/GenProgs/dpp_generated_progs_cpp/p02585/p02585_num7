@@ -1,61 +1,60 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+#include <climits>
 using namespace std;
 
 int main() {
-    int N, K;
+    int N;
+    long long K;
     cin >> N >> K;
-
     vector<int> P(N);
-    vector<int> C(N);
-    for (int i = 0; i < N; i++) {
+    vector<long long> C(N);
+    for (int i = 0; i < N; ++i) {
         cin >> P[i];
         P[i]--;
     }
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; ++i) {
         cin >> C[i];
     }
 
-    long long ans = LLONG_MIN;
-    for (int start = 0; start < N; start++) {
+    long long answer = LLONG_MIN;
+
+    for (int start = 0; start < N; ++start) {
         int cur = start;
-        long long score = 0;
-        int loop = 0;
+        long long cycle_sum = 0;
+        int cycle_len = 0;
+
         while (true) {
             cur = P[cur];
-            score += C[cur];
-            loop++;
+            cycle_sum += C[cur];
+            cycle_len++;
+            if (cur == start) break;
+        }
 
-            if (loop == K) {
-                ans = max(ans, score);
-                break;
+        long long path_sum = 0;
+        int steps = 0;
+        cur = start;
+
+        while (true) {
+            cur = P[cur];
+            steps++;
+            path_sum += C[cur];
+
+            if (steps > K) break;
+
+            long long cycles = 0;
+            if (cycle_sum > 0) {
+                cycles = (K - steps) / cycle_len;
             }
 
-            if (cur == start) {
-                long long cycle = K / loop;
-                long long remainder = K % loop;
-                long long cycleScore = score * cycle;
-                long long maxCycleScore = cycleScore;
-                if (cycle > 0 && cycleScore < 0 && score > 0) {
-                    maxCycleScore = max(maxCycleScore, score);
-                }
-                if (remainder > 0) {
-                    long long additionalScore = 0;
-                    for (int i = 0; i < remainder; i++) {
-                        cur = P[cur];
-                        additionalScore += C[cur];
-                        maxCycleScore = max(maxCycleScore, cycleScore + additionalScore);
-                    }
-                }
-                ans = max(ans, maxCycleScore);
-                break;
-            }
+            long long total = path_sum + cycles * cycle_sum;
+            answer = max(answer, total);
+
+            if (cur == start) break;
         }
     }
 
-    cout << ans << endl;
-
+    cout << answer << endl;
     return 0;
 }

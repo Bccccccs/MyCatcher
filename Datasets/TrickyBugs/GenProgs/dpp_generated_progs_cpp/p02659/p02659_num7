@@ -1,14 +1,15 @@
 #include <iostream>
-#include <cmath>
+#include <string>
+using namespace std;
 
 int main() {
     long long A;
-    double B;
-    std::cin >> A >> B;
-    
-    double result = A * B;
-    long long truncated = std::trunc(result);
-    std::cout << truncated << std::endl;
-    
+    string B;
+    cin >> A >> B;
+
+    long long B_int = (B[0] - '0') * 100 + (B[2] - '0') * 10 + (B[3] - '0');
+    long long result = A * B_int / 100;
+    cout << result << endl;
+
     return 0;
 }

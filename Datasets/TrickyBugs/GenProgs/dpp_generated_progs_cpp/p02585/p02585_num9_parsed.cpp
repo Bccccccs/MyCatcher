@@ -1,57 +1,64 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits>
 
 using namespace std;
 
 int main() {
-    int N, K;
+    int N;
+    long long K;
     cin >> N >> K;
 
     vector<int> P(N);
-    for (int i = 0; i < N; i++) {
+    vector<long long> C(N);
+
+    for (int i = 0; i < N; ++i) {
         cin >> P[i];
         P[i]--;
     }
-
-    vector<int> C(N);
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; ++i) {
         cin >> C[i];
     }
 
-    long long max_score = LLONG_MIN;
+    long long answer = LLONG_MIN;
 
-    for (int i = 0; i < N; i++) {
-        int curr = i;
-        long long score = 0;
-        int moves = 0;
+    for (int start = 0; start < N; ++start) {
+        int pos = start;
+        long long cycle_sum = 0;
+        int cycle_len = 0;
 
         while (true) {
-            curr = P[curr];
-            score += C[curr];
-            moves++;
+            cycle_len++;
+            pos = P[pos];
+            cycle_sum += C[pos];
+            if (pos == start) break;
+        }
 
-            if (curr == i) {
-                long long cycle_score = score;
+        pos = start;
+        long long path_sum = 0;
+        int steps = 0;
 
-                if (K >= moves) {
-                    long long cycle_count = K / moves;
-                    long long cycle_sum = cycle_count * cycle_score;
+        while (true) {
+            steps++;
+            if (steps > K) break;
 
-                    max_score = max(max_score, cycle_sum + max(0LL, cycle_score));
-                }
+            pos = P[pos];
+            path_sum += C[pos];
 
-                break;
+            long long cycles = (K - steps) / cycle_len;
+            long long total = path_sum;
+            if (cycle_sum > 0) {
+                total += cycles * cycle_sum;
             }
 
-            if (moves == K) {
-                max_score = max(max_score, score);
-                break;
-            }
+            answer = max(answer, total);
+
+            if (pos == start) break;
         }
     }
 
-    cout << max_score << endl;
+    cout << answer << endl;
 
     return 0;
 }

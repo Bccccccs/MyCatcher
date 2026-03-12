@@ -1,0 +1,32 @@
+Problem Description
+
+You are given a binary string S consisting of characters '0' and '1'.
+
+Consider a process that scans the string from left to right and maintains two counters associated with the numbers of unmatched 0-type and 1-type elements. At each step, the process may consume characters from the string, remove previously stored elements, or add new elements depending on the current character.
+
+The program counts how many distinct valid states or configurations can be reached through this process, and outputs the result modulo 998244353.
+
+⸻
+
+Input Format
+
+The input contains a single binary string:
+
+S
+
+⸻
+
+Constraints
+
+From the implementation, the practical constraints are approximately:
+
+1 <= |S| <= 300
+S contains only characters '0' and '1'
+
+⸻
+
+Output Format
+
+Output a single integer:
+
+the number of valid configurations counted by the process, modulo 998244353.

@@ -27,8 +27,8 @@ representing the blocked column range in row i.
 
 Constraints
 
-1 ≤ H ≤ 2 × 10⁵
-1 ≤ W ≤ 2 × 10⁵
+1 ≤ H ≤ 2 × 10^5
+1 ≤ W ≤ 2 × 10^5
 1 ≤ Aᵢ ≤ Bᵢ ≤ W
 
 Output Format

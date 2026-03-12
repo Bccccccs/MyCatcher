@@ -1,0 +1,23 @@
+Problem Description
+
+You are given four integers a, b, c, and k.
+
+There are a cards labeled with value +1, b cards labeled with value 0, and c cards labeled with value −1.
+You will choose exactly k cards.
+
+Compute the maximum possible sum of the values of the selected k cards.
+
+Input Format
+
+The input contains four integers:
+
+a b c k
+
+Constraints
+
+0 ≤ a, b, c ≤ 10^9
+1 ≤ k ≤ a + b + c
+
+Output Format
+
+Output a single integer representing the maximum possible sum of the selected k cards.

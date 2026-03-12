@@ -1,0 +1,44 @@
+Problem Description
+
+You are given a graph with n cities and m bidirectional roads.
+To travel along a road, you must spend some amount of money and some amount of time.
+
+Initially, you start at city 1 with s coins.
+At each city i, you may exchange time for coins any number of times.
+Each exchange at city i increases your coins by c_i and increases your total time by d_i.
+
+Your task is to determine the minimum total time required to reach each city from city 1.
+
+Input Format
+
+The first line contains three integers:
+
+n m s
+
+Each of the next m lines contains four integers:
+
+u v a b
+
+indicating a bidirectional road between cities u and v.
+To use this road, you must spend a coins and b units of time.
+
+Each of the next n lines contains two integers:
+
+c_i d_i
+
+meaning that at city i, one exchange operation increases your coins by c_i and increases your total time by d_i.
+
+Constraints
+
+2 ≤ n ≤ 50
+1 ≤ m ≤ 100
+0 ≤ s ≤ 10^9
+1 ≤ u, v ≤ n
+1 ≤ a ≤ 50
+1 ≤ b ≤ 10^9
+1 ≤ c_i ≤ 50
+1 ≤ d_i ≤ 10^9
+
+Output Format
+
+For each city i from 2 to n, output a single integer on its own line representing the minimum total time required to reach city i from city 1.

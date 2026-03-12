@@ -4,28 +4,21 @@
 using namespace std;
 
 int main() {
-    int N, M;
-    cin >> N >> M;
-    
-    vector<int> A(N);
-    for (int i = 0; i < N; i++) {
-        cin >> A[i];
+    int n, m;
+    cin >> n >> m;
+    vector<long long> a(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
     }
-    
-    sort(A.begin(), A.end(), greater<int>());
-    
-    int totalVotes = 0;
-    for (int i = 0; i < M; i++) {
-        totalVotes += A[i];
+    sort(a.begin(), a.end(), greater<long long>());
+    long long sum = 0;
+    for (int i = 0; i < m; ++i) {
+        sum += a[i];
     }
-    
-    int minValue = A[M - 1] * 4 * M;
-    
-    if (totalVotes >= minValue) {
+    if (a[m - 1] * 4 * m >= sum) {
         cout << "Yes" << endl;
     } else {
         cout << "No" << endl;
     }
-    
     return 0;
 }

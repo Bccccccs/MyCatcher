@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cstring>
 using namespace std;
 
 const int MOD = 998244353;
@@ -6,25 +10,47 @@ const int MOD = 998244353;
 int main() {
     string S;
     cin >> S;
-    int N = S.size();
+    int n = S.size();
 
-    // Count the number of zeros and ones in the string
-    int zeros = count(S.begin(), S.end(), '0');
-    int ones = N - zeros;
+    vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0));
+    dp[0][0] = 1;
 
-    // Calculate the result using the formula
-    long long result = 1;
-    for (int i = 1; i <= N; i++) {
-        result = (result * i) % MOD;
+    for (char c : S) {
+        vector<vector<int>> ndp(n + 1, vector<int>(n + 1, 0));
+
+        for (int a = 0; a <= n; ++a) {
+            for (int b = 0; b <= n; ++b) {
+                if (dp[a][b] == 0) continue;
+                int val = dp[a][b];
+
+                if (c == '0') {
+                    if (b > 0) {
+                        ndp[a][b - 1] = (ndp[a][b - 1] + val) % MOD;
+                    } else {
+                        ndp[a + 1][b] = (ndp[a + 1][b] + val) % MOD;
+                    }
+                } else {
+                    if (a > 0) {
+                        ndp[a - 1][b] = (ndp[a - 1][b] + val) % MOD;
+                    } else {
+                        ndp[a][b + 1] = (ndp[a][b + 1] + val) % MOD;
+                    }
+                }
+
+                ndp[a][b] = (ndp[a][b] + val) % MOD;
+            }
+        }
+
+        dp = move(ndp);
     }
-    for (int i = 1; i <= zeros; i++) {
-        result = (result * i) % MOD;
-    }
-    for (int i = 1; i <= ones; i++) {
-        result = (result * i) % MOD;
+
+    int ans = 0;
+    for (int a = 0; a <= n; ++a) {
+        for (int b = 0; b <= n; ++b) {
+            ans = (ans + dp[a][b]) % MOD;
+        }
     }
 
-    cout << result << endl;
-
+    cout << ans << endl;
     return 0;
 }

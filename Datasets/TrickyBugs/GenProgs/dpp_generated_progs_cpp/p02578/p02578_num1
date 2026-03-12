@@ -2,24 +2,26 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
- 
+
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
     int N;
     cin >> N;
-    vector<int> A(N);
-    for (int i = 0; i < N; i++) {
-      cin >> A[i];
+    vector<long long> H(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> H[i];
     }
- 
-    vector<int> stools(N);
-    stools[0] = 0;
-    for (int i = 1; i < N; i++) {
-      if (A[i] > A[i - 1]) {
-        stools[i] = stools[i - 1] + A[i] - A[i - 1];
-      } else {
-        stools[i] = stools[i - 1];
-      }
+    
+    long long operations = 0;
+    for (int i = 1; i < N; ++i) {
+        if (H[i] < H[i-1]) {
+            operations += H[i-1] - H[i];
+            H[i] = H[i-1];
+        }
     }
-    cout << stools[N - 1] << endl;
+    
+    cout << operations << '\n';
     return 0;
 }

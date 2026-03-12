@@ -1,0 +1,24 @@
+Problem Description
+
+You are given two integers N and K.
+
+Consider the set of integers from 0 to N inclusive.
+For every integer i such that K ≤ i ≤ N+1, count the number of possible subsets of size i that can be formed from this set such that the sum of the selected elements can range from the minimum possible sum to the maximum possible sum.
+
+Compute the total number of such possible sums over all valid i.
+
+Since the result can be very large, output it modulo 1000000007.
+
+Input Format
+
+The input contains two integers:
+
+N K
+
+Constraints
+
+1 ≤ K ≤ N ≤ 2 × 10^5
+
+Output Format
+
+Output a single integer representing the total number of possible sums modulo 1000000007.

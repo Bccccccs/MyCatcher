@@ -1,67 +1,96 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <climits>
-#include <functional>
+#include <algorithm>
+#include <limits>
 using namespace std;
-typedef pair<int, int> pii;
-const int MAXN = 55;
-const int MAXS = 1005;
-const int MAXX = 200005;
-int N, M, S;
-int A[MAXN], B[MAXN], C[MAXN], D[MAXN];
-vector<pii> G[MAXN];
-int dist[MAXN][MAXX];
-void dijkstra() {
-    for (int i = 0; i < MAXN; ++i) {
-        for (int j = 0; j < MAXX; ++j) {
-            dist[i][j] = INT_MAX;
-        }
+
+const long long INF = numeric_limits<long long>::max() / 2;
+
+struct Edge {
+    int to, a, b;
+};
+
+struct Exchange {
+    int c, d;
+};
+
+struct State {
+    int city;
+    long long coins;
+    long long time;
+    bool operator>(const State& other) const {
+        return time > other.time;
     }
-    priority_queue<pii, vector<pii>, greater<pii>> pq;
-    dist[1][S] = 0;
-    pq.push({0, S});
+};
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n, m;
+    long long s;
+    cin >> n >> m >> s;
+
+    vector<vector<Edge>> graph(n);
+    for (int i = 0; i < m; ++i) {
+        int u, v, a, b;
+        cin >> u >> v >> a >> b;
+        --u; --v;
+        graph[u].push_back({v, a, b});
+        graph[v].push_back({u, a, b});
+    }
+
+    vector<Exchange> exch(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> exch[i].c >> exch[i].d;
+    }
+
+    int maxCoins = 50 * 50 + 50;
+    if (s > maxCoins) s = maxCoins;
+
+    vector<vector<long long>> dist(n, vector<long long>(maxCoins + 1, INF));
+    priority_queue<State, vector<State>, greater<State>> pq;
+
+    dist[0][s] = 0;
+    pq.push({0, s, 0});
+
     while (!pq.empty()) {
-        int d = pq.top().first;
-        int u = pq.top().second;
+        State cur = pq.top();
         pq.pop();
-        if (d > dist[u][S]) continue;
-        for (pii p : G[u]) {
-            int v = p.first;
-            int a = p.second;
-            if (dist[v][S] > dist[u][S] + a) {
-                dist[v][S] = dist[u][S] + a;
-                pq.push({dist[v][S], v});
+
+        if (cur.time > dist[cur.city][cur.coins]) continue;
+
+        int cc = exch[cur.city].c;
+        int dd = exch[cur.city].d;
+        if (cur.coins < maxCoins) {
+            long long newCoins = min((long long)maxCoins, cur.coins + cc);
+            long long newTime = cur.time + dd;
+            if (newTime < dist[cur.city][newCoins]) {
+                dist[cur.city][newCoins] = newTime;
+                pq.push({cur.city, newCoins, newTime});
             }
         }
-        for (int i = 1; i <= MAXS; ++i) {
-            if (dist[u][i] != INT_MAX) {
-                for (int j = 1; j <= N; ++j) {
-                    if (dist[j][S] > dist[u][i] + D[j] * i) {
-                        dist[j][S] = dist[u][i] + D[j] * i;
-                        pq.push({dist[j][S], j});
-                    }
+
+        for (const Edge& e : graph[cur.city]) {
+            if (cur.coins >= e.a) {
+                long long newCoins = cur.coins - e.a;
+                long long newTime = cur.time + e.b;
+                if (newTime < dist[e.to][newCoins]) {
+                    dist[e.to][newCoins] = newTime;
+                    pq.push({e.to, newCoins, newTime});
                 }
             }
         }
     }
-}
-int main() {
-    cin >> N >> M >> S;
-    for (int i = 1; i <= M; ++i) {
-        int U, V, a, b;
-        cin >> U >> V >> a >> b;
-        G[U].push_back({V, a});
-        G[V].push_back({U, a});
-        A[i] = a;
-        B[i] = b;
+
+    for (int i = 1; i < n; ++i) {
+        long long ans = INF;
+        for (int coin = 0; coin <= maxCoins; ++coin) {
+            ans = min(ans, dist[i][coin]);
+        }
+        cout << ans << "\n";
     }
-    for (int i = 1; i <= N; ++i) {
-        cin >> C[i] >> D[i];
-    }
-    dijkstra();
-    for (int i = 2; i <= N; ++i) {
-        cout << dist[i][S] << endl;
-    }
+
     return 0;
 }

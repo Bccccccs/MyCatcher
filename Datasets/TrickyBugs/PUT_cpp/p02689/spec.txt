@@ -1,0 +1,38 @@
+Problem Description
+
+There are N observation points connected by M bidirectional roads.
+Each observation point has a height.
+
+An observation point is considered good if its height is strictly greater than the heights of all observation points directly connected to it by a road.
+
+Determine how many observation points are good.
+
+Input Format
+
+The first line contains two integers:
+
+N M
+
+The second line contains N integers:
+
+h₁ h₂ … h_N
+
+where h_i is the height of the i-th observation point.
+
+Each of the next M lines contains two integers:
+
+a b
+
+indicating a bidirectional road between observation points a and b.
+
+Constraints
+
+1 ≤ N ≤ 10^5
+0 ≤ M ≤ 10^5
+1 ≤ h_i ≤ 10^9
+1 ≤ a, b ≤ N
+a ≠ b
+
+Output Format
+
+Output a single integer representing the number of good observation points.

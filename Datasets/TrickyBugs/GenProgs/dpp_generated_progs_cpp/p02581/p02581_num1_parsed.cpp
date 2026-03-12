@@ -1,44 +1,30 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 int main() {
     int N;
     cin >> N;
-
-    vector<int> cards(3*N);
-    for (int i = 0; i < 3*N; i++) {
-        cin >> cards[i];
+    vector<int> A(3 * N);
+    for (int i = 0; i < 3 * N; ++i) {
+        cin >> A[i];
     }
 
-    int maxPoints = 0;
+    vector<vector<int>> dp(3 * N + 1, vector<int>(3 * N + 1, 0));
 
-    for (int i = 1; i <= N; i++) {
-        vector<int> temp(cards.begin(), cards.end());
-        int points = 0;
-
-        for (int j = 0; j < N-1; j++) {
-            sort(temp.begin(), temp.begin()+5);
-          
-            if (temp[0] == temp[1] && temp[1] == temp[2]) {
-                points++;
+    for (int len = 2; len <= 3 * N; len += 2) {
+        for (int l = 0; l + len <= 3 * N; ++l) {
+            int r = l + len - 1;
+            if (A[l] == A[r]) {
+                dp[l][r] = max(dp[l][r], dp[l + 1][r - 1] + 1);
             }
-
-            temp.erase(temp.begin(), temp.begin()+3);
+            for (int k = l + 1; k < r; k += 2) {
+                dp[l][r] = max(dp[l][r], dp[l][k] + dp[k + 1][r]);
+            }
         }
-
-        if (temp[0] == temp[1] && temp[1] == temp[2]) {
-            points++;
-        }
-
-        maxPoints = max(maxPoints, points);
-      
-        rotate(cards.begin(), cards.begin()+3, cards.end());
     }
 
-    cout << maxPoints << endl;
-
+    cout << dp[0][3 * N - 1] << endl;
     return 0;
 }

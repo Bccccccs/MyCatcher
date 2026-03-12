@@ -1,69 +1,101 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <algorithm>
 #include <limits>
+using namespace std;
+
+const long long INF = numeric_limits<long long>::max() / 2;
 
 struct Edge {
-    int v;
-    int a;
-    int b;
+    int to, a, b;
 };
 
-struct ExchangeCounter {
-    int c;
-    int d;
+struct Exchange {
+    int c, d;
 };
 
-void dijkstra(const std::vector<std::vector<Edge>>& graph, const std::vector<ExchangeCounter>& exchangeCounters, int start, std::vector<long long>& dist) {
-    std::priority_queue<std::pair<long long, int>, std::vector<std::pair<long long, int>>, std::greater<std::pair<long long, int>>> pq;
-
-    dist[start] = 0;
-    pq.push({0, start});
-
-    while (!pq.empty()) {
-        int u = pq.top().second;
-        pq.pop();
-
-        for (const Edge& edge : graph[u]) {
-            int v = edge.v;
-            int a = edge.a;
-            int b = edge.b;
-
-            long long silverNeeded = a - std::min(a, exchangeCounters[u].c);
-            long long timeRequired = b + dist[u];
-
-            if (dist[v] > timeRequired && silverNeeded <= dist[u]) {
-                dist[v] = timeRequired;
-                pq.push({dist[v], v});
-            }
-        }
+struct State {
+    int city;
+    long long coins;
+    long long time;
+    bool operator>(const State& other) const {
+        return time > other.time;
     }
-}
+};
 
 int main() {
-    int N, M, S;
-    std::cin >> N >> M >> S;
+    int n, m;
+    long long s;
+    cin >> n >> m >> s;
 
-    std::vector<std::vector<Edge>> graph(N + 1);
-    std::vector<ExchangeCounter> exchangeCounters(N + 1);
-
-    for (int i = 1; i <= M; ++i) {
+    vector<vector<Edge>> graph(n + 1);
+    for (int i = 0; i < m; ++i) {
         int u, v, a, b;
-        std::cin >> u >> v >> a >> b;
+        cin >> u >> v >> a >> b;
         graph[u].push_back({v, a, b});
         graph[v].push_back({u, a, b});
     }
 
-    for (int i = 1; i <= N; ++i) {
-        std::cin >> exchangeCounters[i].c >> exchangeCounters[i].d;
+    vector<Exchange> exch(n + 1);
+    for (int i = 1; i <= n; ++i) {
+        cin >> exch[i].c >> exch[i].d;
     }
 
-    std::vector<long long> dist(N + 1, std::numeric_limits<long long>::max());
+    long long maxCoins = 0;
+    for (int i = 1; i <= n; ++i) {
+        for (const auto& e : graph[i]) {
+            maxCoins = max(maxCoins, s + (long long)e.a);
+        }
+    }
+    for (int i = 1; i <= n; ++i) {
+        if (exch[i].c > 0) {
+            maxCoins = max(maxCoins, s + (long long)exch[i].c);
+        }
+    }
+    maxCoins = min(maxCoins, s + 50LL * 50LL * 2);
 
-    dijkstra(graph, exchangeCounters, 1, dist);
+    vector<vector<long long>> dist(n + 1, vector<long long>(maxCoins + 1, INF));
+    priority_queue<State, vector<State>, greater<State>> pq;
 
-    for (int t = 2; t <= N; ++t) {
-        std::cout << dist[t] << "\n";
+    dist[1][min(s, maxCoins)] = 0;
+    pq.push({1, min(s, maxCoins), 0});
+
+    while (!pq.empty()) {
+        State cur = pq.top();
+        pq.pop();
+
+        if (cur.time > dist[cur.city][cur.coins]) continue;
+
+        int cc = exch[cur.city].c;
+        int cd = exch[cur.city].d;
+        if (cc > 0 && cur.coins < maxCoins) {
+            long long newCoins = min((long long)maxCoins, cur.coins + cc);
+            long long newTime = cur.time + cd;
+            if (newTime < dist[cur.city][newCoins]) {
+                dist[cur.city][newCoins] = newTime;
+                pq.push({cur.city, newCoins, newTime});
+            }
+        }
+
+        for (const auto& e : graph[cur.city]) {
+            if (cur.coins >= e.a) {
+                long long newCoins = min((long long)maxCoins, cur.coins - e.a);
+                long long newTime = cur.time + e.b;
+                if (newTime < dist[e.to][newCoins]) {
+                    dist[e.to][newCoins] = newTime;
+                    pq.push({e.to, newCoins, newTime});
+                }
+            }
+        }
+    }
+
+    for (int i = 2; i <= n; ++i) {
+        long long ans = INF;
+        for (long long coins = 0; coins <= maxCoins; ++coins) {
+            ans = min(ans, dist[i][coins]);
+        }
+        cout << ans << "\n";
     }
 
     return 0;

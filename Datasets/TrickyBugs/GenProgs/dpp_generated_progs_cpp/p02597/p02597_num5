@@ -1,33 +1,22 @@
-```cpp
 #include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <string>
 using namespace std;
 
 int main() {
     int N;
-    cin >> N;
-    string c;
-    cin >> c;
+    string S;
+    cin >> N >> S;
 
-    int ans = 0;
-    int red_count = count(c.begin(), c.end(), 'R');
-    int white_count = N - red_count;
-    int disaster_count = 0;
-
-    for(int i = N - 1; i >= 0; i--) {
-        if(c[i] == 'W') {
-            disaster_count++;
-        }
-        else {
-            ans += min(disaster_count, white_count);
-            red_count--;
-        }
+    int totalR = 0;
+    for (char c : S) {
+        if (c == 'R') totalR++;
     }
 
-    cout << ans << endl;
+    int wrongR = 0;
+    for (int i = 0; i < totalR; i++) {
+        if (S[i] == 'W') wrongR++;
+    }
 
+    cout << wrongR << endl;
     return 0;
 }
-```

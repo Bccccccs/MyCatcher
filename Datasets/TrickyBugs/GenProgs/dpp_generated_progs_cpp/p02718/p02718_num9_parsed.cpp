@@ -1,26 +1,41 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <functional>
 
 using namespace std;
 
 int main() {
-    int N, M;
-    cin >> N >> M;
-    vector<int> A(N);
-    for (int i = 0; i < N; i++) {
-        cin >> A[i];
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n, m;
+    cin >> n >> m;
+
+    vector<long long> a(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
     }
-    sort(A.begin(), A.end(), greater<int>());
-    int totalVotes = 0;
-    for (int i = 0; i < M; i++) {
-        totalVotes += A[i];
+
+    sort(a.begin(), a.end(), greater<long long>());
+
+    long long sum_top_m = 0;
+    for (int i = 0; i < m; ++i) {
+        sum_top_m += a[i];
     }
-    int threshold = totalVotes / (4 * M);
-    if (A[M - 1] >= threshold) {
-        cout << "Yes" << endl;
+
+    long long threshold = sum_top_m;
+    if (threshold % (4 * m) != 0) {
+        threshold = threshold / (4 * m);
     } else {
-        cout << "No" << endl;
+        threshold = threshold / (4 * m);
     }
+
+    if (a[m - 1] >= threshold) {
+        cout << "Yes\n";
+    } else {
+        cout << "No\n";
+    }
+
     return 0;
 }

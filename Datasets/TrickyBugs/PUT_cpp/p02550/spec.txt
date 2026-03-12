@@ -19,7 +19,7 @@ N X M
 
 Constraints
 
-1 ≤ N ≤ 10¹⁸
+1 ≤ N ≤ 10^5
 0 ≤ X < M
 1 ≤ M ≤ 10⁶
 

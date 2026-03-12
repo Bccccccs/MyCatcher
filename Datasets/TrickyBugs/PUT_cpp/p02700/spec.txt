@@ -1,0 +1,26 @@
+Problem Description
+
+Two players play a turn-based game.
+
+Player Takahashi starts with A health points, and player Aoki starts with C health points.
+On Takahashi’s turn, he deals B damage to Aoki.
+On Aoki’s turn, he deals D damage to Takahashi.
+
+Takahashi attacks first.
+The players alternate turns until one player’s health becomes zero or less.
+
+Determine whether Takahashi wins the game.
+
+Input Format
+
+The input contains four integers:
+
+A B C D
+
+Constraints
+
+1 ≤ A, B, C, D ≤ 10^9
+
+Output Format
+
+Output “Yes” if Takahashi wins, otherwise output “No”.

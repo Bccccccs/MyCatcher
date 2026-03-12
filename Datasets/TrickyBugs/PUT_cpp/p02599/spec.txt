@@ -1,0 +1,30 @@
+Problem Description
+
+You are given an array of N colors and Q range queries.
+
+For each query [L, R], determine how many distinct values appear in the subarray from index L to index R, inclusive.
+
+Input Format
+
+The first line contains two integers:
+
+N Q
+
+The second line contains N integers:
+
+c_1 c_2 … c_N
+
+Each of the next Q lines contains two integers:
+
+L_i R_i
+
+Constraints
+
+1 <= N <= 2 x 10^5
+1 <= Q <= 2 x 10^5
+0 <= c_i < N
+1 <= L_i <= R_i <= N
+
+Output Format
+
+For each query, output a single integer on its own line: the number of distinct values in the specified subarray.

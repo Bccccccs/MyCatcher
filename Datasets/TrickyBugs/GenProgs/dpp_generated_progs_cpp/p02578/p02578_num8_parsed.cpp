@@ -1,33 +1,29 @@
 #include <iostream>
 #include <vector>
-
+#include <algorithm>
 using namespace std;
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
     int N;
     cin >> N;
-
-    vector<int> heights(N);
-    for (int i = 0; i < N; i++) {
-        cin >> heights[i];
+    
+    vector<long long> H(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> H[i];
     }
-
-    vector<int> stools(N, 0);
-    int tallest = 0;
-
-    for (int i = 0; i < N; i++) {
-        if (heights[i] > tallest) {
-            stools[i] = heights[i] - tallest;
-            tallest = heights[i];
+    
+    long long operations = 0;
+    for (int i = 1; i < N; ++i) {
+        if (H[i] < H[i-1]) {
+            operations += H[i-1] - H[i];
+            H[i] = H[i-1];
         }
     }
-
-    int total_height = 0;
-    for (int i = 0; i < N; i++) {
-        total_height += stools[i];
-    }
-
-    cout << total_height << endl;
-
+    
+    cout << operations << '\n';
+    
     return 0;
 }

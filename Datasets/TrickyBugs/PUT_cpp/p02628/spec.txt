@@ -1,0 +1,27 @@
+Problem Description
+
+You are given N integers and an integer K.
+
+Sort the integers in nondecreasing order. Then take the smallest number as an initial value, and add the next K smallest numbers to it.
+
+Output the final result.
+
+Input Format
+
+The first line contains two integers:
+
+N K
+
+The second line contains N integers:
+
+A_1 A_2 … A_N
+
+Constraints
+
+1 <= N <= 1000
+0 <= K <= N - 1
+-10^9 <= A_i <= 10^9
+
+Output Format
+
+Output a single integer: the value obtained after sorting and summing the smallest K+1 numbers.

@@ -1,18 +1,11 @@
 #include <iostream>
+using namespace std;
 
 int main() {
-    // Read input
-    int N, M;
-    std::cin >> N >> M;
-
-    // Calculate the number of ways to choose two balls with even sum
-    int even_even = N * (N - 1) / 2; // Choosing two even balls
-    int odd_odd = M * (M - 1) / 2; // Choosing two odd balls
-    int even_odd = N * M; // Choosing one even ball and one odd ball
-
-    // Print the result
-    int ways = even_even + odd_odd + even_odd;
-    std::cout << ways << std::endl;
-
+    long long n, m;
+    cin >> n >> m;
+    long long red_pairs = n * (n - 1) / 2;
+    long long blue_pairs = m * (m - 1) / 2;
+    cout << red_pairs + blue_pairs << endl;
     return 0;
 }

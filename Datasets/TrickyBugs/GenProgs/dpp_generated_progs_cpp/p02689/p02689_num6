@@ -1,35 +1,42 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
     int N, M;
     cin >> N >> M;
-
-    vector<int> H(N);
-    for (int i = 0; i < N; i++) {
-        cin >> H[i];
+    
+    vector<int> h(N + 1);
+    for (int i = 1; i <= N; ++i) {
+        cin >> h[i];
     }
-
-    vector<int> goodObservatories(N, 1);
-
-    for (int i = 0; i < M; i++) {
-        int A, B;
-        cin >> A >> B;
-
-        if (H[A-1] <= H[B-1]) {
-            goodObservatories[A - 1] = 0;
+    
+    vector<vector<int>> adj(N + 1);
+    for (int i = 0; i < M; ++i) {
+        int a, b;
+        cin >> a >> b;
+        adj[a].push_back(b);
+        adj[b].push_back(a);
+    }
+    
+    int good_count = 0;
+    for (int i = 1; i <= N; ++i) {
+        bool is_good = true;
+        for (int neighbor : adj[i]) {
+            if (h[i] <= h[neighbor]) {
+                is_good = false;
+                break;
+            }
         }
-        if (H[B-1] <= H[A-1]) {
-            goodObservatories[B - 1] = 0;
+        if (is_good) {
+            ++good_count;
         }
     }
-
-    int countGoodObservatories = count(goodObservatories.begin(), goodObservatories.end(), 1);
-
-    cout << countGoodObservatories << endl;
-
+    
+    cout << good_count << '\n';
+    
     return 0;
 }

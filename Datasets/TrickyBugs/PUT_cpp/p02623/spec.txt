@@ -1,0 +1,33 @@
+Problem Description
+
+You have two stacks of books, stack A and stack B.
+
+Reading the i-th book in stack A takes A_i minutes, and reading the i-th book in stack B takes B_i minutes.
+
+You may only read books from the top of each stack, in order. In other words, from each stack you may choose some prefix of books.
+
+Given a total time limit K, determine the maximum total number of books you can read.
+
+Input Format
+
+The first line contains three integers:
+
+N M K
+
+The second line contains N integers:
+
+A_1 A_2 … A_N
+
+The third line contains M integers:
+
+B_1 B_2 … B_M
+
+Constraints
+
+1 <= N, M <= 2 x 10^5
+1 <= A_i, B_i <= 10^9
+1 <= K <= 10^18
+
+Output Format
+
+Output a single integer: the maximum number of books that can be read within the time limit.

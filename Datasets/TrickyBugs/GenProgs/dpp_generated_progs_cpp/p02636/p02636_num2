@@ -1,37 +1,57 @@
-```cpp
 #include <iostream>
-#include <string>
 #include <vector>
-
+#include <string>
+#include <algorithm>
+#include <cstring>
 using namespace std;
 
-const long long MOD = 998244353;
-const int MAX_N = 305;
+const int MOD = 998244353;
 
 int main() {
     string S;
     cin >> S;
+    int n = S.size();
 
-    int n = S.length();
-    vector<long long> dp(MAX_N, 0);
+    vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0));
+    dp[0][0] = 1;
 
-    dp[n] = 1;
-    for (int i = n - 1; i >= 2; i--) {
-        if (S[i - 2] == S[i - 1]) {
-            dp[i] = (dp[i] + dp[i + 2]) % MOD;
+    for (char c : S) {
+        vector<vector<int>> ndp(n + 1, vector<int>(n + 1, 0));
+
+        for (int a = 0; a <= n; ++a) {
+            for (int b = 0; b <= n; ++b) {
+                if (dp[a][b] == 0) continue;
+
+                int val = dp[a][b];
+
+                if (c == '0') {
+                    if (b > 0) {
+                        ndp[a][b - 1] = (ndp[a][b - 1] + val) % MOD;
+                    } else {
+                        ndp[a + 1][b] = (ndp[a + 1][b] + val) % MOD;
+                    }
+                } else {
+                    if (a > 0) {
+                        ndp[a - 1][b] = (ndp[a - 1][b] + val) % MOD;
+                    } else {
+                        ndp[a][b + 1] = (ndp[a][b + 1] + val) % MOD;
+                    }
+                }
+
+                ndp[a][b] = (ndp[a][b] + val) % MOD;
+            }
         }
-        dp[i] = (dp[i] + dp[i + 1]) % MOD;
-    }
-    long long cnt = dp[2];
 
-    for (int i = 1; i < n; i++) {
-        if (S[i - 1] != S[i]) {
-            cnt = (cnt * 2) % MOD;
+        dp = move(ndp);
+    }
+
+    int ans = 0;
+    for (int a = 0; a <= n; ++a) {
+        for (int b = 0; b <= n; ++b) {
+            ans = (ans + dp[a][b]) % MOD;
         }
     }
-    
-    cout << cnt << endl;
 
+    cout << ans << endl;
     return 0;
 }
-```

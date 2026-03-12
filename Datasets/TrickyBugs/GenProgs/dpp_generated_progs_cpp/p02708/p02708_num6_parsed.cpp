@@ -1,37 +1,51 @@
 #include <iostream>
 #include <vector>
-
+#include <algorithm>
 using namespace std;
 
-const int MOD = 1e9 + 7;
+const int MOD = 1000000007;
+
+int modpow(int a, int e) {
+    int res = 1;
+    while (e) {
+        if (e & 1) res = 1LL * res * a % MOD;
+        a = 1LL * a * a % MOD;
+        e >>= 1;
+    }
+    return res;
+}
+
+int modinv(int a) {
+    return modpow(a, MOD - 2);
+}
 
 int main() {
     int N, K;
     cin >> N >> K;
-
-    vector<int> values(N + 1);
-    for (int i = 0; i <= N; i++) {
-        values[i] = (1e100 + i) % MOD;
+    
+    vector<int> fact(N + 2), invfact(N + 2);
+    fact[0] = 1;
+    for (int i = 1; i <= N + 1; i++) {
+        fact[i] = 1LL * fact[i - 1] * i % MOD;
     }
-
-    vector<vector<int>> dp(N + 1, vector<int>(K + 1, 0));
-    dp[0][0] = 1;
-
-    for (int i = 1; i <= N; i++) {
-        for (int j = 0; j <= K; j++) {
-            dp[i][j] = (dp[i - 1][j] + dp[i - 1][j - 1] * (i - 1)) % MOD;
-            if (j > 0) {
-                dp[i][j] = (dp[i][j] + dp[i - 1][j - 1]) % MOD;
-            }
-        }
+    invfact[N + 1] = modinv(fact[N + 1]);
+    for (int i = N; i >= 0; i--) {
+        invfact[i] = 1LL * invfact[i + 1] * (i + 1) % MOD;
     }
-
-    int result = 0;
-    for (int j = K; j <= N; j++) {
-        result = (result + dp[N][j]) % MOD;
+    
+    auto comb = [&](int n, int r) -> int {
+        if (r < 0 || r > n) return 0;
+        return 1LL * fact[n] * invfact[r] % MOD * invfact[n - r] % MOD;
+    };
+    
+    int ans = 0;
+    for (int i = K; i <= N + 1; i++) {
+        long long min_sum = 1LL * i * (i - 1) / 2;
+        long long max_sum = 1LL * i * (2 * N - i + 1) / 2;
+        int cnt = (max_sum - min_sum + 1) % MOD;
+        ans = (ans + cnt) % MOD;
     }
-
-    cout << result << endl;
-
+    
+    cout << ans << endl;
     return 0;
 }

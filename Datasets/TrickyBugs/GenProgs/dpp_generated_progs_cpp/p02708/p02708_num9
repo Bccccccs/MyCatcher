@@ -1,53 +1,52 @@
-// CPP program to find the number of possible
-// values of the sum of chosen numbers modulo (10^9+7)
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 const int MOD = 1000000007;
 
-// Function to find the number of possible
-// values of the sum modulo (10^9+7)
-int findNumberOfSumValues(int N, int K)
-{
-    // If K is greater than N+1,
-    // there is only one possible sum
-    if (K > N+1)
-        return 1;
-
-    // Initialize the result
-    int result = 0;
-
-    // Calculate (N+1) factorial modulo MOD
-    vector<int> factorial(N+2, 1);
-    for (int i = 2; i <= N+1; i++)
-        factorial[i] = (factorial[i-1] * 1LL * i) % MOD;
-
-    // Calculate inverse of factorial from 2 to N+1 modulo MOD
-    vector<int> inverse(N+2, 1);
-    for (int i = 2; i <= N+1; i++)
-        inverse[i] = MOD - (MOD/i * 1LL * inverse[MOD%i] % MOD);
-
-    // Calculate the number of possible values of the sum modulo MOD
-    for (int i = K; i <= N+1; i++)
-    {
-        int coeff = ((factorial[N+1] * 1LL * inverse[i]) % MOD *
-                    inverse[N+1-i]) % MOD;
-        result = (result + coeff) % MOD;
+int modpow(int a, int e) {
+    int res = 1;
+    while (e) {
+        if (e & 1) res = 1LL * res * a % MOD;
+        a = 1LL * a * a % MOD;
+        e >>= 1;
     }
-    
-    return result;
+    return res;
 }
 
-// Driver code
-int main()
-{
+int modinv(int a) {
+    return modpow(a, MOD - 2);
+}
+
+int main() {
     int N, K;
     cin >> N >> K;
     
-    int numberOfSumValues = findNumberOfSumValues(N, K);
+    vector<int> fact(N + 2), invfact(N + 2);
+    fact[0] = 1;
+    for (int i = 1; i <= N + 1; ++i) {
+        fact[i] = 1LL * fact[i - 1] * i % MOD;
+    }
+    invfact[N + 1] = modinv(fact[N + 1]);
+    for (int i = N; i >= 0; --i) {
+        invfact[i] = 1LL * invfact[i + 1] * (i + 1) % MOD;
+    }
     
-    cout << numberOfSumValues << endl;
+    auto comb = [&](int n, int k) -> int {
+        if (k < 0 || k > n) return 0;
+        return 1LL * fact[n] * invfact[k] % MOD * invfact[n - k] % MOD;
+    };
     
+    int ans = 0;
+    for (int i = K; i <= N + 1; ++i) {
+        long long min_sum = 1LL * i * (i - 1) / 2;
+        long long max_sum = 1LL * i * (2 * N - i + 1) / 2;
+        long long possible_sums = max_sum - min_sum + 1;
+        possible_sums %= MOD;
+        ans = (ans + possible_sums) % MOD;
+    }
+    
+    cout << ans << endl;
     return 0;
 }

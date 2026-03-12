@@ -1,26 +1,22 @@
 #include <iostream>
-#include <vector>
+#include <string>
 using namespace std;
 
 int main() {
     int N;
-    cin >> N;
-    string stones;
-    cin >> stones;
+    string S;
+    cin >> N >> S;
 
-    int count_w = 0; // count of white stones to the left of a red stone
-    int result = 0; // minimum number of operations needed
-
-    for (int i = 0; i < N; i++) {
-        if (stones[i] == 'W') {
-            count_w++;
-        } else if (count_w > 0) {
-            count_w--;
-            result++;
-        }
+    int totalR = 0;
+    for (char c : S) {
+        if (c == 'R') totalR++;
     }
 
-    cout << result << endl;
+    int misplacedR = 0;
+    for (int i = 0; i < totalR; i++) {
+        if (S[i] == 'W') misplacedR++;
+    }
 
+    cout << misplacedR << endl;
     return 0;
 }

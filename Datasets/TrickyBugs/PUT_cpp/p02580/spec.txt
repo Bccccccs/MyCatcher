@@ -1,0 +1,31 @@
+Problem Description
+
+You are given an H x W grid and M bombs placed on it.
+Each bomb is located at a distinct cell (hi, wi).
+
+If you choose one row r and one column c, all bombs in row r and all bombs in column c are destroyed.
+The cell (r, c) is counted only once.
+
+Find the maximum number of bombs that can be destroyed.
+
+Input Format
+
+The first line contains three integers:
+
+H W M
+
+Each of the next M lines contains two integers:
+
+hi wi
+
+Constraints
+
+1 <= H, W <= 3 x 10^5
+1 <= M <= 3 x 10^5
+1 <= hi <= H
+1 <= wi <= W
+All bomb positions are distinct.
+
+Output Format
+
+Output a single integer: the maximum number of bombs that can be destroyed.

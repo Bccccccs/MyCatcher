@@ -1,57 +1,78 @@
 #include <iostream>
 #include <vector>
+#include <map>
+#include <set>
 #include <algorithm>
 #include <unordered_map>
-
 using namespace std;
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
     int H, W, M;
     cin >> H >> W >> M;
     
-    vector<int> row_count(H, 0);
-    vector<int> col_count(W, 0);
-    unordered_map<int, int> targets;
+    vector<int> rowCount(H + 1, 0);
+    vector<int> colCount(W + 1, 0);
+    map<pair<int, int>, bool> bombs;
     
-    for (int i = 0; i < M; i++) {
+    for (int i = 0; i < M; ++i) {
         int h, w;
         cin >> h >> w;
-        h--;
-        w--;
-        row_count[h]++;
-        col_count[w]++;
-        targets[h * W + w]++;
+        rowCount[h]++;
+        colCount[w]++;
+        bombs[{h, w}] = true;
     }
     
-    int max_row_count = *max_element(row_count.begin(), row_count.end());
-    int max_col_count = *max_element(col_count.begin(), col_count.end());
-    
-    int max_targets = max_row_count + max_col_count;
-    
-    vector<int> max_row_indices;
-    vector<int> max_col_indices;
-    
-    for (int i = 0; i < H; i++) {
-        if (row_count[i] == max_row_count) {
-            max_row_indices.push_back(i);
+    int maxRow = 0;
+    for (int i = 1; i <= H; ++i) {
+        if (rowCount[i] > maxRow) {
+            maxRow = rowCount[i];
         }
     }
     
-    for (int i = 0; i < W; i++) {
-        if (col_count[i] == max_col_count) {
-            max_col_indices.push_back(i);
+    int maxCol = 0;
+    for (int i = 1; i <= W; ++i) {
+        if (colCount[i] > maxCol) {
+            maxCol = colCount[i];
         }
     }
     
-    for (int i = 0; i < max_row_indices.size(); i++) {
-        for (int j = 0; j < max_col_indices.size(); j++) {
-            if (targets.count(max_row_indices[i] * W + max_col_indices[j]) == 0) {
-                cout << max_targets << endl;
-                return 0;
+    vector<int> maxRows, maxCols;
+    for (int i = 1; i <= H; ++i) {
+        if (rowCount[i] == maxRow) {
+            maxRows.push_back(i);
+        }
+    }
+    for (int i = 1; i <= W; ++i) {
+        if (colCount[i] == maxCol) {
+            maxCols.push_back(i);
+        }
+    }
+    
+    long long total = maxRow + maxCol;
+    bool found = false;
+    
+    if ((long long)maxRows.size() * (long long)maxCols.size() > M) {
+        found = true;
+    } else {
+        for (int r : maxRows) {
+            for (int c : maxCols) {
+                if (bombs.find({r, c}) == bombs.end()) {
+                    found = true;
+                    break;
+                }
             }
+            if (found) break;
         }
     }
     
-    cout << max_targets - 1 << endl;
+    if (!found) {
+        total--;
+    }
+    
+    cout << total << "\n";
+    
     return 0;
 }

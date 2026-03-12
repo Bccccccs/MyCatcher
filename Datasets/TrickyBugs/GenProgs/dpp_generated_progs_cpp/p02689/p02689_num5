@@ -1,54 +1,43 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
     int N, M;
     cin >> N >> M;
-
-    vector<int> H(N);
-    for (int i = 0; i < N; i++) {
-        cin >> H[i];
+    
+    vector<int> h(N + 1);
+    for (int i = 1; i <= N; ++i) {
+        cin >> h[i];
     }
-
-    vector<vector<int>> adj(N); // adjacency list
-    vector<bool> isGood(N, true); // initialize all observatories as good
-
-    for (int i = 0; i < M; i++) {
-        int A, B;
-        cin >> A >> B;
-        A--; B--;
-
-        if (H[A] <= H[B]) {
-            isGood[A] = false;
-        }
-        if (H[B] <= H[A]) {
-            isGood[B] = false;
-        }
-
-        adj[A].push_back(B);
-        adj[B].push_back(A);
+    
+    vector<vector<int>> adj(N + 1);
+    
+    for (int i = 0; i < M; ++i) {
+        int a, b;
+        cin >> a >> b;
+        adj[a].push_back(b);
+        adj[b].push_back(a);
     }
-
-    int goodObservatories = 0;
-
-    for (int i = 0; i < N; i++) {
-        bool isGoodObservatory = true;
-
-        for (int j : adj[i]) { // iterate over adjacent observatories
-            if (H[j] >= H[i]) { // if any adjacent observatory has equal or greater elevation, i is not good
-                isGoodObservatory = false;
+    
+    int good_count = 0;
+    for (int i = 1; i <= N; ++i) {
+        bool is_good = true;
+        for (int neighbor : adj[i]) {
+            if (h[i] <= h[neighbor]) {
+                is_good = false;
                 break;
             }
         }
-
-        if (isGoodObservatory) {
-            goodObservatories++;
+        if (is_good) {
+            ++good_count;
         }
     }
-
-    cout << goodObservatories << endl;
-
+    
+    cout << good_count << '\n';
+    
     return 0;
 }

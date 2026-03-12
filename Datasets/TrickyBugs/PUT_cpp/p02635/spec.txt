@@ -1,0 +1,37 @@
+Problem Description
+
+You are given a binary string S consisting of characters '0' and '1', and an integer m.
+
+Let the string be decomposed by zeros: for each zero in the string, consider how many consecutive '1' characters appear immediately before it. The program counts the number of valid binary strings that can be formed using the same numbers of '0' and '1', under a cost constraint of at most m.
+
+The total number of valid configurations should be output modulo 998244353.
+
+⸻
+
+Input Format
+
+The first line contains a binary string:
+
+S
+
+The second line contains an integer:
+
+m
+
+⸻
+
+Constraints
+
+From the implementation, the practical constraints are approximately:
+
+1 <= |S| <= 300
+0 <= m <= |S|
+S contains only characters '0' and '1'
+
+⸻
+
+Output Format
+
+Output a single integer:
+
+the number of valid binary strings satisfying the constraint, modulo 998244353.

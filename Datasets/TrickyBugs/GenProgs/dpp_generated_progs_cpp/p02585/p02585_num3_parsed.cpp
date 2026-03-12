@@ -1,58 +1,62 @@
 #include <iostream>
 #include <vector>
-
+#include <algorithm>
+#include <climits>
 using namespace std;
 
 int main() {
-  int N, K;
-  cin >> N >> K;
+    int N;
+    long long K;
+    cin >> N >> K;
 
-  vector<int> P(N), C(N);
-  for (int i = 0; i < N; i++) {
-    cin >> P[i];
-    P[i]--;
-  }
+    vector<int> P(N);
+    vector<long long> C(N);
 
-  for (int i = 0; i < N; i++) {
-    cin >> C[i];
-  }
-
-  long long maxScore = -1e18;
-  for (int start = 0; start < N; start++) {
-    int current = start;
-    long long score = 0;
-
-    vector<int> visited;
-    while (true) {
-      current = P[current];
-      score += C[current];
-      visited.push_back(current);
-
-      if (current == start) {
-        break;
-      }
+    for (int i = 0; i < N; ++i) {
+        cin >> P[i];
+        P[i]--;
+    }
+    for (int i = 0; i < N; ++i) {
+        cin >> C[i];
     }
 
-    int cycleSize = visited.size();
-    long long cycleScore = 0;
+    long long answer = LLONG_MIN;
 
-    for (int i = 0; i < cycleSize; i++) {
-      cycleScore += C[visited[i]];
-      if (i + 1 > K) {
-        break;
-      }
+    for (int start = 0; start < N; ++start) {
+        int cur = start;
+        long long cycle_sum = 0;
+        int cycle_len = 0;
 
-      int remainingMoves = K - i - 1;
-      long long currentScore = cycleScore;
-      if (score > 0) {
-        currentScore += (remainingMoves / cycleSize) * score;
-      }
+        while (true) {
+            cur = P[cur];
+            cycle_sum += C[cur];
+            cycle_len++;
+            if (cur == start) break;
+        }
 
-      maxScore = max(maxScore, currentScore);
+        long long path_sum = 0;
+        int steps = 0;
+        cur = start;
+
+        while (true) {
+            cur = P[cur];
+            steps++;
+            path_sum += C[cur];
+
+            if (steps > K) break;
+
+            long long cycles = 0;
+            if (cycle_sum > 0) {
+                cycles = (K - steps) / cycle_len;
+            }
+
+            long long total = path_sum + cycles * cycle_sum;
+            answer = max(answer, total);
+
+            if (cur == start) break;
+        }
     }
-  }
 
-  cout << maxScore << endl;
-
-  return 0;
+    cout << answer << endl;
+    return 0;
 }

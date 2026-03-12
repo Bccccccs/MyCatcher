@@ -1,80 +1,95 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <climits>
-
+#include <algorithm>
+#include <limits>
 using namespace std;
 
+const long long INF = numeric_limits<long long>::max() / 4;
+
 struct Edge {
-    int v, a, b;
+    int to, a, b;
 };
 
-struct Exchange {
-    int c, d;
-};
-
-struct Node {
+struct State {
     int city;
-    int silver;
+    long long money;
     long long time;
-
-    bool operator<(const Node& other) const {
+    bool operator>(const State& other) const {
         return time > other.time;
     }
 };
 
 int main() {
-    int N, M, S;
-    cin >> N >> M >> S;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    vector<vector<Edge>> graph(N + 1);
-    for (int i = 0; i < M; i++) {
+    int n, m;
+    long long s;
+    cin >> n >> m >> s;
+
+    vector<vector<Edge>> graph(n + 1);
+    for (int i = 0; i < m; ++i) {
         int u, v, a, b;
         cin >> u >> v >> a >> b;
         graph[u].push_back({v, a, b});
         graph[v].push_back({u, a, b});
     }
 
-    vector<Exchange> exchanges(N + 1);
-    for (int i = 1; i <= N; i++) {
-        cin >> exchanges[i].c >> exchanges[i].d;
+    vector<int> c(n + 1), d(n + 1);
+    for (int i = 1; i <= n; ++i) {
+        cin >> c[i] >> d[i];
     }
 
-    vector<long long> minTime(N + 1, LLONG_MAX);
-    priority_queue<Node> pq;
-    pq.push({1, S, 0});
-    minTime[1] = 0;
+    long long maxMoney = s;
+    for (int i = 1; i <= n; ++i) {
+        maxMoney += c[i] * 2500LL;
+    }
+    if (maxMoney > 10000LL) maxMoney = 10000LL;
+
+    vector<vector<long long>> dist(n + 1, vector<long long>(maxMoney + 1, INF));
+    priority_queue<State, vector<State>, greater<State>> pq;
+
+    dist[1][s] = 0;
+    pq.push({1, s, 0});
 
     while (!pq.empty()) {
-        Node curr = pq.top();
+        State cur = pq.top();
         pq.pop();
 
-        if (curr.time > minTime[curr.city]) {
-            continue;
-        }
+        if (cur.time > dist[cur.city][cur.money]) continue;
 
-        for (const Edge& e : graph[curr.city]) {
-            long long newTime = curr.time + e.b;
-            if (newTime < minTime[e.v] && curr.silver >= e.a) {
-                minTime[e.v] = newTime;
-                pq.push({e.v, curr.silver - e.a, newTime});
+        int city = cur.city;
+        long long money = cur.money;
+        long long time = cur.time;
+
+        if (money + c[city] <= maxMoney) {
+            long long nm = money + c[city];
+            long long nt = time + d[city];
+            if (nt < dist[city][nm]) {
+                dist[city][nm] = nt;
+                pq.push({city, nm, nt});
             }
         }
 
-        long long exchangeTime = curr.time;
-        for (int i = 1; i <= N; i++) {
-            if (curr.silver >= exchanges[i].c) {
-                long long newTime = exchangeTime + exchanges[i].d;
-                if (newTime < minTime[i]) {
-                    minTime[i] = newTime;
-                    pq.push({i, curr.silver - exchanges[i].c, newTime});
+        for (const Edge& e : graph[city]) {
+            if (money >= e.a) {
+                long long nm = money - e.a;
+                long long nt = time + e.b;
+                if (nt < dist[e.to][nm]) {
+                    dist[e.to][nm] = nt;
+                    pq.push({e.to, nm, nt});
                 }
             }
         }
     }
 
-    for (int t = 2; t <= N; t++) {
-        cout << minTime[t] << endl;
+    for (int i = 2; i <= n; ++i) {
+        long long ans = INF;
+        for (long long money = 0; money <= maxMoney; ++money) {
+            ans = min(ans, dist[i][money]);
+        }
+        cout << ans << "\n";
     }
 
     return 0;

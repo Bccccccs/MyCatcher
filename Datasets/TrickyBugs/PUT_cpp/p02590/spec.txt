@@ -1,0 +1,27 @@
+Problem Description
+
+You are given N integers A1, A2, ..., AN, each in [0, 200002].
+Let MOD = 200003.
+
+Compute:
+
+sum over all pairs (i, j) with 1 <= i < j <= N of (Ai * Aj mod MOD)
+
+Input Format
+
+The first line contains an integer:
+
+N
+
+The second line contains N integers:
+
+A1 A2 ... AN
+
+Constraints
+
+2 <= N <= 2 x 10^5
+0 <= Ai < 200003
+
+Output Format
+
+Output a single integer: the required sum.

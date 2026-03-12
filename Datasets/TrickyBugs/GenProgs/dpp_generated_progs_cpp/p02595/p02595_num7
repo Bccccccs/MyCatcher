@@ -1,23 +1,31 @@
 #include <iostream>
-#include <cmath>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int main() {
-    int N, D;
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int N;
+    long long D;
     cin >> N >> D;
 
-    int count = 0;
-    for (int i = 0; i < N; i++) {
-        int X, Y;
-        cin >> X >> Y;
+    vector<long long> distances;
+    distances.reserve(N);
 
-        double distance = sqrt(pow(X, 2) + pow(Y, 2));
-        if (distance <= D) {
-            count++;
-        }
+    for (int i = 0; i < N; ++i) {
+        long long x, y;
+        cin >> x >> y;
+        distances.push_back(x * x + y * y);
     }
 
-    cout << count << endl;
+    sort(distances.begin(), distances.end());
+
+    long long D2 = D * D;
+    int count = upper_bound(distances.begin(), distances.end(), D2) - distances.begin();
+
+    cout << count << "\n";
 
     return 0;
 }

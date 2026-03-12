@@ -1,52 +1,110 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <queue>
+using namespace std;
 
-const int MOD = 1000000007;
+const long long MOD = 1000000007LL;
+
+long long modpow(long long a, long long e) {
+    long long res = 1;
+    a %= MOD;
+    while (e > 0) {
+        if (e & 1) res = (res * a) % MOD;
+        a = (a * a) % MOD;
+        e >>= 1;
+    }
+    return res;
+}
+
+long long modinv(long long a) {
+    return modpow(a, MOD - 2);
+}
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int N, K;
-    std::cin >> N >> K;
-
-    std::vector<long long> A(N);
-    for (int i = 0; i < N; i++) {
-        std::cin >> A[i];
+    cin >> N >> K;
+    vector<long long> pos, neg;
+    for (int i = 0; i < N; ++i) {
+        long long x;
+        cin >> x;
+        if (x >= 0) pos.push_back(x);
+        else neg.push_back(x);
     }
 
-    std::sort(A.begin(), A.end());
+    sort(pos.begin(), pos.end());
+    sort(neg.begin(), neg.end());
 
-    long long product = 1;
-
-    if (A[N-1] <= 0 && K % 2 == 1) {
-        for (int i = N - 1; i >= N - K; i--) {
-            product = (product * A[i]) % MOD;
-        }
-    } else {
-        int left = 0, right = N - 1;
-        
+    if (pos.size() == 0) {
         if (K % 2 == 1) {
-            product = A[right];
-            right--;
-            K--;
-        }
-
-        while (K > 0) {
-            long long left_product = A[left] * A[left + 1];
-            long long right_product = A[right] * A[right - 1];
-
-            if (left_product > right_product) {
-                product = (product * left_product) % MOD;
-                left += 2;
-            } else {
-                product = (product * right_product) % MOD;
-                right -= 2;
+            sort(neg.rbegin(), neg.rend());
+            long long ans = 1;
+            for (int i = 0; i < K; ++i) {
+                ans = (ans * (neg[i] % MOD + MOD)) % MOD;
             }
+            cout << ans << '\n';
+        } else {
+            long long ans = 1;
+            for (int i = 0; i < K; ++i) {
+                ans = (ans * (neg[i] % MOD + MOD)) % MOD;
+            }
+            cout << ans << '\n';
+        }
+        return 0;
+    }
 
-            K -= 2;
+    vector<long long> candidates;
+    if (K % 2 == 1) {
+        if (pos.empty()) {
+            long long ans = 1;
+            sort(neg.rbegin(), neg.rend());
+            for (int i = 0; i < K; ++i) {
+                ans = (ans * (neg[i] % MOD + MOD)) % MOD;
+            }
+            cout << ans << '\n';
+            return 0;
+        }
+        candidates.push_back(pos.back());
+        pos.pop_back();
+        K--;
+    }
+
+    vector<long long> pairs;
+    for (size_t i = 0; i + 1 < pos.size(); i += 2) {
+        pairs.push_back(pos[i] * pos[i + 1]);
+    }
+    for (size_t i = 0; i + 1 < neg.size(); i += 2) {
+        pairs.push_back(neg[i] * neg[i + 1]);
+    }
+
+    sort(pairs.rbegin(), pairs.rend());
+
+    long long ans = (candidates.empty() ? 1 : (candidates[0] % MOD + MOD) % MOD);
+    int need = K / 2;
+    for (int i = 0; i < need && i < (int)pairs.size(); ++i) {
+        long long p = pairs[i] % MOD;
+        if (p < 0) p += MOD;
+        ans = (ans * p) % MOD;
+    }
+
+    if (need > (int)pairs.size()) {
+        vector<long long> all;
+        for (long long v : pos) all.push_back(v);
+        for (long long v : neg) all.push_back(v);
+        sort(all.begin(), all.end(), [](long long a, long long b) {
+            return abs(a) < abs(b);
+        });
+        ans = 1;
+        for (int i = 0; i < K + (candidates.empty() ? 0 : 1); ++i) {
+            long long v = all[i] % MOD;
+            if (v < 0) v += MOD;
+            ans = (ans * v) % MOD;
         }
     }
 
-    std::cout << product << std::endl;
-
+    cout << ans << '\n';
     return 0;
 }

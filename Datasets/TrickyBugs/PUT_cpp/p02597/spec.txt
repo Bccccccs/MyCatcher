@@ -1,0 +1,27 @@
+Problem Description
+
+You are given a string S of length N consisting only of the characters ‘R’ and ‘W’.
+
+You want to rearrange the string so that all ‘R’ characters appear in the left part of the string.
+
+Find the minimum number of misplaced ‘R’ characters, which is equal to the minimum number of swaps needed to achieve this arrangement.
+
+Input Format
+
+The first line contains a single integer:
+
+N
+
+The second line contains a string:
+
+S
+
+Constraints
+
+1 <= N <= 2 x 10^5
+S consists only of ‘R’ and ‘W’
+|S| = N
+
+Output Format
+
+Output a single integer: the minimum number of swaps needed.

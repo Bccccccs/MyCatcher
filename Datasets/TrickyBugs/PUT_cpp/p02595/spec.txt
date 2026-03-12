@@ -1,0 +1,28 @@
+Problem Description
+
+You are given N points on a 2D plane and an integer D.
+Count how many points are at distance at most D from the origin.
+
+A point (x, y) is counted if:
+
+x^2 + y^2 <= D^2
+
+Input Format
+
+The first line contains two integers:
+
+N D
+
+Each of the next N lines contains two integers:
+
+x_i y_i
+
+Constraints
+
+1 <= N <= 2 x 10^5
+1 <= D <= 2 x 10^5
+-10^9 <= x_i, y_i <= 10^9
+
+Output Format
+
+Output a single integer: the number of points satisfying the condition.

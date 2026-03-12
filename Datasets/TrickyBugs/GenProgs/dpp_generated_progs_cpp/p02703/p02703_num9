@@ -1,86 +1,98 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <climits>
-
+#include <algorithm>
+#include <limits>
 using namespace std;
 
-const int INF = INT_MAX;
+const long long INF = 1e18;
 
 struct Edge {
-    int v, a, b;
-    Edge(int v, int a, int b) : v(v), a(a), b(b) {}
+    int to, a, b;
 };
 
-vector<vector<Edge>> adj;
+struct Exchange {
+    int c, d;
+};
 
-vector<int> dijkstra(int n, int s) {
-    vector<int> dist(n, INF);
-    dist[s] = 0;
-
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-    pq.push({0, s});
-
-    while (!pq.empty()) {
-        int u = pq.top().second;
-        int d = pq.top().first;
-        pq.pop();
-
-        if (d > dist[u]) {
-            continue;
-        }
-
-        for (const Edge& e : adj[u]) {
-            int v = e.v;
-            int a = e.a;
-            int b = e.b;
-
-            if (dist[u] + b < dist[v]) {
-                dist[v] = dist[u] + b;
-                pq.push({dist[v], v});
-            }
-        }
+struct State {
+    int city;
+    long long coins;
+    long long time;
+    bool operator>(const State& other) const {
+        return time > other.time;
     }
-
-    return dist;
-}
+};
 
 int main() {
-    int n, m, s;
+    int n, m;
+    long long s;
     cin >> n >> m >> s;
 
-    adj.resize(n);
-
-    for (int i = 0; i < m; i++) {
+    vector<vector<Edge>> graph(n + 1);
+    for (int i = 0; i < m; ++i) {
         int u, v, a, b;
         cin >> u >> v >> a >> b;
-        u--, v--;
-        adj[u].push_back(Edge(v, a, b));
-        adj[v].push_back(Edge(u, a, b));
+        graph[u].push_back({v, a, b});
+        graph[v].push_back({u, a, b});
     }
 
-    vector<int> c(n), d(n);
-
-    for (int i = 0; i < n; i++) {
-        cin >> c[i] >> d[i];
+    vector<Exchange> exch(n + 1);
+    for (int i = 1; i <= n; ++i) {
+        cin >> exch[i].c >> exch[i].d;
     }
 
-    vector<int> dist = dijkstra(n, 0);
+    long long maxCoins = 0;
+    for (int i = 1; i <= n; ++i) {
+        for (const auto& e : graph[i]) {
+            maxCoins = max(maxCoins, (long long)e.a);
+        }
+    }
+    maxCoins = max(maxCoins, s);
+    int coinLimit = min(maxCoins + 50 * n, 5000LL);
+    coinLimit = min(coinLimit, 5000);
 
-    for (int i = 1; i < n; i++) {
-        long long ans = INT_MAX;
-        int cur_silver = s;
+    vector<vector<long long>> dist(n + 1, vector<long long>(coinLimit + 1, INF));
+    priority_queue<State, vector<State>, greater<State>> pq;
 
-        for (int j = i; j >= 1; j--) {
-            ans = min(ans, dist[j] + ((s - cur_silver) * d[j - 1]));
+    dist[1][min(s, (long long)coinLimit)] = 0;
+    pq.push({1, min(s, (long long)coinLimit), 0});
 
-            cur_silver += c[j - 1];
-            if (cur_silver > s) {
-                cur_silver = s;
+    while (!pq.empty()) {
+        State cur = pq.top();
+        pq.pop();
+
+        if (cur.time != dist[cur.city][cur.coins]) continue;
+
+        int cc = exch[cur.city].c;
+        int dd = exch[cur.city].d;
+        if (cur.coins + cc <= coinLimit) {
+            long long newCoins = cur.coins + cc;
+            long long newTime = cur.time + dd;
+            if (newTime < dist[cur.city][newCoins]) {
+                dist[cur.city][newCoins] = newTime;
+                pq.push({cur.city, newCoins, newTime});
             }
         }
 
-        cout << ans << endl;
+        for (const Edge& e : graph[cur.city]) {
+            if (cur.coins >= e.a) {
+                long long newCoins = cur.coins - e.a;
+                long long newTime = cur.time + e.b;
+                if (newTime < dist[e.to][newCoins]) {
+                    dist[e.to][newCoins] = newTime;
+                    pq.push({e.to, newCoins, newTime});
+                }
+            }
+        }
+    }
+
+    for (int i = 2; i <= n; ++i) {
+        long long ans = INF;
+        for (int coins = 0; coins <= coinLimit; ++coins) {
+            ans = min(ans, dist[i][coins]);
+        }
+        cout << ans << "\n";
     }
 
     return 0;

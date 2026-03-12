@@ -1,19 +1,11 @@
 #include <iostream>
+using namespace std;
 
 int main() {
-    int N, M;
-    std::cin >> N >> M;
-
-    int evenCount = N;
-    int oddCount = M;
-
-    int evenPairs = (evenCount * (evenCount - 1)) / 2;
-    int oddPairs = (oddCount * (oddCount - 1)) / 2;
-
-    int evenOddPairs = evenCount * oddCount;
-
-    int answer = evenPairs + oddPairs + evenOddPairs;
-    std::cout << answer << std::endl;
-
+    long long n, m;
+    cin >> n >> m;
+    long long red_pairs = n * (n - 1) / 2;
+    long long blue_pairs = m * (m - 1) / 2;
+    cout << red_pairs + blue_pairs << endl;
     return 0;
 }

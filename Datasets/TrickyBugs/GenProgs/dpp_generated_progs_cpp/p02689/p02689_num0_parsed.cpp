@@ -1,52 +1,41 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
     int N, M;
     cin >> N >> M;
     
-    vector<int> H(N + 1);
-    for (int i = 1; i <= N; i++) {
-        cin >> H[i];
+    vector<int> h(N + 1);
+    for (int i = 1; i <= N; ++i) {
+        cin >> h[i];
     }
     
-    vector<bool> isGood(N + 1, true);
     vector<vector<int>> adj(N + 1);
-    
-    for (int i = 0; i < M; i++) {
-        int A, B;
-        cin >> A >> B;
-        
-        if (H[A] >= H[B]) {
-            isGood[B] = false;
-        }
-        if (H[B] >= H[A]) {
-            isGood[A] = false;
-        }
-        
-        adj[A].push_back(B);
-        adj[B].push_back(A);
+    for (int i = 0; i < M; ++i) {
+        int a, b;
+        cin >> a >> b;
+        adj[a].push_back(b);
+        adj[b].push_back(a);
     }
     
-    int ans = 0;
-    for (int i = 1; i <= N; i++) {
-        if (isGood[i]) {
-            bool isHighest = true;
-            for (int j : adj[i]) {
-                if (H[j] >= H[i]) {
-                    isHighest = false;
-                    break;
-                }
+    int good_count = 0;
+    for (int i = 1; i <= N; ++i) {
+        bool good = true;
+        for (int neighbor : adj[i]) {
+            if (h[i] <= h[neighbor]) {
+                good = false;
+                break;
             }
-            if (isHighest) {
-                ans++;
-            }
+        }
+        if (good) {
+            ++good_count;
         }
     }
     
-    cout << ans << endl;
-    
+    cout << good_count << endl;
     return 0;
 }

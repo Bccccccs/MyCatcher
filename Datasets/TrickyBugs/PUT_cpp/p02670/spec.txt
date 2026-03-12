@@ -1,0 +1,31 @@
+Problem Description
+
+There is an N × N grid of seats.
+People enter one by one in a given order, and each person chooses a specific seat.
+
+For each chosen seat, define its inconvenience as the minimum number of moves needed to reach the boundary of the grid through adjacent cells that are not occupied before the person sits down.
+
+After each person takes their seat, that seat becomes occupied and may affect the inconvenience values of nearby seats.
+
+Compute the total inconvenience over all people.
+
+Input Format
+
+The first line contains a single integer:
+
+N
+
+The next N × N lines each contain one integer:
+
+P_i
+
+Each P_i represents the seat chosen by the i-th person, using 1-based numbering from 1 to N × N in row-major order.
+
+Constraints
+
+1 ≤ N ≤ 500
+The values P_i form a permutation of the integers from 1 to N × N.
+
+Output Format
+
+Output a single integer representing the total inconvenience of all chosen seats.

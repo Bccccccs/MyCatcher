@@ -1,0 +1,40 @@
+Problem Description
+
+You are given N integers.
+
+The first two integers are A and B, and the remaining N-2 integers are used to compute a value X by taking their bitwise XOR.
+
+Your task is to find the minimum nonnegative integer T satisfying a certain recursive bitwise transformation condition defined by the program.
+
+If no valid T exists, output -1.
+
+Input Format
+
+The first line contains a single integer:
+
+N
+
+The second line contains N integers:
+
+a_1 a_2 … a_N
+
+Here:
+
+a_1 = A
+a_2 = B
+X = a_3 xor a_4 xor … xor a_N
+
+Constraints
+
+2 <= N <= 2 x 10^5
+0 <= a_i <= 10^18
+
+Output Format
+
+Output a single integer:
+
+the minimum valid value T, or -1 if no such value exists.
+
+Note
+
+This problem is defined by a recursive bitwise condition. In particular, the program checks parity consistency between A, B, and X, and then recursively processes their binary representations. If the computed result is not valid, the answer is -1.

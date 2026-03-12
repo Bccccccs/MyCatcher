@@ -1,28 +1,27 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+using namespace std;
 
 int main() {
-    int N;
-    std::cin >> N;
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
     
-    std::vector<int> A(N);
-    for (int i = 0; i < N; i++) {
-        std::cin >> A[i];
+    int N;
+    cin >> N;
+    vector<long long> H(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> H[i];
     }
     
-    int minTotalHeight = 0;
-    int maxFrontHeight = 0;
-    
-    for (int i = 0; i < N; i++) {
-        if (A[i] > maxFrontHeight) {
-            maxFrontHeight = A[i];
-        } else {
-            minTotalHeight += maxFrontHeight - A[i];
+    long long operations = 0;
+    for (int i = 1; i < N; ++i) {
+        if (H[i] < H[i-1]) {
+            operations += H[i-1] - H[i];
+            H[i] = H[i-1];
         }
     }
     
-    std::cout << minTotalHeight << std::endl;
-    
+    cout << operations << '\n';
     return 0;
 }

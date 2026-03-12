@@ -1,31 +1,87 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 #include <algorithm>
-#include <cmath>
+#include <climits>
 using namespace std;
 
+struct Cell {
+    int r, c;
+};
+
+int N;
+vector<vector<int>> dist;
+vector<vector<bool>> occupied;
+const int dr[4] = {-1, 1, 0, 0};
+const int dc[4] = {0, 0, -1, 1};
+
+void bfs() {
+    queue<Cell> q;
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            if (!occupied[i][j]) {
+                dist[i][j] = 0;
+                q.push({i, j});
+            }
+        }
+    }
+    while (!q.empty()) {
+        Cell cur = q.front(); q.pop();
+        for (int d = 0; d < 4; ++d) {
+            int nr = cur.r + dr[d];
+            int nc = cur.c + dc[d];
+            if (nr >= 0 && nr < N && nc >= 0 && nc < N) {
+                if (dist[nr][nc] > dist[cur.r][cur.c] + 1) {
+                    dist[nr][nc] = dist[cur.r][cur.c] + 1;
+                    q.push({nr, nc});
+                }
+            }
+        }
+    }
+}
+
 int main() {
-    int N;
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     cin >> N;
-    vector<int> P(N * N);
-    for (int i = 0; i < N * N; i++) {
-        cin >> P[i];
+    int total = N * N;
+    vector<int> order(total);
+    for (int i = 0; i < total; ++i) {
+        cin >> order[i];
+        order[i]--;
     }
 
-    vector<int> row(N * N + 1), col(N * N + 1);
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            row[P[i * N + j]] = i;
-            col[P[i * N + j]] = j;
+    occupied.assign(N, vector<bool>(N, false));
+    dist.assign(N, vector<int>(N, INT_MAX));
+
+    long long ans = 0;
+    for (int idx : order) {
+        int r = idx / N;
+        int c = idx % N;
+        if (dist[r][c] == INT_MAX) {
+            bfs();
+        }
+        ans += dist[r][c];
+        occupied[r][c] = true;
+        dist[r][c] = 0;
+        queue<Cell> q;
+        q.push({r, c});
+        while (!q.empty()) {
+            Cell cur = q.front(); q.pop();
+            for (int d = 0; d < 4; ++d) {
+                int nr = cur.r + dr[d];
+                int nc = cur.c + dc[d];
+                if (nr >= 0 && nr < N && nc >= 0 && nc < N) {
+                    if (dist[nr][nc] > dist[cur.r][cur.c] + 1) {
+                        dist[nr][nc] = dist[cur.r][cur.c] + 1;
+                        q.push({nr, nc});
+                    }
+                }
+            }
         }
     }
 
-    int ans = 0;
-    for (int i = 2; i <= N * N; i++) {
-        ans += abs(row[i] - row[i - 1]) + abs(col[i] - col[i - 1]);
-    }
-
-    cout << ans << endl;
-
+    cout << ans << "\n";
     return 0;
 }

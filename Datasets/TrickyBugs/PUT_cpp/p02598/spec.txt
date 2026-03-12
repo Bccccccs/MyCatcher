@@ -1,0 +1,27 @@
+Problem Description
+
+You are given an array of N positive integers and an integer K.
+
+You want to choose a positive integer X. For every element a_i that is greater than X, you count how many pieces of size X can be taken from it, namely floor(a_i / X).
+
+Find the minimum positive integer X such that the total count over all array elements is at most K.
+
+Input Format
+
+The first line contains two integers:
+
+N K
+
+The second line contains N integers:
+
+a_1 a_2 … a_N
+
+Constraints
+
+1 <= N <= 2 x 10^5
+0 <= K <= 10^18
+1 <= a_i <= 10^9
+
+Output Format
+
+Output a single integer: the minimum value X satisfying the condition.

@@ -1,0 +1,35 @@
+Problem Description
+
+You are given integers n, m, and q.
+
+Your task is to construct a nondecreasing sequence A of length n such that each element is between 1 and m, inclusive.
+
+There are q conditions.
+Each condition is given by four integers a, b, c, and d, and it contributes d points if A_b − A_a = c.
+
+Find the maximum total score that can be obtained.
+
+Input Format
+
+The first line contains three integers:
+
+n m q
+
+Each of the next q lines contains four integers:
+
+a b c d
+
+Each condition means that if A_b − A_a = c, then d points are added to the total score.
+
+Constraints
+
+1 ≤ n ≤ 10
+1 ≤ m ≤ 10
+1 ≤ q ≤ 50
+1 ≤ a < b ≤ n
+0 ≤ c ≤ m
+1 ≤ d ≤ 10^9
+
+Output Format
+
+Output a single integer representing the maximum possible total score.
