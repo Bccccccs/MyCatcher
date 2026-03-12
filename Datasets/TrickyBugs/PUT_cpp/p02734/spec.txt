@@ -1,0 +1,31 @@
+Problem Description
+
+You are given two integers N and S, and a sequence of N integers A1, A2, …, AN.
+
+For every contiguous subarray of the sequence, consider all of its subsequences (possibly choosing some elements and skipping others, but keeping the relative order). Count how many such subsequences have sum exactly S.
+
+Compute the total number of subsequences with sum S over all contiguous subarrays.
+
+Since the answer can be very large, output it modulo 998244353.
+
+⸻
+
+Input Format
+
+The input consists of:
+
+N S
+A1 A2 … AN
+
+⸻
+
+Constraints
+
+1 ≤ N, S ≤ 3000
+1 ≤ Ai ≤ 3000
+
+⸻
+
+Output Format
+
+Output a single integer representing the total number of subsequences whose sum is exactly S over all contiguous subarrays, modulo 998244353.

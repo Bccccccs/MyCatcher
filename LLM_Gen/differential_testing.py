@@ -11,6 +11,61 @@ COMPILE_CACHE = {}
 def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
+
+def format_report_line(rec: dict[str, object]) -> str:
+    line = (
+        f"[VOTE] {rec['test']} status={rec['status']} "
+        f"votes={rec['votes']}/{rec['variant_total']}"
+    )
+    if rec["oracle"] != "":
+        line += f" oracle='{rec['oracle']}'"
+    if rec["put_out"] != "":
+        line += f" put='{rec['put_out']}'"
+    if rec["saved_case"] != "":
+        line += f" case={rec['saved_case']}"
+    return line
+
+
+def write_txt_report(
+    report_path: Path,
+    put: Path,
+    variants: list[Path],
+    tests: list[Path],
+    min_votes: int,
+    saved: int,
+    vote_records: list[dict[str, object]],
+    variant_fail_counts: Counter,
+) -> None:
+    status_counts = Counter(rec["status"] for rec in vote_records)
+    lines = [
+        "Differential Testing Report",
+        f"PUT: {put}",
+        f"Variants dir size: {len(variants)}",
+        f"Tests dir size: {len(tests)}",
+        f"Min votes: {min_votes}",
+        "",
+        "Summary",
+        f"saved={saved}",
+        f"agree={status_counts.get('AGREE', 0)}",
+        f"found={status_counts.get('FOUND', 0)}",
+        f"no_majority={status_counts.get('NO_MAJORITY', 0)}",
+        f"no_variant_output={status_counts.get('NO_VARIANT_OUTPUT', 0)}",
+        f"put_fail={status_counts.get('PUT_FAIL', 0)}",
+        "",
+        "Details",
+    ]
+
+    for rec in vote_records:
+        lines.append(format_report_line(rec))
+
+    if variant_fail_counts:
+        lines.extend(["", "Variant Fail Summary"])
+        for name, cnt in sorted(variant_fail_counts.items()):
+            lines.append(f"{name}: {cnt}")
+
+    report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def normalize_output(s: str) -> str:
     lines = [line.strip() for line in s.splitlines() if line.strip()]
     return lines[-1] if lines else ""
@@ -202,24 +257,37 @@ def main():
             "saved_case": "",
         })
 
+    report_path = out_dir / "report.txt"
+    write_txt_report(
+        report_path=report_path,
+        put=put,
+        variants=variants,
+        tests=tests,
+        min_votes=min_votes,
+        saved=saved,
+        vote_records=vote_records,
+        variant_fail_counts=variant_fail_counts,
+    )
+
     for rec in vote_records:
-        line = (
-            f"[VOTE] {rec['test']} status={rec['status']} "
-            f"votes={rec['votes']}/{rec['variant_total']}"
-        )
-        if rec["oracle"] != "":
-            line += f" oracle='{rec['oracle']}'"
-        if rec["put_out"] != "":
-            line += f" put='{rec['put_out']}'"
-        if rec["saved_case"] != "":
-            line += f" case={rec['saved_case']}"
-        print(line)
+        print(format_report_line(rec))
 
     if variant_fail_counts:
         print("[VARIANT_FAIL_SUMMARY]")
         for name, cnt in sorted(variant_fail_counts.items()):
             print(f"  {name}: {cnt}")
 
+    status_counts = Counter(rec["status"] for rec in vote_records)
+    print(
+        "[STATS] "
+        f"tests={len(tests)} saved={saved} "
+        f"agree={status_counts.get('AGREE', 0)} "
+        f"found={status_counts.get('FOUND', 0)} "
+        f"no_majority={status_counts.get('NO_MAJORITY', 0)} "
+        f"no_variant_output={status_counts.get('NO_VARIANT_OUTPUT', 0)} "
+        f"put_fail={status_counts.get('PUT_FAIL', 0)} "
+        f"report={report_path}"
+    )
     print(f"[DONE] saved {saved} bug-triggering cases into {out_dir}")
 
 

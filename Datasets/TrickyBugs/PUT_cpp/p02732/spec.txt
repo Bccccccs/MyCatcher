@@ -1,0 +1,40 @@
+Problem Description
+
+You are given an integer N representing the number of balls, and a sequence of N integers representing the numbers written on the balls.
+
+Let Ai denote the number written on the i-th ball.
+
+First, count the total number of pairs (i, j) such that:
+	•	1 ≤ i < j ≤ N
+	•	Ai = Aj
+
+Next, for each ball i from 1 to N, consider removing the i-th ball from the sequence. After removing it, compute the number of pairs (p, q) such that:
+	•	1 ≤ p < q ≤ N
+	•	p ≠ i and q ≠ i
+	•	Ap = Aq
+
+For every i, output the number of such pairs after removing the i-th ball.
+
+⸻
+
+Input Format
+
+The input consists of:
+
+N
+A1 A2 … AN
+
+⸻
+
+Constraints
+
+1 ≤ N ≤ 2 × 10^5
+1 ≤ Ai ≤ N
+
+⸻
+
+Output Format
+
+Output N lines.
+
+For each i from 1 to N, output the number of pairs remaining after removing the i-th ball.

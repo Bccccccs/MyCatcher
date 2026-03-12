@@ -1,0 +1,27 @@
+Problem Description
+
+You are given three integers.
+
+Determine whether exactly two of the integers are equal and the remaining one is different.
+
+If exactly two numbers are the same, output “Yes”. Otherwise, output “No”.
+
+⸻
+
+Input Format
+
+The input consists of three integers:
+
+A B C
+
+⸻
+
+Constraints
+
+1 ≤ A, B, C ≤ 9
+
+⸻
+
+Output Format
+
+Output “Yes” if exactly two of the integers are equal; otherwise output “No”.

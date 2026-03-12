@@ -1,0 +1,39 @@
+Problem Description
+
+You are given two integers A and B representing two different tax values calculated from the same original price.
+
+Let X be a non-negative integer representing the original price.
+
+The first tax value is calculated as the integer part of X \times 0.08.
+The second tax value is calculated as the integer part of X \times 0.10.
+
+Find an integer X such that both of the following conditions hold:
+
+floor(0.08 × X) = A
+floor(0.10 × X) = B
+
+If multiple values satisfy the conditions, output the smallest such integer.
+If no such integer exists, output -1.
+
+⸻
+
+Input Format
+
+The input contains two integers:
+
+A B
+
+⸻
+
+Constraints
+
+0 ≤ A ≤ 1000
+0 ≤ B ≤ 1000
+0 ≤ X ≤ 10000
+
+⸻
+
+Output Format
+
+Output a single integer representing the value of X that satisfies the conditions.
+If no such value exists, output -1.

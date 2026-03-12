@@ -1,0 +1,31 @@
+Problem Description
+
+You are given two integers N and K.
+
+Consider all sequences of length N where each element is an integer between 1 and K inclusive.
+
+For each sequence, compute the greatest common divisor of all its elements.
+
+Find the sum of these greatest common divisors over all possible sequences.
+
+Since the result can be very large, output it modulo 1000000007.
+
+⸻
+
+Input Format
+
+The input contains two integers:
+
+N K
+
+⸻
+
+Constraints
+
+1 ≤ N, K ≤ 10^5
+
+⸻
+
+Output Format
+
+Output a single integer representing the sum of the greatest common divisors over all valid sequences, modulo 1000000007.

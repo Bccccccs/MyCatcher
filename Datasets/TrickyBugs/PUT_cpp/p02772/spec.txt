@@ -1,0 +1,30 @@
+Problem Description
+
+You are given an integer N and a sequence of N integers representing item values.
+
+For each value Ai, if Ai is an even number, it must be divisible by either 3 or 5.
+
+Determine whether all values satisfy this rule. If every even number in the sequence is divisible by 3 or 5, the sequence is approved; otherwise it is denied.
+
+⸻
+
+Input Format
+
+The input consists of:
+
+N
+A1 A2 … AN
+
+⸻
+
+Constraints
+
+1 ≤ N ≤ 100
+1 ≤ Ai ≤ 1000
+
+⸻
+
+Output Format
+
+Output “APPROVED” if all even numbers in the sequence are divisible by 3 or 5.
+Otherwise, output “DENIED”.

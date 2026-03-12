@@ -1,0 +1,31 @@
+Problem Description
+
+You are given an integer N and a sequence of N integers A1, A2, …, AN.
+
+Choose an integer X and define the cost as:
+
+(A1 − X)^2 + (A2 − X)^2 + … + (AN − X)^2
+
+Find the minimum possible value of this cost.
+
+⸻
+
+Input Format
+
+The input consists of:
+
+N
+A1 A2 … AN
+
+⸻
+
+Constraints
+
+1 ≤ N ≤ 100
+1 ≤ Ai ≤ 100
+
+⸻
+
+Output Format
+
+Output a single integer representing the minimum possible value of the cost.

@@ -1,0 +1,31 @@
+Problem Description
+
+You are given a string S consisting of lowercase English letters.
+
+Determine whether the string satisfies the following three conditions:
+	1.	The entire string S is a palindrome.
+	2.	The prefix of S from the first character to the character at position (|S|−1)/2 (inclusive) is a palindrome.
+	3.	The suffix of S from position (|S|+3)/2 to the last character (inclusive) is a palindrome.
+
+If all three conditions are satisfied, output “Yes”. Otherwise, output “No”.
+
+⸻
+
+Input Format
+
+The input contains a single string:
+
+S
+
+⸻
+
+Constraints
+
+1 ≤ |S| ≤ 2 × 10^5
+S consists only of lowercase English letters.
+
+⸻
+
+Output Format
+
+Output “Yes” if the string satisfies all the required conditions; otherwise output “No”.

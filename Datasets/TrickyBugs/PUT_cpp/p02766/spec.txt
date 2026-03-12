@@ -1,0 +1,30 @@
+Problem Description
+
+You are given two integers X and Y.
+
+Starting with a value A = 1, repeatedly multiply A by Y while A is less than or equal to X.
+
+Determine how many times the multiplication operation can be performed before A becomes greater than X.
+
+In other words, find the smallest integer i such that Y^i > X.
+
+⸻
+
+Input Format
+
+The input contains two integers:
+
+X Y
+
+⸻
+
+Constraints
+
+1 ≤ X ≤ 10^18
+2 ≤ Y ≤ 10^9
+
+⸻
+
+Output Format
+
+Output a single integer representing the smallest integer i such that Y^i > X.

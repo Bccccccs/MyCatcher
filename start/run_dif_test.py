@@ -1,13 +1,22 @@
 import argparse
 import subprocess
 import sys
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 
-def run(cmd: list[str], cwd: Path) -> None:
+def run(cmd: list[str], cwd: Path) -> str:
     print("\n>>>", " ".join(map(str, cmd)))
-    subprocess.run(list(map(str, cmd)), check=True, cwd=str(cwd))
+    completed = subprocess.run(
+        list(map(str, cmd)),
+        check=True,
+        cwd=str(cwd),
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+    )
+    return completed.stdout
 
 
 def resolve_path(root: Path, value: str) -> Path:
@@ -61,7 +70,7 @@ def run_problem(
     timeout: float,
     min_votes: int | None,
     variant_mode: str,
-) -> tuple[str, str, str]:
+) -> tuple[str, str, str, str]:
     pid = program_dir.name
     put = find_put_file(program_dir, lang)
     variants_dir = variants_root / pid
@@ -69,13 +78,13 @@ def run_problem(
     out_dir = out_root / pid
 
     if not program_dir.exists():
-        return ("skipped", pid, f"[SKIP] problem dir not found: {program_dir}")
+        return ("skipped", pid, f"[SKIP] problem dir not found: {program_dir}", "")
     if put is None:
-        return ("skipped", pid, f"[SKIP] missing put/sol in: {program_dir}")
+        return ("skipped", pid, f"[SKIP] missing put/sol in: {program_dir}", "")
     if not variants_dir.exists():
-        return ("skipped", pid, f"[SKIP] variants not found: {variants_dir}")
+        return ("skipped", pid, f"[SKIP] variants not found: {variants_dir}", "")
     if not tests_dir.exists():
-        return ("skipped", pid, f"[SKIP] tests not found: {tests_dir}")
+        return ("skipped", pid, f"[SKIP] tests not found: {tests_dir}", "")
 
     cmd = [
         py, str(root / "LLM_Gen" / "differential_testing.py"),
@@ -91,10 +100,60 @@ def run_problem(
         cmd.extend(["--min_votes", str(min_votes)])
 
     try:
-        run(cmd, cwd=root)
-        return ("ok", pid, f"[OK] {pid}")
+        output = run(cmd, cwd=root)
+        return ("ok", pid, f"[OK] {pid}", output)
     except subprocess.CalledProcessError as e:
-        return ("failed", pid, f"[FAIL] {pid}: {e}")
+        output = e.stdout or ""
+        return ("failed", pid, f"[FAIL] {pid}: {e}", output)
+
+
+def extract_stats_line(output: str) -> str:
+    for line in output.splitlines():
+        if line.startswith("[STATS] "):
+            return line
+    return ""
+
+
+def write_batch_report(
+    report_path: Path,
+    total: int,
+    ok: int,
+    skipped: int,
+    failed: int,
+    jobs: int,
+    out_root: Path,
+    problem_results: list[tuple[str, str, str, str]],
+) -> None:
+    per_status = Counter(status for status, _, _, _ in problem_results)
+    lines = [
+        "Differential Testing Batch Report",
+        "Summary",
+        f"total={total}",
+        f"ok={ok}",
+        f"skipped={skipped}",
+        f"failed={failed}",
+        f"jobs={jobs}",
+        f"out_root={out_root}",
+        "",
+        "Problems",
+    ]
+
+    for status, pid, message, output in sorted(problem_results, key=lambda item: item[1]):
+        lines.append(f"{pid}: {status} {message}")
+        stats_line = extract_stats_line(output)
+        if stats_line:
+            lines.append(f"  {stats_line}")
+
+    lines.extend(
+        [
+            "",
+            "Status Count Check",
+            f"ok={per_status.get('ok', 0)}",
+            f"skipped={per_status.get('skipped', 0)}",
+            f"failed={per_status.get('failed', 0)}",
+        ]
+    )
+    report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def main() -> None:
@@ -108,7 +167,7 @@ def main() -> None:
     ap.add_argument("--out-root", default="outputs/tcases")
     ap.add_argument("--timeout", type=float, default=2.0)
     ap.add_argument("--min-votes", type=int, default=None)
-    ap.add_argument("--jobs", type=int, default=4, help="Number of problems to run in parallel")
+    ap.add_argument("--jobs", type=int, default=6, help="Number of problems to run in parallel")
     args = ap.parse_args()
 
     root = Path(__file__).resolve().parent.parent
@@ -136,10 +195,11 @@ def main() -> None:
     skipped = 0
     failed = 0
     skip_messages: list[str] = []
+    problem_results: list[tuple[str, str, str, str]] = []
 
     if jobs == 1:
         for program_dir in program_dirs:
-            status, _, message = run_problem(
+            status, pid, message, output = run_problem(
                 root=root,
                 py=py,
                 program_dir=program_dir,
@@ -151,14 +211,20 @@ def main() -> None:
                 min_votes=args.min_votes,
                 variant_mode=args.variant_mode,
             )
+            problem_results.append((status, pid, message, output))
             if status == "ok":
                 print(message)
+                stats_line = extract_stats_line(output)
+                if stats_line:
+                    print(stats_line)
                 ok += 1
             elif status == "skipped":
                 skip_messages.append(message)
                 skipped += 1
             else:
                 print(message)
+                if output.strip():
+                    print(output.strip())
                 failed += 1
     else:
         with ThreadPoolExecutor(max_workers=jobs) as executor:
@@ -179,15 +245,21 @@ def main() -> None:
                 for program_dir in program_dirs
             ]
             for future in as_completed(futures):
-                status, _, message = future.result()
+                status, pid, message, output = future.result()
+                problem_results.append((status, pid, message, output))
                 if status == "ok":
                     print(message)
+                    stats_line = extract_stats_line(output)
+                    if stats_line:
+                        print(stats_line)
                     ok += 1
                 elif status == "skipped":
                     skip_messages.append(message)
                     skipped += 1
                 else:
                     print(message)
+                    if output.strip():
+                        print(output.strip())
                     failed += 1
 
     if skip_messages:
@@ -197,9 +269,22 @@ def main() -> None:
         if len(skip_messages) > 5:
             print(f"[SKIP_SUMMARY] ... {len(skip_messages) - 5} more skipped problems")
 
+    batch_report_path = out_root / "batch_report.txt"
+    write_batch_report(
+        report_path=batch_report_path,
+        total=len(program_dirs),
+        ok=ok,
+        skipped=skipped,
+        failed=failed,
+        jobs=jobs,
+        out_root=out_root,
+        problem_results=problem_results,
+    )
+
     print(
         f"[DONE] total={len(program_dirs)} ok={ok} skipped={skipped} failed={failed} jobs={jobs} out_root={out_root}"
     )
+    print(f"[BATCH_REPORT] {batch_report_path}")
 
 
 if __name__ == "__main__":
