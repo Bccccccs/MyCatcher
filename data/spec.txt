@@ -1,0 +1,38 @@
+Problem Description:
+
+You are given the results of rolling two six-sided dice multiple times. Each roll produces two integers representing the numbers shown on the two dice. Determine whether there exist three consecutive rolls where the numbers on the two dice are equal.
+
+In other words, check if there exist three consecutive pairs (a_i, b_i) such that a_i = b_i, a_(i+1) = b_(i+1), and a_(i+2) = b_(i+2). If such three consecutive rolls exist, output “Yes”. Otherwise, output “No”.
+
+Input Format:
+
+The input begins with a single integer N representing the number of dice rolls. The next N lines each contain two integers a_i and b_i separated by a space. The values a_i and b_i represent the numbers shown on the two dice in the i-th roll.
+
+Constraints:
+
+1 ≤ N ≤ 100
+1 ≤ a_i ≤ 6
+1 ≤ b_i ≤ 6
+
+Each die is a standard six-sided die.
+
+Output Format:
+
+Output exactly one line. If there exist three consecutive rolls where both dice show the same number, output “Yes”. Otherwise, output “No”. The output is case-sensitive.
+
+Example:
+
+Input:
+5
+1 2
+3 3
+4 4
+5 5
+2 1
+
+Output:
+Yes
+
+Explanation:
+
+In the example above, the second, third, and fourth rolls satisfy the condition where both dice show the same number (3 = 3, 4 = 4, 5 = 5). Therefore, the correct output is “Yes”.

@@ -1,0 +1,45 @@
+Snuke is interested in strings that satisfy the following conditions:
+* The length of the string is at least N.
+* The first N characters equal to the string s.
+* The last N characters equal to the string t.
+Find the length of the shortest string that satisfies the conditions.
+
+CONSTRAINTS:
+* 1≤N≤100
+* The lengths of s and t are both N.
+* s and t consist of lowercase English letters.
+
+INPUT:
+The input is given from Standard Input in the following format:
+N
+s
+t
+
+OUTPUT:
+Print the length of the shortest string that satisfies the conditions.
+
+EXAMPLES:
+
+INPUT:
+3
+abc
+cde
+
+OUTPUT:
+5
+
+INPUT:
+1
+a
+z
+
+OUTPUT:
+2
+
+INPUT:
+4
+expr
+expr
+
+OUTPUT:
+4

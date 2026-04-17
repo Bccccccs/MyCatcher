@@ -1,0 +1,32 @@
+Takahashi has decided to distribute N AtCoder Crackers to K users of as evenly as possible. When all the crackers are distributed, find the minimum possible (absolute) difference between the largest number of crackers received by a user and the smallest number received by a user.
+
+CONSTRAINTS:
+* 1 \leq N,K \leq 100
+* All values in input are integers.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N K
+
+OUTPUT:
+Print the minimum possible (absolute) difference between the largest number of crackers received by a user and the smallest number received by a user.
+
+EXAMPLES:
+
+INPUT:
+7 3
+
+OUTPUT:
+1
+
+INPUT:
+100 10
+
+OUTPUT:
+0
+
+INPUT:
+1 1
+
+OUTPUT:
+0

@@ -1,0 +1,33 @@
+An integer X is called a Harshad number if X is divisible by f(X), where f(X) is the sum of the digits in X when written in base 10.
+Given an integer N, determine whether it is a Harshad number.
+
+CONSTRAINTS:
+* 1?N?10^8
+* N is an integer.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N
+
+OUTPUT:
+Print `Yes` if N is a Harshad number; print `No` otherwise.
+
+EXAMPLES:
+
+INPUT:
+12
+
+OUTPUT:
+Yes
+
+INPUT:
+57
+
+OUTPUT:
+No
+
+INPUT:
+148
+
+OUTPUT:
+No

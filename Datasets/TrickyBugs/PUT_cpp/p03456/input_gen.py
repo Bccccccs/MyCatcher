@@ -1,0 +1,28 @@
+import sys
+import os
+import random
+import math
+
+def generate_one(rand):
+    a = rand.randint(1, 100)
+    b = rand.randint(1, 100)
+    return f"{a} {b}"
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--out_dir", type=str, required=True)
+    parser.add_argument("--num", type=int, required=True)
+    parser.add_argument("--seed", type=int, required=True)
+    args = parser.parse_args()
+
+    os.makedirs(args.out_dir, exist_ok=True)
+    rand = random.Random(args.seed)
+
+    for i in range(args.num):
+        content = generate_one(rand)
+        with open(os.path.join(args.out_dir, f"test_{i:03d}.in"), "w") as f:
+            f.write(content + "\n")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,33 @@
+An integer N is a multiple of 9 if and only if the sum of the digits in the decimal representation of N is a multiple of 9.
+Determine whether N is a multiple of 9.
+
+CONSTRAINTS:
+* 0 \leq N < 10^{200000}
+* N is an integer.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N
+
+OUTPUT:
+If N is a multiple of 9, print `Yes`; otherwise, print `No`.
+
+EXAMPLES:
+
+INPUT:
+123456789
+
+OUTPUT:
+Yes
+
+INPUT:
+0
+
+OUTPUT:
+Yes
+
+INPUT:
+31415926535897932384626433832795028841971693993751058209749445923078164062862089986280
+
+OUTPUT:
+No

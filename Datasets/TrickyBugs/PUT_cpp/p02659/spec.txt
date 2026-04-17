@@ -1,0 +1,34 @@
+Compute A \times B, truncate its fractional part, and print the result as an integer.
+
+CONSTRAINTS:
+* 0 \leq A \leq 10^{15}
+* 0 \leq B < 10
+* A is an integer.
+* B is a number with two digits after the decimal point.
+
+INPUT:
+Input is given from Standard Input in the following format:
+A B
+
+OUTPUT:
+Print the answer as an integer.
+
+EXAMPLES:
+
+INPUT:
+198 1.10
+
+OUTPUT:
+217
+
+INPUT:
+1 0.01
+
+OUTPUT:
+0
+
+INPUT:
+1000000000000000 9.99
+
+OUTPUT:
+9990000000000000

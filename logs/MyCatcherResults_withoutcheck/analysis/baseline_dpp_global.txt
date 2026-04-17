@@ -1,0 +1,10 @@
+total_problems=268
+ok_problems=255
+skipped_problems=13
+total_tests=29680
+total_found=3556
+total_tp=1760
+total_fp=1761
+total_oracle_wrong=11088
+total_canonical_fail=318
+global_precision=0.49985799488781596

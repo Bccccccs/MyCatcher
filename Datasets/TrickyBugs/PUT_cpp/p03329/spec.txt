@@ -1,0 +1,37 @@
+To make it difficult to withdraw money, a certain bank allows its customers to withdraw only one of the following amounts in one operation:
+* 1 yen (the currency of Japan)
+* 6 yen, 6^2(=36) yen, 6^3(=216) yen, ...
+* 9 yen, 9^2(=81) yen, 9^3(=729) yen, ...
+At least how many operations are required to withdraw exactly N yen in total?
+It is not allowed to re-deposit the money you withdrew.
+
+CONSTRAINTS:
+* 1 \leq N \leq 100000
+* N is an integer.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N
+
+OUTPUT:
+If at least x operations are required to withdraw exactly N yen in total, print x.
+
+EXAMPLES:
+
+INPUT:
+127
+
+OUTPUT:
+4
+
+INPUT:
+3
+
+OUTPUT:
+3
+
+INPUT:
+44852
+
+OUTPUT:
+16

@@ -1,0 +1,24 @@
+**ROLE**:
+You are a senior competitive-programming test data engineer.
+
+**TASK**:
+Given the problem specification, write a Python 3 script that can generate many valid test inputs FAST.
+
+**REQUIREMENTS**:
+1) The script MUST generate inputs that strictly follow the input format and constraints in the specification.
+2) The script MUST be deterministic given a seed.
+3) The script MUST support:
+   - --out_dir: directory to write test_XXX.in
+   - --num: how many inputs to generate
+   - --seed: random seed (int)
+4) The script MUST ensure each generated file contains exactly ONE test input instance.
+5) The script MUST NOT print any explanation text. Only generate files.
+6) Use only Python standard library.
+7) If you need to parse constraints from text, implement robust logic with reasonable assumptions.
+8) Provide safe guards against infinite loops.
+
+**OUTPUT**:
+Return ONLY the Python code (no markdown, no comments outside code).
+
+**PROBLEM SPECIFICATION**:
+{pro_des}

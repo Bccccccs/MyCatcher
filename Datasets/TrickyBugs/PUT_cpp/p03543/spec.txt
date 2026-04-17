@@ -1,0 +1,33 @@
+We call a 4-digit integer with three or more consecutive same digits, such as 1118, good.
+You are given a 4-digit integer N. Answer the question: Is N good?
+
+CONSTRAINTS:
+* 1000 ≤ N ≤ 9999
+* N is an integer.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N
+
+OUTPUT:
+If N is good, print `Yes`; otherwise, print `No`.
+
+EXAMPLES:
+
+INPUT:
+1118
+
+OUTPUT:
+Yes
+
+INPUT:
+7777
+
+OUTPUT:
+Yes
+
+INPUT:
+1234
+
+OUTPUT:
+No

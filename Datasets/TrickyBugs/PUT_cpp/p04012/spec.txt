@@ -1,0 +1,28 @@
+Let w be a string consisting of lowercase letters. We will call w beautiful if the following condition is satisfied:
+* Each lowercase letter of the English alphabet occurs even number of times in w.
+You are given the string w. Determine if w is beautiful.
+
+CONSTRAINTS:
+* 1 \leq |w| \leq 100
+* w consists of lowercase letters (`a`-`z`).
+
+INPUT:
+The input is given from Standard Input in the following format:
+w
+
+OUTPUT:
+Print `Yes` if w is beautiful. Print `No` otherwise.
+
+EXAMPLES:
+
+INPUT:
+abaccaba
+
+OUTPUT:
+Yes
+
+INPUT:
+hthth
+
+OUTPUT:
+No

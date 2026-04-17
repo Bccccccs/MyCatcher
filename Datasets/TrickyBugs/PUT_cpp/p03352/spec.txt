@@ -1,0 +1,32 @@
+You are given a positive integer X. Find the largest perfect power that is at most X. Here, a perfect power is an integer that can be represented as b^p, where b is an integer not less than 1 and p is an integer not less than 2.
+
+CONSTRAINTS:
+* 1 ≤ X ≤ 1000
+* X is an integer.
+
+INPUT:
+Input is given from Standard Input in the following format:
+X
+
+OUTPUT:
+Print the largest perfect power that is at most X.
+
+EXAMPLES:
+
+INPUT:
+10
+
+OUTPUT:
+9
+
+INPUT:
+1
+
+OUTPUT:
+1
+
+INPUT:
+999
+
+OUTPUT:
+961

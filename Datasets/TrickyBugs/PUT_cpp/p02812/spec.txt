@@ -1,0 +1,37 @@
+We have a string S of length N consisting of uppercase English letters.
+How many times does `ABC` occur in S as contiguous subsequences (see Sample Inputs and Outputs)?
+
+CONSTRAINTS:
+* 3 \leq N \leq 50
+* S consists of uppercase English letters.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N
+S
+
+OUTPUT:
+Print number of occurrences of `ABC` in S as contiguous subsequences.
+
+EXAMPLES:
+
+INPUT:
+10
+ZABCDBABCQ
+
+OUTPUT:
+2
+
+INPUT:
+19
+THREEONEFOURONEFIVE
+
+OUTPUT:
+0
+
+INPUT:
+33
+ABCCABCBABCCABACBCBBABCBCBCBCABCB
+
+OUTPUT:
+5

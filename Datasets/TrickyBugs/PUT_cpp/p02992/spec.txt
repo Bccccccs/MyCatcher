@@ -1,0 +1,33 @@
+Find the number of sequences of length K consisting of positive integers such that the product of any two adjacent elements is at most N, modulo 10^9+7.
+
+CONSTRAINTS:
+* 1\leq N\leq 10^9
+* ~~1~~ 2\leq K\leq 100 (fixed at 21:33 JST)
+* N and K are integers.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N K
+
+OUTPUT:
+Print the number of sequences, modulo 10^9+7.
+
+EXAMPLES:
+
+INPUT:
+3 2
+
+OUTPUT:
+5
+
+INPUT:
+10 3
+
+OUTPUT:
+147
+
+INPUT:
+314159265 35
+
+OUTPUT:
+457397712

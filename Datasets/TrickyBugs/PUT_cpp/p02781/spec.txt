@@ -1,0 +1,43 @@
+Find the number of integers between 1 and N (inclusive) that contains exactly K non-zero digits when written in base ten.
+
+CONSTRAINTS:
+* 1 \leq N < 10^{100}
+* 1 \leq K \leq 3
+
+INPUT:
+Input is given from Standard Input in the following format:
+N
+K
+
+OUTPUT:
+Print the count.
+
+EXAMPLES:
+
+INPUT:
+100
+1
+
+OUTPUT:
+19
+
+INPUT:
+25
+2
+
+OUTPUT:
+14
+
+INPUT:
+314159
+2
+
+OUTPUT:
+937
+
+INPUT:
+9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+3
+
+OUTPUT:
+117879300

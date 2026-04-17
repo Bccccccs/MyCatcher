@@ -1,0 +1,31 @@
+You are given an integer N. Find the number of the positive divisors of N!, modulo 10^9+7.
+
+CONSTRAINTS:
+* 1≤N≤10^3
+
+INPUT:
+The input is given from Standard Input in the following format:
+N
+
+OUTPUT:
+Print the number of the positive divisors of N!, modulo 10^9+7.
+
+EXAMPLES:
+
+INPUT:
+3
+
+OUTPUT:
+4
+
+INPUT:
+6
+
+OUTPUT:
+30
+
+INPUT:
+1000
+
+OUTPUT:
+972926972

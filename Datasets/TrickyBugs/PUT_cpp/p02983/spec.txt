@@ -1,0 +1,26 @@
+You are given two non-negative integers L and R. We will choose two integers i and j such that L \leq i < j \leq R. Find the minimum possible value of (i \times j) \mbox{ mod } 2019.
+
+CONSTRAINTS:
+* All values in input are integers.
+* 0 \leq L < R \leq 2 \times 10^9
+
+INPUT:
+Input is given from Standard Input in the following format:
+L R
+
+OUTPUT:
+Print the minimum possible value of (i \times j) \mbox{ mod } 2019 when i and j are chosen under the given condition.
+
+EXAMPLES:
+
+INPUT:
+2020 2040
+
+OUTPUT:
+2
+
+INPUT:
+4 5
+
+OUTPUT:
+20

@@ -1,0 +1,5 @@
+experiment,role,available,processed_problems,successful_runs,summary_json
+trickcatcher,canonical_paper_reproduction,True,257,255,outputs/trickcatcher/summary.json
+chat,direct_generation_baseline,False,,,
+apr,repair_baseline,False,,,
+dpp,legacy_differential_testing_only,False,,,

@@ -1,0 +1,32 @@
+Find the smallest possible sum of the digits in the decimal notation of a positive multiple of K.
+
+CONSTRAINTS:
+* 2 \leq K \leq 10^5
+* K is an integer.
+
+INPUT:
+Input is given from Standard Input in the following format:
+K
+
+OUTPUT:
+Print the smallest possible sum of the digits in the decimal notation of a positive multiple of K.
+
+EXAMPLES:
+
+INPUT:
+6
+
+OUTPUT:
+3
+
+INPUT:
+41
+
+OUTPUT:
+5
+
+INPUT:
+79992
+
+OUTPUT:
+36

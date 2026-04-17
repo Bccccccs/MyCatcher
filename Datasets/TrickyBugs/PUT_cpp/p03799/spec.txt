@@ -1,0 +1,29 @@
+Snuke loves puzzles.
+Today, he is working on a puzzle using `S`- and `c`-shaped pieces. In this puzzle, you can combine two `c`-shaped pieces into one `S`-shaped piece, as shown in the figure below:
+9b0bd546db9f28b4093d417b8f274124.png
+Snuke decided to create as many `Scc` groups as possible by putting together one `S`-shaped piece and two `c`-shaped pieces.
+Find the maximum number of `Scc` groups that can be created when Snuke has N `S`-shaped pieces and M `c`-shaped pieces.
+
+CONSTRAINTS:
+* 1 ≤ N,M ≤ 10^{12}
+
+INPUT:
+The input is given from Standard Input in the following format:
+N M
+
+OUTPUT:
+Print the answer.
+
+EXAMPLES:
+
+INPUT:
+1 6
+
+OUTPUT:
+2
+
+INPUT:
+12345 678901
+
+OUTPUT:
+175897

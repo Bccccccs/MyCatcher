@@ -1,0 +1,789 @@
+$ /data/yangshuo/miniconda3/envs/mycatcher310/bin/python start/run_dif_test.py --layout dataset --lang cpp --variant-mode trickybugs --dataset-root /data/bc/MyCatcher/Datasets/TrickyBugs/PUT_cpp --variants-root /data/bc/MyCatcher/Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp --tests-root /data/bc/MyCatcher/outputs/inputs --out-root /data/bc/MyCatcher/outputs/tcases --canonical-root /data/bc/MyCatcher/AC --timeout 2.0 --fixed-min-votes 6 --jobs 50
+
+[PROGRESS] 1/268 (  0.4%) problems latest=p02689
+[OK] p02594 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02594/raw.log
+[STATS] tests=30 saved=1 agree=29 found=1 no_majority=0 no_variant_output=0 put_fail=0 tp_count=1 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02594/report.txt
+[PROGRESS] 2/268 (  0.7%) problems latest=p02594
+[OK] p02715 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02715/raw.log
+[STATS] tests=57 saved=0 agree=10 found=0 no_majority=47 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=39 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02715/report.txt
+[PROGRESS] 3/268 (  1.1%) problems latest=p02715
+[OK] p02775 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02775/raw.log
+[STATS] tests=74 saved=0 agree=0 found=0 no_majority=74 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=64 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02775/report.txt
+[PROGRESS] 4/268 (  1.5%) problems latest=p02775
+[OK] p02732 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02732/raw.log
+[STATS] tests=88 saved=83 agree=5 found=83 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=83 oracle_wrong_count=83 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02732/report.txt
+[PROGRESS] 5/268 (  1.9%) problems latest=p02732
+[OK] p02682 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02682/raw.log
+[STATS] tests=95 saved=10 agree=57 found=10 no_majority=28 no_variant_output=0 put_fail=0 tp_count=6 fp_count=4 oracle_wrong_count=7 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02682/report.txt
+[PROGRESS] 6/268 (  2.2%) problems latest=p02682
+[OK] p02577 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02577/raw.log
+[STATS] tests=93 saved=10 agree=83 found=10 no_majority=0 no_variant_output=0 put_fail=0 tp_count=10 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02577/report.txt
+[PROGRESS] 7/268 (  2.6%) problems latest=p02577
+[OK] p02726 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02726/raw.log
+[STATS] tests=79 saved=0 agree=0 found=0 no_majority=79 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02726/report.txt
+[PROGRESS] 8/268 (  3.0%) problems latest=p02726
+[OK] p02583 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02583/raw.log
+[STATS] tests=100 saved=0 agree=100 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02583/report.txt
+[PROGRESS] 9/268 (  3.4%) problems latest=p02583
+[OK] p02702 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02702/raw.log
+[STATS] tests=106 saved=0 agree=103 found=0 no_majority=3 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02702/report.txt
+[PROGRESS] 10/268 (  3.7%) problems latest=p02702
+[OK] p02716 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02716/raw.log
+[STATS] tests=109 saved=30 agree=52 found=30 no_majority=27 no_variant_output=0 put_fail=0 tp_count=3 fp_count=27 oracle_wrong_count=49 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02716/report.txt
+[PROGRESS] 11/268 (  4.1%) problems latest=p02716
+[OK] p02761 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02761/raw.log
+[STATS] tests=104 saved=4 agree=76 found=4 no_majority=22 no_variant_output=0 put_fail=2 tp_count=4 fp_count=0 oracle_wrong_count=4 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02761/report.txt
+[PROGRESS] 12/268 (  4.5%) problems latest=p02761
+[OK] p02616 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02616/raw.log
+[STATS] tests=113 saved=3 agree=100 found=3 no_majority=10 no_variant_output=0 put_fail=0 tp_count=3 fp_count=0 oracle_wrong_count=1 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02616/report.txt
+[PROGRESS] 13/268 (  4.9%) problems latest=p02616
+[OK] p02575 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02575/raw.log
+[STATS] tests=129 saved=0 agree=0 found=0 no_majority=129 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=98 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02575/report.txt
+[PROGRESS] 14/268 (  5.2%) problems latest=p02575
+[OK] p02626 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02626/raw.log
+[STATS] tests=121 saved=23 agree=78 found=23 no_majority=20 no_variant_output=0 put_fail=0 tp_count=0 fp_count=23 oracle_wrong_count=31 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02626/report.txt
+[PROGRESS] 15/268 (  5.6%) problems latest=p02626
+[OK] p02758 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02758/raw.log
+[STATS] tests=123 saved=8 agree=0 found=8 no_majority=115 no_variant_output=0 put_fail=0 tp_count=0 fp_count=8 oracle_wrong_count=123 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02758/report.txt
+[PROGRESS] 16/268 (  6.0%) problems latest=p02758
+[OK] p02700 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02700/raw.log
+[STATS] tests=122 saved=20 agree=102 found=20 no_majority=0 no_variant_output=0 put_fail=0 tp_count=20 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02700/report.txt
+[PROGRESS] 17/268 (  6.3%) problems latest=p02700
+[OK] p02730 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02730/raw.log
+[STATS] tests=125 saved=13 agree=111 found=13 no_majority=0 no_variant_output=0 put_fail=1 tp_count=5 fp_count=8 oracle_wrong_count=8 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02730/report.txt
+[PROGRESS] 18/268 (  6.7%) problems latest=p02730
+[OK] p02718 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02718/raw.log
+[STATS] tests=130 saved=1 agree=115 found=1 no_majority=14 no_variant_output=0 put_fail=0 tp_count=0 fp_count=1 oracle_wrong_count=1 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02718/report.txt
+[PROGRESS] 19/268 (  7.1%) problems latest=p02718
+[OK] p02709 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02709/raw.log
+[STATS] tests=139 saved=0 agree=0 found=0 no_majority=139 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=110 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02709/report.txt
+[PROGRESS] 20/268 (  7.5%) problems latest=p02709
+[OK] p02659 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02659/raw.log
+[STATS] tests=139 saved=3 agree=71 found=3 no_majority=65 no_variant_output=0 put_fail=0 tp_count=2 fp_count=1 oracle_wrong_count=11 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02659/report.txt
+[PROGRESS] 21/268 (  7.8%) problems latest=p02659
+[OK] p02757 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02757/raw.log
+[STATS] tests=132 saved=3 agree=114 found=3 no_majority=15 no_variant_output=0 put_fail=0 tp_count=0 fp_count=3 oracle_wrong_count=16 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02757/report.txt
+[PROGRESS] 22/268 (  8.2%) problems latest=p02757
+[OK] p02767 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02767/raw.log
+[STATS] tests=123 saved=64 agree=59 found=64 no_majority=0 no_variant_output=0 put_fail=0 tp_count=62 fp_count=2 oracle_wrong_count=2 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02767/report.txt
+[PROGRESS] 23/268 (  8.6%) problems latest=p02767
+[OK] p02760 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02760/raw.log
+[STATS] tests=136 saved=0 agree=84 found=0 no_majority=52 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02760/report.txt
+[PROGRESS] 24/268 (  9.0%) problems latest=p02760
+[OK] p02589 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02589/raw.log
+[STATS] tests=146 saved=13 agree=43 found=13 no_majority=90 no_variant_output=0 put_fail=0 tp_count=0 fp_count=13 oracle_wrong_count=68 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02589/report.txt
+[PROGRESS] 25/268 (  9.3%) problems latest=p02589
+[OK] p02598 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02598/raw.log
+[STATS] tests=155 saved=38 agree=117 found=38 no_majority=0 no_variant_output=0 put_fail=0 tp_count=38 fp_count=0 oracle_wrong_count=1 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02598/report.txt
+[PROGRESS] 26/268 (  9.7%) problems latest=p02598
+[OK] p02581 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02581/raw.log
+[STATS] tests=140 saved=0 agree=5 found=0 no_majority=135 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=63 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02581/report.txt
+[PROGRESS] 27/268 ( 10.1%) problems latest=p02581
+[OK] p02756 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02756/raw.log
+[STATS] tests=169 saved=39 agree=128 found=39 no_majority=2 no_variant_output=0 put_fail=0 tp_count=39 fp_count=0 oracle_wrong_count=2 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02756/report.txt
+[PROGRESS] 28/268 ( 10.4%) problems latest=p02756
+[OK] p02683 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02683/raw.log
+[STATS] tests=153 saved=2 agree=151 found=2 no_majority=0 no_variant_output=0 put_fail=0 tp_count=2 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02683/report.txt
+[PROGRESS] 29/268 ( 10.8%) problems latest=p02683
+[OK] p02670 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02670/raw.log
+[STATS] tests=166 saved=2 agree=1 found=2 no_majority=149 no_variant_output=14 put_fail=0 tp_count=0 fp_count=2 oracle_wrong_count=121 canonical_fail_count=45 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02670/report.txt
+[PROGRESS] 30/268 ( 11.2%) problems latest=p02670
+[OK] p02636 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02636/raw.log
+[STATS] tests=113 saved=10 agree=1 found=10 no_majority=102 no_variant_output=0 put_fail=0 tp_count=0 fp_count=10 oracle_wrong_count=110 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02636/report.txt
+[PROGRESS] 31/268 ( 11.6%) problems latest=p02636
+[OK] p02695 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02695/raw.log
+[STATS] tests=163 saved=0 agree=153 found=0 no_majority=10 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02695/report.txt
+[PROGRESS] 32/268 ( 11.9%) problems latest=p02695
+[OK] p02599 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02599/raw.log
+[STATS] tests=173 saved=109 agree=57 found=109 no_majority=0 no_variant_output=0 put_fail=7 tp_count=14 fp_count=95 oracle_wrong_count=99 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02599/report.txt
+[PROGRESS] 33/268 ( 12.3%) problems latest=p02599
+[OK] p02547 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02547/raw.log
+[STATS] tests=177 saved=11 agree=166 found=11 no_majority=0 no_variant_output=0 put_fail=0 tp_count=11 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02547/report.txt
+[PROGRESS] 34/268 ( 12.7%) problems latest=p02547
+[OK] p02766 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02766/raw.log
+[STATS] tests=112 saved=6 agree=103 found=6 no_majority=2 no_variant_output=0 put_fail=1 tp_count=6 fp_count=0 oracle_wrong_count=2 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02766/report.txt
+[PROGRESS] 35/268 ( 13.1%) problems latest=p02766
+[OK] p02969 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02969/raw.log
+[STATS] tests=31 saved=0 agree=31 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02969/report.txt
+[PROGRESS] 36/268 ( 13.4%) problems latest=p02969
+[OK] p02777 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02777/raw.log
+[STATS] tests=164 saved=16 agree=148 found=16 no_majority=0 no_variant_output=0 put_fail=0 tp_count=5 fp_count=11 oracle_wrong_count=11 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02777/report.txt
+[PROGRESS] 37/268 ( 13.8%) problems latest=p02777
+[OK] p02860 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02860/raw.log
+[STATS] tests=87 saved=2 agree=85 found=2 no_majority=0 no_variant_output=0 put_fail=0 tp_count=2 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02860/report.txt
+[PROGRESS] 38/268 ( 14.2%) problems latest=p02860
+[OK] p02832 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02832/raw.log
+[STATS] tests=118 saved=51 agree=0 found=51 no_majority=67 no_variant_output=0 put_fail=0 tp_count=23 fp_count=28 oracle_wrong_count=95 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02832/report.txt
+[PROGRESS] 39/268 ( 14.6%) problems latest=p02832
+[OK] p02830 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02830/raw.log
+[STATS] tests=122 saved=17 agree=104 found=17 no_majority=0 no_variant_output=0 put_fail=1 tp_count=17 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02830/report.txt
+[PROGRESS] 40/268 ( 14.9%) problems latest=p02830
+[OK] p02913 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02913/raw.log
+[STATS] tests=83 saved=5 agree=53 found=5 no_majority=25 no_variant_output=0 put_fail=0 tp_count=0 fp_count=5 oracle_wrong_count=20 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02913/report.txt
+[PROGRESS] 41/268 ( 15.3%) problems latest=p02913
+[OK] p02623 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02623/raw.log
+[STATS] tests=139 saved=2 agree=137 found=2 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=2 oracle_wrong_count=2 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02623/report.txt
+[PROGRESS] 42/268 ( 15.7%) problems latest=p02623
+[OK] p02787 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02787/raw.log
+[STATS] tests=145 saved=5 agree=75 found=5 no_majority=65 no_variant_output=0 put_fail=0 tp_count=1 fp_count=4 oracle_wrong_count=40 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02787/report.txt
+[PROGRESS] 43/268 ( 16.0%) problems latest=p02787
+[OK] p02802 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02802/raw.log
+[STATS] tests=134 saved=3 agree=88 found=3 no_majority=43 no_variant_output=0 put_fail=0 tp_count=3 fp_count=0 oracle_wrong_count=4 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02802/report.txt
+[PROGRESS] 44/268 ( 16.4%) problems latest=p02802
+[OK] p02574 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02574/raw.log
+[STATS] tests=124 saved=101 agree=23 found=101 no_majority=0 no_variant_output=0 put_fail=0 tp_count=101 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02574/report.txt
+[PROGRESS] 45/268 ( 16.8%) problems latest=p02574
+[OK] p02812 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02812/raw.log
+[STATS] tests=134 saved=9 agree=125 found=9 no_majority=0 no_variant_output=0 put_fail=0 tp_count=9 fp_count=0 oracle_wrong_count=0 canonical_fail_count=2 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02812/report.txt
+[PROGRESS] 46/268 ( 17.2%) problems latest=p02812
+[OK] p02864 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02864/raw.log
+[STATS] tests=125 saved=40 agree=23 found=40 no_majority=62 no_variant_output=0 put_fail=0 tp_count=9 fp_count=31 oracle_wrong_count=79 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02864/report.txt
+[PROGRESS] 47/268 ( 17.5%) problems latest=p02864
+[OK] p02838 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02838/raw.log
+[STATS] tests=140 saved=3 agree=137 found=3 no_majority=0 no_variant_output=0 put_fail=0 tp_count=2 fp_count=1 oracle_wrong_count=1 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02838/report.txt
+[PROGRESS] 48/268 ( 17.9%) problems latest=p02838
+[OK] p02917 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02917/raw.log
+[STATS] tests=117 saved=117 agree=0 found=117 no_majority=0 no_variant_output=0 put_fail=0 tp_count=117 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02917/report.txt
+[PROGRESS] 49/268 ( 18.3%) problems latest=p02917
+[OK] p02891 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02891/raw.log
+[STATS] tests=145 saved=8 agree=56 found=8 no_majority=81 no_variant_output=0 put_fail=0 tp_count=0 fp_count=8 oracle_wrong_count=45 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02891/report.txt
+[PROGRESS] 50/268 ( 18.7%) problems latest=p02891
+[OK] p02840 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02840/raw.log
+[STATS] tests=150 saved=3 agree=21 found=3 no_majority=126 no_variant_output=0 put_fail=0 tp_count=0 fp_count=3 oracle_wrong_count=108 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02840/report.txt
+[PROGRESS] 51/268 ( 19.0%) problems latest=p02840
+[OK] p02971 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02971/raw.log
+[STATS] tests=124 saved=47 agree=24 found=47 no_majority=53 no_variant_output=0 put_fail=0 tp_count=47 fp_count=0 oracle_wrong_count=25 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02971/report.txt
+[PROGRESS] 52/268 ( 19.4%) problems latest=p02971
+[OK] p02958 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02958/raw.log
+[STATS] tests=123 saved=12 agree=111 found=12 no_majority=0 no_variant_output=0 put_fail=0 tp_count=12 fp_count=0 oracle_wrong_count=1 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02958/report.txt
+[PROGRESS] 53/268 ( 19.8%) problems latest=p02958
+[OK] p02728 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02728/raw.log
+[STATS] tests=104 saved=0 agree=0 found=0 no_majority=104 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=104 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02728/report.txt
+[PROGRESS] 54/268 ( 20.1%) problems latest=p02728
+[OK] p02962 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02962/raw.log
+[STATS] tests=138 saved=0 agree=13 found=0 no_majority=125 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=60 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02962/report.txt
+[PROGRESS] 55/268 ( 20.5%) problems latest=p02962
+[OK] p02580 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02580/raw.log
+[STATS] tests=148 saved=3 agree=0 found=3 no_majority=145 no_variant_output=0 put_fail=0 tp_count=0 fp_count=3 oracle_wrong_count=13 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02580/report.txt
+[PROGRESS] 56/268 ( 20.9%) problems latest=p02580
+[OK] p02956 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02956/raw.log
+[STATS] tests=133 saved=0 agree=0 found=0 no_majority=133 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=132 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02956/report.txt
+[PROGRESS] 57/268 ( 21.3%) problems latest=p02956
+[OK] p03042 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03042/raw.log
+[STATS] tests=82 saved=3 agree=79 found=3 no_majority=0 no_variant_output=0 put_fail=0 tp_count=3 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03042/report.txt
+[PROGRESS] 58/268 ( 21.6%) problems latest=p03042
+[OK] p03013 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03013/raw.log
+[STATS] tests=87 saved=0 agree=0 found=0 no_majority=87 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=4 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03013/report.txt
+[PROGRESS] 59/268 ( 22.0%) problems latest=p03013
+[OK] p02974 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02974/raw.log
+[STATS] tests=105 saved=10 agree=11 found=10 no_majority=84 no_variant_output=0 put_fail=0 tp_count=8 fp_count=2 oracle_wrong_count=84 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02974/report.txt
+[PROGRESS] 60/268 ( 22.4%) problems latest=p02974
+[OK] p02998 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02998/raw.log
+[STATS] tests=112 saved=0 agree=30 found=0 no_majority=82 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=64 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02998/report.txt
+[PROGRESS] 61/268 ( 22.8%) problems latest=p02998
+[OK] p03000 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03000/raw.log
+[STATS] tests=133 saved=66 agree=67 found=66 no_majority=0 no_variant_output=0 put_fail=0 tp_count=66 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03000/report.txt
+[PROGRESS] 62/268 ( 23.1%) problems latest=p03000
+[OK] p03088 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03088/raw.log
+[STATS] tests=20 saved=0 agree=0 found=0 no_majority=20 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03088/report.txt
+[PROGRESS] 63/268 ( 23.5%) problems latest=p03088
+[OK] p03073 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03073/raw.log
+[STATS] tests=89 saved=53 agree=36 found=53 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=53 oracle_wrong_count=53 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03073/report.txt
+[PROGRESS] 64/268 ( 23.9%) problems latest=p03073
+[OK] p03031 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03031/raw.log
+[STATS] tests=128 saved=2 agree=126 found=2 no_majority=0 no_variant_output=0 put_fail=0 tp_count=2 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03031/report.txt
+[PROGRESS] 65/268 ( 24.3%) problems latest=p03031
+[OK] p03032 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03032/raw.log
+[STATS] tests=136 saved=7 agree=67 found=7 no_majority=62 no_variant_output=0 put_fail=0 tp_count=7 fp_count=0 oracle_wrong_count=5 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03032/report.txt
+[PROGRESS] 66/268 ( 24.6%) problems latest=p03032
+[OK] p02996 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02996/raw.log
+[STATS] tests=170 saved=1 agree=169 found=1 no_majority=0 no_variant_output=0 put_fail=0 tp_count=1 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02996/report.txt
+[PROGRESS] 67/268 ( 25.0%) problems latest=p02996
+[OK] p03146 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03146/raw.log
+[STATS] tests=45 saved=2 agree=43 found=2 no_majority=0 no_variant_output=0 put_fail=0 tp_count=2 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03146/report.txt
+[PROGRESS] 68/268 ( 25.4%) problems latest=p03146
+[OK] p03014 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03014/raw.log
+[STATS] tests=146 saved=7 agree=137 found=7 no_majority=2 no_variant_output=0 put_fail=0 tp_count=7 fp_count=0 oracle_wrong_count=2 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03014/report.txt
+[PROGRESS] 69/268 ( 25.7%) problems latest=p03014
+[OK] p03053 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03053/raw.log
+[STATS] tests=131 saved=13 agree=116 found=13 no_majority=2 no_variant_output=0 put_fail=0 tp_count=13 fp_count=0 oracle_wrong_count=2 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03053/report.txt
+[PROGRESS] 70/268 ( 26.1%) problems latest=p03053
+[PROGRESS] 71/268 ( 26.5%) problems latest=p03262
+[OK] p02652 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02652/raw.log
+[STATS] tests=99 saved=2 agree=2 found=2 no_majority=95 no_variant_output=0 put_fail=0 tp_count=0 fp_count=2 oracle_wrong_count=84 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02652/report.txt
+[PROGRESS] 72/268 ( 26.9%) problems latest=p02652
+[OK] p03076 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03076/raw.log
+[STATS] tests=111 saved=0 agree=0 found=0 no_majority=105 no_variant_output=0 put_fail=6 tp_count=0 fp_count=0 oracle_wrong_count=91 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03076/report.txt
+[PROGRESS] 73/268 ( 27.2%) problems latest=p03076
+[OK] p03017 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03017/raw.log
+[STATS] tests=167 saved=17 agree=121 found=17 no_majority=29 no_variant_output=0 put_fail=0 tp_count=8 fp_count=9 oracle_wrong_count=32 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03017/report.txt
+[PROGRESS] 74/268 ( 27.6%) problems latest=p03017
+[OK] p03074 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03074/raw.log
+[STATS] tests=135 saved=8 agree=2 found=8 no_majority=125 no_variant_output=0 put_fail=0 tp_count=0 fp_count=7 oracle_wrong_count=120 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03074/report.txt
+[PROGRESS] 75/268 ( 28.0%) problems latest=p03074
+[OK] p03089 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03089/raw.log
+[STATS] tests=115 saved=24 agree=59 found=24 no_majority=32 no_variant_output=0 put_fail=0 tp_count=12 fp_count=12 oracle_wrong_count=36 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03089/report.txt
+[PROGRESS] 76/268 ( 28.4%) problems latest=p03089
+[OK] p03100 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03100/raw.log
+[STATS] tests=43 saved=0 agree=0 found=0 no_majority=43 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=39 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03100/report.txt
+[PROGRESS] 77/268 ( 28.7%) problems latest=p03100
+[OK] p03045 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03045/raw.log
+[STATS] tests=156 saved=0 agree=7 found=0 no_majority=149 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=88 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03045/report.txt
+[PROGRESS] 78/268 ( 29.1%) problems latest=p03045
+[OK] p03039 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03039/raw.log
+[STATS] tests=86 saved=0 agree=0 found=0 no_majority=86 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=85 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03039/report.txt
+[PROGRESS] 79/268 ( 29.5%) problems latest=p03039
+[OK] p03126 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03126/raw.log
+[STATS] tests=115 saved=9 agree=106 found=9 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=7 oracle_wrong_count=7 canonical_fail_count=14 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03126/report.txt
+[PROGRESS] 80/268 ( 29.9%) problems latest=p03126
+[OK] p03148 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03148/raw.log
+[STATS] tests=127 saved=0 agree=46 found=0 no_majority=81 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=29 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03148/report.txt
+[PROGRESS] 81/268 ( 30.2%) problems latest=p03148
+[OK] p02907 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02907/raw.log
+[STATS] tests=132 saved=0 agree=0 found=0 no_majority=132 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=131 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02907/report.txt
+[PROGRESS] 82/268 ( 30.6%) problems latest=p02907
+[OK] p02794 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02794/raw.log
+[STATS] tests=133 saved=0 agree=0 found=0 no_majority=133 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=127 canonical_fail_count=2 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02794/report.txt
+[PROGRESS] 83/268 ( 31.0%) problems latest=p02794
+[OK] p03285 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03285/raw.log
+[STATS] tests=58 saved=9 agree=49 found=9 no_majority=0 no_variant_output=0 put_fail=0 tp_count=9 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03285/report.txt
+[PROGRESS] 84/268 ( 31.3%) problems latest=p03285
+[OK] p03112 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03112/raw.log
+[STATS] tests=144 saved=25 agree=18 found=25 no_majority=101 no_variant_output=0 put_fail=0 tp_count=21 fp_count=4 oracle_wrong_count=47 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03112/report.txt
+[PROGRESS] 85/268 ( 31.7%) problems latest=p03112
+[OK] p03272 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03272/raw.log
+[STATS] tests=74 saved=1 agree=73 found=1 no_majority=0 no_variant_output=0 put_fail=0 tp_count=1 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03272/report.txt
+[PROGRESS] 86/268 ( 32.1%) problems latest=p03272
+[OK] p03087 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03087/raw.log
+[STATS] tests=170 saved=133 agree=37 found=133 no_majority=0 no_variant_output=0 put_fail=0 tp_count=132 fp_count=1 oracle_wrong_count=1 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03087/report.txt
+[PROGRESS] 87/268 ( 32.5%) problems latest=p03087
+[OK] p03284 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03284/raw.log
+[STATS] tests=85 saved=8 agree=62 found=8 no_majority=14 no_variant_output=1 put_fail=0 tp_count=4 fp_count=4 oracle_wrong_count=13 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03284/report.txt
+[PROGRESS] 88/268 ( 32.8%) problems latest=p03284
+[OK] p03239 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03239/raw.log
+[STATS] tests=138 saved=4 agree=131 found=4 no_majority=3 no_variant_output=0 put_fail=0 tp_count=4 fp_count=0 oracle_wrong_count=3 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03239/report.txt
+[PROGRESS] 89/268 ( 33.2%) problems latest=p03239
+[OK] p03296 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03296/raw.log
+[STATS] tests=114 saved=0 agree=113 found=0 no_majority=1 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03296/report.txt
+[PROGRESS] 90/268 ( 33.6%) problems latest=p03296
+[OK] p03323 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03323/raw.log
+[STATS] tests=70 saved=22 agree=48 found=22 no_majority=0 no_variant_output=0 put_fail=0 tp_count=22 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03323/report.txt
+[PROGRESS] 91/268 ( 34.0%) problems latest=p03323
+[OK] p03255 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03255/raw.log
+[STATS] tests=159 saved=4 agree=0 found=4 no_majority=155 no_variant_output=0 put_fail=0 tp_count=0 fp_count=4 oracle_wrong_count=159 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03255/report.txt
+[PROGRESS] 92/268 ( 34.3%) problems latest=p03255
+[OK] p03292 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03292/raw.log
+[STATS] tests=122 saved=16 agree=106 found=16 no_majority=0 no_variant_output=0 put_fail=0 tp_count=16 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03292/report.txt
+[PROGRESS] 93/268 ( 34.7%) problems latest=p03292
+[OK] p03290 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03290/raw.log
+[STATS] tests=155 saved=0 agree=0 found=0 no_majority=155 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=29 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03290/report.txt
+[PROGRESS] 94/268 ( 35.1%) problems latest=p03290
+[OK] p03338 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03338/raw.log
+[STATS] tests=70 saved=0 agree=70 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03338/report.txt
+[PROGRESS] 95/268 ( 35.4%) problems latest=p03338
+[OK] p03333 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03333/raw.log
+[STATS] tests=143 saved=137 agree=6 found=137 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=137 oracle_wrong_count=137 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03333/report.txt
+[PROGRESS] 96/268 ( 35.8%) problems latest=p03333
+[OK] p03326 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03326/raw.log
+[STATS] tests=111 saved=1 agree=107 found=1 no_majority=3 no_variant_output=0 put_fail=0 tp_count=1 fp_count=0 oracle_wrong_count=3 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03326/report.txt
+[PROGRESS] 97/268 ( 36.2%) problems latest=p03326
+[OK] p03019 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03019/raw.log
+[STATS] tests=128 saved=14 agree=0 found=14 no_majority=114 no_variant_output=0 put_fail=0 tp_count=0 fp_count=14 oracle_wrong_count=128 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03019/report.txt
+[PROGRESS] 98/268 ( 36.6%) problems latest=p03019
+[OK] p02653 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02653/raw.log
+[STATS] tests=113 saved=6 agree=0 found=6 no_majority=107 no_variant_output=0 put_fail=0 tp_count=0 fp_count=6 oracle_wrong_count=105 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02653/report.txt
+[PROGRESS] 99/268 ( 36.9%) problems latest=p02653
+[OK] p03351 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03351/raw.log
+[STATS] tests=87 saved=6 agree=81 found=6 no_majority=0 no_variant_output=0 put_fail=0 tp_count=6 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03351/report.txt
+[PROGRESS] 100/268 ( 37.3%) problems latest=p03351
+[OK] p03336 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03336/raw.log
+[STATS] tests=175 saved=3 agree=0 found=3 no_majority=172 no_variant_output=0 put_fail=0 tp_count=0 fp_count=3 oracle_wrong_count=111 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03336/report.txt
+[PROGRESS] 101/268 ( 37.7%) problems latest=p03336
+[OK] p03235 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03235/raw.log
+[STATS] tests=101 saved=27 agree=36 found=27 no_majority=37 no_variant_output=0 put_fail=1 tp_count=0 fp_count=27 oracle_wrong_count=93 canonical_fail_count=2 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03235/report.txt
+[PROGRESS] 102/268 ( 38.1%) problems latest=p03235
+[OK] p03344 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03344/raw.log
+[STATS] tests=142 saved=0 agree=0 found=0 no_majority=142 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=137 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03344/report.txt
+[PROGRESS] 103/268 ( 38.4%) problems latest=p03344
+[PROGRESS] 104/268 ( 38.8%) problems latest=p03400
+[OK] p03343 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03343/raw.log
+[STATS] tests=144 saved=0 agree=0 found=0 no_majority=144 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=87 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03343/report.txt
+[PROGRESS] 105/268 ( 39.2%) problems latest=p03343
+[OK] p03348 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03348/raw.log
+[STATS] tests=113 saved=0 agree=0 found=0 no_majority=113 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=99 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03348/report.txt
+[PROGRESS] 106/268 ( 39.6%) problems latest=p03348
+[OK] p03361 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03361/raw.log
+[STATS] tests=117 saved=30 agree=77 found=30 no_majority=10 no_variant_output=0 put_fail=0 tp_count=30 fp_count=0 oracle_wrong_count=41 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03361/report.txt
+[PROGRESS] 107/268 ( 39.9%) problems latest=p03361
+[OK] p03213 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03213/raw.log
+[STATS] tests=24 saved=5 agree=9 found=5 no_majority=10 no_variant_output=0 put_fail=0 tp_count=0 fp_count=5 oracle_wrong_count=15 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03213/report.txt
+[PROGRESS] 108/268 ( 40.3%) problems latest=p03213
+[OK] p03383 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03383/raw.log
+[STATS] tests=123 saved=10 agree=113 found=10 no_majority=0 no_variant_output=0 put_fail=0 tp_count=1 fp_count=9 oracle_wrong_count=12 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03383/report.txt
+[PROGRESS] 109/268 ( 40.7%) problems latest=p03383
+[OK] p03393 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03393/raw.log
+[STATS] tests=114 saved=77 agree=3 found=77 no_majority=34 no_variant_output=0 put_fail=0 tp_count=0 fp_count=77 oracle_wrong_count=113 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03393/report.txt
+[PROGRESS] 110/268 ( 41.0%) problems latest=p03393
+[OK] p03391 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03391/raw.log
+[STATS] tests=156 saved=56 agree=5 found=56 no_majority=95 no_variant_output=0 put_fail=0 tp_count=0 fp_count=56 oracle_wrong_count=134 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03391/report.txt
+[PROGRESS] 111/268 ( 41.4%) problems latest=p03391
+[OK] p02900 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02900/raw.log
+[STATS] tests=97 saved=5 agree=53 found=5 no_majority=39 no_variant_output=0 put_fail=0 tp_count=5 fp_count=0 oracle_wrong_count=34 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02900/report.txt
+[PROGRESS] 112/268 ( 41.8%) problems latest=p02900
+[OK] p03374 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03374/raw.log
+[STATS] tests=156 saved=26 agree=0 found=26 no_majority=130 no_variant_output=0 put_fail=0 tp_count=16 fp_count=10 oracle_wrong_count=41 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03374/report.txt
+[PROGRESS] 113/268 ( 42.2%) problems latest=p03374
+[OK] p03396 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03396/raw.log
+[STATS] tests=122 saved=0 agree=0 found=0 no_majority=122 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=117 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03396/report.txt
+[PROGRESS] 114/268 ( 42.5%) problems latest=p03396
+[OK] p03403 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03403/raw.log
+[STATS] tests=132 saved=0 agree=6 found=0 no_majority=126 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=126 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03403/report.txt
+[PROGRESS] 115/268 ( 42.9%) problems latest=p03403
+[OK] p03427 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03427/raw.log
+[STATS] tests=64 saved=42 agree=12 found=42 no_majority=10 no_variant_output=0 put_fail=0 tp_count=0 fp_count=42 oracle_wrong_count=52 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03427/report.txt
+[PROGRESS] 116/268 ( 43.3%) problems latest=p03427
+[OK] p03408 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03408/raw.log
+[STATS] tests=134 saved=8 agree=126 found=8 no_majority=0 no_variant_output=0 put_fail=0 tp_count=8 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03408/report.txt
+[PROGRESS] 117/268 ( 43.7%) problems latest=p03408
+[OK] p03365 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03365/raw.log
+[STATS] tests=27 saved=2 agree=0 found=2 no_majority=25 no_variant_output=0 put_fail=0 tp_count=1 fp_count=1 oracle_wrong_count=26 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03365/report.txt
+[PROGRESS] 118/268 ( 44.0%) problems latest=p03365
+[OK] p03203 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03203/raw.log
+[STATS] tests=134 saved=9 agree=4 found=9 no_majority=121 no_variant_output=0 put_fail=0 tp_count=0 fp_count=9 oracle_wrong_count=121 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03203/report.txt
+[PROGRESS] 119/268 ( 44.4%) problems latest=p03203
+[OK] p03424 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03424/raw.log
+[STATS] tests=128 saved=56 agree=72 found=56 no_majority=0 no_variant_output=0 put_fail=0 tp_count=16 fp_count=40 oracle_wrong_count=42 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03424/report.txt
+[PROGRESS] 120/268 ( 44.8%) problems latest=p03424
+[OK] p03469 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03469/raw.log
+[STATS] tests=59 saved=28 agree=31 found=28 no_majority=0 no_variant_output=0 put_fail=0 tp_count=26 fp_count=0 oracle_wrong_count=0 canonical_fail_count=2 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03469/report.txt
+[PROGRESS] 121/268 ( 45.1%) problems latest=p03469
+[OK] p03484 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03484/raw.log
+[STATS] tests=66 saved=0 agree=1 found=0 no_majority=65 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=64 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03484/report.txt
+[PROGRESS] 122/268 ( 45.5%) problems latest=p03484
+[OK] p03435 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03435/raw.log
+[STATS] tests=122 saved=32 agree=71 found=32 no_majority=19 no_variant_output=0 put_fail=0 tp_count=4 fp_count=28 oracle_wrong_count=28 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03435/report.txt
+[PROGRESS] 123/268 ( 45.9%) problems latest=p03435
+[OK] p03241 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03241/raw.log
+[STATS] tests=99 saved=0 agree=61 found=0 no_majority=38 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=3 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03241/report.txt
+[PROGRESS] 124/268 ( 46.3%) problems latest=p03241
+[PROGRESS] 125/268 ( 46.6%) problems latest=p03502
+[OK] p03462 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03462/raw.log
+[STATS] tests=82 saved=0 agree=0 found=0 no_majority=82 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=70 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03462/report.txt
+[PROGRESS] 126/268 ( 47.0%) problems latest=p03462
+[OK] p03456 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03456/raw.log
+[STATS] tests=133 saved=14 agree=119 found=14 no_majority=0 no_variant_output=0 put_fail=0 tp_count=14 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03456/report.txt
+[PROGRESS] 127/268 ( 47.4%) problems latest=p03456
+[OK] p03434 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03434/raw.log
+[STATS] tests=152 saved=152 agree=0 found=152 no_majority=0 no_variant_output=0 put_fail=0 tp_count=152 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03434/report.txt
+[PROGRESS] 128/268 ( 47.8%) problems latest=p03434
+[OK] p03202 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03202/raw.log
+[STATS] tests=101 saved=38 agree=7 found=38 no_majority=56 no_variant_output=0 put_fail=0 tp_count=0 fp_count=37 oracle_wrong_count=80 canonical_fail_count=6 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03202/report.txt
+[PROGRESS] 129/268 ( 48.1%) problems latest=p03202
+[OK] p03475 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03475/raw.log
+[STATS] tests=126 saved=49 agree=11 found=49 no_majority=0 no_variant_output=0 put_fail=66 tp_count=49 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03475/report.txt
+[PROGRESS] 130/268 ( 48.5%) problems latest=p03475
+[OK] p03544 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03544/raw.log
+[STATS] tests=23 saved=0 agree=23 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03544/report.txt
+[PROGRESS] 131/268 ( 48.9%) problems latest=p03544
+[OK] p03191 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03191/raw.log
+[STATS] tests=121 saved=3 agree=1 found=3 no_majority=117 no_variant_output=0 put_fail=0 tp_count=0 fp_count=3 oracle_wrong_count=113 canonical_fail_count=7 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03191/report.txt
+[PROGRESS] 132/268 ( 49.3%) problems latest=p03191
+[OK] p03543 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03543/raw.log
+[STATS] tests=63 saved=3 agree=60 found=3 no_majority=0 no_variant_output=0 put_fail=0 tp_count=3 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03543/report.txt
+[PROGRESS] 133/268 ( 49.6%) problems latest=p03543
+[OK] p03458 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03458/raw.log
+[STATS] tests=126 saved=0 agree=2 found=0 no_majority=124 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=78 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03458/report.txt
+[PROGRESS] 134/268 ( 50.0%) problems latest=p03458
+[OK] p03494 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03494/raw.log
+[STATS] tests=123 saved=6 agree=117 found=6 no_majority=0 no_variant_output=0 put_fail=0 tp_count=6 fp_count=0 oracle_wrong_count=1 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03494/report.txt
+[PROGRESS] 135/268 ( 50.4%) problems latest=p03494
+[OK] p03546 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03546/raw.log
+[STATS] tests=85 saved=18 agree=15 found=18 no_majority=0 no_variant_output=0 put_fail=52 tp_count=18 fp_count=0 oracle_wrong_count=2 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03546/report.txt
+[PROGRESS] 136/268 ( 50.7%) problems latest=p03546
+[OK] p03078 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03078/raw.log
+[STATS] tests=158 saved=14 agree=121 found=14 no_majority=0 no_variant_output=0 put_fail=23 tp_count=14 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03078/report.txt
+[PROGRESS] 137/268 ( 51.1%) problems latest=p03078
+[OK] p03497 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03497/raw.log
+[STATS] tests=132 saved=0 agree=0 found=0 no_majority=132 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=118 canonical_fail_count=2 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03497/report.txt
+[PROGRESS] 138/268 ( 51.5%) problems latest=p03497
+[OK] p03503 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03503/raw.log
+[STATS] tests=162 saved=32 agree=85 found=32 no_majority=11 no_variant_output=0 put_fail=34 tp_count=32 fp_count=0 oracle_wrong_count=3 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03503/report.txt
+[PROGRESS] 139/268 ( 51.9%) problems latest=p03503
+[OK] p03573 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03573/raw.log
+[STATS] tests=126 saved=15 agree=111 found=15 no_majority=0 no_variant_output=0 put_fail=0 tp_count=12 fp_count=3 oracle_wrong_count=3 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03573/report.txt
+[PROGRESS] 140/268 ( 52.2%) problems latest=p03573
+[OK] p02964 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02964/raw.log
+[STATS] tests=91 saved=1 agree=13 found=1 no_majority=76 no_variant_output=1 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=58 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02964/report.txt
+[PROGRESS] 141/268 ( 52.6%) problems latest=p02964
+[PROGRESS] 142/268 ( 53.0%) problems latest=p03617
+[OK] p03565 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03565/raw.log
+[STATS] tests=143 saved=3 agree=96 found=3 no_majority=44 no_variant_output=0 put_fail=0 tp_count=3 fp_count=0 oracle_wrong_count=4 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03565/report.txt
+[PROGRESS] 143/268 ( 53.4%) problems latest=p03565
+[OK] p03574 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03574/raw.log
+[STATS] tests=119 saved=6 agree=99 found=6 no_majority=14 no_variant_output=0 put_fail=0 tp_count=6 fp_count=0 oracle_wrong_count=14 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03574/report.txt
+[PROGRESS] 144/268 ( 53.7%) problems latest=p03574
+[OK] p03575 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03575/raw.log
+[STATS] tests=110 saved=7 agree=98 found=7 no_majority=5 no_variant_output=0 put_fail=0 tp_count=0 fp_count=7 oracle_wrong_count=11 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03575/report.txt
+[PROGRESS] 145/268 ( 54.1%) problems latest=p03575
+[OK] p02906 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02906/raw.log
+[STATS] tests=128 saved=12 agree=36 found=12 no_majority=80 no_variant_output=0 put_fail=0 tp_count=0 fp_count=12 oracle_wrong_count=39 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02906/report.txt
+[PROGRESS] 146/268 ( 54.5%) problems latest=p02906
+[OK] p03608 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03608/raw.log
+[STATS] tests=133 saved=56 agree=65 found=56 no_majority=11 no_variant_output=1 put_fail=0 tp_count=44 fp_count=10 oracle_wrong_count=15 canonical_fail_count=8 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03608/report.txt
+[PROGRESS] 147/268 ( 54.9%) problems latest=p03608
+[PROGRESS] 148/268 ( 55.2%) problems latest=p03644
+[OK] p03553 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03553/raw.log
+[STATS] tests=111 saved=9 agree=34 found=9 no_majority=68 no_variant_output=0 put_fail=0 tp_count=4 fp_count=5 oracle_wrong_count=52 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03553/report.txt
+[PROGRESS] 149/268 ( 55.6%) problems latest=p03553
+[OK] p03620 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03620/raw.log
+[STATS] tests=108 saved=65 agree=25 found=65 no_majority=18 no_variant_output=0 put_fail=0 tp_count=0 fp_count=65 oracle_wrong_count=83 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03620/report.txt
+[PROGRESS] 150/268 ( 56.0%) problems latest=p03620
+[OK] p03625 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03625/raw.log
+[STATS] tests=134 saved=1 agree=113 found=1 no_majority=20 no_variant_output=0 put_fail=0 tp_count=1 fp_count=0 oracle_wrong_count=3 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03625/report.txt
+[PROGRESS] 151/268 ( 56.3%) problems latest=p03625
+[OK] p03630 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03630/raw.log
+[STATS] tests=120 saved=46 agree=0 found=46 no_majority=74 no_variant_output=0 put_fail=0 tp_count=0 fp_count=46 oracle_wrong_count=118 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03630/report.txt
+[PROGRESS] 152/268 ( 56.7%) problems latest=p03630
+[OK] p03500 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03500/raw.log
+[STATS] tests=124 saved=0 agree=0 found=0 no_majority=124 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=122 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03500/report.txt
+[PROGRESS] 153/268 ( 57.1%) problems latest=p03500
+[OK] p03492 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03492/raw.log
+[STATS] tests=94 saved=0 agree=0 found=0 no_majority=94 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=85 canonical_fail_count=7 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03492/report.txt
+[PROGRESS] 154/268 ( 57.5%) problems latest=p03492
+[PROGRESS] 155/268 ( 57.8%) problems latest=p03686
+[OK] p03613 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03613/raw.log
+[STATS] tests=126 saved=0 agree=5 found=0 no_majority=121 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=52 canonical_fail_count=3 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03613/report.txt
+[PROGRESS] 156/268 ( 58.2%) problems latest=p03613
+[PROGRESS] 157/268 ( 58.6%) problems latest=p03698
+[PROGRESS] 158/268 ( 59.0%) problems latest=p03699
+[OK] p03647 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03647/raw.log
+[STATS] tests=120 saved=9 agree=92 found=9 no_majority=19 no_variant_output=0 put_fail=0 tp_count=9 fp_count=0 oracle_wrong_count=19 canonical_fail_count=4 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03647/report.txt
+[PROGRESS] 159/268 ( 59.3%) problems latest=p03647
+[OK] p03652 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03652/raw.log
+[STATS] tests=117 saved=62 agree=24 found=62 no_majority=31 no_variant_output=0 put_fail=0 tp_count=0 fp_count=62 oracle_wrong_count=93 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03652/report.txt
+[PROGRESS] 160/268 ( 59.7%) problems latest=p03652
+[OK] p03679 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03679/raw.log
+[STATS] tests=141 saved=35 agree=106 found=35 no_majority=0 no_variant_output=0 put_fail=0 tp_count=15 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03679/report.txt
+[PROGRESS] 161/268 ( 60.1%) problems latest=p03679
+[OK] p03713 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03713/raw.log
+[STATS] tests=77 saved=0 agree=46 found=0 no_majority=31 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=19 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03713/report.txt
+[PROGRESS] 162/268 ( 60.4%) problems latest=p03713
+[OK] p03705 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03705/raw.log
+[STATS] tests=106 saved=18 agree=85 found=18 no_majority=3 no_variant_output=0 put_fail=0 tp_count=18 fp_count=0 oracle_wrong_count=3 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03705/report.txt
+[PROGRESS] 163/268 ( 60.8%) problems latest=p03705
+[OK] p03695 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03695/raw.log
+[STATS] tests=133 saved=120 agree=0 found=120 no_majority=13 no_variant_output=0 put_fail=0 tp_count=120 fp_count=0 oracle_wrong_count=13 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03695/report.txt
+[PROGRESS] 164/268 ( 61.2%) problems latest=p03695
+[OK] p03684 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03684/raw.log
+[STATS] tests=138 saved=16 agree=67 found=16 no_majority=55 no_variant_output=0 put_fail=0 tp_count=0 fp_count=16 oracle_wrong_count=35 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03684/report.txt
+[PROGRESS] 165/268 ( 61.6%) problems latest=p03684
+[OK] p03703 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03703/raw.log
+[STATS] tests=131 saved=2 agree=129 found=2 no_majority=0 no_variant_output=0 put_fail=0 tp_count=2 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03703/report.txt
+[PROGRESS] 166/268 ( 61.9%) problems latest=p03703
+[OK] p03719 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03719/raw.log
+[STATS] tests=100 saved=4 agree=96 found=4 no_majority=0 no_variant_output=0 put_fail=0 tp_count=4 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03719/report.txt
+[PROGRESS] 167/268 ( 62.3%) problems latest=p03719
+[OK] p03718 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03718/raw.log
+[STATS] tests=130 saved=29 agree=0 found=29 no_majority=101 no_variant_output=0 put_fail=0 tp_count=0 fp_count=29 oracle_wrong_count=126 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03718/report.txt
+[PROGRESS] 168/268 ( 62.7%) problems latest=p03718
+[PROGRESS] 169/268 ( 63.1%) problems latest=p03747
+[OK] p03725 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03725/raw.log
+[STATS] tests=120 saved=1 agree=81 found=1 no_majority=38 no_variant_output=0 put_fail=0 tp_count=0 fp_count=1 oracle_wrong_count=90 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03725/report.txt
+[PROGRESS] 170/268 ( 63.4%) problems latest=p03725
+[OK] p03730 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03730/raw.log
+[STATS] tests=89 saved=4 agree=57 found=4 no_majority=28 no_variant_output=0 put_fail=0 tp_count=4 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03730/report.txt
+[PROGRESS] 171/268 ( 63.8%) problems latest=p03730
+[OK] p03722 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03722/raw.log
+[STATS] tests=149 saved=5 agree=135 found=5 no_majority=9 no_variant_output=0 put_fail=0 tp_count=4 fp_count=1 oracle_wrong_count=10 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03722/report.txt
+[PROGRESS] 172/268 ( 64.2%) problems latest=p03722
+[OK] p03431 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03431/raw.log
+[STATS] tests=79 saved=1 agree=0 found=1 no_majority=78 no_variant_output=0 put_fail=0 tp_count=0 fp_count=1 oracle_wrong_count=52 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03431/report.txt
+[PROGRESS] 173/268 ( 64.6%) problems latest=p03431
+[OK] p03561 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03561/raw.log
+[STATS] tests=64 saved=0 agree=2 found=0 no_majority=62 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=58 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03561/report.txt
+[PROGRESS] 174/268 ( 64.9%) problems latest=p03561
+[OK] p03314 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03314/raw.log
+[STATS] tests=76 saved=0 agree=1 found=0 no_majority=75 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=66 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03314/report.txt
+[PROGRESS] 175/268 ( 65.3%) problems latest=p03314
+[OK] p03774 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03774/raw.log
+[STATS] tests=132 saved=4 agree=128 found=4 no_majority=0 no_variant_output=0 put_fail=0 tp_count=3 fp_count=1 oracle_wrong_count=14 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03774/report.txt
+[PROGRESS] 176/268 ( 65.7%) problems latest=p03774
+[OK] p03771 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03771/raw.log
+[STATS] tests=156 saved=0 agree=17 found=0 no_majority=139 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=35 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03771/report.txt
+[PROGRESS] 177/268 ( 66.0%) problems latest=p03771
+[OK] p03768 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03768/raw.log
+[STATS] tests=148 saved=0 agree=57 found=0 no_majority=91 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=17 canonical_fail_count=3 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03768/report.txt
+[PROGRESS] 178/268 ( 66.4%) problems latest=p03768
+[OK] p03778 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03778/raw.log
+[STATS] tests=135 saved=19 agree=116 found=19 no_majority=0 no_variant_output=0 put_fail=0 tp_count=19 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03778/report.txt
+[PROGRESS] 179/268 ( 66.8%) problems latest=p03778
+[OK] p03799 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03799/raw.log
+[STATS] tests=114 saved=48 agree=66 found=48 no_majority=0 no_variant_output=0 put_fail=0 tp_count=15 fp_count=33 oracle_wrong_count=33 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03799/report.txt
+[PROGRESS] 180/268 ( 67.2%) problems latest=p03799
+[OK] p02905 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02905/raw.log
+[STATS] tests=126 saved=2 agree=117 found=2 no_majority=4 no_variant_output=0 put_fail=3 tp_count=1 fp_count=1 oracle_wrong_count=1 canonical_fail_count=3 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02905/report.txt
+[PROGRESS] 181/268 ( 67.5%) problems latest=p02905
+[OK] p03332 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03332/raw.log
+[STATS] tests=127 saved=14 agree=32 found=14 no_majority=81 no_variant_output=0 put_fail=0 tp_count=0 fp_count=14 oracle_wrong_count=63 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03332/report.txt
+[PROGRESS] 182/268 ( 67.9%) problems latest=p03332
+[OK] p03803 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03803/raw.log
+[STATS] tests=95 saved=11 agree=84 found=11 no_majority=0 no_variant_output=0 put_fail=0 tp_count=11 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03803/report.txt
+[PROGRESS] 183/268 ( 68.3%) problems latest=p03803
+[PROGRESS] 184/268 ( 68.7%) problems latest=p03807
+[OK] p03770 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03770/raw.log
+[STATS] tests=144 saved=0 agree=0 found=0 no_majority=144 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=98 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03770/report.txt
+[PROGRESS] 185/268 ( 69.0%) problems latest=p03770
+[OK] p02990 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02990/raw.log
+[STATS] tests=75 saved=0 agree=1 found=0 no_majority=74 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=64 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02990/report.txt
+[PROGRESS] 186/268 ( 69.4%) problems latest=p02990
+[OK] p03664 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03664/raw.log
+[STATS] tests=143 saved=25 agree=2 found=25 no_majority=116 no_variant_output=0 put_fail=0 tp_count=0 fp_count=25 oracle_wrong_count=138 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03664/report.txt
+[PROGRESS] 187/268 ( 69.8%) problems latest=p03664
+[OK] p03802 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03802/raw.log
+[STATS] tests=134 saved=115 agree=19 found=115 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=115 oracle_wrong_count=115 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03802/report.txt
+[PROGRESS] 188/268 ( 70.1%) problems latest=p03802
+[OK] p03828 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03828/raw.log
+[STATS] tests=22 saved=0 agree=12 found=0 no_majority=10 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=10 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03828/report.txt
+[PROGRESS] 189/268 ( 70.5%) problems latest=p03828
+[OK] p03604 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03604/raw.log
+[STATS] tests=106 saved=0 agree=0 found=0 no_majority=106 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=49 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03604/report.txt
+[PROGRESS] 190/268 ( 70.9%) problems latest=p03604
+[OK] p03816 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03816/raw.log
+[STATS] tests=129 saved=0 agree=0 found=0 no_majority=129 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=95 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03816/report.txt
+[PROGRESS] 191/268 ( 71.3%) problems latest=p03816
+[OK] p03804 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03804/raw.log
+[STATS] tests=149 saved=8 agree=141 found=8 no_majority=0 no_variant_output=0 put_fail=0 tp_count=8 fp_count=0 oracle_wrong_count=0 canonical_fail_count=10 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03804/report.txt
+[PROGRESS] 192/268 ( 71.6%) problems latest=p03804
+[OK] p03824 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03824/raw.log
+[STATS] tests=93 saved=11 agree=1 found=11 no_majority=81 no_variant_output=0 put_fail=0 tp_count=0 fp_count=11 oracle_wrong_count=69 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03824/report.txt
+[PROGRESS] 193/268 ( 72.0%) problems latest=p03824
+[OK] p03558 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03558/raw.log
+[STATS] tests=55 saved=0 agree=0 found=0 no_majority=55 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=48 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03558/report.txt
+[PROGRESS] 194/268 ( 72.4%) problems latest=p03558
+[OK] p03843 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03843/raw.log
+[STATS] tests=129 saved=12 agree=0 found=12 no_majority=116 no_variant_output=1 put_fail=0 tp_count=0 fp_count=12 oracle_wrong_count=128 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03843/report.txt
+[PROGRESS] 195/268 ( 72.8%) problems latest=p03843
+[OK] p03846 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03846/raw.log
+[STATS] tests=133 saved=23 agree=106 found=23 no_majority=4 no_variant_output=0 put_fail=0 tp_count=5 fp_count=18 oracle_wrong_count=36 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03846/report.txt
+[PROGRESS] 196/268 ( 73.1%) problems latest=p03846
+[OK] p02590 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02590/raw.log
+[STATS] tests=159 saved=9 agree=144 found=9 no_majority=0 no_variant_output=1 put_fail=5 tp_count=0 fp_count=9 oracle_wrong_count=11 canonical_fail_count=3 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02590/report.txt
+[PROGRESS] 197/268 ( 73.5%) problems latest=p02590
+[OK] p03845 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03845/raw.log
+[STATS] tests=140 saved=0 agree=140 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03845/report.txt
+[PROGRESS] 198/268 ( 73.9%) problems latest=p03845
+[OK] p03854 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03854/raw.log
+[STATS] tests=136 saved=1 agree=135 found=1 no_majority=0 no_variant_output=0 put_fail=0 tp_count=1 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03854/report.txt
+[PROGRESS] 199/268 ( 74.3%) problems latest=p03854
+[OK] p03723 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03723/raw.log
+[STATS] tests=106 saved=2 agree=104 found=2 no_majority=0 no_variant_output=0 put_fail=0 tp_count=2 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03723/report.txt
+[PROGRESS] 200/268 ( 74.6%) problems latest=p03723
+[OK] p03862 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03862/raw.log
+[STATS] tests=123 saved=4 agree=119 found=4 no_majority=0 no_variant_output=0 put_fail=0 tp_count=4 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03862/report.txt
+[PROGRESS] 201/268 ( 75.0%) problems latest=p03862
+[OK] p03944 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03944/raw.log
+[STATS] tests=132 saved=11 agree=63 found=11 no_majority=58 no_variant_output=0 put_fail=0 tp_count=11 fp_count=0 oracle_wrong_count=42 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03944/report.txt
+[PROGRESS] 202/268 ( 75.4%) problems latest=p03944
+[OK] p03940 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03940/raw.log
+[STATS] tests=147 saved=0 agree=0 found=0 no_majority=147 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=66 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03940/report.txt
+[PROGRESS] 203/268 ( 75.7%) problems latest=p03940
+[OK] p03853 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03853/raw.log
+[STATS] tests=107 saved=8 agree=98 found=8 no_majority=0 no_variant_output=0 put_fail=1 tp_count=8 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03853/report.txt
+[PROGRESS] 204/268 ( 76.1%) problems latest=p03853
+[OK] p03951 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03951/raw.log
+[STATS] tests=91 saved=0 agree=4 found=0 no_majority=87 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=35 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03951/report.txt
+[PROGRESS] 205/268 ( 76.5%) problems latest=p03951
+[OK] p03988 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03988/raw.log
+[STATS] tests=84 saved=32 agree=41 found=32 no_majority=11 no_variant_output=0 put_fail=0 tp_count=1 fp_count=31 oracle_wrong_count=31 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03988/report.txt
+[PROGRESS] 206/268 ( 76.9%) problems latest=p03988
+[OK] p03806 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03806/raw.log
+[STATS] tests=164 saved=11 agree=97 found=11 no_majority=56 no_variant_output=0 put_fail=0 tp_count=0 fp_count=11 oracle_wrong_count=11 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03806/report.txt
+[PROGRESS] 207/268 ( 77.2%) problems latest=p03806
+[OK] p03969 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03969/raw.log
+[STATS] tests=117 saved=3 agree=9 found=3 no_majority=105 no_variant_output=0 put_fail=0 tp_count=0 fp_count=3 oracle_wrong_count=99 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03969/report.txt
+[PROGRESS] 208/268 ( 77.6%) problems latest=p03969
+[OK] p03056 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03056/raw.log
+[STATS] tests=146 saved=1 agree=14 found=1 no_majority=131 no_variant_output=0 put_fail=0 tp_count=1 fp_count=0 oracle_wrong_count=94 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03056/report.txt
+[PROGRESS] 209/268 ( 78.0%) problems latest=p03056
+[OK] p03629 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03629/raw.log
+[STATS] tests=106 saved=0 agree=8 found=0 no_majority=98 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=5 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03629/report.txt
+[PROGRESS] 210/268 ( 78.4%) problems latest=p03629
+[OK] p04006 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04006/raw.log
+[STATS] tests=140 saved=75 agree=1 found=75 no_majority=64 no_variant_output=0 put_fail=0 tp_count=0 fp_count=75 oracle_wrong_count=139 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04006/report.txt
+[PROGRESS] 211/268 ( 78.7%) problems latest=p04006
+[PROGRESS] 212/268 ( 79.1%) problems latest=p04017
+[PROGRESS] 213/268 ( 79.5%) problems latest=p04019
+[OK] p04005 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04005/raw.log
+[STATS] tests=114 saved=0 agree=1 found=0 no_majority=113 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=73 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04005/report.txt
+[PROGRESS] 214/268 ( 79.9%) problems latest=p04005
+[OK] p04012 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04012/raw.log
+[STATS] tests=153 saved=3 agree=150 found=3 no_majority=0 no_variant_output=0 put_fail=0 tp_count=3 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04012/report.txt
+[PROGRESS] 215/268 ( 80.2%) problems latest=p04012
+[OK] p04010 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04010/raw.log
+[STATS] tests=71 saved=0 agree=9 found=0 no_majority=62 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=71 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04010/report.txt
+[PROGRESS] 216/268 ( 80.6%) problems latest=p04010
+[OK] p02943 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02943/raw.log
+[STATS] tests=134 saved=17 agree=26 found=17 no_majority=91 no_variant_output=0 put_fail=0 tp_count=0 fp_count=17 oracle_wrong_count=97 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02943/report.txt
+[PROGRESS] 217/268 ( 81.0%) problems latest=p02943
+[OK] p02585 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02585/raw.log
+[STATS] tests=139 saved=0 agree=34 found=0 no_majority=105 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=4 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02585/report.txt
+[PROGRESS] 218/268 ( 81.3%) problems latest=p02585
+[OK] p04021 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04021/raw.log
+[STATS] tests=149 saved=15 agree=43 found=15 no_majority=91 no_variant_output=0 put_fail=0 tp_count=0 fp_count=15 oracle_wrong_count=92 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04021/report.txt
+[PROGRESS] 219/268 ( 81.7%) problems latest=p04021
+[OK] p04043 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04043/raw.log
+[STATS] tests=126 saved=15 agree=111 found=15 no_majority=0 no_variant_output=0 put_fail=0 tp_count=6 fp_count=9 oracle_wrong_count=9 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04043/report.txt
+[PROGRESS] 220/268 ( 82.1%) problems latest=p04043
+[OK] p04030 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04030/raw.log
+[STATS] tests=144 saved=10 agree=134 found=10 no_majority=0 no_variant_output=0 put_fail=0 tp_count=8 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04030/report.txt
+[PROGRESS] 221/268 ( 82.5%) problems latest=p04030
+[OK] p04047 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04047/raw.log
+[STATS] tests=153 saved=0 agree=153 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04047/report.txt
+[PROGRESS] 222/268 ( 82.8%) problems latest=p04047
+[OK] p02737 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02737/raw.log
+[STATS] tests=148 saved=0 agree=0 found=0 no_majority=148 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=132 canonical_fail_count=15 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02737/report.txt
+[PROGRESS] 223/268 ( 83.2%) problems latest=p02737
+[OK] p03859 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03859/raw.log
+[STATS] tests=132 saved=0 agree=0 found=0 no_majority=132 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=104 canonical_fail_count=4 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03859/report.txt
+[PROGRESS] 224/268 ( 83.6%) problems latest=p03859
+[OK] p03665 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03665/raw.log
+[STATS] tests=117 saved=5 agree=99 found=5 no_majority=13 no_variant_output=0 put_fail=0 tp_count=4 fp_count=1 oracle_wrong_count=11 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03665/report.txt
+[PROGRESS] 225/268 ( 84.0%) problems latest=p03665
+[OK] p03562 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03562/raw.log
+[STATS] tests=162 saved=0 agree=0 found=0 no_majority=162 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=156 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03562/report.txt
+[PROGRESS] 226/268 ( 84.3%) problems latest=p03562
+[OK] p03989 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03989/raw.log
+[STATS] tests=62 saved=0 agree=0 found=0 no_majority=62 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=62 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03989/report.txt
+[PROGRESS] 227/268 ( 84.7%) problems latest=p03989
+[OK] p03452 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03452/raw.log
+[STATS] tests=76 saved=3 agree=69 found=3 no_majority=4 no_variant_output=0 put_fail=0 tp_count=3 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03452/report.txt
+[PROGRESS] 228/268 ( 85.1%) problems latest=p03452
+[OK] p03270 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03270/raw.log
+[STATS] tests=74 saved=0 agree=0 found=0 no_majority=74 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=71 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03270/report.txt
+[PROGRESS] 229/268 ( 85.4%) problems latest=p03270
+[OK] p02733 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02733/raw.log
+[STATS] tests=123 saved=0 agree=0 found=0 no_majority=123 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=119 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02733/report.txt
+[PROGRESS] 230/268 ( 85.8%) problems latest=p02733
+[OK] p04000 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04000/raw.log
+[STATS] tests=85 saved=5 agree=77 found=5 no_majority=3 no_variant_output=0 put_fail=0 tp_count=0 fp_count=5 oracle_wrong_count=7 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04000/report.txt
+[PROGRESS] 231/268 ( 86.2%) problems latest=p04000
+[OK] p04028 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04028/raw.log
+[STATS] tests=126 saved=0 agree=2 found=0 no_majority=124 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=57 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04028/report.txt
+[PROGRESS] 232/268 ( 86.6%) problems latest=p04028
+[OK] p03421 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03421/raw.log
+[STATS] tests=124 saved=0 agree=42 found=0 no_majority=82 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=72 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03421/report.txt
+[PROGRESS] 233/268 ( 86.9%) problems latest=p03421
+[OK] p03329 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03329/raw.log
+[STATS] tests=44 saved=0 agree=13 found=0 no_majority=31 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03329/report.txt
+[PROGRESS] 234/268 ( 87.3%) problems latest=p03329
+[OK] p03350 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03350/raw.log
+[STATS] tests=101 saved=2 agree=11 found=2 no_majority=88 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=59 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03350/report.txt
+[PROGRESS] 235/268 ( 87.7%) problems latest=p03350
+[OK] p03616 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03616/raw.log
+[STATS] tests=136 saved=10 agree=12 found=10 no_majority=114 no_variant_output=0 put_fail=0 tp_count=4 fp_count=5 oracle_wrong_count=114 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03616/report.txt
+[PROGRESS] 236/268 ( 88.1%) problems latest=p03616
+[OK] p04051 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04051/raw.log
+[STATS] tests=155 saved=0 agree=0 found=0 no_majority=155 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=155 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04051/report.txt
+[PROGRESS] 237/268 ( 88.4%) problems latest=p04051
+[OK] p02703 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02703/raw.log
+[STATS] tests=68 saved=0 agree=0 found=0 no_majority=60 no_variant_output=8 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=51 canonical_fail_count=12 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02703/report.txt
+[PROGRESS] 238/268 ( 88.8%) problems latest=p02703
+[OK] p03313 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03313/raw.log
+[STATS] tests=106 saved=0 agree=40 found=0 no_majority=66 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=78 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03313/report.txt
+[PROGRESS] 239/268 ( 89.2%) problems latest=p03313
+[OK] p02641 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02641/raw.log
+[STATS] tests=121 saved=0 agree=88 found=0 no_majority=32 no_variant_output=0 put_fail=1 tp_count=0 fp_count=0 oracle_wrong_count=13 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02641/report.txt
+[PROGRESS] 240/268 ( 89.6%) problems latest=p02641
+[OK] p02638 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02638/raw.log
+[STATS] tests=99 saved=0 agree=0 found=0 no_majority=99 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=78 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02638/report.txt
+[PROGRESS] 241/268 ( 89.9%) problems latest=p02638
+[OK] p03825 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03825/raw.log
+[STATS] tests=108 saved=0 agree=2 found=0 no_majority=106 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=37 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03825/report.txt
+[PROGRESS] 242/268 ( 90.3%) problems latest=p03825
+[OK] p02635 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02635/raw.log
+[STATS] tests=127 saved=0 agree=28 found=0 no_majority=96 no_variant_output=3 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=74 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02635/report.txt
+[PROGRESS] 243/268 ( 90.7%) problems latest=p02635
+[OK] p04004 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04004/raw.log
+[STATS] tests=71 saved=0 agree=0 found=0 no_majority=71 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=69 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04004/report.txt
+[PROGRESS] 244/268 ( 91.0%) problems latest=p04004
+[OK] p03253 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03253/raw.log
+[STATS] tests=99 saved=3 agree=7 found=3 no_majority=89 no_variant_output=0 put_fail=0 tp_count=0 fp_count=3 oracle_wrong_count=88 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03253/report.txt
+[PROGRESS] 245/268 ( 91.4%) problems latest=p03253
+[OK] p03750 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03750/raw.log
+[STATS] tests=144 saved=1 agree=0 found=1 no_majority=143 no_variant_output=0 put_fail=0 tp_count=0 fp_count=1 oracle_wrong_count=86 canonical_fail_count=52 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03750/report.txt
+[PROGRESS] 246/268 ( 91.8%) problems latest=p03750
+[OK] p03858 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03858/raw.log
+[STATS] tests=143 saved=3 agree=29 found=3 no_majority=111 no_variant_output=0 put_fail=0 tp_count=0 fp_count=3 oracle_wrong_count=75 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03858/report.txt
+[PROGRESS] 247/268 ( 92.2%) problems latest=p03858
+[OK] p03406 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03406/raw.log
+[STATS] tests=101 saved=7 agree=0 found=7 no_majority=94 no_variant_output=0 put_fail=0 tp_count=3 fp_count=4 oracle_wrong_count=66 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03406/report.txt
+[PROGRESS] 248/268 ( 92.5%) problems latest=p03406
+[OK] p03331 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03331/raw.log
+[STATS] tests=85 saved=0 agree=0 found=0 no_majority=85 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=1 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03331/report.txt
+[PROGRESS] 249/268 ( 92.9%) problems latest=p03331
+[OK] p03775 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03775/raw.log
+[STATS] tests=62 saved=0 agree=0 found=0 no_majority=62 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=18 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03775/report.txt
+[PROGRESS] 250/268 ( 93.3%) problems latest=p03775
+[OK] p03352 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03352/raw.log
+[STATS] tests=48 saved=9 agree=31 found=9 no_majority=8 no_variant_output=0 put_fail=0 tp_count=9 fp_count=0 oracle_wrong_count=8 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03352/report.txt
+[PROGRESS] 251/268 ( 93.7%) problems latest=p03352
+[OK] p03849 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03849/raw.log
+[STATS] tests=50 saved=0 agree=1 found=0 no_majority=49 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=23 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03849/report.txt
+[PROGRESS] 252/268 ( 94.0%) problems latest=p03849
+[OK] p04015 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p04015/raw.log
+[STATS] tests=96 saved=0 agree=71 found=0 no_majority=25 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=2 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p04015/report.txt
+[PROGRESS] 253/268 ( 94.4%) problems latest=p04015
+[OK] p02983 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02983/raw.log
+[STATS] tests=127 saved=20 agree=93 found=20 no_majority=3 no_variant_output=11 put_fail=0 tp_count=1 fp_count=19 oracle_wrong_count=24 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02983/report.txt
+[PROGRESS] 254/268 ( 94.8%) problems latest=p02983
+[OK] p03788 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03788/raw.log
+[STATS] tests=134 saved=4 agree=6 found=4 no_majority=124 no_variant_output=0 put_fail=0 tp_count=1 fp_count=3 oracle_wrong_count=115 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03788/report.txt
+[PROGRESS] 255/268 ( 95.1%) problems latest=p03788
+[OK] p02895 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02895/raw.log
+[STATS] tests=129 saved=0 agree=20 found=0 no_majority=109 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=51 canonical_fail_count=4 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02895/report.txt
+[PROGRESS] 256/268 ( 95.5%) problems latest=p02895
+[OK] p03998 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03998/raw.log
+[STATS] tests=137 saved=26 agree=110 found=26 no_majority=1 no_variant_output=0 put_fail=0 tp_count=25 fp_count=1 oracle_wrong_count=1 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03998/report.txt
+[PROGRESS] 257/268 ( 95.9%) problems latest=p03998
+[OK] p02669 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02669/raw.log
+[STATS] tests=132 saved=3 agree=83 found=3 no_majority=3 no_variant_output=43 put_fail=0 tp_count=1 fp_count=2 oracle_wrong_count=7 canonical_fail_count=12 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02669/report.txt
+[PROGRESS] 258/268 ( 96.3%) problems latest=p02669
+[OK] p03765 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03765/raw.log
+[STATS] tests=152 saved=62 agree=84 found=62 no_majority=6 no_variant_output=0 put_fail=0 tp_count=7 fp_count=55 oracle_wrong_count=65 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03765/report.txt
+[PROGRESS] 259/268 ( 96.6%) problems latest=p03765
+[OK] p02938 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02938/raw.log
+[STATS] tests=91 saved=5 agree=3 found=5 no_majority=83 no_variant_output=0 put_fail=0 tp_count=5 fp_count=0 oracle_wrong_count=32 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02938/report.txt
+[PROGRESS] 260/268 ( 97.0%) problems latest=p02938
+[OK] p02550 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02550/raw.log
+[STATS] tests=145 saved=9 agree=79 found=9 no_majority=54 no_variant_output=3 put_fail=0 tp_count=9 fp_count=0 oracle_wrong_count=14 canonical_fail_count=1 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02550/report.txt
+[PROGRESS] 261/268 ( 97.4%) problems latest=p02550
+[OK] p03734 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03734/raw.log
+[STATS] tests=122 saved=21 agree=77 found=21 no_majority=11 no_variant_output=7 put_fail=6 tp_count=21 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03734/report.txt
+[PROGRESS] 262/268 ( 97.8%) problems latest=p03734
+[OK] p02781 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02781/raw.log
+[STATS] tests=89 saved=0 agree=52 found=0 no_majority=36 no_variant_output=1 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=33 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02781/report.txt
+[PROGRESS] 263/268 ( 98.1%) problems latest=p02781
+[OK] p03282 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03282/raw.log
+[STATS] tests=142 saved=0 agree=0 found=0 no_majority=142 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=14 canonical_fail_count=10 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03282/report.txt
+[PROGRESS] 264/268 ( 98.5%) problems latest=p03282
+[OK] p03322 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03322/raw.log
+[STATS] tests=139 saved=12 agree=0 found=12 no_majority=126 no_variant_output=0 put_fail=1 tp_count=0 fp_count=12 oracle_wrong_count=130 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03322/report.txt
+[PROGRESS] 265/268 ( 98.9%) problems latest=p03322
+[OK] p02992 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02992/raw.log
+[STATS] tests=99 saved=0 agree=11 found=0 no_majority=43 no_variant_output=45 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=38 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02992/report.txt
+[PROGRESS] 266/268 ( 99.3%) problems latest=p02992
+[OK] p03642 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p03642/raw.log
+[STATS] tests=116 saved=5 agree=1 found=5 no_majority=110 no_variant_output=0 put_fail=0 tp_count=0 fp_count=4 oracle_wrong_count=92 canonical_fail_count=2 report=/data/bc/MyCatcher/outputs/tcases/cpp/p03642/report.txt
+[PROGRESS] 267/268 ( 99.6%) problems latest=p03642
+[OK] p02937 raw_log=/data/bc/MyCatcher/outputs/tcases/cpp/p02937/raw.log
+[STATS] tests=128 saved=0 agree=0 found=0 no_majority=128 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/data/bc/MyCatcher/outputs/tcases/cpp/p02937/report.txt
+[PROGRESS] 268/268 (100.0%) problems latest=p02937
+[SKIP_SUMMARY] skipped=13
+[SKIP] tests not found: /data/bc/MyCatcher/outputs/inputs/p02689
+[SKIP] tests not found: /data/bc/MyCatcher/outputs/inputs/p03262
+[SKIP] tests not found: /data/bc/MyCatcher/outputs/inputs/p03400
+[SKIP] tests not found: /data/bc/MyCatcher/outputs/inputs/p03502
+[SKIP] tests not found: /data/bc/MyCatcher/outputs/inputs/p03617
+[SKIP_SUMMARY] ... 8 more skipped problems
+[DONE] total=268 ok=255 skipped=13 failed=0 jobs=50 out_root=/data/bc/MyCatcher/outputs/tcases/cpp
+[BATCH_REPORT] /data/bc/MyCatcher/outputs/tcases/cpp/batch_report.txt

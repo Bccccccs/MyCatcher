@@ -1,0 +1,28 @@
+Let us define the oddness of a permutation p = {p_1,\ p_2,\ ...,\ p_n} of {1,\ 2,\ ...,\ n} as \sum_{i = 1}^n |i - p_i|.
+Find the number of permutations of {1,\ 2,\ ...,\ n} of oddness k, modulo 10^9+7.
+
+CONSTRAINTS:
+* All values in input are integers.
+* 1 \leq n \leq 50
+* 0 \leq k \leq n^2
+
+INPUT:
+Input is given from Standard Input in the following format:
+n k
+
+OUTPUT:
+Print the number of permutations of {1,\ 2,\ ...,\ n} of oddness k, modulo 10^9+7.
+
+EXAMPLES:
+
+INPUT:
+3 2
+
+OUTPUT:
+2
+
+INPUT:
+39 14
+
+OUTPUT:
+74764168

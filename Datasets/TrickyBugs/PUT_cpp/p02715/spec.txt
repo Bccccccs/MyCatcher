@@ -1,0 +1,36 @@
+Consider sequences \\{A_1,...,A_N\\} of length N consisting of integers between 1 and K (inclusive).
+There are K^N such sequences. Find the sum of \gcd(A_1, ..., A_N) over all of them.
+Since this sum can be enormous, print the value modulo (10^9+7).
+Here \gcd(A_1, ..., A_N) denotes the greatest common divisor of A_1, ..., A_N.
+
+CONSTRAINTS:
+* 2 \leq N \leq 10^5
+* 1 \leq K \leq 10^5
+* All values in input are integers.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N K
+
+OUTPUT:
+Print the sum of \gcd(A_1, ..., A_N) over all K^N sequences, modulo (10^9+7).
+
+EXAMPLES:
+
+INPUT:
+3 2
+
+OUTPUT:
+9
+
+INPUT:
+3 200
+
+OUTPUT:
+10813692
+
+INPUT:
+100000 100000
+
+OUTPUT:
+742202979

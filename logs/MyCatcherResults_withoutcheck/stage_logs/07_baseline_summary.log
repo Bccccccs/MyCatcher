@@ -1,0 +1,10 @@
+$ /data/yangshuo/miniconda3/envs/mycatcher310/bin/python start/baseline_summary.py --report-root /data/bc/MyCatcher/outputs/tcases/cpp --out-dir /data/bc/MyCatcher/outputs/trickcatcher/analysis --skip-compile-check
+
+[DONE] per_problem=/data/bc/MyCatcher/outputs/trickcatcher/analysis/baseline_dpp_per_problem.csv
+[DONE] global=/data/bc/MyCatcher/outputs/trickcatcher/analysis/baseline_dpp_global.txt
+[DONE] global_csv=/data/bc/MyCatcher/outputs/trickcatcher/analysis/baseline_dpp_global.csv
+[DONE] test_cases=/data/bc/MyCatcher/outputs/trickcatcher/analysis/baseline_dpp_test_cases.csv
+[DONE] unclassified_found=/data/bc/MyCatcher/outputs/trickcatcher/analysis/baseline_dpp_unclassified_found.csv
+[DONE] canonical_anomalies=/data/bc/MyCatcher/outputs/trickcatcher/analysis/baseline_dpp_canonical_anomalies.csv
+[DONE] high_fp=/data/bc/MyCatcher/outputs/trickcatcher/analysis/baseline_dpp_high_fp_analysis.csv
+[STATS] global_precision=0.49985799488781596

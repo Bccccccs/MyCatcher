@@ -1,0 +1,129 @@
+Differential Testing Batch Report
+Summary
+total=50
+ok=50
+skipped=0
+failed=0
+jobs=8
+out_root=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp
+
+Problems
+p02550: ok [OK] p02550 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02550/raw.log
+  [STATS] tests=99 saved=0 agree=25 found=0 no_majority=74 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=38 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02550/report.txt
+p02577: ok [OK] p02577 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02577/raw.log
+  [STATS] tests=99 saved=18 agree=81 found=18 no_majority=0 no_variant_output=0 put_fail=0 tp_count=18 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02577/report.txt
+p02594: ok [OK] p02594 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02594/raw.log
+  [STATS] tests=100 saved=0 agree=100 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02594/report.txt
+p02659: ok [OK] p02659 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02659/raw.log
+  [STATS] tests=100 saved=0 agree=34 found=0 no_majority=66 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=9 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02659/report.txt
+p02682: ok [OK] p02682 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02682/raw.log
+  [STATS] tests=98 saved=0 agree=33 found=0 no_majority=65 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02682/report.txt
+p02702: ok [OK] p02702 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02702/raw.log
+  [STATS] tests=95 saved=0 agree=10 found=0 no_majority=85 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02702/report.txt
+p02715: ok [OK] p02715 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02715/raw.log
+  [STATS] tests=99 saved=0 agree=9 found=0 no_majority=90 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=84 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02715/report.txt
+p02766: ok [OK] p02766 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02766/raw.log
+  [STATS] tests=99 saved=10 agree=89 found=10 no_majority=0 no_variant_output=0 put_fail=0 tp_count=10 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02766/report.txt
+p02781: ok [OK] p02781 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02781/raw.log
+  [STATS] tests=99 saved=0 agree=25 found=0 no_majority=67 no_variant_output=7 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=67 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02781/report.txt
+p02812: ok [OK] p02812 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02812/raw.log
+  [STATS] tests=100 saved=0 agree=100 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02812/report.txt
+p02830: ok [OK] p02830 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02830/raw.log
+  [STATS] tests=94 saved=3 agree=91 found=3 no_majority=0 no_variant_output=0 put_fail=0 tp_count=3 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02830/report.txt
+p02860: ok [OK] p02860 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02860/raw.log
+  [STATS] tests=98 saved=0 agree=98 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02860/report.txt
+p02917: ok [OK] p02917 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02917/raw.log
+  [STATS] tests=98 saved=98 agree=0 found=98 no_majority=0 no_variant_output=0 put_fail=0 tp_count=98 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02917/report.txt
+p02969: ok [OK] p02969 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02969/raw.log
+  [STATS] tests=94 saved=0 agree=94 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02969/report.txt
+p02971: ok [OK] p02971 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02971/raw.log
+  [STATS] tests=92 saved=6 agree=11 found=6 no_majority=54 no_variant_output=21 put_fail=0 tp_count=6 fp_count=0 oracle_wrong_count=28 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02971/report.txt
+p02974: ok [OK] p02974 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02974/raw.log
+  [STATS] tests=100 saved=3 agree=57 found=3 no_majority=40 no_variant_output=0 put_fail=0 tp_count=0 fp_count=3 oracle_wrong_count=42 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02974/report.txt
+p02983: ok [OK] p02983 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02983/raw.log
+  [STATS] tests=100 saved=28 agree=33 found=28 no_majority=1 no_variant_output=38 put_fail=0 tp_count=2 fp_count=26 oracle_wrong_count=26 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02983/report.txt
+p02992: ok [OK] p02992 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02992/raw.log
+  [STATS] tests=100 saved=0 agree=5 found=0 no_majority=60 no_variant_output=35 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=59 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p02992/report.txt
+p03088: ok [OK] p03088 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03088/raw.log
+  [STATS] tests=100 saved=0 agree=0 found=0 no_majority=100 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03088/report.txt
+p03213: ok [OK] p03213 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03213/raw.log
+  [STATS] tests=100 saved=32 agree=12 found=32 no_majority=56 no_variant_output=0 put_fail=0 tp_count=0 fp_count=32 oracle_wrong_count=88 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03213/report.txt
+p03241: ok [OK] p03241 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03241/raw.log
+  [STATS] tests=90 saved=0 agree=17 found=0 no_majority=73 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03241/report.txt
+p03272: ok [OK] p03272 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03272/raw.log
+  [STATS] tests=100 saved=0 agree=100 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03272/report.txt
+p03284: ok [OK] p03284 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03284/raw.log
+  [STATS] tests=98 saved=4 agree=18 found=4 no_majority=76 no_variant_output=0 put_fail=0 tp_count=3 fp_count=1 oracle_wrong_count=36 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03284/report.txt
+p03285: ok [OK] p03285 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03285/raw.log
+  [STATS] tests=100 saved=30 agree=70 found=30 no_majority=0 no_variant_output=0 put_fail=0 tp_count=30 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03285/report.txt
+p03292: ok [OK] p03292 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03292/raw.log
+  [STATS] tests=100 saved=17 agree=83 found=17 no_majority=0 no_variant_output=0 put_fail=0 tp_count=17 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03292/report.txt
+p03323: ok [OK] p03323 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03323/raw.log
+  [STATS] tests=96 saved=30 agree=66 found=30 no_majority=0 no_variant_output=0 put_fail=0 tp_count=30 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03323/report.txt
+p03329: ok [OK] p03329 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03329/raw.log
+  [STATS] tests=100 saved=0 agree=15 found=0 no_majority=85 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03329/report.txt
+p03331: ok [OK] p03331 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03331/raw.log
+  [STATS] tests=100 saved=0 agree=0 found=0 no_majority=100 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03331/report.txt
+p03352: ok [OK] p03352 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03352/raw.log
+  [STATS] tests=100 saved=2 agree=87 found=2 no_majority=11 no_variant_output=0 put_fail=0 tp_count=2 fp_count=0 oracle_wrong_count=11 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03352/report.txt
+p03421: ok [OK] p03421 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03421/raw.log
+  [STATS] tests=100 saved=6 agree=46 found=6 no_majority=48 no_variant_output=0 put_fail=0 tp_count=0 fp_count=6 oracle_wrong_count=28 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03421/report.txt
+p03427: ok [OK] p03427 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03427/raw.log
+  [STATS] tests=100 saved=60 agree=12 found=60 no_majority=28 no_variant_output=0 put_fail=0 tp_count=0 fp_count=60 oracle_wrong_count=88 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03427/report.txt
+p03456: ok [OK] p03456 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03456/raw.log
+  [STATS] tests=98 saved=6 agree=92 found=6 no_majority=0 no_variant_output=0 put_fail=0 tp_count=6 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03456/report.txt
+p03494: ok [OK] p03494 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03494/raw.log
+  [STATS] tests=98 saved=31 agree=67 found=31 no_majority=0 no_variant_output=0 put_fail=0 tp_count=31 fp_count=0 oracle_wrong_count=0 canonical_fail_count=1 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03494/report.txt
+p03502: ok [OK] p03502 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03502/raw.log
+  [STATS] tests=96 saved=20 agree=76 found=20 no_majority=0 no_variant_output=0 put_fail=0 tp_count=20 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03502/report.txt
+p03543: ok [OK] p03543 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03543/raw.log
+  [STATS] tests=100 saved=2 agree=98 found=2 no_majority=0 no_variant_output=0 put_fail=0 tp_count=2 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03543/report.txt
+p03544: ok [OK] p03544 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03544/raw.log
+  [STATS] tests=97 saved=0 agree=97 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03544/report.txt
+p03558: ok [OK] p03558 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03558/raw.log
+  [STATS] tests=99 saved=0 agree=0 found=0 no_majority=99 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=93 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03558/report.txt
+p03573: ok [OK] p03573 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03573/raw.log
+  [STATS] tests=100 saved=0 agree=100 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03573/report.txt
+p03613: ok [OK] p03613 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03613/raw.log
+  [STATS] tests=90 saved=0 agree=0 found=0 no_majority=90 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=70 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03613/report.txt
+p03644: ok [OK] p03644 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03644/raw.log
+  [STATS] tests=100 saved=0 agree=17 found=0 no_majority=83 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03644/report.txt
+p03698: ok [OK] p03698 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03698/raw.log
+  [STATS] tests=98 saved=61 agree=37 found=61 no_majority=0 no_variant_output=0 put_fail=0 tp_count=61 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03698/report.txt
+p03705: ok [OK] p03705 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03705/raw.log
+  [STATS] tests=100 saved=6 agree=56 found=6 no_majority=38 no_variant_output=0 put_fail=0 tp_count=6 fp_count=0 oracle_wrong_count=38 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03705/report.txt
+p03719: ok [OK] p03719 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03719/raw.log
+  [STATS] tests=100 saved=2 agree=98 found=2 no_majority=0 no_variant_output=0 put_fail=0 tp_count=2 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03719/report.txt
+p03799: ok [OK] p03799 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03799/raw.log
+  [STATS] tests=96 saved=41 agree=55 found=41 no_majority=0 no_variant_output=0 put_fail=0 tp_count=24 fp_count=17 oracle_wrong_count=17 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03799/report.txt
+p03828: ok [OK] p03828 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03828/raw.log
+  [STATS] tests=99 saved=20 agree=8 found=20 no_majority=71 no_variant_output=0 put_fail=0 tp_count=20 fp_count=0 oracle_wrong_count=71 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03828/report.txt
+p03849: ok [OK] p03849 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03849/raw.log
+  [STATS] tests=100 saved=0 agree=0 found=0 no_majority=100 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=74 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03849/report.txt
+p03854: ok [OK] p03854 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03854/raw.log
+  [STATS] tests=100 saved=1 agree=99 found=1 no_majority=0 no_variant_output=0 put_fail=0 tp_count=1 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03854/report.txt
+p03951: ok [OK] p03951 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03951/raw.log
+  [STATS] tests=98 saved=0 agree=1 found=0 no_majority=97 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=8 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p03951/report.txt
+p04012: ok [OK] p04012 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p04012/raw.log
+  [STATS] tests=100 saved=0 agree=100 found=0 no_majority=0 no_variant_output=0 put_fail=0 tp_count=0 fp_count=0 oracle_wrong_count=0 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p04012/report.txt
+p04043: ok [OK] p04043 raw_log=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p04043/raw.log
+  [STATS] tests=100 saved=16 agree=84 found=16 no_majority=0 no_variant_output=0 put_fail=0 tp_count=7 fp_count=9 oracle_wrong_count=9 canonical_fail_count=0 report=/Users/bcccccc/PycharmProjects/MyCatcher/outputs/tcases/cpp/p04043/report.txt
+
+Status Count Check
+ok=50
+skipped=0
+failed=0
+
+Metric Totals
+tests=4917
+saved=553
+agree=2506
+found=553
+no_majority=1757
+no_variant_output=101
+put_fail=0
+tp_count=399
+fp_count=154
+oracle_wrong_count=984
+canonical_fail_count=1
+precision=0.721519

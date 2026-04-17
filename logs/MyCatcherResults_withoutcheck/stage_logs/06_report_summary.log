@@ -1,0 +1,3 @@
+$ /data/yangshuo/miniconda3/envs/mycatcher310/bin/python start/report_summary.py --report-root /data/bc/MyCatcher/outputs/tcases/cpp --out /data/bc/MyCatcher/outputs/trickcatcher/report_status_summary.csv
+
+[DONE] wrote 255 rows to /data/bc/MyCatcher/outputs/trickcatcher/report_status_summary.csv

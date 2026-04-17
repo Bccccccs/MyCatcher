@@ -1,0 +1,2 @@
+experiment,role,paper_alignment,report_root,processed_problems,successful_runs,failed_runs,skipped_runs,tests_dir_size,variants_used,saved,found,agree,no_majority,tp_count,fp_count,oracle_wrong_count,canonical_fail_count,precision
+trickcatcher,canonical_paper_reproduction,variant_generation + spec_based_input_generation + input_checking + differential_testing,outputs/tcases/cpp,257,255,2,0,29680,2550,3556,3556,12288,13485,1760,1761,11088,318,0.49985799488781596

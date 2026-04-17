@@ -1,0 +1,69 @@
+/Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/start/run_gen_io_tools.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/start/run_gen_generator.py --batch
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02547/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02550/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02572/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02574/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02575/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02577/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02578/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02580/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02581/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02583/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02585/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02589/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02590/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02594/input_gen.py
+[OK] wrote generator script: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02595/input_gen.py
+[DONE] generated: 15, skipped: 316, dataset: /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python /Users/bcccccc/PycharmProjects/MyCatcher/start/run_checker_gen.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02547/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02547/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02547/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02550/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02550/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02550/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02572/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02572/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02572/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02574/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02574/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02574/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02575/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02575/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02575/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02577/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02577/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02577/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02578/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02578/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02578/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02580/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02580/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02580/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02581/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02581/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02581/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02583/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02583/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02583/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02585/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02585/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02585/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02589/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02589/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02589/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02590/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02590/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02590/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02594/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02594/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02594/check_input.py
+
+>>> /Users/bcccccc/PycharmProjects/MyCatcher/.venv/bin/python -m LLM_Gen.checker_generator --spec /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02595/spec.txt --template geninput_inspector --out /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02595/check_input.py --model deepseek-chat
+[OK] wrote inspector -> /Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp/p02595/check_input.py
+[DONE] generated=15, skipped=316, dataset=/Users/bcccccc/PycharmProjects/MyCatcher/Datasets/TrickyBugs/PUT_cpp
+
+进程已结束，退出代码为 0

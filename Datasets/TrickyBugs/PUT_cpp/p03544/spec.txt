@@ -1,0 +1,32 @@
+It is November 18 now in Japan. By the way, 11 and 18 are adjacent Lucas numbers.
+You are given an integer N. Find the N-th Lucas number.
+Here, the i-th Lucas number L_i is defined as follows:
+* L_0=2
+* L_1=1
+* L_i=L_{i-1}+L_{i-2} (i≥2)
+
+CONSTRAINTS:
+* 1≤N≤86
+* It is guaranteed that the answer is less than 10^{18}.
+* N is an integer.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N
+
+OUTPUT:
+Print the N-th Lucas number.
+
+EXAMPLES:
+
+INPUT:
+5
+
+OUTPUT:
+11
+
+INPUT:
+86
+
+OUTPUT:
+939587134549734843

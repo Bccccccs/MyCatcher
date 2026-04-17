@@ -1,0 +1,21 @@
+{
+  "experiment": "trickcatcher",
+  "role": "canonical_paper_reproduction",
+  "paper_alignment": "variant_generation + spec_based_input_generation + input_checking + differential_testing",
+  "report_root": "outputs/tcases/cpp",
+  "processed_problems": 257,
+  "successful_runs": 255,
+  "failed_runs": 2,
+  "skipped_runs": 0,
+  "tests_dir_size": 29680,
+  "variants_used": 2550,
+  "saved": 3556,
+  "found": 3556,
+  "agree": 12288,
+  "no_majority": 13485,
+  "tp_count": 1760,
+  "fp_count": 1761,
+  "oracle_wrong_count": 11088,
+  "canonical_fail_count": 318,
+  "precision": 0.49985799488781596
+}

@@ -1,0 +1,31 @@
+La Confiserie d'ABC sells cakes at 4 dollars each and doughnuts at 7 dollars each. Determine if there is a way to buy some of them for exactly N dollars. You can buy two or more doughnuts and two or more cakes, and you can also choose to buy zero doughnuts or zero cakes.
+
+CONSTRAINTS:
+* N is an integer between 1 and 100, inclusive.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N
+
+OUTPUT:
+If there is a way to buy some cakes and some doughnuts for exactly N dollars, print `Yes`; otherwise, print `No`.
+
+EXAMPLES:
+
+INPUT:
+11
+
+OUTPUT:
+Yes
+
+INPUT:
+40
+
+OUTPUT:
+Yes
+
+INPUT:
+3
+
+OUTPUT:
+No

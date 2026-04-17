@@ -1,0 +1,32 @@
+Find the maximum possible sum of the digits (in base 10) of a positive integer not greater than N.
+
+CONSTRAINTS:
+* 1\leq N \leq 10^{16}
+* N is an integer.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N
+
+OUTPUT:
+Print the maximum possible sum of the digits (in base 10) of a positive integer not greater than N.
+
+EXAMPLES:
+
+INPUT:
+100
+
+OUTPUT:
+18
+
+INPUT:
+9995
+
+OUTPUT:
+35
+
+INPUT:
+3141592653589793
+
+OUTPUT:
+137

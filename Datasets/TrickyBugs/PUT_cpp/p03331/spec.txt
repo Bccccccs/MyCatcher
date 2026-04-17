@@ -1,0 +1,27 @@
+Takahashi has two positive integers A and B.
+It is known that A plus B equals N. Find the minimum possible value of "the sum of the digits of A" plus "the sum of the digits of B" (in base 10).
+
+CONSTRAINTS:
+* 2 ≤ N ≤ 10^5
+* N is an integer.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N
+
+OUTPUT:
+Print the minimum possible value of "the sum of the digits of A" plus "the sum of the digits of B".
+
+EXAMPLES:
+
+INPUT:
+15
+
+OUTPUT:
+6
+
+INPUT:
+100000
+
+OUTPUT:
+10

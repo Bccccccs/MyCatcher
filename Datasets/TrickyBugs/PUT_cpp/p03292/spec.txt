@@ -1,0 +1,36 @@
+You have three tasks, all of which need to be completed.
+First, you can complete any one task at cost 0.
+Then, just after completing the i-th task, you can complete the j-th task at cost |A_j - A_i|.
+Here, |x| denotes the absolute value of x.
+Find the minimum total cost required to complete all the task.
+
+CONSTRAINTS:
+* All values in input are integers.
+* 1 \leq A_1, A_2, A_3 \leq 100
+
+INPUT:
+Input is given from Standard Input in the following format:
+A_1 A_2 A_3
+
+OUTPUT:
+Print the minimum total cost required to complete all the task.
+
+EXAMPLES:
+
+INPUT:
+1 6 3
+
+OUTPUT:
+5
+
+INPUT:
+11 5 5
+
+OUTPUT:
+6
+
+INPUT:
+100 100 100
+
+OUTPUT:
+0

@@ -1,0 +1,32 @@
+AtCoDeer the deer has found two positive integers, a and b. Determine whether the concatenation of a and b in this order is a square number.
+
+CONSTRAINTS:
+* 1 ≤ a,b ≤ 100
+* a and b are integers.
+
+INPUT:
+Input is given from Standard Input in the following format:
+a b
+
+OUTPUT:
+If the concatenation of a and b in this order is a square number, print `Yes`; otherwise, print `No`.
+
+EXAMPLES:
+
+INPUT:
+1 21
+
+OUTPUT:
+Yes
+
+INPUT:
+100 100
+
+OUTPUT:
+No
+
+INPUT:
+12 10
+
+OUTPUT:
+No

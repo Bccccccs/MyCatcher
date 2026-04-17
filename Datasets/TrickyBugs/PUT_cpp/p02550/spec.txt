@@ -1,0 +1,34 @@
+Let us denote by f(x, m) the remainder of the Euclidean division of x by m.
+Let A be the sequence that is defined by the initial value A_1=X and the recurrence relation A_{n+1} = f(A_n^2, M). Find \displaystyle{\sum_{i=1}^N A_i}.
+
+CONSTRAINTS:
+* 1 \leq N \leq 10^{10}
+* 0 \leq X < M \leq 10^5
+* All values in input are integers.
+
+INPUT:
+Input is given from Standard Input in the following format:
+N X M
+
+OUTPUT:
+Print \displaystyle{\sum_{i=1}^N A_i}.
+
+EXAMPLES:
+
+INPUT:
+6 2 1001
+
+OUTPUT:
+1369
+
+INPUT:
+1000 2 16
+
+OUTPUT:
+6
+
+INPUT:
+10000000000 10 99959
+
+OUTPUT:
+492443256176507

@@ -1,0 +1,27 @@
+You will turn on the air conditioner if, and only if, the temperature of the room is 30 degrees Celsius or above.
+The current temperature of the room is X degrees Celsius. Will you turn on the air conditioner?
+
+CONSTRAINTS:
+* -40 \leq X \leq 40
+* X is an integer.
+
+INPUT:
+Input is given from Standard Input in the following format:
+X
+
+OUTPUT:
+Print `Yes` if you will turn on the air conditioner; print `No` otherwise.
+
+EXAMPLES:
+
+INPUT:
+25
+
+OUTPUT:
+No
+
+INPUT:
+30
+
+OUTPUT:
+Yes

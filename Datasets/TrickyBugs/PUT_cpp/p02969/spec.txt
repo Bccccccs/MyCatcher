@@ -1,0 +1,33 @@
+It is known that the area of a regular dodecagon inscribed in a circle of radius a is 3a^2.
+Given an integer r, find the area of a regular dodecagon inscribed in a circle of radius r.
+
+CONSTRAINTS:
+* 1 \leq r \leq 100
+* r is an integer.
+
+INPUT:
+Input is given from Standard Input in the following format:
+r
+
+OUTPUT:
+Print an integer representing the area of the regular dodecagon.
+
+EXAMPLES:
+
+INPUT:
+4
+
+OUTPUT:
+48
+
+INPUT:
+15
+
+OUTPUT:
+675
+
+INPUT:
+80
+
+OUTPUT:
+19200
