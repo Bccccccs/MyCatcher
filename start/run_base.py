@@ -97,6 +97,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--ac-root", default="AC")
     parser.add_argument("--tests-root", default="outputs/inputs")
     parser.add_argument("--variants-root", default="Datasets/TrickyBugs/GenProgs/dpp_generated_progs_cpp")
+    parser.add_argument("--tc-variants-root", default="Datasets/TrickyBugs/GenProgs/tc_generated_progs_cpp")
     parser.add_argument("--tcases-root", default="outputs/tcases")
     parser.add_argument("--outputs-root", default="outputs")
 
@@ -302,7 +303,7 @@ def build_tc_args(args: argparse.Namespace, out_root: Path) -> list[str]:
         "--canonical-root",
         args.canonical_root,
         "--variants-root",
-        args.variants_root,
+        args.tc_variants_root,
         "--inputs-root",
         args.tests_root,
         "--tcases-root",
