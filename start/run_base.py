@@ -52,7 +52,7 @@ def parse_baselines(value: str) -> list[str]:
     expanded: list[str] = []
     for item in raw_items:
         if item == "all":
-            expanded.extend(["chat", "apr", "dpp", "tc"])
+            expanded.extend(["prep", "dpp", "tc", "apr", "chat"])
         else:
             expanded.append(item)
 
@@ -61,7 +61,7 @@ def parse_baselines(value: str) -> list[str]:
     aliases = {"trickcatcher": "tc"}
     for item in expanded:
         name = aliases.get(item, item)
-        if name not in {"chat", "apr", "dpp", "tc"}:
+        if name not in {"prep", "chat", "apr", "dpp", "tc"}:
             raise argparse.ArgumentTypeError(f"Unsupported baseline: {item}")
         if name not in seen:
             seen.add(name)
@@ -85,7 +85,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--baselines",
         default="chat,apr,dpp,tc",
-        help="Comma-separated list from: chat, apr, dpp, tc, all",
+        help="Comma-separated list from: prep, chat, apr, dpp, tc, all",
     )
     parser.add_argument("--python", default=None, help="Interpreter used for all child runners.")
     parser.add_argument("--layout", choices=["dataset", "ac"], default="dataset")
@@ -117,6 +117,15 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--dpp-fixed-min-votes", type=int, default=6)
     parser.add_argument("--dpp-prefilter-variants", action="store_true")
     parser.add_argument("--dpp-jobs", type=int, default=8)
+
+    parser.add_argument("--prep-input-backend", choices=["generator", "llm", "mixed"], default="generator")
+    parser.add_argument("--prep-input-num", type=int, default=100)
+    parser.add_argument("--prep-input-llm-num", type=int, default=0)
+    parser.add_argument("--prep-input-random-num", type=int, default=None)
+    parser.add_argument("--prep-input-seed", type=int, default=2)
+    parser.add_argument("--prep-input-jobs", type=int, default=1)
+    parser.add_argument("--prep-check-timeout", type=float, default=10.0)
+    parser.add_argument("--prep-check-jobs", type=int, default=8)
 
     parser.add_argument("--tc-tool-model", default=None)
     parser.add_argument("--tc-input-model", default=None)
@@ -150,6 +159,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 def baseline_roots(outputs_root: Path) -> dict[str, Path]:
     return {
+        "prep": outputs_root / "input_prep",
         "chat": outputs_root / "chat",
         "apr": outputs_root / "apr",
         "dpp": outputs_root / "dpp",
@@ -224,6 +234,39 @@ def build_chat_args(args: argparse.Namespace, out_root: Path) -> list[str]:
     return cmd
 
 
+def build_prep_args(args: argparse.Namespace, out_root: Path) -> list[str]:
+    cmd = [
+        "start/run_prepare_inputs.py",
+        "--dataset-root",
+        args.dataset_root,
+        "--inputs-root",
+        args.tests_root,
+        "--prep-root",
+        str(out_root),
+        "--input-backend",
+        args.prep_input_backend,
+        "--input-model",
+        args.model,
+        "--input-num",
+        str(args.prep_input_num),
+        "--input-llm-num",
+        str(args.prep_input_llm_num),
+        "--input-seed",
+        str(args.prep_input_seed),
+        "--input-jobs",
+        str(args.prep_input_jobs),
+        "--check-timeout",
+        str(args.prep_check_timeout),
+        "--check-jobs",
+        str(args.prep_check_jobs),
+    ]
+    if args.pid:
+        cmd.extend(["--pid", args.pid])
+    if args.prep_input_random_num is not None:
+        cmd.extend(["--input-random-num", str(args.prep_input_random_num)])
+    return cmd
+
+
 def build_apr_args(args: argparse.Namespace, out_root: Path) -> list[str]:
     cmd = [
         "experiments/apr/run_apr.py",
@@ -290,7 +333,7 @@ def build_dpp_args(args: argparse.Namespace, out_root: Path) -> list[str]:
     return cmd
 
 
-def build_tc_args(args: argparse.Namespace, out_root: Path) -> list[str]:
+def build_tc_args(args: argparse.Namespace, out_root: Path, *, prep_enabled: bool) -> list[str]:
     if args.layout != "dataset":
         raise ValueError("TC currently supports only --layout dataset in the unified runner.")
 
@@ -369,9 +412,9 @@ def build_tc_args(args: argparse.Namespace, out_root: Path) -> list[str]:
         cmd.append("--skip-tool-gen")
     if args.tc_skip_variant_gen:
         cmd.append("--skip-variant-gen")
-    if args.tc_skip_input_gen:
+    if prep_enabled or args.tc_skip_input_gen:
         cmd.append("--skip-input-gen")
-    if args.tc_skip_input_check:
+    if prep_enabled or args.tc_skip_input_check:
         cmd.append("--skip-input-check")
     if args.tc_skip_diff_test:
         cmd.append("--skip-diff-test")
@@ -389,16 +432,16 @@ def load_optional_json(path: Path) -> dict[str, object] | None:
 def collect_summary_rows(outputs_root: Path, baselines: list[str]) -> list[dict[str, object]]:
     roots = baseline_roots(outputs_root)
     rows: list[dict[str, object]] = []
-    runner_names = {"chat": "chat", "apr": "apr", "dpp": "dpp", "tc": "trickcatcher"}
+    runner_names = {"prep": "input_prep", "chat": "chat", "apr": "apr", "dpp": "dpp", "tc": "trickcatcher"}
     for baseline in baselines:
         baseline_root = roots[baseline]
         summary_json_path = baseline_root / "summary.json"
         summary_csv_path = baseline_root / "summary.csv"
-        payload = load_optional_json(summary_json_path)
+        payload = load_optional_json(summary_json_path) if baseline != "prep" else None
         row: dict[str, object] = {
             "baseline": baseline,
             "runner": runner_names[baseline],
-            "available": payload is not None,
+            "available": baseline_root.exists() if baseline == "prep" else payload is not None,
             "processed_problems": "",
             "successful_runs": "",
             "failed_runs": "",
@@ -493,12 +536,14 @@ def main() -> None:
     outputs_root = resolve_repo_path(args.outputs_root)
     logs_dir = ensure_dir(outputs_root / "baseline_runs" / "logs")
     roots = baseline_roots(outputs_root)
+    prep_enabled = "prep" in baselines
 
     commands = {
+        "prep": build_prep_args(args, roots["prep"]) if "prep" in baselines else None,
         "chat": build_chat_args(args, roots["chat"]),
         "apr": build_apr_args(args, roots["apr"]),
         "dpp": build_dpp_args(args, roots["dpp"]),
-        "tc": build_tc_args(args, roots["tc"]) if "tc" in baselines else None,
+        "tc": build_tc_args(args, roots["tc"], prep_enabled=prep_enabled) if "tc" in baselines else None,
     }
 
     for baseline in baselines:
