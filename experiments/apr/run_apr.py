@@ -18,6 +18,7 @@ from common.spec_loader import load_spec
 from experiments.apr.evaluator import evaluate_patch_candidate
 from experiments.apr.patch_executor import compile_candidate_with_log, normalize_patch_response, save_candidate
 from experiments.apr.prompt_templates import build_apr_prompt
+from src.progress import print_progress
 
 
 SUMMARY_FIELDS = [
@@ -222,22 +223,23 @@ def main() -> None:
     )
 
     jobs = max(1, args.jobs)
+    print_progress(0, len(problems), f"apr problems root={problem_root}")
     if jobs == 1:
-        summary_rows = [
-            process_problem(
+        summary_rows = []
+        for done, problem in enumerate(problems, 1):
+            summary_rows.append(process_problem(
                 problem=problem,
                 out_root=out_root,
                 lang=args.lang,
                 model=args.model,
                 num_candidates=args.num_candidates,
                 timeout=args.timeout,
-            )
-            for problem in problems
-        ]
+            ))
+            print_progress(done, len(problems), f"apr latest={problem.pid}")
     else:
         summary_rows = []
         with ThreadPoolExecutor(max_workers=jobs) as executor:
-            futures = [
+            futures = {
                 executor.submit(
                     process_problem,
                     problem=problem,
@@ -246,11 +248,14 @@ def main() -> None:
                     model=args.model,
                     num_candidates=args.num_candidates,
                     timeout=args.timeout,
-                )
+                ): problem
                 for problem in problems
-            ]
-            for future in as_completed(futures):
+            }
+            for done, future in enumerate(as_completed(futures), 1):
                 summary_rows.append(future.result())
+                problem = futures[future]
+                print_progress(done, len(problems), f"apr latest={problem.pid}")
+    summary_rows.sort(key=lambda row: str(row.get("pid", "")))
     write_summary_table(out_root / "summary.csv", summary_rows, SUMMARY_FIELDS)
     write_baseline_overview(
         out_dir=out_root,

@@ -14,6 +14,7 @@ from common.path_utils import ensure_dir, resolve_repo_path, write_text
 from common.problem_loader import discover_problems
 from common.report_utils import write_baseline_overview, write_experiment_comparison
 from experiments.dpp.evaluator import build_summary_rows, write_dpp_summary
+from src.progress import print_progress
 
 
 def run_problem(
@@ -123,8 +124,9 @@ def main() -> None:
     )
 
     jobs = max(1, args.jobs)
+    print_progress(0, len(problems), f"dpp problems root={problem_root}")
     if jobs == 1:
-        for problem in problems:
+        for done, problem in enumerate(problems, 1):
             run_problem(
                 problem=problem,
                 python_executable=sys.executable,
@@ -135,9 +137,10 @@ def main() -> None:
                 fixed_min_votes=args.fixed_min_votes,
                 prefilter_variants=args.prefilter_variants,
             )
+            print_progress(done, len(problems), f"dpp latest={problem.pid}")
     else:
         with ThreadPoolExecutor(max_workers=jobs) as executor:
-            futures = [
+            futures = {
                 executor.submit(
                     run_problem,
                     problem=problem,
@@ -148,11 +151,13 @@ def main() -> None:
                     timeout=args.timeout,
                     fixed_min_votes=args.fixed_min_votes,
                     prefilter_variants=args.prefilter_variants,
-                )
+                ): problem
                 for problem in problems
-            ]
-            for future in as_completed(futures):
+            }
+            for done, future in enumerate(as_completed(futures), 1):
                 future.result()
+                problem = futures[future]
+                print_progress(done, len(problems), f"dpp latest={problem.pid}")
 
     write_dpp_summary(out_root)
     summary_rows = build_summary_rows(out_root)
