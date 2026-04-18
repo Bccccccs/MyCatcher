@@ -95,8 +95,7 @@ def check_inputs_for_one(
     log_lines: list[str] = []
     all_input_files = list_input_files(inputs_dir)
     if max_i is None:
-        check_count = (len(all_input_files) * 9) // 10
-        input_files = [path for _, path in all_input_files[:check_count]]
+        input_files = [path for _, path in all_input_files]
     else:
         input_files = [
             path
@@ -148,7 +147,7 @@ def main() -> None:
         "--max",
         type=int,
         default=None,
-        help="Max input index (inclusive). Default checks only the first 9/10 inputs and leaves the last 1/10 untouched",
+        help="Max input index (inclusive). Default checks all inputs",
     )
     parser.add_argument("--start", type=int, default=0, help="Start input index")
     parser.add_argument("--timeout", type=float, default=10.0, help="Timeout seconds for checker")
