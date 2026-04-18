@@ -1,6 +1,8 @@
 import argparse
+import shutil
 import subprocess
 import sys
+import tempfile
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -87,16 +89,43 @@ def run_generator_backend(
     out_dir: Path,
     num: int,
     seed: int,
+    start_index: int = 0,
 ) -> None:
+    if num <= 0:
+        return
     generator = program_dir / generator_name
     if not generator.exists():
         raise FileNotFoundError(f"Generator not found: {generator}")
-    run([
-        py, str(generator),
-        "--out_dir", str(out_dir),
-        "--num", str(num),
-        "--seed", str(seed),
-    ], cwd=root)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    copied = 0
+    attempt = 0
+    max_attempts = 5
+    while copied < num and attempt < max_attempts:
+        current_seed = seed + attempt * 1_000_003
+        with tempfile.TemporaryDirectory(prefix=f"{program_dir.name}_gen_", dir=root) as tmp_dir_str:
+            tmp_dir = Path(tmp_dir_str)
+            run([
+                py, str(generator),
+                "--out_dir", str(tmp_dir),
+                "--num", str(num - copied),
+                "--seed", str(current_seed),
+            ], cwd=root)
+            generated_files = sorted(
+                p for p in tmp_dir.iterdir() if p.is_file() and p.suffix == ".in"
+            )
+            if not generated_files:
+                break
+            for source in generated_files:
+                if copied >= num:
+                    break
+                target = out_dir / f"test_{start_index + copied:03d}.in"
+                shutil.copyfile(source, target)
+                copied += 1
+        attempt += 1
+    if copied < num:
+        raise RuntimeError(
+            f"{program_dir.name}: generator produced only {copied}/{num} inputs after {attempt} attempts"
+        )
 
 
 def run_llm_backend(
@@ -158,6 +187,7 @@ def run_batch_task(
             out_dir=out_dir,
             num=remaining,
             seed=seed,
+            start_index=existing,
         )
     elif backend == "llm":
         put = find_put_file(program_dir)
@@ -195,6 +225,7 @@ def run_batch_task(
             out_dir=out_dir,
             num=remaining_random,
             seed=seed,
+            start_index=existing_random,
         )
         run_llm_backend(
             root=root,
@@ -298,6 +329,7 @@ def main() -> None:
                 out_dir=out_dir,
                 num=remaining,
                 seed=args.seed,
+                start_index=existing,
             )
         elif args.backend == "llm":
             put = resolve_path(root, args.put) if args.put else (find_put_file(program_dir) or program_dir / "put")
@@ -328,6 +360,7 @@ def main() -> None:
                 out_dir=out_dir,
                 num=remaining_random,
                 seed=args.seed,
+                start_index=existing_random,
             )
             put = resolve_path(root, args.put) if args.put else (find_put_file(program_dir) or program_dir / "put")
             run_llm_backend(
