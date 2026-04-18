@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -97,6 +98,7 @@ def main() -> None:
     parser.add_argument("--timeout", type=float, default=2.0)
     parser.add_argument("--fixed-min-votes", type=int, default=6)
     parser.add_argument("--prefilter-variants", action="store_true")
+    parser.add_argument("--jobs", type=int, default=8, help="Number of problems to process in parallel")
     args = parser.parse_args()
 
     out_root = resolve_repo_path(args.out_root)
@@ -120,17 +122,37 @@ def main() -> None:
         variants_dirname=args.variants_dirname,
     )
 
-    for problem in problems:
-        run_problem(
-            problem=problem,
-            python_executable=sys.executable,
-            lang=args.lang,
-            variant_mode=args.variant_mode,
-            out_root=out_root,
-            timeout=args.timeout,
-            fixed_min_votes=args.fixed_min_votes,
-            prefilter_variants=args.prefilter_variants,
-        )
+    jobs = max(1, args.jobs)
+    if jobs == 1:
+        for problem in problems:
+            run_problem(
+                problem=problem,
+                python_executable=sys.executable,
+                lang=args.lang,
+                variant_mode=args.variant_mode,
+                out_root=out_root,
+                timeout=args.timeout,
+                fixed_min_votes=args.fixed_min_votes,
+                prefilter_variants=args.prefilter_variants,
+            )
+    else:
+        with ThreadPoolExecutor(max_workers=jobs) as executor:
+            futures = [
+                executor.submit(
+                    run_problem,
+                    problem=problem,
+                    python_executable=sys.executable,
+                    lang=args.lang,
+                    variant_mode=args.variant_mode,
+                    out_root=out_root,
+                    timeout=args.timeout,
+                    fixed_min_votes=args.fixed_min_votes,
+                    prefilter_variants=args.prefilter_variants,
+                )
+                for problem in problems
+            ]
+            for future in as_completed(futures):
+                future.result()
 
     write_dpp_summary(out_root)
     summary_rows = build_summary_rows(out_root)

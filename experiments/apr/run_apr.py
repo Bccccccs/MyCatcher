@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -199,6 +200,7 @@ def main() -> None:
     parser.add_argument("--model", default="deepseek-chat")
     parser.add_argument("--num-candidates", type=int, default=5)
     parser.add_argument("--timeout", type=float, default=2.0)
+    parser.add_argument("--jobs", type=int, default=8, help="Number of problems to process in parallel")
     args = parser.parse_args()
 
     out_root = resolve_repo_path(args.out_root)
@@ -219,17 +221,36 @@ def main() -> None:
         canonical_name=args.canonical_name,
     )
 
-    summary_rows = [
-        process_problem(
-            problem=problem,
-            out_root=out_root,
-            lang=args.lang,
-            model=args.model,
-            num_candidates=args.num_candidates,
-            timeout=args.timeout,
-        )
-        for problem in problems
-    ]
+    jobs = max(1, args.jobs)
+    if jobs == 1:
+        summary_rows = [
+            process_problem(
+                problem=problem,
+                out_root=out_root,
+                lang=args.lang,
+                model=args.model,
+                num_candidates=args.num_candidates,
+                timeout=args.timeout,
+            )
+            for problem in problems
+        ]
+    else:
+        summary_rows = []
+        with ThreadPoolExecutor(max_workers=jobs) as executor:
+            futures = [
+                executor.submit(
+                    process_problem,
+                    problem=problem,
+                    out_root=out_root,
+                    lang=args.lang,
+                    model=args.model,
+                    num_candidates=args.num_candidates,
+                    timeout=args.timeout,
+                )
+                for problem in problems
+            ]
+            for future in as_completed(futures):
+                summary_rows.append(future.result())
     write_summary_table(out_root / "summary.csv", summary_rows, SUMMARY_FIELDS)
     write_baseline_overview(
         out_dir=out_root,

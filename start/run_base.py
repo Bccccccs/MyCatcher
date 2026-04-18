@@ -107,12 +107,15 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--chat-batch-size", type=int, default=5)
     parser.add_argument("--chat-checker-timeout", type=float, default=10.0)
     parser.add_argument("--chat-skip-checker", action="store_true")
+    parser.add_argument("--chat-jobs", type=int, default=8)
 
     parser.add_argument("--apr-num-candidates", type=int, default=5)
+    parser.add_argument("--apr-jobs", type=int, default=8)
 
     parser.add_argument("--dpp-variant-mode", choices=["my", "trickybugs"], default="trickybugs")
     parser.add_argument("--dpp-fixed-min-votes", type=int, default=6)
     parser.add_argument("--dpp-prefilter-variants", action="store_true")
+    parser.add_argument("--dpp-jobs", type=int, default=8)
 
     parser.add_argument("--tc-tool-model", default=None)
     parser.add_argument("--tc-input-model", default=None)
@@ -211,6 +214,8 @@ def build_chat_args(args: argparse.Namespace, out_root: Path) -> list[str]:
         str(args.timeout),
         "--checker-timeout",
         str(args.chat_checker_timeout),
+        "--jobs",
+        str(args.chat_jobs),
     ]
     if args.pid:
         cmd.extend(["--pid", args.pid])
@@ -242,6 +247,8 @@ def build_apr_args(args: argparse.Namespace, out_root: Path) -> list[str]:
         str(args.apr_num_candidates),
         "--timeout",
         str(args.timeout),
+        "--jobs",
+        str(args.apr_jobs),
     ]
     if args.pid:
         cmd.extend(["--pid", args.pid])
@@ -273,6 +280,8 @@ def build_dpp_args(args: argparse.Namespace, out_root: Path) -> list[str]:
         str(args.timeout),
         "--fixed-min-votes",
         str(args.dpp_fixed_min_votes),
+        "--jobs",
+        str(args.dpp_jobs),
     ]
     if args.pid:
         cmd.extend(["--pid", args.pid])

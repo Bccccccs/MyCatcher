@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -240,6 +241,7 @@ def main() -> None:
     parser.add_argument("--timeout", type=float, default=2.0)
     parser.add_argument("--checker-timeout", type=float, default=10.0)
     parser.add_argument("--skip-checker", action="store_true")
+    parser.add_argument("--jobs", type=int, default=8, help="Number of problems to process in parallel")
     args = parser.parse_args()
 
     out_root = resolve_repo_path(args.out_root)
@@ -260,20 +262,42 @@ def main() -> None:
         canonical_name=args.canonical_name,
     )
 
-    summary_rows = [
-        process_problem(
-            problem=problem,
-            out_root=out_root,
-            lang=args.lang,
-            model=args.model,
-            num_candidates=args.num_candidates,
-            batch_size=args.batch_size,
-            timeout=args.timeout,
-            checker_timeout=args.checker_timeout,
-            use_checker=not args.skip_checker,
-        )
-        for problem in problems
-    ]
+    jobs = max(1, args.jobs)
+    if jobs == 1:
+        summary_rows = [
+            process_problem(
+                problem=problem,
+                out_root=out_root,
+                lang=args.lang,
+                model=args.model,
+                num_candidates=args.num_candidates,
+                batch_size=args.batch_size,
+                timeout=args.timeout,
+                checker_timeout=args.checker_timeout,
+                use_checker=not args.skip_checker,
+            )
+            for problem in problems
+        ]
+    else:
+        summary_rows = []
+        with ThreadPoolExecutor(max_workers=jobs) as executor:
+            futures = [
+                executor.submit(
+                    process_problem,
+                    problem=problem,
+                    out_root=out_root,
+                    lang=args.lang,
+                    model=args.model,
+                    num_candidates=args.num_candidates,
+                    batch_size=args.batch_size,
+                    timeout=args.timeout,
+                    checker_timeout=args.checker_timeout,
+                    use_checker=not args.skip_checker,
+                )
+                for problem in problems
+            ]
+            for future in as_completed(futures):
+                summary_rows.append(future.result())
     write_summary_table(out_root / "summary.csv", summary_rows, SUMMARY_FIELDS)
     write_baseline_overview(
         out_dir=out_root,
