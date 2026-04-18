@@ -19,7 +19,7 @@ How to use:
   2. Generate inputs directly with the LLM:
      python3 start/run_input_gen.py --backend llm
 
-  3. Generate 100 inputs directly with the LLM (default):
+  3. Generate 100 inputs using input_gen.py (default):
      python3 start/run_input_gen.py
 
   4. Generate inputs for one problem only:
@@ -144,6 +144,7 @@ def run_batch_task(
     existing = count_input_files(out_dir)
     if existing >= num:
         return ("skipped", f"[SKIP] {program_dir.name}: {out_dir} already has {existing} .in files (target={num})")
+    remaining = num - existing
 
     if backend == "generator":
         generator = program_dir / generator_name
@@ -155,7 +156,7 @@ def run_batch_task(
             program_dir=program_dir,
             generator_name=generator_name,
             out_dir=out_dir,
-            num=num,
+            num=remaining,
             seed=seed,
         )
     elif backend == "llm":
@@ -168,9 +169,10 @@ def run_batch_task(
             spec=spec,
             put=put,
             out_dir=out_dir,
-            num=num,
+            num=remaining,
             template=template,
             model=model,
+            start_index=existing,
         )
     else:
         generator = program_dir / generator_name
@@ -179,13 +181,19 @@ def run_batch_task(
         put = find_put_file(program_dir)
         if put is None:
             return ("skipped", f"[SKIP] {program_dir.name}: missing put file")
+        current_random_target = min(random_num, num)
+        current_llm_target = max(0, num - current_random_target)
+        existing_random = min(existing, current_random_target)
+        existing_llm = max(0, existing - current_random_target)
+        remaining_random = max(0, current_random_target - existing_random)
+        remaining_llm = max(0, current_llm_target - existing_llm)
         run_generator_backend(
             root=root,
             py=py,
             program_dir=program_dir,
             generator_name=generator_name,
             out_dir=out_dir,
-            num=random_num,
+            num=remaining_random,
             seed=seed,
         )
         run_llm_backend(
@@ -194,10 +202,10 @@ def run_batch_task(
             spec=spec,
             put=put,
             out_dir=out_dir,
-            num=llm_num,
+            num=remaining_llm,
             template=template,
             model=model,
-            start_index=random_num,
+            start_index=current_random_target + existing_llm,
         )
 
     return ("generated", f"[DONE] {program_dir.name} -> {out_dir}")
@@ -212,8 +220,8 @@ def main() -> None:
     parser.add_argument(
         "--backend",
         choices=["generator", "llm", "mixed"],
-        default="llm",
-        help="Choose how inputs are generated. Default: llm",
+        default="generator",
+        help="Choose how inputs are generated. Default: generator",
     )
     parser.add_argument("--pid", default=None, help="Single problem id, e.g. p02547")
     parser.add_argument("--spec", default=None, help="Single spec.txt path. If omitted, run for all <dataset-root>/*/spec.txt")
@@ -229,7 +237,7 @@ def main() -> None:
 
     parser.add_argument("--num", type=int, default=100)
     parser.add_argument("--random-num", type=int, default=None, help="Mixed backend only. Generator input count. Default: --num - --llm-num")
-    parser.add_argument("--llm-num", type=int, default=10, help="Mixed backend only. LLM boundary input count")
+    parser.add_argument("--llm-num", type=int, default=0, help="Mixed backend only. LLM boundary input count")
     parser.add_argument("--jobs", type=int, default=1, help="Batch mode only. Number of problems to process in parallel")
     args = parser.parse_args()
 
@@ -278,6 +286,7 @@ def main() -> None:
         if existing >= mixed_total:
             log_line(f"[SKIP] {program_dir.name}: {out_dir} already has {existing} .in files (target={mixed_total})")
             return
+        remaining = mixed_total - existing
 
         if args.backend == "generator":
             print_progress(0, 1, f"problem={program_dir.name}")
@@ -287,7 +296,7 @@ def main() -> None:
                 program_dir=program_dir,
                 generator_name=args.generator_name,
                 out_dir=out_dir,
-                num=args.num,
+                num=remaining,
                 seed=args.seed,
             )
         elif args.backend == "llm":
@@ -298,19 +307,26 @@ def main() -> None:
                 spec=spec,
                 put=put,
                 out_dir=out_dir,
-                num=args.num,
+                num=remaining,
                 template=args.template,
                 model=args.model,
+                start_index=existing,
             )
         else:
             print_progress(0, 1, f"problem={program_dir.name}")
+            current_random_target = min(mixed_random_num, mixed_total)
+            current_llm_target = max(0, mixed_total - current_random_target)
+            existing_random = min(existing, current_random_target)
+            existing_llm = max(0, existing - current_random_target)
+            remaining_random = max(0, current_random_target - existing_random)
+            remaining_llm = max(0, current_llm_target - existing_llm)
             run_generator_backend(
                 root=root,
                 py=py,
                 program_dir=program_dir,
                 generator_name=args.generator_name,
                 out_dir=out_dir,
-                num=mixed_random_num,
+                num=remaining_random,
                 seed=args.seed,
             )
             put = resolve_path(root, args.put) if args.put else (find_put_file(program_dir) or program_dir / "put")
@@ -320,10 +336,10 @@ def main() -> None:
                 spec=spec,
                 put=put,
                 out_dir=out_dir,
-                num=mixed_llm_num,
+                num=remaining_llm,
                 template=args.template,
                 model=args.model,
-                start_index=mixed_random_num,
+                start_index=current_random_target + existing_llm,
             )
         print_progress(1, 1, f"problem={program_dir.name}")
         log_line(f"[DONE] inputs -> {out_dir}")

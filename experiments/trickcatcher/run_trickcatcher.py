@@ -107,12 +107,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="Regenerate variants instead of reusing the existing variants dataset.",
     )
 
-    parser.add_argument("--input-backend", choices=["generator", "llm", "mixed"], default="llm")
+    parser.add_argument("--input-backend", choices=["generator", "llm", "mixed"], default="generator")
     parser.add_argument("--input-model", default="deepseek-chat")
     parser.add_argument("--input-template", default="PromptTemplates/geninput_direct")
     parser.add_argument("--input-num", type=int, default=100)
     parser.add_argument("--input-random-num", type=int, default=None)
-    parser.add_argument("--input-llm-num", type=int, default=10)
+    parser.add_argument("--input-llm-num", type=int, default=0)
     parser.add_argument("--input-seed", type=int, default=2)
     parser.add_argument("--input-jobs", type=int, default=1)
 
