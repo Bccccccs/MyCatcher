@@ -118,12 +118,6 @@ def build_parser() -> argparse.ArgumentParser:
 
     parser.add_argument("--check-timeout", type=float, default=10.0)
     parser.add_argument("--check-jobs", type=int, default=8)
-    parser.add_argument(
-        "--run-input-check",
-        action="store_true",
-        help="Run input validity checking instead of reusing existing imported/generated inputs as-is.",
-    )
-
     parser.add_argument("--timeout", type=float, default=2.0)
     parser.add_argument("--fixed-min-votes", type=int, default=6)
     parser.add_argument("--prefilter-variants", action="store_true")
@@ -246,7 +240,7 @@ def main() -> None:
             input_cmd.extend(["--pid", args.pid])
         run_stage(python_executable=python_executable, stage_name="03_input_generation", argv=input_cmd, logs_dir=logs_dir)
 
-    should_run_input_check = args.run_input_check and not args.skip_input_check
+    should_run_input_check = not args.skip_input_check
 
     if should_run_input_check:
         check_cmd = [

@@ -138,7 +138,6 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--tc-prefilter-min-keep", type=int, default=3)
     parser.add_argument("--tc-run-tool-gen", action="store_true")
     parser.add_argument("--tc-run-variant-gen", action="store_true")
-    parser.add_argument("--tc-run-input-check", action="store_true")
     parser.add_argument("--tc-skip-tool-gen", action="store_true")
     parser.add_argument("--tc-skip-variant-gen", action="store_true")
     parser.add_argument("--tc-skip-input-gen", action="store_true")
@@ -365,8 +364,6 @@ def build_tc_args(args: argparse.Namespace, out_root: Path) -> list[str]:
         cmd.append("--run-tool-gen")
     if args.tc_run_variant_gen:
         cmd.append("--run-variant-gen")
-    if args.tc_run_input_check:
-        cmd.append("--run-input-check")
     if args.tc_skip_tool_gen:
         cmd.append("--skip-tool-gen")
     if args.tc_skip_variant_gen:
