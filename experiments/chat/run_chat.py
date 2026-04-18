@@ -18,7 +18,7 @@ from common.report_utils import write_baseline_overview, write_experiment_compar
 from common.spec_loader import load_spec
 from experiments.chat.evaluator import evaluate_test_case
 from experiments.chat.prompt_templates import build_chat_prompt
-from src.progress import print_progress
+from src.progress import log_line, print_progress
 
 
 SUMMARY_FIELDS = [
@@ -121,6 +121,10 @@ def process_problem(
     response_index = 0
     while next_index < num_candidates:
         requested = min(batch_size, num_candidates - next_index)
+        log_line(
+            f"[CHAT-STEP] pid={problem.pid} batch={response_index + 1} "
+            f"request={requested} generated={next_index}/{num_candidates}"
+        )
         prompt = build_chat_prompt(spec=spec, put_code=put_code, num_candidates=requested)
         raw_response = generate_text(prompt=prompt, model=model)
         write_text(raw_dir / f"response_{response_index:03d}.txt", raw_response.rstrip() + "\n")
@@ -156,6 +160,10 @@ def process_problem(
                     }
                 )
                 next_index += 1
+                log_line(
+                    f"[CHAT-STEP] pid={problem.pid} candidate={next_index}/{num_candidates} "
+                    f"valid=false bugs={bug_count}"
+                )
                 continue
 
             valid_count += 1
@@ -176,6 +184,10 @@ def process_problem(
             execution_records.append(evaluation)
             write_text(executions_dir / f"{test_name}.json", json.dumps(evaluation, ensure_ascii=True, indent=2) + "\n")
             next_index += 1
+            log_line(
+                f"[CHAT-STEP] pid={problem.pid} candidate={next_index}/{num_candidates} "
+                f"valid=true bugs={bug_count}"
+            )
 
         if generated_this_round == 0:
             break

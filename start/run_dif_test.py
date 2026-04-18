@@ -33,16 +33,27 @@ Layout meanings:
 """.strip()
 
 
-def run(cmd: list[str], cwd: Path) -> str:
-    completed = subprocess.run(
+def run(cmd: list[str], cwd: Path, *, line_prefix: str = "") -> str:
+    process = subprocess.Popen(
         list(map(str, cmd)),
-        check=True,
+        check=False,
         cwd=str(cwd),
         text=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
+        bufsize=1,
     )
-    return completed.stdout
+    assert process.stdout is not None
+    output_lines: list[str] = []
+    for line in process.stdout:
+        output_lines.append(line)
+        rendered = f"{line_prefix}{line.rstrip()}" if line_prefix else line.rstrip()
+        log_line(rendered)
+    return_code = process.wait()
+    output = "".join(output_lines)
+    if return_code != 0:
+        raise subprocess.CalledProcessError(return_code, list(map(str, cmd)), output=output)
+    return output
 
 
 def resolve_path(root: Path, value: str) -> Path:
@@ -221,7 +232,7 @@ def run_problem_dataset(
         prefilter_min_keep=prefilter_min_keep,
     )
     try:
-        output = run(cmd, cwd=root)
+        output = run(cmd, cwd=root, line_prefix=f"[{pid}] ")
         log_path = write_raw_log(out_dir, output)
         return ("ok", pid, f"[OK] {pid} raw_log={log_path}", output)
     except subprocess.CalledProcessError as exc:
@@ -290,7 +301,7 @@ def run_problem_ac(
         prefilter_min_keep=prefilter_min_keep,
     )
     try:
-        output = run(cmd, cwd=root)
+        output = run(cmd, cwd=root, line_prefix=f"[{pid}] ")
         log_path = write_raw_log(out_dir, output)
         return ("ok", pid, f"[OK] {pid} raw_log={log_path}", output)
     except subprocess.CalledProcessError as exc:

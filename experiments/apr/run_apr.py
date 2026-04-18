@@ -18,7 +18,7 @@ from common.spec_loader import load_spec
 from experiments.apr.evaluator import evaluate_patch_candidate
 from experiments.apr.patch_executor import compile_candidate_with_log, normalize_patch_response, save_candidate
 from experiments.apr.prompt_templates import build_apr_prompt
-from src.progress import print_progress
+from src.progress import log_line, print_progress
 
 
 SUMMARY_FIELDS = [
@@ -85,6 +85,7 @@ def process_problem(
     extension = ".py" if lang == "py" else ".cpp"
 
     for idx in range(num_candidates):
+        log_line(f"[APR-STEP] pid={problem.pid} candidate={idx + 1}/{num_candidates} stage=generate")
         prompt = build_apr_prompt(spec=spec, put_code=put_code, language_name=language_name)
         raw_response = generate_text(prompt=prompt, model=model)
         write_text(raw_dir / f"response_{idx:03d}.txt", raw_response.rstrip() + "\n")
@@ -111,6 +112,10 @@ def process_problem(
             lang=lang,
             log_path=compile_log_path,
         )
+        log_line(
+            f"[APR-STEP] pid={problem.pid} candidate={idx + 1}/{num_candidates} "
+            f"stage=compile compile_ok={str(compile_ok).lower()}"
+        )
         if compile_ok:
             compile_successes += 1
 
@@ -125,6 +130,7 @@ def process_problem(
             "per_test": [],
         }
         if compile_ok:
+            log_line(f"[APR-STEP] pid={problem.pid} candidate={idx + 1}/{num_candidates} stage=evaluate")
             evaluation = evaluate_patch_candidate(
                 candidate_path=candidate_path,
                 put_path=problem.put_path,
@@ -145,6 +151,10 @@ def process_problem(
         }
         candidate_rows.append(record)
         write_text(executions_dir / f"candidate_{idx:03d}.json", json.dumps(record, ensure_ascii=True, indent=2) + "\n")
+        log_line(
+            f"[APR-STEP] pid={problem.pid} candidate={idx + 1}/{num_candidates} "
+            f"stage=done apparent_fix={str(bool(record.get('appears_fixed'))).lower()}"
+        )
 
     report_json = {
         "pid": problem.pid,

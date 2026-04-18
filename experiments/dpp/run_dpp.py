@@ -14,7 +14,29 @@ from common.path_utils import ensure_dir, resolve_repo_path, write_text
 from common.problem_loader import discover_problems
 from common.report_utils import write_baseline_overview, write_experiment_comparison
 from experiments.dpp.evaluator import build_summary_rows, write_dpp_summary
-from src.progress import print_progress
+from src.progress import log_line, print_progress
+
+
+def run_and_capture(cmd: list[str], *, cwd: Path, line_prefix: str = "") -> str:
+    process = subprocess.Popen(
+        cmd,
+        cwd=str(cwd),
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        bufsize=1,
+    )
+    assert process.stdout is not None
+    lines: list[str] = []
+    for line in process.stdout:
+        lines.append(line)
+        rendered = f"{line_prefix}{line.rstrip()}" if line_prefix else line.rstrip()
+        log_line(rendered)
+    return_code = process.wait()
+    output = "".join(lines)
+    if return_code != 0:
+        raise subprocess.CalledProcessError(return_code, cmd, output=output)
+    return output
 
 
 def run_problem(
@@ -69,14 +91,8 @@ def run_problem(
     if prefilter_variants:
         cmd.append("--prefilter-variants")
 
-    completed = subprocess.run(
-        cmd,
-        cwd=str(ROOT),
-        text=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-    )
-    write_text(raw_log_path, completed.stdout or "")
+    output = run_and_capture(cmd, cwd=ROOT, line_prefix=f"[{problem.pid}] ")
+    write_text(raw_log_path, output or "")
 
 
 def main() -> None:

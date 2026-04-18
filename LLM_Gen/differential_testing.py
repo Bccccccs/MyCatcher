@@ -13,6 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from src.progress import print_progress
+
 COMPILE_CACHE = {}
 CPP_COMPILER = None
 
@@ -504,6 +506,7 @@ def main():
     variant_prefilter_stats: list[dict[str, object]] = []
     variant_prefilter_messages: list[str] = []
     if args.prefilter_variants:
+        print(f"[INNER] prefilter start sample_size={args.prefilter_sample_size} variants={len(variants)}", flush=True)
         variants, variant_prefilter_stats, variant_prefilter_messages = prefilter_variants(
             variants=variants,
             tests=tests,
@@ -523,6 +526,8 @@ def main():
     saved = 0
     variant_fail_counts = Counter()
     vote_records = []
+    pid_label = put.parent.name or put.stem
+    print_progress(0, len(tests), f"inner pid={pid_label} variants={len(variants)}")
 
     for idx, test_file in enumerate(tests, 1):
         inp = read_text(test_file)
@@ -649,6 +654,13 @@ def main():
             if current_record["put_out"] != "":
                 current_record["put_wrong"] = current_record["put_out"] != canonical_out
         current_record["final_label"] = judge_tp_fp(current_record)
+        if idx == 1 or idx == len(tests) or idx % 10 == 0:
+            found_count = sum(1 for rec in vote_records if rec["status"] == "FOUND")
+            print_progress(
+                idx,
+                len(tests),
+                f"inner pid={pid_label} test={test_file.name} saved={saved} found={found_count}",
+            )
 
     report_path = out_dir / "report.txt"
     detail_csv_path = out_dir / "detail.csv"
