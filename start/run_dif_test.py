@@ -36,7 +36,6 @@ Layout meanings:
 def run(cmd: list[str], cwd: Path, *, line_prefix: str = "") -> str:
     process = subprocess.Popen(
         list(map(str, cmd)),
-        check=False,
         cwd=str(cwd),
         text=True,
         stdout=subprocess.PIPE,
